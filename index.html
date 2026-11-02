@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>বিদেশযাত্রা যাচাই</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="বিদেশে কাজে যাওয়ার আগে সরকারি খরচ, এজেন্সির লাইসেন্স ও দালালের কথা যাচাই করুন।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow mobile column, like a checklist booklet a family can pass around; status shown as passport-style stamps. */
+:root{
+  --paper:#f2f5f3; --card:#ffffff; --ink:#13211c; --muted:#56665f; --line:#d3ddd8;
+  --brand:#0b5d4b; --brand-ink:#ffffff; --brand-soft:#dfeee8;
+  --stamp:#c0352c; --stamp-soft:#fbe6e3;
+  --amber:#a8650a; --amber-soft:#fbefd9;
+  --ok:#1a7845; --ok-soft:#e1f2e7;
+  --display:'Baloo Da 2','Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --body:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0e1613; --card:#16211c; --ink:#e5eee9; --muted:#9aaca4; --line:#28362f;
+  --brand:#52c29c; --brand-ink:#05201a; --brand-soft:#173a30;
+  --stamp:#ff7d70; --stamp-soft:#3a1b18;
+  --amber:#f0b45c; --amber-soft:#3a2a10;
+  --ok:#66d396; --ok-soft:#173526; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0e1613; --card:#16211c; --ink:#e5eee9; --muted:#9aaca4; --line:#28362f;
+  --brand:#52c29c; --brand-ink:#05201a; --brand-soft:#173a30;
+  --stamp:#ff7d70; --stamp-soft:#3a1b18;
+  --amber:#f0b45c; --amber-soft:#3a2a10;
+  --ok:#66d396; --ok-soft:#173526; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:var(--brand)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:8px}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--brand)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--brand);color:var(--brand-ink);
+  padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar-in{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.back{width:42px;height:42px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);display:grid;place-items:center;cursor:pointer;flex:none}
+.back[hidden]{display:none}
+.back svg{width:22px;height:22px}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;flex:1;min-width:0;text-decoration:none;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.speak{height:42px;padding:0 14px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600;font-size:15px;flex:none}
+.speak svg{width:20px;height:20px}
+
+main{padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:560px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+
+.proto{font-size:14px;color:var(--amber);background:var(--amber-soft);border-radius:12px;padding:10px 14px;display:flex;gap:8px;align-items:flex-start}
+
+/* home */
+.hero h1{font-size:clamp(28px,7.5vw,36px);font-weight:800}
+.hero p{margin:8px 0 0;color:var(--muted)}
+.steps3{display:grid;gap:12px}
+.big{display:grid;grid-template-columns:56px 1fr 24px;gap:14px;align-items:center;text-align:left;width:100%;
+  background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+.big:hover{border-color:var(--brand)}
+.big:active{transform:scale(.99)}
+.big .num{width:56px;height:56px;border-radius:14px;background:var(--brand-soft);color:var(--brand);font-family:var(--display);font-weight:800;font-size:30px;display:grid;place-items:center}
+.big b{font-family:var(--display);font-size:21px;font-weight:700;display:block;line-height:1.25}
+.big span{color:var(--muted);font-size:15px;display:block;margin-top:2px}
+.big .arr{color:var(--muted)}
+.callstrip{display:flex;gap:12px;align-items:center;background:var(--card);border:1.5px dashed var(--line);border-radius:var(--r);padding:14px 16px}
+.callstrip .n{font-family:var(--display);font-size:28px;font-weight:800;color:var(--brand);letter-spacing:.02em;user-select:all}
+.callstrip p{margin:0;font-size:15px;color:var(--muted);min-width:0}
+
+/* countries */
+.search{width:100%;font:inherit;font-size:18px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cbtn{display:flex;align-items:center;gap:10px;padding:14px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:17px;min-width:0}
+.cbtn:hover{border-color:var(--brand)}
+.cbtn .f{font-size:26px;line-height:1;flex:none}
+.cbtn .nm{min-width:0;overflow-wrap:anywhere}
+.empty{color:var(--muted);text-align:center;padding:20px}
+
+/* sections */
+.sec{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;min-width:0}
+.sec h2{font-size:21px;font-weight:700}
+.label{font-size:14px;color:var(--muted);font-weight:600}
+.money{font-family:var(--display);font-weight:800;font-size:clamp(34px,10vw,44px);line-height:1.05;color:var(--ink);font-variant-numeric:tabular-nums}
+.money small{font-size:.5em;font-weight:700;color:var(--muted)}
+.src{font-size:13.5px;color:var(--muted)}
+.src a{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;padding:3px 10px;border-radius:999px;width:max-content;max-width:100%}
+.b-official{background:var(--ok-soft);color:var(--ok)}
+.b-news{background:var(--amber-soft);color:var(--amber)}
+.b-draft{background:var(--amber-soft);color:var(--amber)}
+
+/* money gap bar */
+.gap{display:grid;gap:10px;margin-top:4px}
+.row{display:grid;gap:4px}
+.row .t{display:flex;justify-content:space-between;gap:10px;font-size:15px;flex-wrap:wrap}
+.row .t b{font-variant-numeric:tabular-nums}
+.track{height:16px;border-radius:8px;background:var(--paper);position:relative;overflow:hidden}
+.fill{position:absolute;top:0;bottom:0;border-radius:8px}
+.fill.cap{background:var(--brand);left:0}
+.fill.rep{background:repeating-linear-gradient(135deg,var(--stamp) 0 6px,color-mix(in srgb,var(--stamp) 70%,transparent) 6px 12px)}
+.gapnote{font-size:15px;background:var(--stamp-soft);color:var(--ink);border-radius:12px;padding:10px 12px}
+.gapnote b{color:var(--stamp)}
+
+.warn{background:var(--stamp-soft);border:1.5px solid color-mix(in srgb,var(--stamp) 40%,transparent);border-radius:var(--r);padding:16px;display:grid;gap:6px}
+.warn b{color:var(--stamp);font-family:var(--display);font-size:19px}
+
+/* checklist */
+.check{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.check li{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;padding:10px;border-radius:12px;background:var(--paper)}
+.check input{appearance:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--muted);background:var(--card);cursor:pointer;margin:2px 0 0;display:grid;place-items:center}
+.check input:checked{background:var(--ok);border-color:var(--ok)}
+.check input:checked::after{content:"";width:8px;height:14px;border:solid var(--card);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check label{cursor:pointer;min-width:0}
+.check label b{display:block;font-weight:700}
+.check label span{display:block;color:var(--muted);font-size:15px}
+.check li.done label b{text-decoration:line-through;text-decoration-color:var(--ok)}
+.progress{font-size:14px;color:var(--muted);font-weight:600}
+
+.fees{display:grid;gap:8px}
+.fee{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;border-bottom:1px dashed var(--line);padding-bottom:8px}
+.fee:last-child{border-bottom:0;padding-bottom:0}
+.fee b{font-variant-numeric:tabular-nums;font-size:18px}
+
+/* agency */
+.rlform{display:flex;gap:8px}
+.rlwrap{display:flex;align-items:center;flex:1;min-width:0;border:1.5px solid var(--line);border-radius:14px;background:var(--card);padding-left:14px}
+.rlwrap span{font-weight:700;color:var(--muted)}
+.rlwrap input{flex:1;min-width:0;width:100%;border:0;background:transparent;font:inherit;font-size:22px;font-weight:600;padding:12px 10px;color:var(--ink);letter-spacing:.05em}
+.rlwrap input:focus{outline:none}
+.rlwrap:focus-within{border-color:var(--brand)}
+.btn{border:0;border-radius:14px;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:18px;padding:0 20px;cursor:pointer;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.ghost{background:var(--card);color:var(--brand);border:1.5px solid var(--brand)}
+.btn.wide{width:100%}
+.result{display:grid;gap:10px;padding:18px;border-radius:var(--r);border:2px solid var(--line);background:var(--card);position:relative;overflow:hidden}
+.result.bad{border-color:var(--stamp);background:var(--stamp-soft)}
+.stamp{justify-self:start;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.04em;padding:2px 14px;border:3px double currentColor;border-radius:8px;transform:rotate(-4deg);opacity:.92}
+.stamp.red{color:var(--stamp)}
+.stamp.amber{color:var(--amber)}
+.ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.statuses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.st{border-radius:12px;padding:10px 12px;font-size:15px}
+.st b{display:block;font-size:16px}
+.st.g{background:var(--ok-soft)} .st.g b{color:var(--ok)}
+.st.r{background:var(--stamp-soft)} .st.r b{color:var(--stamp)}
+.note{font-size:15px;color:var(--muted);border-left:3px solid var(--amber);padding-left:12px}
+
+/* flags */
+.flag{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden}
+.flag summary{list-style:none;cursor:pointer;padding:16px 16px 16px 18px;display:grid;grid-template-columns:1fr 24px;gap:10px;align-items:center}
+.flag summary::-webkit-details-marker{display:none}
+.flag summary q{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.35;quotes:"“" "”"}
+.flag summary svg{width:22px;height:22px;color:var(--muted);transition:transform .2s}
+.flag[open] summary svg{transform:rotate(180deg)}
+.flag .body{padding:0 18px 16px;display:grid;gap:8px}
+.flag .todo{background:var(--brand-soft);border-radius:10px;padding:10px 12px;font-weight:600}
+.contact{display:grid;gap:4px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.contact:last-child{border-bottom:0}
+.contact .ph{font-family:var(--display);font-size:24px;font-weight:800;color:var(--brand);user-select:all}
+.contact .pending{font-size:14px;color:var(--amber)}
+
+.share{display:flex;gap:10px;flex-wrap:wrap}
+.share .btn{flex:1 1 150px;font-size:16px;white-space:nowrap}
+
+footer{max-width:560px;margin:8px auto 0;font-size:13.5px;color:var(--muted);display:grid;gap:8px}
+footer ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+footer a{color:var(--muted);overflow-wrap:anywhere}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:12px;font-weight:600;z-index:20;max-width:calc(100% - 32px)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <button class="back" id="back" aria-label="পেছনে যান" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <a class="brand" href="#home">বিদেশযাত্রা যাচাই</a>
+    <button class="speak" id="speak" aria-label="এই পাতা পড়ে শোনান" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7M19 5a10 10 0 010 14"/></svg>
+      <span id="speakLabel">শুনুন</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="page" id="view" aria-live="polite"></div>
+  <footer id="foot"></footer>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D = window.APP_DATA;
+const view = document.getElementById('view');
+const backBtn = document.getElementById('back');
+
+/* ---------- helpers ---------- */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nf = new Intl.NumberFormat('bn-BD');
+const bnNum = n => nf.format(n);
+const bnDigits = s => String(s).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const taka = n => '৳' + bnNum(n);
+const lakh = n => n >= 100000 ? bnNum(+(n/100000).toFixed(2)) + ' লাখ' : bnNum(n);
+const src = id => D.SOURCES[id];
+const srcLine = id => { const s = src(id); if(!s) return ''; return `<div class="src">সূত্র: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
+const BADGE = {
+  official: ['b-official','সরকারি প্রজ্ঞাপন থেকে'],
+  news:     ['b-news','সংবাদে প্রকাশিত · সরকারি কাগজ যাচাই বাকি'],
+  draft:    ['b-draft','খসড়া · যাচাই চলছে']
+};
+const badge = st => { const b = BADGE[st] || BADGE.draft; return `<span class="badge ${b[0]}">${b[1]}</span>`; };
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)) }catch(e){ return null } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} }
+};
+let toastT;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2200); }
+const chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে সূত্র দেওয়া আছে। এটি সরকারি অ্যাপ নয়।</span></div>`;
+
+/* ---------- views ---------- */
+function home(){
+  return `
+  <section class="hero">
+    <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে ৩টি জিনিস যাচাই করুন।</h1>
+    <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
+  </section>
+  ${proto}
+  <div class="steps3">
+    <a class="big" href="#countries"><span class="num">১</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সি যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#flags"><span class="num">৩</span><span><b>দালাল কি এটা বলছে?</b><span>প্রতারণার সাধারণ কথাগুলো চিনে নিন</span></span><span class="arr">${chev}</span></a>
+  </div>
+  <div class="callstrip">
+    <span class="n">১৬৭৬৮</span>
+    <p>ভিসা আসল কিনা যাচাই করুন: আমি প্রবাসী হেল্পলাইন (সৌদি আরব, কাতার, ওমান)</p>
+  </div>`;
+}
+
+function countries(){
+  return `
+  <h1 style="font-size:28px">কোন দেশে যাবেন?</h1>
+  <input class="search" id="q" type="search" placeholder="দেশের নাম লিখুন…" aria-label="দেশ খুঁজুন" autocomplete="off">
+  <div class="cgrid" id="cgrid">${countryButtons(D.COUNTRIES)}</div>`;
+}
+function countryButtons(list){
+  if(!list.length) return `<p class="empty">এই নামে কোনো দেশ পাওয়া যায়নি।</p>`;
+  return list.map(c => `<a class="cbtn" href="#c-${esc(c.id)}"><span class="f" aria-hidden="true">${c.flag||''}</span><span class="nm">${esc(c.name)}</span></a>`).join('');
+}
+
+function country(id){
+  const c = D.COUNTRIES.find(x => x.id === id);
+  if(!c) return `<p class="empty">দেশটি পাওয়া যায়নি। <a href="#countries">সব দেশ দেখুন</a></p>`;
+  const done = store.get('steps-'+c.id) || [];
+  let h = `<h1 style="font-size:30px"><span aria-hidden="true">${c.flag||''}</span> ${esc(c.name)}</h1>`;
+
+  if(c.warning){
+    h += `<div class="warn"><b>সতর্কতা</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
+  }
+
+  // cost
+  h += `<section class="sec"><h2>সরকার নির্ধারিত সর্বোচ্চ খরচ</h2>`;
+  if(c.cap){
+    h += `<div class="money">${taka(c.cap.amount)} <small>টাকা</small></div>
+      <div class="label">${esc(c.cap.year)} সালের হার অনুযায়ী</div>
+      ${badge(c.cap.status)}`;
+    if(c.reported){
+      const max = c.reported.max;
+      const pc = n => Math.max(2, Math.min(100, n / max * 100));
+      h += `<div class="gap" role="img" aria-label="সরকারি খরচ ${lakh(c.cap.amount)} টাকা, মানুষ দিচ্ছেন ${lakh(c.reported.min)} থেকে ${lakh(c.reported.max)} টাকা">
+        <div class="row"><div class="t"><span>সরকারি সর্বোচ্চ</span><b>${lakh(c.cap.amount)} টাকা</b></div>
+          <div class="track"><div class="fill cap" style="width:${pc(c.cap.amount)}%"></div></div></div>
+        <div class="row"><div class="t"><span>মানুষ আসলে দিচ্ছেন</span><b>${lakh(c.reported.min)}–${lakh(c.reported.max)} টাকা</b></div>
+          <div class="track"><div class="fill rep" style="left:${pc(c.reported.min)}%;width:${pc(max)-pc(c.reported.min)}%"></div></div></div>
+      </div>
+      <div class="gapnote">সরকারি খরচের চেয়ে <b>${bnNum(Math.round(c.reported.min / c.cap.amount * 10)/10)} থেকে ${bnNum(Math.round(c.reported.max / c.cap.amount * 10)/10)} গুণ</b> বেশি টাকা দিচ্ছেন অনেকে। এর বেশিরভাগই নিয়মবিরুদ্ধ।</div>
+      <div class="src">${esc(c.reported.note || '')}</div>
+      ${c.reported.source !== c.cap.source ? srcLine(c.reported.source) : ''}`;
+    }
+    h += srcLine(c.cap.source);
+    h += `<div class="note">এর বেশি টাকা চাইলে লিখিত রসিদ চান এবং <a href="#flags">কোথায় অভিযোগ করবেন</a> দেখুন।</div>`;
+  } else {
+    h += `<div class="label">এই দেশের জন্য সরকার নির্ধারিত খরচের তথ্য সংগ্রহ চলছে।</div>`;
+  }
+  h += `</section>`;
+
+  // visa check
+  if(c.visaCheck){
+    h += `<div class="callstrip"><span class="n">১৬৭৬৮</span><p>এই দেশের ভিসা আসল কিনা ফোন করে যাচাই করুন (আমি প্রবাসী, সামান্য ফি)।</p></div>`;
+  }
+
+  // fees
+  if(D.FEES.length){
+    h += `<section class="sec"><h2>সবাইকে যে সরকারি ফি দিতে হয়</h2><div class="fees">` +
+      D.FEES.map(f => `<div class="fee"><span>${esc(f.name)}<br><span class="src">${esc(f.from||'')}</span></span><b>${taka(f.amount)}</b></div>`).join('') +
+      `</div>${D.FEES.map(f=>srcLine(f.source)).join('')}</section>`;
+  }
+
+  // steps
+  h += `<section class="sec"><h2>বৈধভাবে যাওয়ার ধাপ</h2>
+    <div class="progress" id="prog"></div>
+    <ul class="check">` +
+    D.STEPS.map((s,i) => `<li class="${done.includes(i)?'done':''}"><input type="checkbox" id="st-${c.id}-${i}" data-i="${i}" ${done.includes(i)?'checked':''}><label for="st-${c.id}-${i}"><b>${esc(s.title)}</b><span>${esc(s.detail)}</span></label></li>`).join('') +
+    `</ul>${D.STEPS.some(s=>s.status!=='official') ? `<div class="src">কিছু ধাপ এখনো খসড়া, যাচাই চলছে।</div>` : ''}</section>`;
+
+  h += shareBlock(`${c.name}-এ যেতে সরকার নির্ধারিত খরচ ও নিয়ম দেখুন`);
+  return h;
+}
+
+function agency(){
+  return `
+  <h1 style="font-size:28px">এজেন্সি যাচাই</h1>
+  <p style="margin:0;color:var(--muted)">এজেন্সির লাইসেন্স নম্বর (RL নম্বর) লিখুন। এটি এজেন্সির অফিসে, কাগজে বা ভিজিটিং কার্ডে থাকে।</p>
+  <form class="rlform" id="rlform">
+    <div class="rlwrap"><span>RL-</span><input id="rl" inputmode="numeric" pattern="[0-9০-৯]*" maxlength="6" placeholder="1428" aria-label="RL নম্বর" autocomplete="off"></div>
+    <button class="btn" type="submit">যাচাই</button>
+  </form>
+  <div id="rlresult"></div>
+  <section class="sec">
+    <h2>সরকারি তালিকায় নিজে দেখুন</h2>
+    <ol class="ol">
+      <li>নিচের বোতাম চাপুন, সরকারি (BMET) এজেন্সি তালিকা খুলবে।</li>
+      <li>RL নম্বর বা এজেন্সির নাম দিয়ে খুঁজুন।</li>
+      <li>লাইসেন্সের অবস্থা আর মেয়াদের তারিখ দেখুন:</li>
+    </ol>
+    <div class="statuses">
+      <div class="st g"><b>Active</b>সক্রিয়, মেয়াদ শেষ না হলে ঠিক আছে</div>
+      <div class="st r"><b>Expired</b>মেয়াদ শেষ, টাকা দেবেন না</div>
+      <div class="st r"><b>Cancelled</b>বাতিল, টাকা দেবেন না</div>
+      <div class="st r"><b>Suspended</b>স্থগিত, টাকা দেবেন না</div>
+    </div>
+    <a class="btn wide" href="https://oep.gov.bd/agencies" target="_blank" rel="noopener">সরকারি তালিকা খুলুন</a>
+    <a class="btn ghost wide" href="https://baira.org.bd/dir/all-member-list" target="_blank" rel="noopener">BAIRA তালিকাতেও মিলিয়ে নিন</a>
+    <div class="note">লাইসেন্স সক্রিয় মানেই এজেন্সি সৎ, এমন নয়। লিখিত চুক্তি ও রসিদ ছাড়া টাকা দেবেন না।</div>
+  </section>`;
+}
+
+function checkRL(raw){
+  const box = document.getElementById('rlresult');
+  const digits = String(raw).replace(/[০-৯]/g, d => '০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/\D/g,'').replace(/^0+/,'');
+  if(!digits){ box.innerHTML = `<div class="result"><b>শুধু সংখ্যাটি লিখুন</b><div class="src">যেমন: RL-1428 হলে লিখুন 1428</div></div>`; return; }
+  const hit = D.AGENCIES_FLAGGED.find(a => a.rl === digits);
+  if(hit){
+    const word = hit.status === 'suspended' ? 'স্থগিত' : 'বাতিল';
+    box.innerHTML = `<div class="result bad">
+      <span class="stamp red">লাইসেন্স ${word}</span>
+      <div><b>RL-${esc(bnDigits(hit.rl))} · ${esc(hit.name)}</b></div>
+      <div>${esc(hit.date)} লাইসেন্স ${word} করা হয়েছে। কারণ: ${esc(hit.reason)}।</div>
+      <div style="font-weight:700;color:var(--stamp)">এই এজেন্সিকে টাকা দেবেন না। আগে দিয়ে থাকলে রসিদ ও কাগজ রেখে অভিযোগ করুন।</div>
+      ${srcLine(hit.source)}
+      <a class="btn" href="#flags">কোথায় অভিযোগ করবেন</a>
+    </div>`;
+  } else {
+    box.innerHTML = `<div class="result">
+      <span class="stamp amber">নিজে যাচাই করুন</span>
+      <div><b>RL-${esc(bnDigits(digits))}</b> আমাদের বাতিল তালিকায় নেই।</div>
+      <div>তবে এর মানে এজেন্সিটি নিরাপদ নয়। আমাদের তালিকা ছোট। নিচের সরকারি তালিকায় অবশ্যই দেখে নিন।</div>
+    </div>`;
+  }
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function flags(){
+  return `
+  <h1 style="font-size:28px">দালাল কি এটা বলছে?</h1>
+  <p style="margin:0;color:var(--muted)">এই কথাগুলো শুনলে সাবধান হোন। চাপ দিলে বিস্তারিত দেখবেন।</p>
+  ${D.RED_FLAGS.map(f => `
+    <details class="flag"><summary><q>${esc(f.claim)}</q>${down}</summary>
+      <div class="body"><div>${esc(f.why)}</div><div class="todo">${esc(f.todo)}</div></div>
+    </details>`).join('')}
+  <section class="sec" id="help">
+    <h2>সাহায্য ও অভিযোগ</h2>
+    ${D.CONTACTS.map(c => `
+      <div class="contact">
+        <b>${esc(c.name)}</b>
+        ${c.phone ? `<span class="ph">${esc(bnDigits(c.phone))}</span>` : `<span class="pending">ফোন নম্বর যাচাই চলছে</span>`}
+        <span class="src">${esc(c.note||'')}</span>
+        ${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener" style="overflow-wrap:anywhere">${esc(c.url.replace(/^https?:\/\//,''))}</a>` : ''}
+      </div>`).join('')}
+  </section>
+  ${shareBlock('বিদেশে কাজে যাওয়ার আগে দালালের এই কথাগুলো চিনে নিন')}`;
+}
+
+function shareBlock(text){
+  return `<div class="share">
+    <a class="btn" id="wa" data-text="${esc(text)}" href="#" target="_blank" rel="noopener">WhatsApp-এ পাঠান</a>
+    <button class="btn ghost" id="copylink" type="button">লিংক কপি করুন</button>
+  </div>`;
+}
+
+function foot(){
+  const used = Object.values(D.SOURCES);
+  return `<div>সর্বশেষ হালনাগাদ: ${esc(bnDigits(D.META.lastUpdated))} · সংস্করণ ${esc(D.META.version)}</div>
+    <div>এটি সরকারি অ্যাপ নয়। তথ্য সংবাদপত্র ও সরকারি ওয়েবসাইট থেকে নেওয়া। সিদ্ধান্ত নেওয়ার আগে সরকারি অফিসে যাচাই করুন।</div>
+    <details><summary>সব সূত্র</summary><ul>${used.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>`;
+}
+
+/* ---------- router ---------- */
+function pageUrl(){ return (D.META.siteUrl || location.href.split('#')[0]) + location.hash; }
+function route(){
+  stopSpeak();
+  const h = (location.hash || '#home').slice(1);
+  let html, isHome = false;
+  if(h === 'countries') html = countries();
+  else if(h.startsWith('c-')) html = country(h.slice(2));
+  else if(h === 'agency') html = agency();
+  else if(h === 'flags') html = flags();
+  else { html = home(); isHome = true; }
+  view.innerHTML = html;
+  backBtn.hidden = isHome;
+  window.scrollTo(0,0);
+  wire(h);
+}
+function wire(h){
+  const q = document.getElementById('q');
+  if(q) q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase();
+    document.getElementById('cgrid').innerHTML = countryButtons(D.COUNTRIES.filter(c => c.name.includes(v) || c.id.includes(v)));
+  });
+  const f = document.getElementById('rlform');
+  if(f) f.addEventListener('submit', e => { e.preventDefault(); checkRL(document.getElementById('rl').value); });
+  if(h.startsWith('c-')){
+    const id = h.slice(2);
+    const update = () => {
+      const boxes = [...view.querySelectorAll('.check input')];
+      const n = boxes.filter(b=>b.checked).length;
+      const p = document.getElementById('prog');
+      if(p) p.textContent = `${bnNum(boxes.length)}টি ধাপের মধ্যে ${bnNum(n)}টি সম্পন্ন`;
+    };
+    view.querySelectorAll('.check input').forEach(b => b.addEventListener('change', () => {
+      b.closest('li').classList.toggle('done', b.checked);
+      store.set('steps-'+id, [...view.querySelectorAll('.check input')].filter(x=>x.checked).map(x=>+x.dataset.i));
+      update();
+    }));
+    update();
+  }
+  const wa = document.getElementById('wa');
+  if(wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(wa.dataset.text + ': ' + pageUrl());
+  const cp = document.getElementById('copylink');
+  if(cp) cp.addEventListener('click', async () => {
+    const url = pageUrl();
+    try { await navigator.clipboard.writeText(url); toast('লিংক কপি হয়েছে'); }
+    catch(e){
+      const ta = document.createElement('textarea'); ta.value = url; ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+      let ok=false; try{ ok=document.execCommand('copy') }catch(_){} ta.remove();
+      toast(ok ? 'লিংক কপি হয়েছে' : url);
+    }
+  });
+}
+backBtn.addEventListener('click', () => {
+  const h = (location.hash||'').slice(1);
+  location.hash = h.startsWith('c-') ? 'countries' : 'home';
+});
+addEventListener('hashchange', route);
+
+/* ---------- read aloud (only if the phone has a Bangla voice) ---------- */
+const speakBtn = document.getElementById('speak'), speakLabel = document.getElementById('speakLabel');
+let bnVoice = null, speaking = false;
+function findVoice(){
+  if(!('speechSynthesis' in window)) return;
+  bnVoice = speechSynthesis.getVoices().find(v => /^bn/i.test(v.lang)) || null;
+  speakBtn.hidden = !bnVoice;
+}
+function stopSpeak(){ if('speechSynthesis' in window) speechSynthesis.cancel(); speaking=false; speakLabel.textContent='শুনুন'; }
+if('speechSynthesis' in window){
+  findVoice(); speechSynthesis.addEventListener?.('voiceschanged', findVoice);
+  speakBtn.addEventListener('click', () => {
+    if(speaking){ stopSpeak(); return; }
+    const clone = view.cloneNode(true);
+    clone.querySelectorAll('.src,.share,.badge,input,form,.statuses,a.btn').forEach(n=>n.remove());
+    clone.querySelectorAll('details').forEach(d=>d.setAttribute('open',''));
+    const u = new SpeechSynthesisUtterance(clone.innerText.replace(/\s+/g,' '));
+    u.voice = bnVoice; u.lang = bnVoice.lang; u.rate = .95;
+    u.onend = stopSpeak;
+    speechSynthesis.speak(u); speaking = true; speakLabel.textContent = 'থামান';
+  });
+}
+
+document.getElementById('foot').innerHTML = foot();
+route();
+})();
+</script>
+
+</body>
+</html>
