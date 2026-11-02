@@ -78,6 +78,36 @@ window.APP_DATA = {
       url: "https://kathmandupost.com/world/2026/07/16/how-bangladeshi-jobseekers-are-trafficked-into-cambodia-s-scam-compounds",
       date: "2026-07-16"
     },
+    dsLabourWall: {
+      title: "Labour migration hits a wall with several key markets shut — The Daily Star",
+      url: "https://www.thedailystar.net/news/bangladesh/news/labour-migration-hits-wall-several-key-markets-shut-4138856",
+      date: "2026-03"
+    },
+    dsUaeCancel: {
+      title: "UAE cancels visas of over 4,000 Bangladeshis — The Daily Star",
+      url: "https://www.thedailystar.net/news/bangladesh/news/uae-cancels-visas-over-4000-bangladeshis-4273081",
+      date: "2026-09"
+    },
+    dsMaldives: {
+      title: "The Maldives suspends work visas for Bangladeshis — The Daily Star",
+      url: "https://www.thedailystar.net/news/bangladesh/news/the-maldives-suspends-work-visas-bangladeshis-3617841",
+      date: ""
+    },
+    tbsQatarRumour: {
+      title: "Qatar visa ban on Bangladeshis a rumour: Ministry — The Business Standard",
+      url: "https://www.tbsnews.net/bangladesh/qatar-visa-ban-bangladeshis-rumour-ministry-1266071",
+      date: "2025"
+    },
+    bdn24Market: {
+      title: "Bangladesh's overseas labour market shrinks as Saudi Arabia takes over half — bdnews24",
+      url: "https://bdnews24.com/diaspora/e5dfaf80f9fa",
+      date: "2026-08"
+    },
+    bonikJapan: {
+      title: "Bangladesh's overseas labour market now almost limited to Saudi Arabia — Bonik Barta",
+      url: "https://en.bonikbarta.com/bangladesh/8mJvv4wPYmw3caJO",
+      date: ""
+    },
     dsMalaysia: {
       title: "Govt sets Tk 78,990 max migration cost for workers going to Malaysia — The Daily Star",
       url: "https://www.thedailystar.net/nrb/migration/news/govt-sets-tk-78990-max-migration-cost-bangladesh-workers-going-malaysia-3066141",
@@ -128,7 +158,7 @@ window.APP_DATA = {
   // cap      = government maximum migration cost (taka)
   // reported = what workers actually report paying {min, max}
   COUNTRIES: [
-    { id: "saudi",
+    { id: "saudi", access: { state: "open", note: "বাংলাদেশি কর্মীদের সবচেয়ে বড় গন্তব্য, বাংলাদেশ থেকে যাওয়া কর্মীদের অর্ধেকের বেশি এখানে যান।", source: "bdn24Market" },
       detail: {
         covered: ["বিমান ভাড়া", "পাসপোর্ট ফি", "প্রবাসী কল্যাণ ফি"],
         coveredNote: "২০১৬ সালের প্রতিবেদন অনুযায়ী ১.৬৫ লাখ টাকার মধ্যে এই খরচগুলো ধরা হয়েছে। প্রতিটির আলাদা টাকার অঙ্ক প্রকাশিত নেই।",
@@ -137,7 +167,7 @@ window.APP_DATA = {
         status: "news", source: "dsSaudi"
       },
       name: "সৌদি আরব",   flag: "🇸🇦", cap: { amount: 165000, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
-    { id: "malaysia",
+    { id: "malaysia", access: { state: "limited", note: "শ্রমবাজার আবার খুলছে, কিন্তু নতুন পর্বের চূড়ান্ত খরচ ও নিয়ম এখনো ঘোষণা হয়নি।", source: "gvMalaysia2026" },
       detail: {
         covered: ["পাসপোর্ট ফি", "মেডিকেল ফি", "রিক্রুটিং এজেন্সির সার্ভিস চার্জ", "নিবন্ধন ফি", "প্রবাসী কল্যাণ ফি", "বিমা"],
         coveredNote: "৭৮,৯৯০ টাকার মধ্যে বাংলাদেশের দিকের এই খরচগুলো ধরা হয়েছে। প্রতিটির আলাদা টাকার অঙ্ক প্রকাশিত নেই।",
@@ -148,19 +178,19 @@ window.APP_DATA = {
         latest: { text: "২০২৬ সালে মালয়েশিয়ার শ্রমবাজার আবার খুলছে: ৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী এজেন্সি ও BOESL)। নতুন পর্বের চূড়ান্ত খরচ ৩০ সেপ্টেম্বর ২০২৬ পর্যন্ত ঘোষণা হয়নি। সরকারি নির্দেশনা না আসা পর্যন্ত টাকা দেবেন না, মেডিকেল করাবেন না, পাসপোর্ট জমা দেবেন না।", source: "gvMalaysia2026" }
       },
       name: "মালয়েশিয়া",  flag: "🇲🇾", cap: { amount: 78990,  year: "২০২২", status: "news", source: "tbsMalaysia" }, reported: null, visaCheck: false },
-    { id: "qatar",     name: "কাতার",      flag: "🇶🇦", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
-    { id: "oman",      name: "ওমান",       flag: "🇴🇲", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: true },
-    { id: "uae",       name: "সংযুক্ত আরব আমিরাত", flag: "🇦🇪", cap: { amount: 107780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "kuwait",    name: "কুয়েত",      flag: "🇰🇼", cap: { amount: 106780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: false },
-    { id: "singapore", name: "সিঙ্গাপুর",   flag: "🇸🇬", cap: { amount: 262270, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: false },
-    { id: "bahrain",   name: "বাহরাইন",    flag: "🇧🇭", cap: { amount: 97780,  year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "jordan",    name: "জর্ডান",     flag: "🇯🇴", cap: { amount: 102780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "maldives",  name: "মালদ্বীপ",   flag: "🇲🇻", cap: { amount: 115780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "lebanon",   name: "লেবানন",     flag: "🇱🇧", cap: { amount: 117780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "brunei",    name: "ব্রুনাই",     flag: "🇧🇳", cap: { amount: 120780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "iraq",      name: "ইরাক",       flag: "🇮🇶", cap: { amount: 129540, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "japan",     name: "জাপান",      flag: "🇯🇵", cap: { amount: 148500, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
-    { id: "russia",    name: "রাশিয়া",     flag: "🇷🇺", cap: null, reported: null, visaCheck: false,
+    { id: "qatar", access: { state: "limited", note: "সরকারিভাবে বন্ধ নয়। মন্ত্রণালয় নিষেধাজ্ঞার খবরকে গুজব বলেছিল (প্রায় এক বছর আগের খবর)। তবে সেখানে যাওয়া কর্মীর সংখ্যা কমেছে বলে প্রতিবেদন আছে।", source: "tbsQatarRumour" },     name: "কাতার",      flag: "🇶🇦", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
+    { id: "oman", access: { state: "closed", note: "বাংলাদেশি কর্মী নেওয়া স্থগিত থাকার খবর আছে (সূত্রে তারিখ নিয়ে অমিল)। আবার খোলার আলোচনা চলছে।", source: "dsLabourWall" },      name: "ওমান",       flag: "🇴🇲", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: true },
+    { id: "uae", access: { state: "limited", note: "নতুন কাজের ভিসা বন্ধের সরকারি ঘোষণা পাইনি, দূতাবাস এমন খবরকে গুজব বলেছে। তবে ২০২৬ সালের সেপ্টেম্বরে ৪ হাজারের বেশি বাংলাদেশির ভিসা বাতিল হয়েছে।", source: "dsUaeCancel" },       name: "সংযুক্ত আরব আমিরাত", flag: "🇦🇪", cap: { amount: 107780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "kuwait", access: { state: "unknown", note: "নিষেধাজ্ঞার কোনো খবর পাইনি, কিন্তু নির্ভরযোগ্য সরকারি তথ্যও পাইনি।", source: null },    name: "কুয়েত",      flag: "🇰🇼", cap: { amount: 106780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: false },
+    { id: "singapore", access: { state: "open", note: "বাংলাদেশি কর্মী যাচ্ছেন। ২০২৬ সালের প্রথম ছয় মাসে ৩৬ হাজারের বেশি কর্মী গেছেন বলে প্রতিবেদন আছে।", source: "bdn24Market" }, name: "সিঙ্গাপুর",   flag: "🇸🇬", cap: { amount: 262270, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: false },
+    { id: "bahrain", access: { state: "closed", note: "বাংলাদেশি কর্মী নেওয়া বন্ধ থাকার তালিকায় আছে। নিশ্চিত হতে BMET-এ দেখুন।", source: "dsLabourWall" },   name: "বাহরাইন",    flag: "🇧🇭", cap: { amount: 97780,  year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "jordan", access: { state: "unknown", note: "এই দেশ নিয়ে নির্ভরযোগ্য তথ্য পাইনি।", source: null },    name: "জর্ডান",     flag: "🇯🇴", cap: { amount: 102780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "maldives", access: { state: "closed", note: "কাজের ভিসা স্থগিত হয়েছিল বলে প্রতিবেদন আছে। অন্য একটি প্রতিবেদনে ভিন্ন তথ্য আছে, তাই BMET-এ নিশ্চিত হয়ে নিন।", source: "dsMaldives" },  name: "মালদ্বীপ",   flag: "🇲🇻", cap: { amount: 115780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "lebanon", access: { state: "unknown", note: "এই দেশ নিয়ে নির্ভরযোগ্য তথ্য পাইনি।", source: null },   name: "লেবানন",     flag: "🇱🇧", cap: { amount: 117780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "brunei", access: { state: "closed", note: "বন্ধ থাকা বাজারের তালিকায় আছে, বর্তমান অবস্থা স্পষ্ট নয়। BMET-এ নিশ্চিত হয়ে নিন।", source: "dsLabourWall" },    name: "ব্রুনাই",     flag: "🇧🇳", cap: { amount: 120780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "iraq", access: { state: "unknown", note: "অতীতে বন্ধ থাকা বাজারের তালিকায় ছিল, বর্তমান অবস্থা নিশ্চিত নয়।", source: "dsLabourWall" },      name: "ইরাক",       flag: "🇮🇶", cap: { amount: 129540, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "japan", access: { state: "limited", note: "চুক্তি আছে, কিন্তু ভাষা ও দক্ষতার শর্তে খুব কম মানুষ যেতে পারছেন।", source: "bonikJapan" },     name: "জাপান",      flag: "🇯🇵", cap: { amount: 148500, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
+    { id: "russia", access: { state: "unknown", note: "সরকারি তথ্য পাইনি। ভুয়া প্রস্তাব নিয়ে সতর্কতা আছে।", source: null },    name: "রাশিয়া",     flag: "🇷🇺", cap: null, reported: null, visaCheck: false,
       warning: { text: "২০২৬ সালের জুনে ভুয়া প্রতিশ্রুতি দিয়ে ৩০ জন তরুণকে রাশিয়ায় পাঠানোর অভিযোগে ৩টি এজেন্সির লাইসেন্স বাতিল করা হয়েছে। বেশি বেতনের লোভনীয় প্রস্তাব পেলে বিশেষ সতর্ক থাকুন।", source: "paRussia" } }
   ],
 

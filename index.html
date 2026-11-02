@@ -194,6 +194,22 @@ span.d{font-family:'Noto Sans Bengali',var(--body)!important;font-weight:inherit
 main,footer{zoom:var(--zoom,1)}
 .tsize{height:42px;min-width:42px;padding:0 10px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);font-weight:700;font-size:16px;cursor:pointer;flex:none}
 
+/* visa / labour-market access labels */
+.acc{display:inline-block;font-size:13px;font-weight:700;padding:1px 9px;border-radius:999px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.cbtn .acc{display:table;margin:3px 0 0}
+.acc.open{background:var(--ok);color:var(--card)}
+.acc.limited{background:var(--amber);color:var(--card)}
+.acc.closed{background:var(--stamp);color:var(--card)}
+.acc.unknown{background:var(--line);color:var(--ink)}
+.legend{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.legend .acc{margin:0}
+.legend .src{flex-basis:100%}
+.accbox{border-radius:var(--r);padding:14px 16px;display:grid;gap:6px;border:1.5px solid var(--line);background:var(--card)}
+.accbox .acc{margin:0}
+.accbox.open{border-color:var(--ok);background:var(--ok-soft)}
+.accbox.limited{border-color:var(--amber);background:var(--amber-soft)}
+.accbox.closed{border-color:var(--stamp);background:var(--stamp-soft)}
+
 /* visitor counter + credit */
 .visitors{position:fixed;right:10px;bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:8;font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;opacity:.92}
 .visitors b{color:var(--brand)}
@@ -368,12 +384,21 @@ function countries(){
   return `
   <h1 style="font-size:28px">কোন দেশে যাবেন?</h1>
   <input class="search" id="q" type="search" placeholder="দেশের নাম লিখুন…" aria-label="দেশ খুঁজুন" autocomplete="off">
+  ${accessLegend()}
   <div class="cgrid" id="cgrid">${countryButtons(D.COUNTRIES)}</div>`;
 }
 function countryButtons(list){
   if(!list.length) return `<p class="empty">এই নামে কোনো দেশ পাওয়া যায়নি।</p>`;
-  return list.map(c => `<a class="cbtn" href="#c-${esc(c.id)}"><span class="f" aria-hidden="true">${flagImg(c)}</span><span class="nm">${esc(c.name)}</span></a>`).join('');
+  return list.map(c => `<a class="cbtn" href="#c-${esc(c.id)}"><span class="f" aria-hidden="true">${flagImg(c)}</span><span class="nm">${esc(c.name)}${accessPill(c)}</span></a>`).join('');
 }
+const ACCESS = {
+  open:    ['খোলা', 'বাংলাদেশি কর্মীরা যেতে পারছেন'],
+  limited: ['সীমিত / সতর্ক', 'পুরোপুরি বন্ধ নয়, কিন্তু সমস্যা বা অনিশ্চয়তা আছে'],
+  closed:  ['বন্ধ', 'বাংলাদেশি কর্মী নেওয়া বন্ধ বা স্থগিত বলে প্রতিবেদন আছে'],
+  unknown: ['তথ্য নেই', 'নির্ভরযোগ্য তথ্য পাওয়া যায়নি']
+};
+const accessPill = c => c.access ? `<span class="acc ${esc(c.access.state)}">${ACCESS[c.access.state][0]}</span>` : '';
+const accessLegend = () => `<div class="legend">${Object.entries(ACCESS).map(([k,v]) => `<span class="acc ${k}">${v[0]}</span>`).join('')}<div class="src">ভিসা ও শ্রমবাজারের অবস্থা সংবাদ থেকে নেওয়া, সরকারি ঘোষণা নয়। যাওয়ার আগে BMET-এ নিশ্চিত হয়ে নিন।</div></div>`;
 
 function country(id){
   const c = D.COUNTRIES.find(x => x.id === id);
@@ -381,6 +406,10 @@ function country(id){
   const done = store.get('steps-'+c.id) || [];
   let h = `<h1 style="font-size:30px"><span aria-hidden="true">${flagImg(c)}</span> ${esc(c.name)}</h1>`;
 
+  if(c.access){
+    const a = c.access;
+    h += `<div class="accbox ${esc(a.state)}"><div><span class="acc ${esc(a.state)}">${ACCESS[a.state][0]}</span> <b>${ACCESS[a.state][1]}</b></div><div>${esc(a.note)}</div>${a.source ? srcLine(a.source) : ''}<div class="src">সরকারি ঘোষণা নয়, সংবাদ থেকে নেওয়া। যাওয়ার আগে <a href="#agency">এজেন্সি যাচাই</a> করুন ও BMET-এ নিশ্চিত হোন।</div></div>`;
+  }
   if(c.warning){
     h += `<div class="warn"><b>সতর্কতা</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
   }
