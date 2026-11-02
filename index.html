@@ -194,6 +194,12 @@ span.d{font-family:'Noto Sans Bengali',var(--body)!important;font-weight:inherit
 main,footer{zoom:var(--zoom,1)}
 .tsize{height:42px;min-width:42px;padding:0 10px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);font-weight:700;font-size:16px;cursor:pointer;flex:none}
 
+/* visitor counter + credit */
+.visitors{position:fixed;right:10px;bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:8;font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;opacity:.92}
+.visitors b{color:var(--brand)}
+.credit{text-align:center;font-size:13px}
+@media (min-width:860px){.visitors{bottom:12px}}
+
 /* two-column home on wide screens */
 .split{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
 .col-main,.col-news{display:grid;gap:16px;align-content:start;min-width:0}
@@ -265,6 +271,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   <a href="#updates" data-tab="updates"><span class="ic" aria-hidden="true">🔔</span>আপডেট</a>
   <a href="#flags" data-tab="flags"><span class="ic" aria-hidden="true">⚠️</span>সতর্কতা</a>
 </div></nav>
+<div class="visitors" id="visitors" hidden>আজ <b id="vcount">০</b> জন দর্শক</div>
 <div class="toast" id="toast" hidden></div>
 
 <script>document.write('<script src="data.js?t='+Math.floor(Date.now()/600000)+'"><\/script><script src="agencies.js?t='+Math.floor(Date.now()/600000)+'"><\/script>')</script>
@@ -565,6 +572,7 @@ function foot(){
   const used = Object.values(D.SOURCES);
   return `<div>সর্বশেষ হালনাগাদ: ${esc(bnDigits(D.META.lastUpdated))} · সংস্করণ ${esc(D.META.version)}</div>
     <div>এটি সরকারি অ্যাপ নয়। তথ্য সংবাদপত্র ও সরকারি ওয়েবসাইট থেকে নেওয়া। সিদ্ধান্ত নেওয়ার আগে সরকারি অফিসে যাচাই করুন।</div>
+    <div class="credit">জাহিদ Claude-এর সাহায্যে তৈরি করেছেন</div>
     <details><summary>সব সূত্র</summary><ul>${used.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>`;
 }
 
@@ -584,6 +592,20 @@ function fixDigits(root){
 }
 /* digits in results rendered later (RL check, country search) get the same fix */
 new MutationObserver(() => fixDigits(document.body)).observe(document.body, {childList:true, subtree:true});
+/* visitors today: one count per browser per Bangladesh day, via the free Abacus counter (no personal data sent) */
+(async function(){
+  try{
+    const day = new Date(Date.now() + 6*3600e3).toISOString().slice(0,10);
+    const seen = store.get('visited') === day;
+    const r = await fetch(`https://abacus.jasoncameron.dev/${seen ? 'get' : 'hit'}/bideshjatra-jahid/d-${day}`);
+    if(!r.ok) return;
+    const v = (await r.json()).value;
+    if(typeof v !== 'number') return;
+    if(!seen) store.set('visited', day);
+    document.getElementById('vcount').textContent = bnNum(v);
+    document.getElementById('visitors').hidden = false;
+  }catch(e){}
+})();
 /* text size: 100% / 115% / 130% */
 const SIZES = [1, 1.15, 1.3];
 function applySize(i){
