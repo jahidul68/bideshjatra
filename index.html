@@ -318,6 +318,24 @@ function country(id){
   }
   h += `</section>`;
 
+  // detailed breakdown + recommended routes
+  h += `<section class="sec"><h2>খরচের বিস্তারিত ও যাওয়ার সরকারি পথ</h2>`;
+  const d = c.detail;
+  if(d){
+    const ul = a => `<ul class="ol" style="margin:6px 0">${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+    if(d.latest) h += `<div class="warn"><b>সর্বশেষ অবস্থা</b><div>${esc(d.latest.text)}</div>${srcLine(d.latest.source)}</div>`;
+    if(d.covered) h += `<h3 style="font-size:17px;margin-top:10px">সরকার নির্ধারিত খরচে যা ধরা আছে</h3>${ul(d.covered)}<div class="src">${esc(d.coveredNote||'')}</div>`;
+    if(d.employer) h += `<h3 style="font-size:17px;margin-top:10px">নিয়োগকর্তার দেওয়ার কথা</h3>${ul(d.employer)}<div class="src">${esc(d.employerNote||'')}</div>`;
+    else if(d.employerNote) h += `<div class="src">${esc(d.employerNote)}</div>`;
+    if(d.routes) h += `<h3 style="font-size:17px;margin-top:10px">যাওয়ার সরকার অনুমোদিত পথ</h3>${ul(d.routes)}`;
+    h += `${badge(d.status)}${srcLine(d.source)}<div class="note">কোন খরচে কত টাকা, সরকার এখনো আলাদা করে প্রকাশ করেনি বা আমরা পাইনি। মোট সংখ্যার বেশি চাইলে রসিদ চান।</div>`;
+  } else {
+    h += `<div class="label">এই দেশের খরচের বিস্তারিত তথ্য সংগ্রহ চলছে।</div>
+      <ul class="ol" style="margin:8px 0"><li>শুধু BMET-এর লাইসেন্সপ্রাপ্ত রিক্রুটিং এজেন্সির মাধ্যমে যান। <a href="#agency">এজেন্সি যাচাই করুন</a></li><li>সরকারি প্রতিষ্ঠান BOESL-এর মাধ্যমেও যাওয়া যায়।</li></ul>
+      <div class="src">খসড়া তথ্য, যাচাই চলছে।</div>`;
+  }
+  h += `</section>`;
+
   // visa check
   if(c.visaCheck){
     h += `<div class="callstrip"><span class="n">১৬৭৬৮</span><p>এই দেশের ভিসা আসল কিনা ফোন করে যাচাই করুন (আমি প্রবাসী, সামান্য ফি)।</p></div>`;

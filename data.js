@@ -73,6 +73,21 @@ window.APP_DATA = {
       url: "https://www.jagonews24.com/en/national/news/97335",
       date: ""
     },
+    dsMalaysia: {
+      title: "Govt sets Tk 78,990 max migration cost for workers going to Malaysia — The Daily Star",
+      url: "https://www.thedailystar.net/nrb/migration/news/govt-sets-tk-78990-max-migration-cost-bangladesh-workers-going-malaysia-3066141",
+      date: "2022"
+    },
+    dsSaudi: {
+      title: "Saudi job for Tk 1.65 lakh — The Daily Star",
+      url: "https://www.thedailystar.net/frontpage/saudi-job-tk-165-lakh-1278076",
+      date: "2016-08-30"
+    },
+    gvMalaysia2026: {
+      title: "Bangladesh-Malaysia recruitment reforms revive old questions over the cost of migration — Global Voices",
+      url: "https://globalvoices.org/2026/10/12/bangladesh-malaysia-recruitment-reforms-revive-old-questions-over-the-cost-of-migration/",
+      date: "2026-10-12"
+    },
     oep: {
       title: "BMET Overseas Employment Platform — agency search",
       url: "https://oep.gov.bd/agencies",
@@ -108,8 +123,26 @@ window.APP_DATA = {
   // cap      = government maximum migration cost (taka)
   // reported = what workers actually report paying {min, max}
   COUNTRIES: [
-    { id: "saudi",     name: "সৌদি আরব",   flag: "🇸🇦", cap: { amount: 165000, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
-    { id: "malaysia",  name: "মালয়েশিয়া",  flag: "🇲🇾", cap: { amount: 78990,  year: "২০২২", status: "news", source: "tbsMalaysia" }, reported: null, visaCheck: false },
+    { id: "saudi",
+      detail: {
+        covered: ["বিমান ভাড়া", "পাসপোর্ট ফি", "প্রবাসী কল্যাণ ফি"],
+        coveredNote: "২০১৬ সালের প্রতিবেদন অনুযায়ী ১.৬৫ লাখ টাকার মধ্যে এই খরচগুলো ধরা হয়েছে। প্রতিটির আলাদা টাকার অঙ্ক প্রকাশিত নেই।",
+        employerNote: "সৌদি নিয়োগকর্তা বিমান ভাড়া দিলে খরচ কমার কথা বলেছেন বিএমইটির মহাপরিচালক।",
+        routes: ["লাইসেন্সপ্রাপ্ত রিক্রুটিং এজেন্সির মাধ্যমে (এজেন্সিগুলো বায়রার সঙ্গে সরকারি নির্ধারিত খরচ মানার কথা জানিয়েছিল)"],
+        status: "news", source: "dsSaudi"
+      },
+      name: "সৌদি আরব",   flag: "🇸🇦", cap: { amount: 165000, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
+    { id: "malaysia",
+      detail: {
+        covered: ["পাসপোর্ট ফি", "মেডিকেল ফি", "রিক্রুটিং এজেন্সির সার্ভিস চার্জ", "নিবন্ধন ফি", "প্রবাসী কল্যাণ ফি", "বিমা"],
+        coveredNote: "৭৮,৯৯০ টাকার মধ্যে বাংলাদেশের দিকের এই খরচগুলো ধরা হয়েছে। প্রতিটির আলাদা টাকার অঙ্ক প্রকাশিত নেই।",
+        employer: ["প্রথমবার যাওয়া ও চুক্তি শেষে ফেরার বিমান টিকিট", "ভিসা প্রক্রিয়াকরণ ফি", "মালয়েশীয় ইমিগ্রেশনের জামানত", "মালয়েশীয় এজেন্সির সার্ভিস চার্জ", "মালয়েশিয়ায় বায়োমেট্রিক ও মেডিকেল পরীক্ষা"],
+        employerNote: "এই খরচগুলো নিয়োগকর্তার বহন করার কথা, শ্রমিকের নয়।",
+        routes: ["লাইসেন্সপ্রাপ্ত রিক্রুটিং এজেন্সি", "সরকারি প্রতিষ্ঠান BOESL"],
+        status: "news", source: "dsMalaysia",
+        latest: { text: "২০২৬ সালে মালয়েশিয়ার শ্রমবাজার আবার খুলছে: ৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী এজেন্সি ও BOESL)। নতুন পর্বের চূড়ান্ত খরচ ৩০ সেপ্টেম্বর ২০২৬ পর্যন্ত ঘোষণা হয়নি। সরকারি নির্দেশনা না আসা পর্যন্ত টাকা দেবেন না, মেডিকেল করাবেন না, পাসপোর্ট জমা দেবেন না।", source: "gvMalaysia2026" }
+      },
+      name: "মালয়েশিয়া",  flag: "🇲🇾", cap: { amount: 78990,  year: "২০২২", status: "news", source: "tbsMalaysia" }, reported: null, visaCheck: false },
     { id: "qatar",     name: "কাতার",      flag: "🇶🇦", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
     { id: "oman",      name: "ওমান",       flag: "🇴🇲", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: true },
     { id: "uae",       name: "সংযুক্ত আরব আমিরাত", flag: "🇦🇪", cap: { amount: 107780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
