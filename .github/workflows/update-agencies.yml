@@ -1,0 +1,30 @@
+name: Update agency list
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # every day, 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild agencies.js from the official BMET list
+        shell: pwsh
+        run: ./tools/update-agencies.ps1
+      - name: Commit if changed
+        run: |
+          # ignore the snapshot date line so we only commit when real data changed
+          if git diff --quiet -I'^/\* Snapshot' -I'^window.AGENCY_LIST = \{ date' -- agencies.js; then
+            echo "No data change"
+          else
+            git config user.name "github-actions"
+            git config user.email "actions@users.noreply.github.com"
+            git add agencies.js
+            git commit -m "Update agency list from BMET"
+            git push
+          fi

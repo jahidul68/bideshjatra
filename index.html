@@ -142,6 +142,9 @@ main{padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px)
 .stamp{justify-self:start;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.04em;padding:2px 14px;border:3px double currentColor;border-radius:8px;transform:rotate(-4deg);opacity:.92}
 .stamp.red{color:var(--stamp)}
 .stamp.amber{color:var(--amber)}
+.stamp.green{color:var(--ok)}
+.result.good{border-color:var(--ok);background:var(--ok-soft)}
+.result.warn2{border-color:var(--amber);background:var(--amber-soft)}
 .ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
 .statuses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .st{border-radius:12px;padding:10px 12px;font-size:15px}
@@ -204,7 +207,7 @@ footer a{color:var(--muted);overflow-wrap:anywhere}
 </main>
 <div class="toast" id="toast" hidden></div>
 
-<script src="data.js"></script>
+<script>document.write('<script src="data.js?t='+Math.floor(Date.now()/600000)+'"><\/script><script src="agencies.js?t='+Math.floor(Date.now()/600000)+'"><\/script>')</script>
 <script>
 (function(){
 const D = window.APP_DATA;
@@ -370,6 +373,29 @@ function checkRL(raw){
   const box = document.getElementById('rlresult');
   const digits = String(raw).replace(/[০-৯]/g, d => '০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/\D/g,'').replace(/^0+/,'');
   if(!digits){ box.innerHTML = `<div class="result"><b>শুধু সংখ্যাটি লিখুন</b><div class="src">যেমন: RL-1428 হলে লিখুন 1428</div></div>`; return; }
+  const L = window.AGENCY_LIST;
+  const off = L && L.rows.find(r => r[0] === digits);
+  if(off){
+    const [rl, name, st, exp] = off;
+    const lapsed = st === 'active' && exp && exp < new Date().toISOString().slice(0,10);
+    const info = {
+      active:    ['good','green','সক্রিয়','মেয়াদ শেষ না হওয়া পর্যন্ত লাইসেন্স বৈধ। তবে লিখিত চুক্তি ও রসিদ ছাড়া টাকা দেবেন না।'],
+      expired:   ['bad','red','মেয়াদ শেষ','লাইসেন্সের মেয়াদ শেষ। টাকা দেবেন না।'],
+      cancelled: ['bad','red','বাতিল','লাইসেন্স বাতিল। টাকা দেবেন না।'],
+      suspended: ['bad','red','স্থগিত','লাইসেন্স স্থগিত। টাকা দেবেন না।']
+    }[lapsed ? 'expired' : st] || ['warn2','amber',st,'অবস্থা নিশ্চিত নয়, সরকারি তালিকায় দেখুন।'];
+    const flagged = D.AGENCIES_FLAGGED.find(a => a.rl === digits);
+    box.innerHTML = `<div class="result ${info[0]}">
+      <span class="stamp ${info[1]}">${info[2]}</span>
+      <div><b>RL-${esc(bnDigits(rl))} · ${esc(name)}</b></div>
+      <div>${info[3]}</div>
+      ${exp ? `<div>মেয়াদ: ${esc(bnDigits(exp))}</div>` : ''}
+      ${flagged ? `<div>${esc(flagged.date)}: ${esc(flagged.reason)}।</div>${srcLine(flagged.source)}` : ''}
+      <div class="src">সরকারি (BMET) তালিকার কপি, ${esc(bnDigits(L.date))} তারিখে নেওয়া। সর্বশেষ অবস্থা <a href="https://oep.gov.bd/agencies" target="_blank" rel="noopener">সরকারি সাইটে</a> মিলিয়ে নিন।</div>
+    </div>`;
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
   const hit = D.AGENCIES_FLAGGED.find(a => a.rl === digits);
   if(hit){
     const word = hit.status === 'suspended' ? 'স্থগিত' : 'বাতিল';
@@ -384,8 +410,8 @@ function checkRL(raw){
   } else {
     box.innerHTML = `<div class="result">
       <span class="stamp amber">নিজে যাচাই করুন</span>
-      <div><b>RL-${esc(bnDigits(digits))}</b> আমাদের বাতিল তালিকায় নেই।</div>
-      <div>তবে এর মানে এজেন্সিটি নিরাপদ নয়। আমাদের তালিকা ছোট। নিচের সরকারি তালিকায় অবশ্যই দেখে নিন।</div>
+      <div><b>RL-${esc(bnDigits(digits))}</b> সরকারি তালিকার আমাদের কপিতে পাওয়া যায়নি।</div>
+      <div>নম্বরটি ঠিক আছে কিনা দেখুন। তালিকায় না থাকলে ওই এজেন্সির সঙ্গে লেনদেন করবেন না। নিচের সরকারি তালিকায় অবশ্যই দেখে নিন।</div>
     </div>`;
   }
   box.scrollIntoView({behavior:'smooth',block:'nearest'});
