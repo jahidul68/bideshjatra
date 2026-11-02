@@ -73,6 +73,11 @@ window.APP_DATA = {
       url: "https://www.jagonews24.com/en/national/news/97335",
       date: ""
     },
+    kathmanduCambodia: {
+      title: "How Bangladeshi jobseekers are trafficked into Cambodia's scam compounds — The Kathmandu Post",
+      url: "https://kathmandupost.com/world/2026/07/16/how-bangladeshi-jobseekers-are-trafficked-into-cambodia-s-scam-compounds",
+      date: "2026-07-16"
+    },
     dsMalaysia: {
       title: "Govt sets Tk 78,990 max migration cost for workers going to Malaysia — The Daily Star",
       url: "https://www.thedailystar.net/nrb/migration/news/govt-sets-tk-78990-max-migration-cost-bangladesh-workers-going-malaysia-3066141",
@@ -177,6 +182,32 @@ window.APP_DATA = {
     { claim: "পাসপোর্ট আমার কাছে রেখে দিন।", why: "পাসপোর্ট অন্যের হাতে থাকলে আপনাকে আটকে রাখা বা চাপ দেওয়া সহজ হয়।", todo: "পাসপোর্ট নিজের কাছে রাখুন, প্রয়োজনে শুধু ফটোকপি দিন।" },
     { claim: "সরকারি খরচে হয় না, এর চেয়ে বেশি লাগবেই।", why: "সরকার নির্ধারিত খরচের বেশি নেওয়া নিয়মবিরুদ্ধ। বেশি টাকা ধার করে গেলে ঋণ শোধ করতেই বছর চলে যায়।", todo: "দেশের পাতায় সরকারি খরচ দেখে নিন, বেশি চাইলে অভিযোগ করুন।" },
     { claim: "এজেন্সির নাম বলা যাবে না, আমিই সব করে দেব।", why: "লাইসেন্স ছাড়া কেউ বিদেশে কর্মী পাঠাতে পারে না। নাম লুকালে যাচাই করার উপায় থাকে না।", todo: "এজেন্সির নাম ও RL নম্বর চেয়ে নিন, তারপর যাচাই করুন।" }
+  ],
+
+  /* ---------- UPDATES TRACKER (recent changes that affect people going abroad) ---------- */
+  // level: "urgent" = act/avoid now, "change" = rule or cost changed, "info" = good to know
+  // Add new items at the top. Every item needs a date, a plain-language "todo" and a source.
+  UPDATES: [
+    { date: "2026-10-12", level: "urgent", country: "malaysia",
+      title: "মালয়েশিয়ার শ্রমবাজার আবার খুলছে, কিন্তু চূড়ান্ত খরচ এখনো ঘোষণা হয়নি",
+      what: "৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী, BOESL)। ৩০ সেপ্টেম্বর ২০২৬ পর্যন্ত খরচ, যাত্রার সময় ও পুরো নিয়ম ঘোষণা হয়নি। শিল্প সংশ্লিষ্টরা ৬ লাখ টাকার বেশি খরচের আশঙ্কা করছেন।",
+      todo: "সরকারি নির্দেশনা না আসা পর্যন্ত কাউকে টাকা দেবেন না, মেডিকেল করাবেন না, পাসপোর্ট জমা দেবেন না।",
+      source: "gvMalaysia2026" },
+    { date: "2026-10-01", level: "change", country: null,
+      title: "প্রবাসী কল্যাণ ফি বেড়ে ৫,৫০০ টাকা",
+      what: "১ অক্টোবর ২০২৬ থেকে ওয়েজ আর্নার্স ওয়েলফেয়ার বোর্ডের ফি ৫,৫০০ টাকা।",
+      todo: "এই ফির রসিদ নিন। এর বেশি চাইলে অভিযোগ করুন।",
+      source: "tbsWelfare" },
+    { date: "2026-07-16", level: "urgent", country: "cambodia",
+      title: "কম্বোডিয়ায় চাকরির নামে স্ক্যাম কম্পাউন্ডে পাচার",
+      what: "বাংলাদেশি চাকরিপ্রার্থীদের কম্বোডিয়ার স্ক্যাম কম্পাউন্ডে পাচার করার ঘটনা নিয়ে প্রতিবেদন প্রকাশিত হয়েছে।",
+      todo: "কম্বোডিয়ার চাকরির প্রস্তাব পেলে BMET-এ যাচাই ছাড়া যাবেন না। টুরিস্ট ভিসায় যাবেন না।",
+      source: "kathmanduCambodia" },
+    { date: "2026-06-02", level: "change", country: "russia",
+      title: "রাশিয়ায় ভুয়া প্রতিশ্রুতিতে কর্মী পাঠানোয় ৩টি এজেন্সির লাইসেন্স বাতিল",
+      what: "৩০ জন বাংলাদেশিকে প্রতারণামূলকভাবে পাঠানোর অভিযোগে RS International, Jabal-E-Noor ও TS Overseas Limited-এর লাইসেন্স বাতিল।",
+      todo: "এজেন্সির RL নম্বর দিয়ে যাচাই করুন।",
+      source: "paRussia" }
   ],
 
   /* ---------- NEWS (last 30 days, shown on top of the home page) ---------- */
