@@ -233,7 +233,7 @@ const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষাম
 function home(){
   return `
   <section class="hero">
-    <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে ৩টি জিনিস যাচাই করুন।</h1>
+    <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৪টি জিনিস যাচাই করুন।</h1>
     <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
   </section>
   ${proto}
@@ -241,6 +241,7 @@ function home(){
     <a class="big" href="#countries"><span class="num">১</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সি যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#flags"><span class="num">৩</span><span><b>দালাল কি এটা বলছে?</b><span>প্রতারণার সাধারণ কথাগুলো চিনে নিন</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#myths"><span class="num">৪</span><span><b>ভুল ধারণা ও সত্য</b><span>যেমন: বাংলাদেশ থেকে ডিভি লটারি হয় না</span></span><span class="arr">${chev}</span></a>
   </div>
   <div class="callstrip">
     <span class="n">১৬৭৬৮</span>
@@ -392,6 +393,18 @@ function flags(){
   ${shareBlock('বিদেশে কাজে যাওয়ার আগে দালালের এই কথাগুলো চিনে নিন')}`;
 }
 
+function myths(){
+  return `
+  <h1 style="font-size:28px">ভুল ধারণা ও সত্য</h1>
+  <p style="margin:0;color:var(--muted)">অনেকে যা বিশ্বাস করেন, কিন্তু সত্য নয়। প্রতারকরা এগুলোই কাজে লাগায়।</p>
+  ${D.MYTHS.map((m,i) => `
+    <details class="flag"${i===0?' open':''}><summary><q>${esc(m.myth)}</q>${down}</summary>
+      <div class="body"><div>${esc(m.fact)}</div><div class="todo">${esc(m.todo)}</div>
+      ${badge(m.status)}${m.source ? srcLine(m.source) : ''}${(m.extra||[]).map(srcLine).join('')}</div>
+    </details>`).join('')}
+  ${shareBlock('বাংলাদেশ থেকে ডিভি লটারি হয় না, ভুয়া বিজ্ঞাপন থেকে সাবধান')}`;
+}
+
 function shareBlock(text){
   return `<div class="share">
     <a class="btn" id="wa" data-text="${esc(text)}" href="#" target="_blank" rel="noopener">WhatsApp-এ পাঠান</a>
@@ -416,6 +429,7 @@ function route(){
   else if(h.startsWith('c-')) html = country(h.slice(2));
   else if(h === 'agency') html = agency();
   else if(h === 'flags') html = flags();
+  else if(h === 'myths') html = myths();
   else { html = home(); isHome = true; }
   view.innerHTML = html;
   backBtn.hidden = isHome;

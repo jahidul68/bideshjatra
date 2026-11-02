@@ -53,6 +53,26 @@ window.APP_DATA = {
       url: "https://bangladeshmonitor.com.bd/en/ami-probashi-launches-ivr-service-for-migrant-visa-verification",
       date: "2026-01-11"
     },
+    dv2026: {
+      title: "DV Lottery: Bangladesh, 18 countries not eligible for 2026 — Prothom Alo",
+      url: "https://en.prothomalo.com/bangladesh/90dem0dj9j",
+      date: ""
+    },
+    dvEmbassy: {
+      title: "No more DV for BD nationals — The Financial Express",
+      url: "https://today.thefinancialexpress.com.bd/metro-news/no-more-dv-for-bd-nationals",
+      date: ""
+    },
+    dvFraud: {
+      title: "US Embassy warns applicants of visa fraud — The Financial Express",
+      url: "https://old.thefinancialexpress.com.bd/national/us-embassy-warns-applicants-of-visa-fraud-1674212437",
+      date: "2023"
+    },
+    dvJago: {
+      title: "DV 2027 lottery reopened by court order, eligibility unclear — Jago News 24",
+      url: "https://www.jagonews24.com/en/national/news/97335",
+      date: ""
+    },
     oep: {
       title: "BMET Overseas Employment Platform — agency search",
       url: "https://oep.gov.bd/agencies",
@@ -124,6 +144,31 @@ window.APP_DATA = {
     { claim: "পাসপোর্ট আমার কাছে রেখে দিন।", why: "পাসপোর্ট অন্যের হাতে থাকলে আপনাকে আটকে রাখা বা চাপ দেওয়া সহজ হয়।", todo: "পাসপোর্ট নিজের কাছে রাখুন, প্রয়োজনে শুধু ফটোকপি দিন।" },
     { claim: "সরকারি খরচে হয় না, এর চেয়ে বেশি লাগবেই।", why: "সরকার নির্ধারিত খরচের বেশি নেওয়া নিয়মবিরুদ্ধ। বেশি টাকা ধার করে গেলে ঋণ শোধ করতেই বছর চলে যায়।", todo: "দেশের পাতায় সরকারি খরচ দেখে নিন, বেশি চাইলে অভিযোগ করুন।" },
     { claim: "এজেন্সির নাম বলা যাবে না, আমিই সব করে দেব।", why: "লাইসেন্স ছাড়া কেউ বিদেশে কর্মী পাঠাতে পারে না। নাম লুকালে যাচাই করার উপায় থাকে না।", todo: "এজেন্সির নাম ও RL নম্বর চেয়ে নিন, তারপর যাচাই করুন।" }
+  ],
+
+  /* ---------- MYTHS & FACTS (things many people wrongly believe) ---------- */
+  // Each item: myth (the common belief), fact (the truth), todo (what to do), status, source.
+  MYTHS: [
+    { myth: "বাংলাদেশ থেকে আমেরিকার ডিভি (গ্রিন কার্ড) লটারিতে আবেদন করা যায়।",
+      fact: "বাংলাদেশের নাগরিকরা ডিভি লটারিতে আবেদন করতে পারেন না। ২০১২ সাল থেকে বাংলাদেশ এই কর্মসূচির বাইরে, কারণ গত পাঁচ বছরে ৫০ হাজারের বেশি বাংলাদেশি যুক্তরাষ্ট্রে অভিবাসী হয়েছেন। ২০২৬ সালের তালিকাতেও বাংলাদেশ বাদ ছিল। ২০২৭ সালের তালিকা প্রকাশের আগে নিশ্চিত করে কিছু বলা যায় না, তাই শুধু মার্কিন সরকারের সাইটে দেখুন।",
+      todo: "ডিভি লটারির নামে কাউকে টাকা, NID বা পাসপোর্টের কপি দেবেন না। মার্কিন সরকার ইমেইল বা ফোনে লটারি জেতার খবর জানায় না।",
+      status: "news", source: "dv2026", extra: ["dvEmbassy", "dvFraud", "dvJago"] },
+    { myth: "টাকা দিলে 'গ্রিন কার্ড' বা আমেরিকার ভিসা নিশ্চিত করে দেওয়া যায়।",
+      fact: "কেউ ভিসা বা গ্রিন কার্ডের নিশ্চয়তা দিতে পারে না। ভিসা দেওয়ার সিদ্ধান্ত নেয় শুধু সংশ্লিষ্ট দেশের দূতাবাস বা সরকার। এ ধরনের প্রস্তাব প্রায় সবসময় প্রতারণা।",
+      todo: "ভিসার তথ্য শুধু দূতাবাসের অফিসিয়াল ওয়েবসাইট থেকে নিন।",
+      status: "draft" },
+    { myth: "ট্যুরিস্ট বা ভিজিট ভিসায় গিয়ে ওখানে কাজের ভিসা করে নেওয়া যায়।",
+      fact: "বেশিরভাগ দেশে এটা সম্ভব নয়। এভাবে গিয়ে কাজ করলে অবৈধ হিসেবে ধরা পড়তে, জেল বা দেশে ফেরত পাঠানোর ঝুঁকি থাকে।",
+      todo: "শুধু কাজের ভিসা (ওয়ার্ক পারমিট) ও BMET ছাড়পত্র নিয়ে যান।",
+      status: "draft" },
+    { myth: "সোশ্যাল মিডিয়ায় 'ঘরে বসে বিদেশে চাকরি' বা 'ফ্রি ভিসা' বিজ্ঞাপন সত্য।",
+      fact: "ফেসবুক পেজ ও জব সাইটে ভুয়া বিজ্ঞাপন দিয়ে ছবি, NID নম্বর ও টাকা নেওয়ার ঘটনা ঘটেছে। 'ফ্রি ভিসা' মানে সাধারণত নিজে চাকরি খুঁজতে হবে এবং অনেক সময় অবৈধ অবস্থায় পড়তে হয়।",
+      todo: "বিজ্ঞাপনে এজেন্সির RL নম্বর না থাকলে এড়িয়ে যান, নম্বর থাকলে সরকারি তালিকায় মিলিয়ে নিন।",
+      status: "draft" },
+    { myth: "বেশি টাকা দিলে সবকিছু দ্রুত ও নিরাপদে হয়ে যায়।",
+      fact: "সরকার প্রতিটি দেশের জন্য সর্বোচ্চ খরচ ঠিক করেছে। এর বেশি দিলে নিরাপত্তা বাড়ে না, ঋণের বোঝা বাড়ে।",
+      todo: "দেশের পাতায় সরকারি খরচ দেখুন, বেশি চাইলে রসিদ চান ও অভিযোগ করুন।",
+      status: "draft" }
   ],
 
   /* ---------- WHERE TO GET HELP ---------- */
