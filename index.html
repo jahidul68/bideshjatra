@@ -259,13 +259,13 @@ function home(){
 
 function newsBlock(){
   const day = 86400000, now = Date.now();
-  const items = (D.NEWS || []).filter(n => { const t = Date.parse(n.date); return t && now - t <= 7*day && t - now < day; })
+  const items = (D.NEWS || []).filter(n => { const t = Date.parse(n.date); return t && now - t <= 30*day && t - now < day; })
     .sort((a,b) => b.date.localeCompare(a.date));
-  return `<section class="news"><h2>গত ৭ দিনের প্রতারণা ও দালালের খবর</h2>` +
+  return `<section class="news"><h2>গত ৩০ দিনের প্রতারণা ও দালালের খবর</h2>` +
     (items.length
       ? `<ul>${items.map(n => `<li><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span></li>`).join('')}</ul>`
-      : `<p class="src">এই সপ্তাহের খবর এখনো যোগ করা হয়নি।</p>`) +
-    `<a class="more" href="${esc(D.NEWS_SEARCH_URL)}" target="_blank" rel="noopener">আরও খবর খুঁজুন (গত ৭ দিন)</a></section>`;
+      : `<p class="src">এই মাসের খবর এখনো যোগ করা হয়নি।</p>`) +
+    `<a class="more" href="${esc(D.NEWS_SEARCH_URL)}" target="_blank" rel="noopener">আরও খবর খুঁজুন (গত ৩০ দিন)</a></section>`;
 }
 
 function countries(){
