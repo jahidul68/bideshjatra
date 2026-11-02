@@ -78,7 +78,11 @@ main{padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px)
 .cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .cbtn{display:flex;align-items:center;gap:10px;padding:14px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:17px;min-width:0}
 .cbtn:hover{border-color:var(--brand)}
-.cbtn .f{font-size:26px;line-height:1;flex:none}
+.cbtn .f{line-height:0;flex:none}
+.fimg{height:auto;vertical-align:middle;border-radius:3px;box-shadow:0 0 0 1px var(--line)}
+.cbtn .fimg{width:36px}
+h1 .fimg{width:40px;margin-right:4px}
+.meta .fimg{width:20px}
 .cbtn .nm{min-width:0;overflow-wrap:anywhere}
 .empty{color:var(--muted);text-align:center;padding:20px}
 
@@ -317,12 +321,16 @@ function home(){
   <aside class="col-news" aria-label="সর্বশেষ খবর ও আপডেট">${updStrip()}${newsBlock()}</aside></div>`;
 }
 
+/* flags are small PNGs in /flags: Windows has no flag emoji */
+const FLAG_CODE = {saudi:'sa',malaysia:'my',qatar:'qa',oman:'om',uae:'ae',kuwait:'kw',singapore:'sg',bahrain:'bh',jordan:'jo',maldives:'mv',lebanon:'lb',brunei:'bn',iraq:'iq',japan:'jp',russia:'ru'};
+const flagImg = c => FLAG_CODE[c.id] ? `<img class="fimg" src="flags/${FLAG_CODE[c.id]}.png" alt="" width="32" loading="lazy">` : '';
+
 function updCard(u){
   const lv = {urgent:'জরুরি', change:'পরিবর্তন', info:'জেনে রাখুন'}[u.level] || 'জেনে রাখুন';
   const isNew = Date.now() - Date.parse(u.date) <= 14*86400000;
   const c = u.country && D.COUNTRIES.find(x => x.id === u.country);
   return `<article class="upd ${esc(u.level)}">
-    <div class="meta"><span class="chip ${esc(u.level)}">${lv}</span>${isNew ? '<span class="chip new">নতুন</span>' : ''}<span>${esc(bnDigits(u.date))}</span>${c ? `<a href="#c-${esc(c.id)}">${c.flag||''} ${esc(c.name)}</a>` : ''}</div>
+    <div class="meta"><span class="chip ${esc(u.level)}">${lv}</span>${isNew ? '<span class="chip new">নতুন</span>' : ''}<span>${esc(bnDigits(u.date))}</span>${c ? `<a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a>` : ''}</div>
     <h3>${esc(u.title)}</h3><div>${esc(u.what)}</div><div class="todo">${esc(u.todo)}</div>${srcLine(u.source)}</article>`;
 }
 function updates(){
@@ -357,14 +365,14 @@ function countries(){
 }
 function countryButtons(list){
   if(!list.length) return `<p class="empty">এই নামে কোনো দেশ পাওয়া যায়নি।</p>`;
-  return list.map(c => `<a class="cbtn" href="#c-${esc(c.id)}"><span class="f" aria-hidden="true">${c.flag||''}</span><span class="nm">${esc(c.name)}</span></a>`).join('');
+  return list.map(c => `<a class="cbtn" href="#c-${esc(c.id)}"><span class="f" aria-hidden="true">${flagImg(c)}</span><span class="nm">${esc(c.name)}</span></a>`).join('');
 }
 
 function country(id){
   const c = D.COUNTRIES.find(x => x.id === id);
   if(!c) return `<p class="empty">দেশটি পাওয়া যায়নি। <a href="#countries">সব দেশ দেখুন</a></p>`;
   const done = store.get('steps-'+c.id) || [];
-  let h = `<h1 style="font-size:30px"><span aria-hidden="true">${c.flag||''}</span> ${esc(c.name)}</h1>`;
+  let h = `<h1 style="font-size:30px"><span aria-hidden="true">${flagImg(c)}</span> ${esc(c.name)}</h1>`;
 
   if(c.warning){
     h += `<div class="warn"><b>সতর্কতা</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
