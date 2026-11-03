@@ -20,7 +20,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-01",
+    lastUpdated: "2026-11-03",
     version: "0.1 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: ""
@@ -128,6 +128,41 @@ window.APP_DATA = {
       url: "https://oep.gov.bd/agencies",
       date: ""
     },
+    libyaMonitor: {
+      title: "Libya reaffirms commitment to recruiting Bangladeshi workers — Bangladesh Monitor",
+      url: "https://www.bangladeshmonitor.com.bd/en/libya-reaffirms-commitment-to-recruiting-bangladeshi-workers",
+      date: ""
+    },
+    dsRomania: {
+      title: "Romania labour market opening up — The Daily Star",
+      url: "https://www.thedailystar.net/nrb/migration/news/romania-labour-market-opening-3095856",
+      date: ""
+    },
+    paItalyExpert: {
+      title: "Best environment prevailing to go to Italy through the legal process: Expert — Prothom Alo",
+      url: "https://en.prothomalo.com/bangladesh/xol639y4vx",
+      date: ""
+    },
+    koreaQuota: {
+      title: "Only 37% of South Korea quota for Bangladeshi workers filled over five years — Bonik Barta",
+      url: "https://en.bonikbarta.com/bangladesh/pkKgcbRkEm2eZOVa",
+      date: ""
+    },
+    tbsRomania: {
+      title: "Bangladeshi migrants find Romania far from European dream — The Business Standard",
+      url: "https://www.tbsnews.net/node/627406",
+      date: ""
+    },
+    paItaly: {
+      title: "Why fewer workers going to Italy despite potential job scope — Prothom Alo",
+      url: "https://en.prothomalo.com/bangladesh/3o1fw16h24",
+      date: ""
+    },
+    dsLibyaReturn: {
+      title: "174 Bangladeshis return from Libya — The Daily Star",
+      url: "https://online91.thedailystar.net/nrb/migration?page=18",
+      date: "2026-09-01"
+    },
     baira: {
       title: "BAIRA member list",
       url: "https://baira.org.bd/dir/all-member-list",
@@ -191,7 +226,24 @@ window.APP_DATA = {
     { id: "iraq", access: { state: "unknown", note: "অতীতে বন্ধ থাকা বাজারের তালিকায় ছিল, বর্তমান অবস্থা নিশ্চিত নয়।", source: "dsLabourWall" },      name: "ইরাক",       flag: "🇮🇶", cap: { amount: 129540, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
     { id: "japan", access: { state: "limited", note: "চুক্তি আছে, কিন্তু ভাষা ও দক্ষতার শর্তে খুব কম মানুষ যেতে পারছেন।", source: "bonikJapan" },     name: "জাপান",      flag: "🇯🇵", cap: { amount: 148500, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
     { id: "russia", access: { state: "unknown", note: "সরকারি তথ্য পাইনি। ভুয়া প্রস্তাব নিয়ে সতর্কতা আছে।", source: null },    name: "রাশিয়া",     flag: "🇷🇺", cap: null, reported: null, visaCheck: false,
-      warning: { text: "২০২৬ সালের জুনে ভুয়া প্রতিশ্রুতি দিয়ে ৩০ জন তরুণকে রাশিয়ায় পাঠানোর অভিযোগে ৩টি এজেন্সির লাইসেন্স বাতিল করা হয়েছে। বেশি বেতনের লোভনীয় প্রস্তাব পেলে বিশেষ সতর্ক থাকুন।", source: "paRussia" } }
+      warning: { text: "২০২৬ সালের জুনে ভুয়া প্রতিশ্রুতি দিয়ে ৩০ জন তরুণকে রাশিয়ায় পাঠানোর অভিযোগে ৩টি এজেন্সির লাইসেন্স বাতিল করা হয়েছে। বেশি বেতনের লোভনীয় প্রস্তাব পেলে বিশেষ সতর্ক থাকুন।", source: "paRussia" } },
+    { id: "korea", access: { state: "limited", note: "সরকার-থেকে-সরকার (EPS) চুক্তির মাধ্যমে কর্মী যান, কিন্তু বরাদ্দ কোটার মাত্র ৩৭% পূরণ হয়েছে। ভাষা পরীক্ষা পাস করতে হয়।", source: "koreaQuota" },
+      detail: {
+        routes: ["সরকারি প্রতিষ্ঠান BOESL-এর মাধ্যমে (সরকার-থেকে-সরকার চুক্তি)"],
+        employerNote: "রিপোর্ট অনুযায়ী পাঁচ বছরে কোটার মাত্র ৩৭% কর্মী পাঠানো গেছে। দালাল বা বেসরকারি এজেন্সিকে টাকা দিয়ে এই পথে যাওয়ার প্রয়োজন নেই।",
+        status: "news", source: "koreaQuota",
+        latest: { text: "পাঁচ বছরে প্রায় ১৪,৮২৯ জন কর্মী গেছেন, যা বরাদ্দ কোটার প্রায় ৩৭%। ভাষা পরীক্ষা (EPS-TOPIK) পাস করা বহু কর্মী এখনো যাওয়ার অপেক্ষায়।", source: "koreaQuota" }
+      },
+      name: "দক্ষিণ কোরিয়া", flag: "🇰🇷", cap: null, reported: null, visaCheck: false },
+    { id: "italy", access: { state: "limited", note: "ইতালির সঙ্গে ২০২০ সালের চুক্তিতে বৈধ পথ আছে, কিন্তু কম কর্মী যাচ্ছেন। ২০২০–২০২৩ সালে কাজের ভিসায় যাওয়াদের প্রায় ৮০% পরে অবৈধ হয়ে পড়েছেন বলে প্রতিবেদন আছে।", source: "paItaly" }, detail: { routes: ["ইতালি ও বাংলাদেশের মধ্যকার ২০২০ সালের চুক্তির আওতায় বৈধ পথ"], employerNote: "ইতালীয় দূতাবাসের এক বিশেষজ্ঞের মতে ইতালি ১,৫০,০০০ দক্ষ কর্মী নেওয়ার পরিকল্পনা করছে এবং বাংলাদেশ সেই তালিকায় আছে; ভিসা ফি ৬৫ ইউরো।", status: "news", source: "paItalyExpert" },
+      name: "ইতালি", flag: "🇮🇹", cap: null, reported: null, visaCheck: false,
+      warning: { text: "ভিসার সরকারি ফি মাত্র ৬৫ ইউরো বলে ইতালীয় দূতাবাসের এক বিশেষজ্ঞ জানিয়েছেন, অথচ বাংলাদেশে দালালরা অনেক বেশি টাকা নেয়। 'ইতালির ভিসা' বলে বড় অঙ্কের টাকা চাইলে সতর্ক হোন।", source: "paItaly" } },
+    { id: "romania", access: { state: "limited", note: "শ্রমবাজার খোলা, কিন্তু বহু বাংলাদেশি বিপুল টাকা দিয়েও প্রতিশ্রুত কাজ বা ওয়ার্ক পারমিট পাননি।", source: "tbsRomania" }, detail: { employerNote: "২০২০ সালে সরকারি ব্যবস্থায় ১,৬৫,০০০ টাকা নির্ধারিত ছিল বলে প্রতিবেদন আছে, অথচ বেসরকারি রিক্রুটারদের আসল খরচ ১০–১২ লাখ টাকা বলা হয়েছে। রোমানিয়ার শ্রমবাজার খুলছে বলেও প্রতিবেদন আছে।", status: "news", source: "dsRomania" },
+      name: "রোমানিয়া", flag: "🇷🇴", cap: null, reported: { min: 600000, max: 800000, source: "tbsRomania", note: "এজেন্সির নেওয়া টাকা (টিবিএসের প্রতিবেদন); অন্য সূত্রে ১০–১২ লাখ টাকাও বলা হয়েছে" }, visaCheck: false,
+      warning: { text: "রোমানিয়ার বাংলাদেশ চেম্বার অন্তত ২০০টি প্রতিশ্রুতি ভঙ্গের অভিযোগ সামলেছে। আগে নিশ্চিত হোন চাকরিদাতা ও ওয়ার্ক পারমিট সত্যি কিনা, এরপর টাকা দিন।", source: "tbsRomania" } },
+    { id: "libya", access: { state: "unknown", note: "লিবিয়া বাংলাদেশি কর্মী নেওয়ার আগ্রহ জানালেও ২০২৬ সালেও লিবিয়া থেকে বহু বাংলাদেশিকে ফেরত আনা হচ্ছে। নির্ভরযোগ্য বৈধ পথের তথ্য পাইনি।", source: "dsLibyaReturn" }, detail: { employerNote: "লিবিয়া দক্ষ ও আধা-দক্ষ কর্মী (চিকিৎসা কর্মীসহ) নেওয়ার আগ্রহ আবার জানিয়েছে (প্রতিবেদনের তারিখ অস্পষ্ট)। তবু ফেরত আসা কর্মীদের বেশিরভাগই অবৈধভাবে ইউরোপ যেতে লিবিয়ায় ঢুকেছিলেন।", status: "news", source: "libyaMonitor" },
+      name: "লিবিয়া", flag: "🇱🇾", cap: null, reported: null, visaCheck: false,
+      warning: { text: "২০২৬ সালের সেপ্টেম্বরে লিবিয়ার আটককেন্দ্র থেকে ১৭৪ বাংলাদেশি ফিরেছেন। ইউরোপ যাওয়ার লোভ দেখিয়ে লিবিয়া হয়ে সাগরপথে নিয়ে যাওয়ার প্রস্তাব বিপজ্জনক ও অবৈধ।", source: "dsLibyaReturn" } }
   ],
 
   /* ---------- CANCELLED / SUSPENDED AGENCIES (from news or BMET) ---------- */
