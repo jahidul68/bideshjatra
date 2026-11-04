@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-03. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-03", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-04. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-04", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -1859,7 +1859,7 @@ window.AGENCY_LIST = { date: "2026-11-03", rows: [
 ["1802","MAHA EMPLOYMENT AGENCY LTD.","expired","2026-07-02"],
 ["2953","MAHAD HUMAN RESOURCES","active","2029-02-24"],
 ["1289","MAHADI TRAVELS AND TOURS","active","2027-11-22"],
-["2670","MAHARUN OVERSEAS","active","2026-11-26"],
+["2670","MAHARUN OVERSEAS","active","2029-11-06"],
 ["0802","MAHE BUSINESS LIMITED","active","2028-12-31"],
 ["2714","MAHI SOWAR OVERSEAS","active","2026-12-23"],
 ["2803","MAHMUD OVERSEAS","active","2027-05-15"],
@@ -2230,7 +2230,7 @@ window.AGENCY_LIST = { date: "2026-11-03", rows: [
 ["1338","PORTCITY INTERNATIONAL LIMITED","active","2028-06-21"],
 ["1928","PR OVERSEAS LTD","cancelled","2027-10-12"],
 ["0310","PRANTIK TRAVELS & TOURISM LTD","active","2028-12-31"],
-["2414","PRANTO DIGONTO INTERNATIONAL","expired","2026-02-03"],
+["2414","PRANTO DIGONTO INTERNATIONAL","active","2029-02-03"],
 ["0595","PRIME OVERSEAS LIMITED","active","2028-12-31"],
 ["2995","PRINCE OVERSEAS","active","2029-03-08"],
 ["0353","PRINEOLINA INTERNATIONAL LTD.","active","2028-12-31"],
