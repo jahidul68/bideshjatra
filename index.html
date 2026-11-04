@@ -287,7 +287,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   <a href="#updates" data-tab="updates"><span class="ic" aria-hidden="true">🔔</span>আপডেট</a>
   <a href="#flags" data-tab="flags"><span class="ic" aria-hidden="true">⚠️</span>সতর্কতা</a>
 </div></nav>
-<div class="visitors" id="visitors" hidden>আজ <b id="vcount">০</b> জন দর্শক</div>
+<div class="visitors" id="visitors" hidden>আজ <b id="vcount">০</b> জন ভিজিট করেছেন</div>
 <div class="toast" id="toast" hidden></div>
 
 <script>document.write('<script src="data.js?t='+Math.floor(Date.now()/600000)+'"><\/script><script src="agencies.js?t='+Math.floor(Date.now()/600000)+'"><\/script>')</script>
@@ -601,7 +601,7 @@ function foot(){
   const used = Object.values(D.SOURCES);
   return `<div>সর্বশেষ হালনাগাদ: ${esc(bnDigits(D.META.lastUpdated))} · সংস্করণ ${esc(D.META.version)}</div>
     <div>এটি সরকারি অ্যাপ নয়। তথ্য সংবাদপত্র ও সরকারি ওয়েবসাইট থেকে নেওয়া। সিদ্ধান্ত নেওয়ার আগে সরকারি অফিসে যাচাই করুন।</div>
-    <div class="credit">জাহিদ Claude-এর সাহায্যে তৈরি করেছেন</div>
+    <div class="credit">Built by Jahid using Claude</div>
     <details><summary>সব সূত্র</summary><ul>${used.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>`;
 }
 
