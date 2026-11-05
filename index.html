@@ -362,7 +362,7 @@ const flagImg = c => FLAG_CODE[c.id] ? `<img class="fimg" src="flags/${FLAG_CODE
 const hashStr = t => { let h = 0; for(const ch of String(t)) h = (h*31 + ch.codePointAt(0)) >>> 0; return h.toString(36).slice(0,6); };
 const updKey = u => 'u-' + u.date + '-' + hashStr(u.title);
 const newsKey = n => 'n-' + n.date + '-' + hashStr(n.title);
-const siteBase = () => D.META.siteUrl || location.href.split('#')[0];
+const siteBase = () => D.META.siteUrl || (location.origin + location.pathname);
 const shareRow = (kind, key) => `<div class="shr"><button type="button" class="fb" data-share="fb" data-kind="${kind}" data-key="${esc(key)}">Facebook</button><button type="button" class="wa" data-share="wa" data-kind="${kind}" data-key="${esc(key)}">WhatsApp</button><button type="button" class="pc" data-share="card" data-kind="${kind}" data-key="${esc(key)}">ফটোকার্ড</button></div>`;
 function shareItem(kind, key){
   if(kind === 'upd'){
@@ -429,7 +429,7 @@ async function makeCard(it){
   const tw = W - 2*P - 30;
   x.fillStyle = C.ink; x.font = `800 60px ${DISP}`;
   for(const l of wrapLines(x, it.title, tw, 4)){ x.fillText(l, P+10, y); y += 76; }
-  y += 14;
+  y += 26;
   if(it.body){
     x.fillStyle = C.ink; x.font = `500 34px ${BODY}`;
     const room = Math.max(2, Math.floor((H - 190 - 330 - y) / 50));
@@ -449,8 +449,10 @@ async function makeCard(it){
   // footer
   x.fillStyle = C.brand; x.fillRect(0, H-150, W, 150);
   x.fillStyle = '#fff'; x.textBaseline = 'middle'; x.font = `700 34px ${BODY}`;
-  x.fillText('দালালের কথায় নয়, সরকারি তথ্য যাচাই করে সিদ্ধান্ত নিন', P, H-100);
-  x.font = `500 28px ${BODY}`; x.fillText((it.site || siteBase()).replace(/^https?:\/\//,'').replace(/^file:.*$/,'বিদেশযাত্রা যাচাই'), P, H-50);
+  // the web address is printed only once META.siteUrl is set (own domain)
+  const addr = (D.META.siteUrl || '').replace(/^https?:\/\//,'').replace(/\/$/,'');
+  x.fillText('দালালের কথায় নয়, সরকারি তথ্য যাচাই করে সিদ্ধান্ত নিন', P, addr ? H-100 : H-75);
+  if(addr){ x.font = `600 30px ${BODY}`; x.fillText(addr, P, H-50); }
   const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
   const file = new File([blob], 'bideshjatra-' + it.date + '.png', {type:'image/png'});
   const url = URL.createObjectURL(blob);
@@ -771,7 +773,7 @@ function applySize(i){
   t.addEventListener('click', () => { i = (i + 1) % 3; store.set('tsize', i); applySize(i); }); })();
 
 /* ---------- router ---------- */
-function pageUrl(){ return (D.META.siteUrl || location.href.split('#')[0]) + location.hash; }
+function pageUrl(){ return siteBase() + location.hash; }
 function route(){
   stopSpeak();
   const h = (location.hash || '#home').slice(1);
