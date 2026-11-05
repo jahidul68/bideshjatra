@@ -247,6 +247,16 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .upd{background:var(--card);border:1.5px solid var(--line);border-left-width:6px;border-radius:var(--r);padding:14px 16px;display:grid;gap:6px}
 .upd.urgent{border-left-color:var(--stamp)} .upd.change{border-left-color:var(--amber)} .upd.info{border-left-color:var(--brand)}
 .upd h3{font-size:19px}
+.shr{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.shr button{font:inherit;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:36px}
+.shr button:hover{border-color:var(--brand)}
+.shr .fb{color:#1877f2} .shr .wa{color:var(--ok)} .shr .pc{color:var(--brand)}
+.pcov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:50;padding:16px}
+.pcov[hidden]{display:none}
+.pcbox{background:var(--card);border-radius:var(--r);padding:14px;max-width:420px;width:100%;max-height:92vh;overflow:auto;display:grid;gap:10px}
+.pcbox img{width:100%;border-radius:10px;border:1px solid var(--line)}
+.pcbox .row{display:flex;gap:8px;flex-wrap:wrap}
+.pcbox .row .btn{flex:1 1 140px}
 .upd .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
 .chip{font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px}
 .chip.urgent{background:var(--stamp-soft);color:var(--stamp)} .chip.change{background:var(--amber-soft);color:var(--amber)} .chip.info{background:var(--brand-soft);color:var(--brand)} .chip.new{background:var(--ok);color:var(--card)}
@@ -348,13 +358,127 @@ function home(){
 const FLAG_CODE = {saudi:'sa',malaysia:'my',qatar:'qa',oman:'om',uae:'ae',kuwait:'kw',singapore:'sg',bahrain:'bh',jordan:'jo',maldives:'mv',lebanon:'lb',brunei:'bn',iraq:'iq',japan:'jp',russia:'ru',korea:'kr',italy:'it',romania:'ro',libya:'ly'};
 const flagImg = c => FLAG_CODE[c.id] ? `<img class="fimg" src="flags/${FLAG_CODE[c.id]}.png" alt="" width="32" loading="lazy">` : '';
 
+/* ---------- sharing: Facebook, WhatsApp, photocard ---------- */
+const hashStr = t => { let h = 0; for(const ch of String(t)) h = (h*31 + ch.codePointAt(0)) >>> 0; return h.toString(36).slice(0,6); };
+const updKey = u => 'u-' + u.date + '-' + hashStr(u.title);
+const newsKey = n => 'n-' + n.date + '-' + hashStr(n.title);
+const siteBase = () => D.META.siteUrl || location.href.split('#')[0];
+const shareRow = (kind, key) => `<div class="shr"><button type="button" class="fb" data-share="fb" data-kind="${kind}" data-key="${esc(key)}">Facebook</button><button type="button" class="wa" data-share="wa" data-kind="${kind}" data-key="${esc(key)}">WhatsApp</button><button type="button" class="pc" data-share="card" data-kind="${kind}" data-key="${esc(key)}">ফটোকার্ড</button></div>`;
+function shareItem(kind, key){
+  if(kind === 'upd'){
+    const u = (D.UPDATES||[]).find(x => updKey(x) === key); if(!u) return null;
+    const s = src(u.source);
+    return { kind, level: u.level, date: u.date, title: u.title, body: u.what, todo: u.todo,
+      outlet: s ? s.title.split(' — ').pop() : '', url: siteBase() + '#' + key };
+  }
+  const n = (D.NEWS||[]).find(x => newsKey(x) === key); if(!n) return null;
+  return { kind, level: 'news', date: n.date, title: n.title, body: '', todo: 'বিদেশে কাজে যাওয়ার আগে এজেন্সি ও খরচ যাচাই করুন।',
+    outlet: n.outlet, url: n.url, site: siteBase() };
+}
+function doShare(how, it){
+  const site = it.site || siteBase();
+  if(how === 'fb'){ window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(it.url), '_blank', 'noopener'); return; }
+  if(how === 'wa'){
+    const txt = it.kind === 'upd' ? `⚠️ ${it.title}\n\n${it.todo}\n\nবিস্তারিত: ${it.url}` : `📰 ${it.title} (${it.outlet})\n${it.url}\n\nবিদেশে যাওয়ার আগে যাচাই করুন: ${site}`;
+    window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank', 'noopener'); return;
+  }
+  makeCard(it);
+}
+function wrapLines(ctx, text, maxW, maxLines){
+  const words = String(text).split(/\s+/).filter(Boolean), lines = [];
+  let line = '';
+  for(let i = 0; i < words.length; i++){
+    const t = line ? line + ' ' + words[i] : words[i];
+    if(ctx.measureText(t).width <= maxW || !line){ line = t; continue; }
+    lines.push(line); line = words[i];
+    if(lines.length === maxLines){ line = null; break; }
+  }
+  if(line) lines.push(line);
+  if(lines.length > maxLines) lines.length = maxLines;
+  const used = lines.join(' ').split(/\s+/).length;
+  if(used < words.length){
+    let last = lines[lines.length-1];
+    while(last && ctx.measureText(last + '…').width > maxW) last = last.split(' ').slice(0,-1).join(' ');
+    lines[lines.length-1] = (last || '') + '…';
+  }
+  return lines;
+}
+async function makeCard(it){
+  toast('ফটোকার্ড তৈরি হচ্ছে…');
+  try{ await Promise.all(['800 60px "Baloo Da 2"','700 40px "Hind Siliguri"','500 36px "Hind Siliguri"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
+  const W = 1080, H = 1350, P = 72, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const x = cv.getContext('2d');
+  const C = { brand:'#0b5d4b', soft:'#dfeee8', ink:'#13211c', muted:'#56665f', paper:'#f2f5f3', red:'#c0352c', amber:'#a8650a', line:'#d3ddd8' };
+  const DISP = '"Baloo Da 2","Hind Siliguri","Noto Sans Bengali",sans-serif', BODY = '"Hind Siliguri","Noto Sans Bengali",sans-serif';
+  x.fillStyle = C.paper; x.fillRect(0,0,W,H);
+  // header band
+  x.fillStyle = C.brand; x.fillRect(0,0,W,150);
+  x.fillStyle = '#fff'; x.font = `800 58px ${DISP}`; x.textBaseline = 'middle'; x.fillText('বিদেশযাত্রা যাচাই', P, 80);
+  x.font = `500 30px ${BODY}`; x.textAlign = 'right'; x.fillText('যাচাই করে বিদেশে যান', W-P, 82); x.textAlign = 'left';
+  // card
+  const cardY = 190; x.fillStyle = '#fff'; x.beginPath(); x.roundRect(P-24, cardY, W-2*(P-24), H-cardY-190, 28); x.fill();
+  const lvColor = {urgent:C.red, change:C.amber, info:C.brand, news:C.brand}[it.level] || C.brand;
+  x.fillStyle = lvColor; x.fillRect(P-24, cardY, 14, H-cardY-190);
+  let y = cardY + 60;
+  const chip = {urgent:'জরুরি আপডেট', change:'নিয়ম পরিবর্তন', info:'জেনে রাখুন', news:'খবর'}[it.level] || 'আপডেট';
+  x.font = `700 32px ${BODY}`; const cw = x.measureText(chip).width + 44;
+  x.fillStyle = lvColor; x.beginPath(); x.roundRect(P+10, y-30, cw, 60, 30); x.fill();
+  x.fillStyle = '#fff'; x.fillText(chip, P+32, y+2);
+  x.fillStyle = C.muted; x.font = `500 32px ${BODY}`; x.fillText(bnDigits(it.date), P+cw+34, y+2);
+  y += 70; x.textBaseline = 'top';
+  const tw = W - 2*P - 30;
+  x.fillStyle = C.ink; x.font = `800 60px ${DISP}`;
+  for(const l of wrapLines(x, it.title, tw, 4)){ x.fillText(l, P+10, y); y += 76; }
+  y += 14;
+  if(it.body){
+    x.fillStyle = C.ink; x.font = `500 34px ${BODY}`;
+    const room = Math.max(2, Math.floor((H - 190 - 330 - y) / 50));
+    for(const l of wrapLines(x, it.body, tw, Math.min(room, 9))){ x.fillText(l, P+10, y); y += 50; }
+    y += 16;
+  }
+  if(it.todo){
+    x.font = `600 33px ${BODY}`;
+    const tl = wrapLines(x, it.todo, tw - 50, 5), bh = 70 + tl.length*48;
+    x.fillStyle = C.soft; x.beginPath(); x.roundRect(P+10, y, tw, bh, 20); x.fill();
+    x.fillStyle = C.brand; x.font = `800 34px ${DISP}`; x.fillText('✅ আপনার করণীয়', P+34, y+20);
+    x.fillStyle = C.ink; x.font = `600 33px ${BODY}`; let ty = y + 70;
+    for(const l of tl){ x.fillText(l, P+34, ty); ty += 48; }
+  }
+  // source line inside card bottom
+  if(it.outlet){ x.fillStyle = C.muted; x.font = `500 28px ${BODY}`; x.fillText('সূত্র: ' + it.outlet, P+10, H-190-60); }
+  // footer
+  x.fillStyle = C.brand; x.fillRect(0, H-150, W, 150);
+  x.fillStyle = '#fff'; x.textBaseline = 'middle'; x.font = `700 34px ${BODY}`;
+  x.fillText('দালালের কথায় নয়, সরকারি তথ্য যাচাই করে সিদ্ধান্ত নিন', P, H-100);
+  x.font = `500 28px ${BODY}`; x.fillText((it.site || siteBase()).replace(/^https?:\/\//,'').replace(/^file:.*$/,'বিদেশযাত্রা যাচাই'), P, H-50);
+  const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+  const file = new File([blob], 'bideshjatra-' + it.date + '.png', {type:'image/png'});
+  const url = URL.createObjectURL(blob);
+  const ov = document.getElementById('pcov');
+  const canFile = navigator.canShare && navigator.canShare({files:[file]});
+  ov.innerHTML = `<div class="pcbox" role="dialog" aria-label="ফটোকার্ড"><img src="${url}" alt="${esc(it.title)}">
+    <div class="row">${canFile ? '<button class="btn" type="button" id="pcshare">ছবি শেয়ার করুন</button>' : ''}<a class="btn ${canFile ? 'ghost' : ''}" href="${url}" download="${esc(file.name)}">ছবি ডাউনলোড</a></div>
+    <div class="src">${canFile ? 'শেয়ার চাপলে Facebook, WhatsApp বা অন্য অ্যাপ বেছে নিন।' : 'ছবিটি ডাউনলোড করে Facebook বা WhatsApp-এ পোস্ট করুন।'}</div>
+    <button class="btn ghost" type="button" id="pcclose">বন্ধ করুন</button></div>`;
+  ov.hidden = false;
+  const close = () => { ov.hidden = true; ov.innerHTML = ''; URL.revokeObjectURL(url); };
+  document.getElementById('pcclose').onclick = close;
+  ov.onclick = e => { if(e.target === ov) close(); };
+  const sb = document.getElementById('pcshare');
+  if(sb) sb.onclick = async () => { try{ await navigator.share({files:[file], title: it.title, text: it.title + '\n' + (it.kind === 'upd' ? it.url : siteBase())}); }catch(e){} };
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-share]'); if(!b) return;
+  const it = shareItem(b.dataset.kind, b.dataset.key); if(it) doShare(b.dataset.share, it);
+});
+
 function updCard(u){
   const lv = {urgent:'জরুরি', change:'পরিবর্তন', info:'জেনে রাখুন'}[u.level] || 'জেনে রাখুন';
   const isNew = Date.now() - Date.parse(u.date) <= 14*86400000;
   const c = u.country && D.COUNTRIES.find(x => x.id === u.country);
   return `<article class="upd ${esc(u.level)}">
     <div class="meta"><span class="chip ${esc(u.level)}">${lv}</span>${isNew ? '<span class="chip new">নতুন</span>' : ''}<span>${esc(bnDigits(u.date))}</span>${c ? `<a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a>` : ''}</div>
-    <h3>${esc(u.title)}</h3><div>${esc(u.what)}</div><div class="todo">${esc(u.todo)}</div>${u.status ? badge(u.status) : ''}${srcLine(u.source)}${(u.extra||[]).map(srcLine).join('')}</article>`;
+    <h3>${esc(u.title)}</h3><div>${esc(u.what)}</div><div class="todo">${esc(u.todo)}</div>${u.status ? badge(u.status) : ''}${srcLine(u.source)}${(u.extra||[]).map(srcLine).join('')}${shareRow('upd', updKey(u))}</article>`;
 }
 function updates(){
   const list = (D.UPDATES||[]).slice().sort((a,b) => b.date.localeCompare(a.date));
@@ -375,7 +499,7 @@ function newsBlock(){
     .sort((a,b) => b.date.localeCompare(a.date));
   return `<section class="news"><h2>গত ৩০ দিনের প্রতারণা ও দালালের খবর</h2>` +
     (items.length
-      ? `<ul>${items.map(n => `<li><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span></li>`).join('')}</ul>`
+      ? `<ul>${items.map(n => `<li><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span>${shareRow('news', newsKey(n))}</li>`).join('')}</ul>`
       : `<p class="src">এই মাসের খবর এখনো যোগ করা হয়নি।</p>`) +
     `<a class="more" href="${esc(D.NEWS_SEARCH_URL)}" target="_blank" rel="noopener">আরও খবর খুঁজুন (গত ৩০ দিন)</a></section>`;
 }
@@ -658,11 +782,13 @@ function route(){
   else if(h === 'flags') html = flags();
   else if(h === 'myths') html = myths();
   else if(h === 'updates') html = updates();
+  else if(h.startsWith('u-')){ const u = (D.UPDATES||[]).find(x => updKey(x) === h);
+    html = u ? `<h1 style="font-size:28px">গুরুত্বপূর্ণ আপডেট</h1>${updCard(u)}<a class="btn ghost wide" href="#updates">সব আপডেট দেখুন</a>` : updates(); }
   else { html = home(); isHome = true; }
   view.innerHTML = html;
   fixDigits(document.body);
   document.body.classList.toggle('wide', isHome);
-  const tab = h.startsWith('c-') ? 'countries' : (h === 'myths' ? 'flags' : (isHome ? 'home' : h));
+  const tab = h.startsWith('u-') ? 'updates' : h.startsWith('c-') ? 'countries' : (h === 'myths' ? 'flags' : (isHome ? 'home' : h));
   document.querySelectorAll('[data-tab]').forEach(a => {
     if(a.dataset.tab === tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
   });
@@ -739,6 +865,7 @@ document.getElementById('foot').innerHTML = foot();
 route();
 })();
 </script>
+<div class="pcov" id="pcov" hidden></div>
 
 </body>
 </html>
