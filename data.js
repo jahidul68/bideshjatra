@@ -23,7 +23,7 @@ window.APP_DATA = {
     lastUpdated: "2026-11-05",
     version: "0.1 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
-    siteUrl: ""
+    siteUrl: "https://dalalnaki.com"
   },
 
   /* ---------- SOURCES ---------- */

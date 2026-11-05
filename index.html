@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>বিদেশযাত্রা যাচাই</title>
+<title>দালাল নাকি? — বিদেশযাত্রা যাচাই</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="বিদেশে কাজে যাওয়ার আগে সরকারি খরচ, এজেন্সির লাইসেন্স ও দালালের কথা যাচাই করুন।">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .back{width:42px;height:42px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);display:grid;place-items:center;cursor:pointer;flex:none}
 .back[hidden]{display:none}
 .back svg{width:22px;height:22px}
-.brand{font-family:var(--display);font-weight:800;font-size:22px;flex:1;min-width:0;text-decoration:none;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1;flex:1;min-width:0;text-decoration:none;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{display:block;font-family:var(--body);font-weight:600;font-size:12.5px;opacity:.85;overflow:hidden;text-overflow:ellipsis}
 .speak{height:42px;padding:0 14px;border-radius:12px;border:0;background:color-mix(in srgb,var(--brand-ink) 14%,transparent);color:var(--brand-ink);display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600;font-size:15px;flex:none}
 .speak svg{width:20px;height:20px}
 
@@ -274,7 +275,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     <button class="back" id="back" aria-label="পেছনে যান" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
-    <a class="brand" href="#home">বিদেশযাত্রা যাচাই</a>
+    <a class="brand" href="#home" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
     <nav class="topnav" aria-label="প্রধান মেনু">
       <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a>
     </nav>
@@ -413,8 +414,8 @@ async function makeCard(it){
   x.fillStyle = C.paper; x.fillRect(0,0,W,H);
   // header band
   x.fillStyle = C.brand; x.fillRect(0,0,W,150);
-  x.fillStyle = '#fff'; x.font = `800 58px ${DISP}`; x.textBaseline = 'middle'; x.fillText('বিদেশযাত্রা যাচাই', P, 80);
-  x.font = `500 30px ${BODY}`; x.textAlign = 'right'; x.fillText('যাচাই করে বিদেশে যান', W-P, 82); x.textAlign = 'left';
+  x.fillStyle = '#fff'; x.font = `800 58px ${DISP}`; x.textBaseline = 'middle'; x.fillText('দালাল নাকি?', P, 80);
+  x.font = `500 30px ${BODY}`; x.textAlign = 'right'; x.fillText('বিদেশযাত্রা যাচাই', W-P, 82); x.textAlign = 'left';
   // card
   const cardY = 190; x.fillStyle = '#fff'; x.beginPath(); x.roundRect(P-24, cardY, W-2*(P-24), H-cardY-190, 28); x.fill();
   const lvColor = {urgent:C.red, change:C.amber, info:C.brand, news:C.brand}[it.level] || C.brand;
