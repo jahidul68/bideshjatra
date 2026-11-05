@@ -20,7 +20,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-03",
+    lastUpdated: "2026-11-05",
     version: "0.1 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: ""
@@ -28,6 +28,21 @@ window.APP_DATA = {
 
   /* ---------- SOURCES ---------- */
   SOURCES: {
+    tbs12Countries: {
+      title: "Govt restricts emigration clearance for workers heading to 12 countries — The Business Standard",
+      url: "https://www.tbsnews.net/bangladesh/govt-restricts-emigration-clearance-workers-heading-12-countries-1593191",
+      date: "2026-11-05"
+    },
+    dhakamail12Countries: {
+      title: "মন্ত্রণালয়ের অনুমোদন ছাড়া কর্মী পাঠানো যাবে না যে ১২ দেশে — ঢাকা মেইল",
+      url: "https://dhakamail.com/national/340986",
+      date: "2026-11-04"
+    },
+    bt12Countries: {
+      title: "মন্ত্রণালয়ের অনুমতি ছাড়া ১২ দেশে কর্মী যেতে ছাড়পত্র ইস্যু বন্ধ — বাংলা ট্রিবিউন",
+      url: "https://www.banglatribune.com/national/978875",
+      date: "2026-11-04"
+    },
     tbs2024: {
       title: "Migration costs for workers still high despite govt assurances — The Business Standard",
       url: "https://www.tbsnews.net/bangladesh/migration/migration-costs-workers-still-high-despite-govt-assurances-1021351",
@@ -243,7 +258,17 @@ window.APP_DATA = {
       warning: { text: "রোমানিয়ার বাংলাদেশ চেম্বার অন্তত ২০০টি প্রতিশ্রুতি ভঙ্গের অভিযোগ সামলেছে। আগে নিশ্চিত হোন চাকরিদাতা ও ওয়ার্ক পারমিট সত্যি কিনা, এরপর টাকা দিন।", source: "tbsRomania" } },
     { id: "libya", access: { state: "unknown", note: "লিবিয়া বাংলাদেশি কর্মী নেওয়ার আগ্রহ জানালেও ২০২৬ সালেও লিবিয়া থেকে বহু বাংলাদেশিকে ফেরত আনা হচ্ছে। নির্ভরযোগ্য বৈধ পথের তথ্য পাইনি।", source: "dsLibyaReturn" }, detail: { employerNote: "লিবিয়া দক্ষ ও আধা-দক্ষ কর্মী (চিকিৎসা কর্মীসহ) নেওয়ার আগ্রহ আবার জানিয়েছে (প্রতিবেদনের তারিখ অস্পষ্ট)। তবু ফেরত আসা কর্মীদের বেশিরভাগই অবৈধভাবে ইউরোপ যেতে লিবিয়ায় ঢুকেছিলেন।", status: "news", source: "libyaMonitor" },
       name: "লিবিয়া", flag: "🇱🇾", cap: null, reported: null, visaCheck: false,
-      warning: { text: "২০২৬ সালের সেপ্টেম্বরে লিবিয়ার আটককেন্দ্র থেকে ১৭৪ বাংলাদেশি ফিরেছেন। ইউরোপ যাওয়ার লোভ দেখিয়ে লিবিয়া হয়ে সাগরপথে নিয়ে যাওয়ার প্রস্তাব বিপজ্জনক ও অবৈধ।", source: "dsLibyaReturn" } }
+      warning: { text: "২০২৬ সালের সেপ্টেম্বরে লিবিয়ার আটককেন্দ্র থেকে ১৭৪ বাংলাদেশি ফিরেছেন। ইউরোপ যাওয়ার লোভ দেখিয়ে লিবিয়া হয়ে সাগরপথে নিয়ে যাওয়ার প্রস্তাব বিপজ্জনক ও অবৈধ।", source: "dsLibyaReturn" } },
+    { id: "serbia", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "সার্বিয়া", flag: "🇷🇸", cap: null, reported: null, visaCheck: false },
+    { id: "bosnia", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "বসনিয়া", flag: "🇧🇦", cap: null, reported: null, visaCheck: false },
+    { id: "kosovo", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "কসোভো", flag: "🇽🇰", cap: null, reported: null, visaCheck: false },
+    { id: "moldova", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "মলদোভা", flag: "🇲🇩", cap: null, reported: null, visaCheck: false },
+    { id: "belarus", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "বেলারুশ", flag: "🇧🇾", cap: null, reported: null, visaCheck: false },
+    { id: "ukraine", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "ইউক্রেন", flag: "🇺🇦", cap: null, reported: null, visaCheck: false },
+    { id: "vietnam", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "ভিয়েতনাম", flag: "🇻🇳", cap: null, reported: null, visaCheck: false },
+    { id: "laos", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "লাওস", flag: "🇱🇦", cap: null, reported: null, visaCheck: false },
+    { id: "cambodia", access: { state: "limited", note: "৪ নভেম্বর ২০২৬ থেকে এই দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের নিয়োগানুমতি লাগবে, অনুমোদন ছাড়া BMET ছাড়পত্র দেবে না।", source: "tbs12Countries" }, name: "কম্বোডিয়া", flag: "🇰🇭", cap: null, reported: null, visaCheck: false,
+      warning: { text: "কম্বোডিয়ায় চাকরির নামে বাংলাদেশিদের স্ক্যাম কম্পাউন্ডে পাচারের খবর আছে। টুরিস্ট ভিসায় যাবেন না।", source: "kathmanduCambodia" } }
   ],
 
   /* ---------- CANCELLED / SUSPENDED AGENCIES (from news or BMET) ---------- */
@@ -270,6 +295,12 @@ window.APP_DATA = {
   // level: "urgent" = act/avoid now, "change" = rule or cost changed, "info" = good to know
   // Add new items at the top. Every item needs a date, a plain-language "todo" and a source.
   UPDATES: [
+    { date: "2026-11-04", level: "urgent", country: null,
+      countries: ["serbia","moldova","belarus","kosovo","bosnia","japan","iraq","laos","vietnam","cambodia","ukraine","libya"],
+      title: "১২ দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের অনুমোদন বাধ্যতামূলক",
+      what: "৪ নভেম্বর ২০২৬ থেকে সার্বিয়া, মলদোভা, বেলারুশ, কসোভো, বসনিয়া, জাপান, ইরাক, লাওস, ভিয়েতনাম, কম্বোডিয়া, ইউক্রেন ও লিবিয়ায় কাজে যেতে মন্ত্রণালয়ের নিয়োগানুমতি লাগবে। এই অনুমোদন ছাড়া BMET বহির্গমন ছাড়পত্র (স্মার্ট কার্ড) দেবে না, আর ছাড়পত্র ছাড়া কাজের জন্য দেশ ছাড়া যায় না। শুধু ইউরোপ নয়, এশিয়া ও আফ্রিকার দেশও তালিকায় আছে। মন্ত্রণালয়ের চিঠিতে কারণ লেখা নেই; কর্মকর্তারা প্রতারণা ঠেকানো ও কর্মীদের নিরাপত্তার কথা বলেছেন। একটি পত্রিকার তালিকা একটু আলাদা (কসোভো, বসনিয়া ও কম্বোডিয়ার জায়গায় কঙ্গো, রাশিয়া ও ক্রোয়েশিয়া), সরকারি চিঠি দেখে নিশ্চিত হওয়া বাকি।",
+      todo: "এসব দেশের প্রস্তাব পেলে টাকা দেওয়ার আগে এজেন্সির কাছে মন্ত্রণালয়ের নিয়োগানুমতির কপি চান এবং BMET-এ যাচাই করুন। 'ভিসা হয়ে গেছে' বললেই হবে না — অনুমোদন না থাকলে ছাড়পত্র মিলবে না। লাইসেন্সধারী এজেন্সি ছাড়া কারো মাধ্যমে যাবেন না।",
+      status: "news", source: "tbs12Countries", extra: ["dhakamail12Countries", "bt12Countries"] },
     { date: "2026-10-12", level: "urgent", country: "malaysia",
       title: "মালয়েশিয়ার শ্রমবাজার আবার খুলছে, কিন্তু চূড়ান্ত খরচ এখনো ঘোষণা হয়নি",
       what: "৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী, BOESL)। ৩০ সেপ্টেম্বর ২০২৬ পর্যন্ত খরচ, যাত্রার সময় ও পুরো নিয়ম ঘোষণা হয়নি। শিল্প সংশ্লিষ্টরা ৬ লাখ টাকার বেশি খরচের আশঙ্কা করছেন।",
@@ -296,6 +327,8 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-04", title: "মন্ত্রণালয়ের অনুমোদন ছাড়া কর্মী পাঠানো যাবে না যে ১২ দেশে", outlet: "ঢাকা মেইল", tag: "নতুন নিয়ম",
+      url: "https://dhakamail.com/national/340986" },
     { date: "2026-11-02", title: "পাসপোর্টের ৭ ‘দালালকে’ বিভিন্ন মেয়াদে সাজা", outlet: "বাংলা ট্রিবিউন", tag: "দালাল",
       url: "https://banglatribune.com/law-and-crime/978319/%E0%A6%AA%E0%A6%BE%E0%A6%B8%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%9F%E0%A7%87%E0%A6%B0-%E0%A7%AD-%E2%80%98%E0%A6%A6%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B2%E0%A6%95%E0%A7%87%E2%80%99-%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%A8-%E0%A6%AE%E0%A7%87%E0%A7%9F%E0%A6%BE%E0%A6%A6%E0%A7%87-%E0%A6%B8%E0%A6%BE%E0%A6%9C%E0%A6%BE" },
     { date: "2026-10-09", title: "বিদেশে চাকরি দেওয়ার নামে প্রতারণা, গ্রেফতার ১২", outlet: "এশিয়ান টিভি", tag: "প্রতারণা",

@@ -354,7 +354,7 @@ function updCard(u){
   const c = u.country && D.COUNTRIES.find(x => x.id === u.country);
   return `<article class="upd ${esc(u.level)}">
     <div class="meta"><span class="chip ${esc(u.level)}">${lv}</span>${isNew ? '<span class="chip new">নতুন</span>' : ''}<span>${esc(bnDigits(u.date))}</span>${c ? `<a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a>` : ''}</div>
-    <h3>${esc(u.title)}</h3><div>${esc(u.what)}</div><div class="todo">${esc(u.todo)}</div>${srcLine(u.source)}</article>`;
+    <h3>${esc(u.title)}</h3><div>${esc(u.what)}</div><div class="todo">${esc(u.todo)}</div>${u.status ? badge(u.status) : ''}${srcLine(u.source)}${(u.extra||[]).map(srcLine).join('')}</article>`;
 }
 function updates(){
   const list = (D.UPDATES||[]).slice().sort((a,b) => b.date.localeCompare(a.date));
@@ -413,6 +413,8 @@ function country(id){
   if(c.warning){
     h += `<div class="warn"><b>সতর্কতা</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
   }
+  const ups = (D.UPDATES||[]).filter(u => u.country === c.id || (u.countries||[]).includes(c.id)).sort((x,y) => y.date.localeCompare(x.date));
+  if(ups.length) h += `<section class="sec"><h2>এই দেশ নিয়ে গুরুত্বপূর্ণ আপডেট</h2>${ups.map(updCard).join('')}</section>`;
 
   // cost
   h += `<section class="sec"><h2>সরকার নির্ধারিত সর্বোচ্চ খরচ</h2>`;
