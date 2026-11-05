@@ -28,6 +28,21 @@ window.APP_DATA = {
 
   /* ---------- SOURCES ---------- */
   SOURCES: {
+    dsScamGangs: {
+      title: "Fears grow over cyber scam gangs gaining foothold — The Daily Star",
+      url: "https://www.thedailystar.net/news/bangladesh/news/fears-grow-over-cyber-scam-gangs-gaining-foothold-4283031",
+      date: "2026-09-26"
+    },
+    paRussiaWar: {
+      title: "Risky migration: Lured to Russia by promises of jobs, 54 Bangladeshis killed in war in 3 years — Prothom Alo",
+      url: "https://en.prothomalo.com/bangladesh/pqmoumnzr2",
+      date: "2026-10-21"
+    },
+    gvDigitalScam: {
+      title: "When dreams meet digital recruitment scams: Bangladeshi workers in crisis — Global Voices",
+      url: "https://globalvoices.org/2025/11/30/when-dreams-meet-digital-recruitment-scams-bangladeshi-workers-in-crisis/",
+      date: "2025-11-30"
+    },
     tbs12Countries: {
       title: "Govt restricts emigration clearance for workers heading to 12 countries — The Business Standard",
       url: "https://www.tbsnews.net/bangladesh/govt-restricts-emigration-clearance-workers-heading-12-countries-1593191",
@@ -289,6 +304,32 @@ window.APP_DATA = {
     { claim: "পাসপোর্ট আমার কাছে রেখে দিন।", why: "পাসপোর্ট অন্যের হাতে থাকলে আপনাকে আটকে রাখা বা চাপ দেওয়া সহজ হয়।", todo: "পাসপোর্ট নিজের কাছে রাখুন, প্রয়োজনে শুধু ফটোকপি দিন।" },
     { claim: "সরকারি খরচে হয় না, এর চেয়ে বেশি লাগবেই।", why: "সরকার নির্ধারিত খরচের বেশি নেওয়া নিয়মবিরুদ্ধ। বেশি টাকা ধার করে গেলে ঋণ শোধ করতেই বছর চলে যায়।", todo: "দেশের পাতায় সরকারি খরচ দেখে নিন, বেশি চাইলে অভিযোগ করুন।" },
     { claim: "এজেন্সির নাম বলা যাবে না, আমিই সব করে দেব।", why: "লাইসেন্স ছাড়া কেউ বিদেশে কর্মী পাঠাতে পারে না। নাম লুকালে যাচাই করার উপায় থাকে না।", todo: "এজেন্সির নাম ও RL নম্বর চেয়ে নিন, তারপর যাচাই করুন।" }
+  ],
+
+  /* ---------- OFFER CHECK ("দালাল নাকি?" quick test, #check) ----------
+     Every question is phrased so that "হ্যাঁ" (yes) is the risky answer.
+     level: "high"   = a yes makes the result red
+            "medium" = a yes makes the result at least yellow
+     "জানি না" (don't know) counts as yellow. Each question needs a source. */
+  OFFER_CHECK: [
+    { icon: "📱", level: "medium", source: "gvDigitalScam",
+      q: "চাকরির খবর কি ফেসবুক, হোয়াটসঅ্যাপ, টিকটক বা ইউটিউবে পেয়েছেন?",
+      why: "প্রতারকরা ভুয়া কোম্পানির পাতা ও সফল প্রবাসীর বানানো গল্প দিয়ে সামাজিক মাধ্যমে লোক ধরে।" },
+    { icon: "🛂", level: "high", source: "dsScamGangs",
+      q: "কাজের জন্য কি টুরিস্ট, ভিজিট বা হজ-ওমরাহ ভিসায় যেতে বলছে?",
+      why: "এসব ভিসায় কাজ করা যায় না। এভাবে নিয়ে অনেককে কম্বোডিয়া-মিয়ানমারের প্রতারণা কেন্দ্রে বিক্রি করা হয়েছে।" },
+    { icon: "📄", level: "high", source: "gvDigitalScam",
+      q: "কাজের লিখিত চুক্তিপত্র কি এখনো হাতে পাননি?",
+      why: "লিখিত চুক্তি ছাড়া বেতন বা কাজ নিয়ে পরে কিছু দাবি করা যায় না। প্রতারকরা বলে \"চুক্তি পরে দেব\"।" },
+    { icon: "💸", level: "high", source: "gvDigitalScam",
+      q: "টাকা কি বিকাশ-নগদে কিস্তিতে, বা রসিদ ছাড়া চাইছে?",
+      why: "মোবাইলে কিস্তিতে দেওয়া টাকা পরে খুঁজে বের করা বা ফেরত পাওয়া প্রায় অসম্ভব। রসিদ ছাড়া অভিযোগের প্রমাণ থাকে না।" },
+    { icon: "⚠️", level: "high", source: "paRussiaWar",
+      q: "রাশিয়ায় কারখানা বা নির্মাণের কাজ, অথবা কম্বোডিয়া, লাওস, মিয়ানমার বা থাইল্যান্ডে অফিস, আইটি বা রেস্টুরেন্টের কাজের কথা বলছে?",
+      why: "রাশিয়ায় চাকরির কথা বলে নিয়ে অনেককে যুদ্ধে পাঠানো হয়েছে, ৩ বছরে অন্তত ৫৪ জন মারা গেছেন। ওই চার দেশে চাকরির নামে প্রতারণা কেন্দ্রে পাচারের খবর আছে।" },
+    { icon: "🪪", level: "high", source: "tbs12Countries",
+      q: "বলছে কি BMET ছাড়পত্র বা স্মার্ট কার্ড লাগবে না, বা \"এয়ারপোর্টে লোক ম্যানেজ করা আছে\"?",
+      why: "ছাড়পত্র ছাড়া গেলে আপনি অবৈধ কর্মী, বিপদে পড়লে সরকারি সাহায্য পাওয়া কঠিন। ১২টি দেশে এখন মন্ত্রণালয়ের অনুমতিও লাগে।" }
   ],
 
   /* ---------- UPDATES TRACKER (recent changes that affect people going abroad) ---------- */

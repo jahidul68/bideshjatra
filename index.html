@@ -142,6 +142,28 @@ h1 .fimg{width:40px;margin-right:4px}
 .btn{border:0;border-radius:14px;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:18px;padding:0 20px;cursor:pointer;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .btn.ghost{background:var(--card);color:var(--brand);border:1.5px solid var(--brand)}
 .btn.wide{width:100%}
+/* offer check (#check) */
+.occta{display:grid;grid-template-columns:auto 1fr 24px;gap:14px;align-items:center;text-decoration:none;color:var(--brand-ink);background:var(--brand);border-radius:var(--r);padding:18px}
+.occta .ic{font-size:34px;line-height:1}
+.occta b{font-family:var(--display);font-size:23px;font-weight:800;display:block;line-height:1.2}
+.occta span span{display:block;font-size:15px;opacity:.9;margin-top:2px}
+.occta .arr{color:var(--brand-ink)}
+.ocq{display:grid;gap:14px;background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:20px}
+.ocbar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.ocbar i{display:block;height:100%;background:var(--brand);border-radius:4px;transition:width .2s}
+.ocstep{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ocicon{font-size:52px;text-align:center;line-height:1.1}
+.ocq h2{font-size:23px;font-weight:700;line-height:1.4}
+.ocans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ocans .btn{min-height:60px;font-size:21px}
+.ocans .dk{grid-column:1/-1;min-height:48px;font-size:17px}
+.ocsay{border:0;background:var(--brand-soft);color:var(--brand);border-radius:10px;padding:6px 12px;font-weight:700;font-size:15px;cursor:pointer}
+.ocwhy{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.ocwhy li{background:var(--card);border-radius:12px;padding:10px 12px;border:1px solid var(--line)}
+.ocwhy b{display:block}
+.result.mid{border-color:var(--amber);background:var(--amber-soft)}
+.ocnext{display:grid;gap:10px}
+.oclink{border:0;background:none;color:var(--brand);font-weight:700;font-size:16px;cursor:pointer;padding:6px 0;justify-self:start}
 .result{display:grid;gap:10px;padding:18px;border-radius:var(--r);border:2px solid var(--line);background:var(--card);position:relative;overflow:hidden}
 .result.bad{border-color:var(--stamp);background:var(--stamp-soft)}
 .stamp{justify-self:start;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.04em;padding:2px 14px;border:3px double currentColor;border-radius:8px;transform:rotate(-4deg);opacity:.92}
@@ -340,6 +362,7 @@ function home(){
     <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৪টি জিনিস যাচাই করুন।</h1>
     <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
   </section>
+  <a class="occta" href="#check"><span class="ic" aria-hidden="true">🔎</span><span><b>দালাল নাকি? অফারটা যাচাই করুন</b><span>৬টি সহজ প্রশ্ন, ১ মিনিট। হ্যাঁ বা না চাপুন।</span></span><span class="arr">${chev}</span></a>
   <div class="steps3">
     <a class="big" href="#countries"><span class="num">১</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সি যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
@@ -686,6 +709,73 @@ function checkRL(raw){
   box.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
+/* ---------- offer check: 6 yes/no questions, one at a time ---------- */
+function offerCheck(){
+  return `<h1 style="font-size:28px">দালাল নাকি? অফারটা যাচাই করুন</h1>
+  <p style="margin:0;color:var(--muted)">আপনি যে বিদেশের চাকরির প্রস্তাব পেয়েছেন, তা নিয়ে ৬টি প্রশ্ন। প্রতিটিতে হ্যাঁ, না বা জানি না চাপুন।</p>
+  <div id="oc"></div>`;
+}
+function ocRun(){
+  const Q = D.OFFER_CHECK || [], box = document.getElementById('oc');
+  if(!box || !Q.length) return;
+  const ans = [];
+  const say = t => speakText(t);
+  function ask(i){
+    const q = Q[i];
+    box.innerHTML = `<div class="ocq">
+      <div class="ocbar" aria-hidden="true"><i style="width:${Math.round(i/Q.length*100)}%"></i></div>
+      <div class="ocstep"><span>প্রশ্ন ${bnNum(i+1)} / ${bnNum(Q.length)}</span>${bnVoice ? '<button class="ocsay" type="button" id="ocsay">🔊 শুনুন</button>' : ''}</div>
+      <div class="ocicon" aria-hidden="true">${q.icon}</div>
+      <h2 id="ocq" tabindex="-1">${esc(q.q)}</h2>
+      <div class="ocans">
+        <button class="btn" type="button" data-a="yes">হ্যাঁ</button>
+        <button class="btn" type="button" data-a="no">না</button>
+        <button class="btn ghost dk" type="button" data-a="dk">জানি না</button>
+      </div>
+      ${i ? '<button class="oclink" type="button" id="ocback">← আগের প্রশ্ন</button>' : ''}
+    </div>`;
+    fixDigits(box);
+    box.querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', () => { stopSpeak(); ans[i] = b.dataset.a; i + 1 < Q.length ? ask(i+1) : result(); }));
+    const sb = document.getElementById('ocsay'); if(sb) sb.addEventListener('click', () => say(q.q + '। হ্যাঁ, না, নাকি জানি না?'));
+    const bk = document.getElementById('ocback'); if(bk) bk.addEventListener('click', () => { stopSpeak(); ask(i-1); });
+    if(i) document.getElementById('ocq').focus({preventScroll:true});
+  }
+  function result(){
+    const yes = Q.map((q,i) => ({q, a:ans[i]})).filter(x => x.a === 'yes');
+    const dk = ans.filter(a => a === 'dk').length;
+    const lvl = yes.some(x => x.q.level === 'high') ? 'red' : (yes.length || dk) ? 'amber' : 'green';
+    const R = {
+      red:   ['bad','red','খুব ঝুঁকিপূর্ণ','এটা ফাঁদ হতে পারে। টাকা দেবেন না, কাগজে সই করবেন না।'],
+      amber: ['mid','amber','আরও যাচাই করুন','কিছু বিষয় নিশ্চিত নয়। নিচের বিষয়গুলো যাচাই না করে টাকা দেবেন না।'],
+      green: ['good','green','বড় বিপদের লক্ষণ পাওয়া যায়নি','তবুও নিচের ধাপগুলো যাচাই করে তারপর এগোন। এই পরীক্ষা নিশ্চয়তা দেয় না।']
+    }[lvl];
+    const reasons = yes.map(x => `<li><b>${esc(x.q.q)}</b>${esc(x.q.why)}${srcLine(x.q.source)}</li>`).join('');
+    box.innerHTML = `<div class="result ${R[0]}" id="ocres" tabindex="-1">
+      <span class="stamp ${R[1]}">${R[2]}</span>
+      <div style="font-size:19px;font-weight:700">${R[3]}</div>
+      ${reasons ? `<div>যে কারণে:</div><ul class="ocwhy">${reasons}</ul>` : ''}
+      ${dk ? `<div>${bnNum(dk)}টি প্রশ্নের উত্তর আপনি জানেন না। দালাল বা এজেন্সির কাছে লিখিতভাবে জেনে নিন।</div>` : ''}
+    </div>
+    <section class="sec"><h2>এখন কী করবেন</h2>
+      <div class="ocnext">
+        <a class="btn wide" href="#agency">এজেন্সির লাইসেন্স যাচাই করুন</a>
+        <a class="btn ghost wide" href="#countries">দেশের সরকারি খরচ দেখুন</a>
+        <a class="btn ghost wide" href="#help">কোথায় সাহায্য ও অভিযোগ</a>
+      </div>
+      <div class="note">সৌদি আরব, কাতার বা ওমানের ভিসা আসল কিনা জানতে ১৬৭৬৮ নম্বরে কল করুন (আমি প্রবাসী হেল্পলাইন)।</div>
+      <button class="oclink" type="button" id="ocagain">↻ আবার শুরু করুন</button>
+    </section>
+    ${shareBlock('দালাল নাকি? বিদেশের চাকরির প্রস্তাব ১ মিনিটে যাচাই করুন')}`;
+    fixDigits(box);
+    wireShare();
+    document.getElementById('ocagain').addEventListener('click', () => { ans.length = 0; ask(0); window.scrollTo(0,0); });
+    document.getElementById('ocres').focus({preventScroll:true});
+    window.scrollTo(0,0);
+    if(bnVoice) say(R[2] + '। ' + R[3]);
+  }
+  ask(0);
+}
+
 function flags(){
   return `
   <h1 style="font-size:28px">দালাল কি এটা বলছে?</h1>
@@ -782,7 +872,8 @@ function route(){
   if(h === 'countries') html = countries();
   else if(h.startsWith('c-')) html = country(h.slice(2));
   else if(h === 'agency') html = agency();
-  else if(h === 'flags') html = flags();
+  else if(h === 'flags' || h === 'help') html = flags();
+  else if(h === 'check') html = offerCheck();
   else if(h === 'myths') html = myths();
   else if(h === 'updates') html = updates();
   else if(h.startsWith('u-')){ const u = (D.UPDATES||[]).find(x => updKey(x) === h);
@@ -791,13 +882,14 @@ function route(){
   view.innerHTML = html;
   fixDigits(document.body);
   document.body.classList.toggle('wide', isHome);
-  const tab = h.startsWith('u-') ? 'updates' : h.startsWith('c-') ? 'countries' : (h === 'myths' ? 'flags' : (isHome ? 'home' : h));
+  const tab = h.startsWith('u-') ? 'updates' : h.startsWith('c-') ? 'countries' : (h === 'myths' || h === 'help' ? 'flags' : (isHome ? 'home' : h));
   document.querySelectorAll('[data-tab]').forEach(a => {
     if(a.dataset.tab === tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
   });
   backBtn.hidden = isHome;
   window.scrollTo(0,0);
   wire(h);
+  if(h === 'help'){ const e = document.getElementById('help'); if(e) e.scrollIntoView(); }
 }
 function wire(h){
   const q = document.getElementById('q');
@@ -822,6 +914,10 @@ function wire(h){
     }));
     update();
   }
+  if(h === 'check') ocRun();
+  wireShare();
+}
+function wireShare(){
   const wa = document.getElementById('wa');
   if(wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(wa.dataset.text + ': ' + pageUrl());
   const cp = document.getElementById('copylink');
@@ -848,6 +944,11 @@ function findVoice(){
   if(!('speechSynthesis' in window)) return;
   bnVoice = speechSynthesis.getVoices().find(v => /^bn/i.test(v.lang)) || null;
   speakBtn.hidden = !bnVoice;
+}
+function speakText(t){
+  if(!bnVoice) return; speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(t); u.voice = bnVoice; u.lang = bnVoice.lang; u.rate = .95;
+  u.onend = stopSpeak; speechSynthesis.speak(u); speaking = true; speakLabel.textContent = 'থামান';
 }
 function stopSpeak(){ if('speechSynthesis' in window) speechSynthesis.cancel(); speaking=false; speakLabel.textContent='শুনুন'; }
 if('speechSynthesis' in window){
