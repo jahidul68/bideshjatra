@@ -292,6 +292,60 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .updstrip{display:grid;gap:8px}
 .updstrip h2{font-size:19px}
 
+/* region filter on the country list */
+.regs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.regs button{flex:none;font:inherit;font-size:15px;font-weight:600;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:40px}
+.regs button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.reghd{grid-column:1/-1;font-size:18px;font-weight:700;margin:8px 0 -2px;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.reghd small{font-family:var(--body);font-size:14px;font-weight:600}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{background:var(--paper);border-radius:12px;padding:12px;display:grid;gap:2px;align-content:start;min-width:0}
+.tile .v{font-family:var(--display);font-weight:800;font-size:clamp(22px,6vw,28px);line-height:1.15;color:var(--ink)}
+.tile .l{font-size:14px;color:var(--muted);font-weight:600;line-height:1.35}
+.tile .nt{font-size:13px;color:var(--muted)}
+.tile .src{font-size:12px}
+.tile.danger{background:var(--stamp-soft)} .tile.danger .v{color:var(--stamp)}
+
+/* horizontal bar chart (single series) */
+.bars{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.bars li{display:grid;gap:3px}
+.bars .t{display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.bars .t a{color:var(--ink);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px}
+.bars .t a .fimg{width:22px}
+.bars .t b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars .tr{height:12px;border-radius:0 6px 6px 0;background:var(--paper)}
+.bars .fl{height:100%;border-radius:0 4px 4px 0;background:var(--brand);min-width:3px}
+.bars .fl.irr{background:var(--stamp)}
+.bars li:hover .fl{filter:brightness(1.15)}
+
+/* risk page */
+.riskhero{background:var(--stamp);color:#fff;border-radius:var(--r);padding:20px;display:grid;gap:8px}
+.riskhero h1{font-size:clamp(26px,7vw,34px);font-weight:800}
+.riskhero p{margin:0;opacity:.95}
+.route{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:rt}
+.route li{position:relative;padding:0 0 18px 46px;counter-increment:rt}
+.route li::before{content:counter(rt);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--stamp);color:#fff;font-family:var(--display);font-weight:800;display:grid;place-items:center}
+.route li::after{content:"";position:absolute;left:15px;top:34px;bottom:2px;width:2px;background:color-mix(in srgb,var(--stamp) 35%,transparent)}
+.route li:last-child{padding-bottom:0} .route li:last-child::after{display:none}
+.route b{display:block;font-family:var(--display);font-size:18px}
+.rcard{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px}
+.rcard h3{font-size:17px}
+.inc{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.inc li{border-left:3px solid var(--stamp);padding-left:12px}
+.inc .nd{font-size:14px;color:var(--muted)}
+.riskbanner{display:grid;grid-template-columns:auto 1fr 24px;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--stamp-soft);border:1.5px solid var(--stamp);border-radius:var(--r);padding:16px}
+.riskbanner .ic{font-size:30px;line-height:1}
+.riskbanner b{font-family:var(--display);font-size:20px;color:var(--stamp);display:block;line-height:1.25}
+.riskbanner span span{display:block;font-size:15px;color:var(--muted)}
+.big.red .num{background:var(--stamp-soft);color:var(--stamp)}
+.dtable{width:100%;border-collapse:collapse;font-size:15px}
+.dtable th,.dtable td{text-align:left;padding:8px 6px;border-bottom:1px dashed var(--line);vertical-align:top}
+.dtable th{font-size:13.5px;color:var(--muted)}
+.dtable td a{color:var(--ink);font-weight:600;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.dtable .fimg{width:22px}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -304,7 +358,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     </button>
     <a class="brand" href="#home" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
     <nav class="topnav" aria-label="প্রধান মেনু">
-      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a>
+      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><a href="#risk" data-tab="risk">সাগরপথের ঝুঁকি</a><a href="#stats" data-tab="stats">পরিসংখ্যান</a>
     </nav>
     <button class="tsize" id="tsize" type="button" aria-label="লেখার আকার বদলান">অ+</button>
     <button class="speak" id="speak" aria-label="এই পাতা পড়ে শোনান" hidden>
@@ -373,7 +427,9 @@ function home(){
     <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সি যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#flags"><span class="num">৩</span><span><b>দালাল কি এটা বলছে?</b><span>প্রতারণার সাধারণ কথাগুলো চিনে নিন</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#myths"><span class="num">৪</span><span><b>ভুল ধারণা ও সত্য</b><span>যেমন: বাংলাদেশ থেকে ডিভি লটারি হয় না</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#stats"><span class="num">৫</span><span><b>প্রবাসে বাংলাদেশি: পরিসংখ্যান</b><span>কোন দেশে কতজন যান ও থাকেন</span></span><span class="arr">${chev}</span></a>
   </div>
+  <a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>লিবিয়া হয়ে নৌকায় ইতালি? আগে এটা পড়ুন</b><span>'গেম ঘর', মুক্তিপণ, সাগরে মৃত্যু — অবৈধ পথের আসল চিত্র</span></span><span class="arr">${chev}</span></a>
   <div class="callstrip">
     <span class="n">১৬৭৬৮</span>
     <p>ভিসা আসল কিনা যাচাই করুন: আমি প্রবাসী হেল্পলাইন (সৌদি আরব, কাতার, ওমান)</p>
@@ -384,7 +440,7 @@ function home(){
 }
 
 /* flags are small PNGs in /flags: Windows has no flag emoji */
-const FLAG_CODE = {saudi:'sa',malaysia:'my',qatar:'qa',oman:'om',uae:'ae',kuwait:'kw',singapore:'sg',bahrain:'bh',jordan:'jo',maldives:'mv',lebanon:'lb',brunei:'bn',iraq:'iq',japan:'jp',russia:'ru',korea:'kr',italy:'it',romania:'ro',libya:'ly',serbia:'rs',bosnia:'ba',kosovo:'xk',moldova:'md',belarus:'by',ukraine:'ua',vietnam:'vn',laos:'la',cambodia:'kh'};
+const FLAG_CODE = {saudi:'sa',malaysia:'my',qatar:'qa',oman:'om',uae:'ae',kuwait:'kw',singapore:'sg',bahrain:'bh',jordan:'jo',maldives:'mv',lebanon:'lb',brunei:'bn',iraq:'iq',japan:'jp',russia:'ru',korea:'kr',italy:'it',romania:'ro',libya:'ly',serbia:'rs',bosnia:'ba',kosovo:'xk',moldova:'md',belarus:'by',ukraine:'ua',vietnam:'vn',laos:'la',cambodia:'kh',hongkong:'hk',mongolia:'mn',kyrgyzstan:'kg',thailand:'th',greece:'gr',portugal:'pt',croatia:'hr',hungary:'hu',northmacedonia:'mk',poland:'pl',malta:'mt',cyprus:'cy',albania:'al',uk:'gb',spain:'es',mauritius:'mu',seychelles:'sc',southafrica:'za',usa:'us',canada:'ca',brazil:'br',fiji:'fj',australia:'au'};
 const flagImg = c => FLAG_CODE[c.id] ? `<img class="fimg" src="flags/${FLAG_CODE[c.id]}.png" alt="" width="32" loading="lazy">` : '';
 
 /* ---------- sharing: Facebook, WhatsApp, photocard ---------- */
@@ -539,8 +595,17 @@ function countries(){
   return `
   <h1 style="font-size:28px">কোন দেশে যাবেন?</h1>
   <input class="search" id="q" type="search" placeholder="দেশের নাম লিখুন…" aria-label="দেশ খুঁজুন" autocomplete="off">
+  <div class="regs" role="group" aria-label="অঞ্চল বেছে নিন"><button type="button" data-reg="" aria-pressed="true">সব (${bnNum(D.COUNTRIES.length)})</button>${(D.REGIONS||[]).map(r => `<button type="button" data-reg="${r.id}" aria-pressed="false">${esc(r.name)} (${bnNum(D.COUNTRIES.filter(c=>c.region===r.id).length)})</button>`).join('')}</div>
   ${accessLegend()}
-  <div class="cgrid" id="cgrid">${countryButtons(D.COUNTRIES)}</div>`;
+  <div class="cgrid" id="cgrid">${countryGroups('')}</div>`;
+}
+/* grouped by region; reg = '' shows all regions with headers */
+function countryGroups(reg){
+  const regs = (D.REGIONS||[]).filter(r => !reg || r.id === reg);
+  const html = regs.map(r => { const list = D.COUNTRIES.filter(c => c.region === r.id);
+    return list.length ? `<h2 class="reghd">${esc(r.name)} <small>${bnNum(list.length)}টি দেশ</small></h2>` + countryButtons(list) : ''; }).join('');
+  const rest = reg ? [] : D.COUNTRIES.filter(c => !regs.some(r => r.id === c.region));
+  return html + (rest.length ? countryButtons(rest) : '');
 }
 function countryButtons(list){
   if(!list.length) return `<p class="empty">এই নামে কোনো দেশ পাওয়া যায়নি।</p>`;
@@ -567,6 +632,12 @@ function country(id){
   }
   if(c.warning){
     h += `<div class="warn"><b>সতর্কতা</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
+  }
+  if(c.irregular){
+    h += `<a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>এই দেশ অবৈধ ও বিপজ্জনক পথের অংশ</b><span>দালালের 'গেম', মুক্তিপণ ও সাগরে মৃত্যুর তথ্য দেখুন</span></span><span class="arr">${chev}</span></a>`;
+  }
+  if(c.stats && c.stats.length){
+    h += `<section class="sec"><h2>${esc(c.name)}-এ বাংলাদেশি: সংখ্যায়</h2>${statTiles(c.stats)}</section>`;
   }
   const ups = (D.UPDATES||[]).filter(u => u.country === c.id || (u.countries||[]).includes(c.id)).sort((x,y) => y.date.localeCompare(x.date));
   if(ups.length) h += `<section class="sec"><h2>এই দেশ নিয়ে গুরুত্বপূর্ণ আপডেট</h2>${ups.map(updCard).join('')}</section>`;
@@ -636,6 +707,61 @@ function country(id){
 
   h += shareBlock(`${c.name}-এ যেতে সরকার নির্ধারিত খরচ ও নিয়ম দেখুন`);
   return h;
+}
+
+/* ---------- numbers: tiles + bar charts ---------- */
+const srcShort = id => { const s = src(id); if(!s) return ''; return `<div class="src">সূত্র: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title.split(' — ').pop())}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
+const statVal = x => x.text ? esc(x.text) : bnNum(x.n) + (x.unit ? ' ' + esc(x.unit) : ' জন');
+function statTiles(list, danger){
+  return `<div class="tiles">${list.map(x => `<div class="tile${danger ? ' danger' : ''}"><span class="v">${statVal(x)}</span><span class="l">${esc(x.label)}</span>${x.note ? `<span class="nt">${esc(x.note)}</span>` : ''}${x.status === 'draft' ? '<span class="nt">আনুমানিক · যাচাই চলছে</span>' : ''}${srcShort(x.source)}</div>`).join('')}</div>`;
+}
+/* rows: [{label | country id, n, kind}] — one series, bars scaled to the largest value */
+function barList(rows){
+  const max = Math.max(...rows.map(r => r.n));
+  return `<ul class="bars">${rows.map(r => {
+    const c = r.id && D.COUNTRIES.find(x => x.id === r.id);
+    const name = c ? `<a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a>` : `<span>${esc(r.label)}</span>`;
+    return `<li title="${esc(c ? c.name : r.label)}: ${bnNum(r.n)} জন"><div class="t">${name}<b>${bnNum(r.n)}</b></div><div class="tr"><div class="fl${r.kind === 'irregular' ? ' irr' : ''}" style="width:${(r.n / max * 100).toFixed(1)}%"></div></div></li>`;
+  }).join('')}</ul>`;
+}
+
+function statsPage(){
+  const S = D.STATS; if(!S) return '';
+  const live = D.COUNTRIES.flatMap(c => (c.stats||[]).filter(x => x.kind === 'live').map(x => ({c, x})));
+  return `<h1 style="font-size:28px">প্রবাসে বাংলাদেশি: পরিসংখ্যান</h1>
+  <p style="margin:0;color:var(--muted)">কতজন কাজে বিদেশ যাচ্ছেন, কোন দেশে যাচ্ছেন, কোথায় কতজন থাকেন। প্রতিটি সংখ্যার নিচে সূত্র আছে।</p>
+  <section class="sec"><h2>এক নজরে</h2>${statTiles(S.overview)}</section>
+  <section class="sec"><h2>${esc(S.top2025.title)}</h2>${barList(S.top2025.rows.map(([id,n]) => ({id, n})))}
+    <div class="src">সরকারি (BMET) হিসাব। সৌদি আরবেই গেছেন মোট কর্মীর দুই-তৃতীয়াংশের বেশি।</div>${srcLine(S.top2025.source)}</section>
+  <section class="sec"><h2>${esc(S.topAll.title)}</h2>${barList(S.topAll.rows.map(([id,n]) => ({id, n})))}${srcLine(S.topAll.source)}</section>
+  <section class="sec"><h2>কোন জেলা থেকে বেশি যান</h2><div>${esc(S.districts.text)}</div>${srcLine(S.districts.source)}</section>
+  <section class="sec"><h2>কোন দেশে কতজন বাংলাদেশি থাকেন</h2>
+    <div class="note">${esc(S.caveat.text)}</div>
+    <table class="dtable"><thead><tr><th>দেশ</th><th>সংখ্যা</th><th>কোন সময়ের / সূত্র</th></tr></thead><tbody>
+    ${live.map(({c, x}) => `<tr><td><a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a></td><td><b>${statVal(x)}</b></td><td class="src">${esc(x.note || '')}${x.note ? ' · ' : ''}<a href="${esc(src(x.source).url)}" target="_blank" rel="noopener">${esc(src(x.source).title.split(' — ').pop())}</a></td></tr>`).join('')}
+    </tbody></table>
+    ${srcLine(S.caveat.source)}</section>
+  <a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>অবৈধ পথে যাওয়ার পরিসংখ্যান</b><span>সাগরপথে ইতালি ও গ্রিস, মৃত্যু ও আটক</span></span><span class="arr">${chev}</span></a>
+  ${shareBlock('কোন দেশে কতজন বাংলাদেশি কাজে যান — পরিসংখ্যান দেখুন')}`;
+}
+
+function riskPage(){
+  const R = D.RISK; if(!R) return '';
+  return `<section class="riskhero"><h1>লিবিয়া হয়ে নৌকায় ইউরোপ: দালালের 'গেম'-এর আসল চিত্র</h1>
+    <p>দালাল বলে 'নিরাপদে ইতালি পৌঁছে দেব'। বাস্তবে অনেকে লিবিয়ায় আটক হন, নির্যাতনের শিকার হন, সাগরে ডুবে মারা যান। টাকা দেওয়ার আগে পরিবারসহ পড়ুন।</p></section>
+  ${statTiles(R.tiles, true)}
+  <section class="sec"><h2>${esc(R.compare.title)}</h2>${barList(R.compare.rows)}<div class="gapnote">${esc(R.compare.note)}</div>${srcLine(R.compare.source)}</section>
+  <section class="sec"><h2>পথটা আসলে কেমন: ধাপে ধাপে</h2><ol class="route">${R.route.map(s => `<li><b>${esc(s.title)}</b><div>${esc(s.text)}</div>${srcShort(s.source)}${(s.extra||[]).map(srcShort).join('')}</li>`).join('')}</ol></section>
+  <section class="sec"><h2>${esc(R.arrivals.title)}</h2>${barList(R.arrivals.rows.map(r => ({label: r.label, n: r.n, kind: 'irregular'})))}
+    <div class="src">${esc(R.arrivals.note)}</div>${[...new Set(R.arrivals.rows.map(r => r.source))].map(srcLine).join('')}</section>
+  <section class="sec"><h2>অন্যান্য অবৈধ পথ</h2>${R.otherRoutes.map(o => { const c = D.COUNTRIES.find(x => x.id === o.country);
+    return `<div class="rcard"><h3>${esc(o.name)}</h3><div>${esc(o.text)}</div>${srcShort(o.source)}${c ? `<a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}-এর পাতা দেখুন</a>` : ''}</div>`; }).join('')}</section>
+  <section class="sec"><h2>সাম্প্রতিক ঘটনা</h2><ul class="inc">${R.incidents.slice().sort((a,b) => b.date.localeCompare(a.date)).map(i => `<li><div class="nd">${esc(bnDigits(i.date))}</div><div>${esc(i.text)}</div>${srcShort(i.source)}</li>`).join('')}</ul></section>
+  <section class="sec"><h2>পরিবারের জন্য: কী করবেন</h2><ul class="ol">${R.family.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+    <div class="callstrip"><span class="n">৯৯৯</span><p>জরুরি সেবা ও পুলিশ। দালাল বা মুক্তিপণের ফোন পেলে জানান।</p></div>
+    <div class="row" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" style="flex:1 1 160px" href="#c-greece">গ্রিসের বৈধ পথ</a><a class="btn ghost" style="flex:1 1 160px" href="#c-italy">ইতালির বৈধ পথ</a><a class="btn ghost" style="flex:1 1 160px" href="#agency">এজেন্সি যাচাই</a></div>
+    ${badge('draft')}</section>
+  ${shareBlock('লিবিয়া হয়ে নৌকায় ইতালি যাওয়ার আগে পরিবারসহ এটা পড়ুন')}`;
 }
 
 function agency(){
@@ -881,6 +1007,8 @@ function route(){
   else if(h === 'check') html = offerCheck();
   else if(h === 'myths') html = myths();
   else if(h === 'updates') html = updates();
+  else if(h === 'risk') html = riskPage();
+  else if(h === 'stats') html = statsPage();
   else if(h.startsWith('u-')){ const u = (D.UPDATES||[]).find(x => updKey(x) === h);
     html = u ? `<h1 style="font-size:28px">গুরুত্বপূর্ণ আপডেট</h1>${updCard(u)}<a class="btn ghost wide" href="#updates">সব আপডেট দেখুন</a>` : updates(); }
   else { html = home(); isHome = true; }
@@ -900,8 +1028,14 @@ function wire(h){
   const q = document.getElementById('q');
   if(q) q.addEventListener('input', () => {
     const v = q.value.trim().toLowerCase();
-    document.getElementById('cgrid').innerHTML = countryButtons(D.COUNTRIES.filter(c => c.name.includes(v) || c.id.includes(v)));
+    document.querySelectorAll('.regs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.reg === '' ? 'true' : 'false'));
+    document.getElementById('cgrid').innerHTML = v ? countryButtons(D.COUNTRIES.filter(c => c.name.includes(v) || c.id.includes(v))) : countryGroups('');
   });
+  document.querySelectorAll('.regs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.regs button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    if(q) q.value = '';
+    document.getElementById('cgrid').innerHTML = countryGroups(b.dataset.reg);
+  }));
   const f = document.getElementById('rlform');
   if(f) f.addEventListener('submit', e => { e.preventDefault(); checkRL(document.getElementById('rl').value); });
   if(h.startsWith('c-')){
