@@ -275,7 +275,12 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .upd{background:var(--card);border:1.5px solid var(--line);border-left-width:6px;border-radius:var(--r);padding:14px 16px;display:grid;gap:6px}
 .upd.urgent{border-left-color:var(--stamp)} .upd.change{border-left-color:var(--amber)} .upd.info{border-left-color:var(--brand)}
 .upd h3{font-size:19px}
-.shr{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.shr{margin-top:4px}
+.shr summary{list-style:none;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--brand);cursor:pointer;min-height:36px;width:max-content}
+.shr summary::-webkit-details-marker{display:none}
+.shr summary svg{width:16px;height:16px}
+.shr[open] summary{border-color:var(--brand);background:var(--brand-soft)}
+.shr-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .shr button{font:inherit;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:36px}
 .shr button:hover{border-color:var(--brand)}
 .shr .fb{color:#1877f2} .shr .wa{color:var(--ok)} .shr .pc{color:var(--brand)}
@@ -519,7 +524,7 @@ const hashStr = t => { let h = 0; for(const ch of String(t)) h = (h*31 + ch.code
 const updKey = u => 'u-' + u.date + '-' + hashStr(u.title);
 const newsKey = n => 'n-' + n.date + '-' + hashStr(n.title);
 const siteBase = () => D.META.siteUrl || (location.origin + location.pathname);
-const shareRow = (kind, key) => `<div class="shr"><button type="button" class="fb" data-share="fb" data-kind="${kind}" data-key="${esc(key)}">Facebook</button><button type="button" class="wa" data-share="wa" data-kind="${kind}" data-key="${esc(key)}">WhatsApp</button><button type="button" class="pc" data-share="card" data-kind="${kind}" data-key="${esc(key)}">ফটোকার্ড</button></div>`;
+const shareRow = (kind, key) => `<details class="shr"><summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>শেয়ার করুন</summary><div class="shr-opts"><button type="button" class="fb" data-share="fb" data-kind="${kind}" data-key="${esc(key)}">Facebook</button><button type="button" class="wa" data-share="wa" data-kind="${kind}" data-key="${esc(key)}">WhatsApp</button><button type="button" class="pc" data-share="card" data-kind="${kind}" data-key="${esc(key)}">ফটোকার্ড</button></div></details>`;
 function shareItem(kind, key){
   if(kind === 'upd'){
     const u = (D.UPDATES||[]).find(x => updKey(x) === key); if(!u) return null;
@@ -628,7 +633,12 @@ async function makeCard(it){
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-share]'); if(!b) return;
   const it = shareItem(b.dataset.kind, b.dataset.key); if(it) doShare(b.dataset.share, it);
+  const d = b.closest('details.shr'); if(d) d.open = false;
 });
+document.addEventListener('toggle', e => {
+  if(e.target.matches && e.target.matches('details.shr') && e.target.open)
+    document.querySelectorAll('details.shr[open]').forEach(d => { if(d !== e.target) d.open = false; });
+}, true);
 
 function updCard(u){
   const lv = {urgent:'জরুরি', change:'পরিবর্তন', info:'জেনে রাখুন'}[u.level] || 'জেনে রাখুন';
