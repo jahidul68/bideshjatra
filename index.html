@@ -13,7 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Layout: one narrow mobile column, like a checklist booklet a family can pass around; status shown as passport-style stamps. */
 :root{
@@ -22,8 +22,8 @@
   --stamp:#c0352c; --stamp-soft:#fbe6e3;
   --amber:#a8650a; --amber-soft:#fbefd9;
   --ok:#1a7845; --ok-soft:#e1f2e7;
-  --display:'Baloo Da 2','Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
-  --body:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --display:'Baloo Da 2','Noto Sans Bengali',system-ui,sans-serif;
+  --body:'Noto Sans Bengali',system-ui,sans-serif;
   --r:16px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -148,6 +148,17 @@ h1 .fimg{width:40px;margin-right:4px}
 .btn.ghost{background:var(--card);color:var(--brand);border:1.5px solid var(--brand)}
 .btn.wide{width:100%}
 /* offer check (#check) */
+.ocfacts{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+.ocfact{display:grid;grid-template-columns:44px 1fr;gap:12px;background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--amber);border-radius:var(--r);padding:16px}
+.ocfact.high{border-left-color:var(--stamp)}
+.ocfact.hit{background:var(--stamp-soft);border-color:var(--stamp)}
+.ocfact .ic{font-size:34px;line-height:1.1;text-align:center}
+.ocfact h3{font-size:20px;font-weight:700;line-height:1.35}
+.ocfact p{margin:4px 0 0}
+.ocmine{display:flex;gap:10px;align-items:center;margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--paper);cursor:pointer;font-weight:600}
+.ocmine input{appearance:none;flex:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--muted);background:var(--card);cursor:pointer;margin:0;display:grid;place-items:center}
+.ocmine input:checked{background:var(--stamp);border-color:var(--stamp)}
+.ocmine input:checked::after{content:"";width:8px;height:14px;border:solid var(--card);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
 .occta{display:grid;grid-template-columns:auto 1fr 24px;gap:14px;align-items:center;text-decoration:none;color:var(--brand-ink);background:var(--brand);border-radius:var(--r);padding:18px}
 .occta .ic{font-size:34px;line-height:1}
 .occta b{font-family:var(--display);font-size:23px;font-weight:800;display:block;line-height:1.2}
@@ -427,7 +438,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     </button>
     <a class="brand" href="#home" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
     <nav class="topnav" aria-label="প্রধান মেনু">
-      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#check">অফার যাচাই</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
+      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#check">দালাল চেনার লক্ষণ</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
     </nav>
     <button class="tsize" id="tsize" type="button" aria-label="লেখার আকার বদলান">অ+</button>
     <button class="speak" id="speak" aria-label="এই পাতা পড়ে শোনান" hidden>
@@ -491,7 +502,7 @@ function home(){
     <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
   </section>
   <div class="steps3">
-    <a class="big main" href="#check"><span class="num">১</span><span><b>দালাল নাকি? অফারটা যাচাই করুন</b><span>৬টি সহজ প্রশ্ন, ১ মিনিট। হ্যাঁ বা না চাপুন।</span></span><span class="arr">${chev}</span></a>
+    <a class="big main" href="#check"><span class="num">১</span><span><b>দালাল নাকি? লক্ষণগুলো মিলিয়ে নিন</b><span>দালাল চেনার ৬টি লক্ষণ এক পাতায়। যেটি মেলে, টিক দিন।</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সির লাইসেন্স যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#countries"><span class="num">৩</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
   </div>
@@ -566,11 +577,11 @@ function wrapLines(ctx, text, maxW, maxLines){
 }
 async function makeCard(it){
   toast('ফটোকার্ড তৈরি হচ্ছে…');
-  try{ await Promise.all(['800 60px "Baloo Da 2"','700 40px "Hind Siliguri"','500 36px "Hind Siliguri"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
+  try{ await Promise.all(['800 60px "Baloo Da 2"','700 40px "Noto Sans Bengali"','500 36px "Noto Sans Bengali"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
   const W = 1080, H = 1350, P = 72, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
   const C = { brand:'#0b5d4b', soft:'#dfeee8', ink:'#13211c', muted:'#56665f', paper:'#f2f5f3', red:'#c0352c', amber:'#a8650a', line:'#d3ddd8' };
-  const DISP = '"Baloo Da 2","Hind Siliguri","Noto Sans Bengali",sans-serif', BODY = '"Hind Siliguri","Noto Sans Bengali",sans-serif';
+  const DISP = '"Baloo Da 2","Noto Sans Bengali",sans-serif', BODY = '"Noto Sans Bengali",sans-serif';
   x.fillStyle = C.paper; x.fillRect(0,0,W,H);
   // header band
   x.fillStyle = C.brand; x.fillRect(0,0,W,150);
@@ -1115,72 +1126,54 @@ function lgRun(){
   lgRender();
 }
 
-/* ---------- offer check: 6 yes/no questions, one at a time ---------- */
+/* ---------- offer check: warning signs shown all at once, tick the ones in your offer ---------- */
 function offerCheck(){
-  return `<h1 style="font-size:28px">দালাল নাকি? অফারটা যাচাই করুন</h1>
-  <p style="margin:0;color:var(--muted)">আপনি যে বিদেশের চাকরির প্রস্তাব পেয়েছেন, তা নিয়ে ৬টি প্রশ্ন। প্রতিটিতে হ্যাঁ, না বা জানি না চাপুন।</p>
-  <div id="oc"></div>`;
+  const Q = D.OFFER_CHECK || [];
+  return `<h1 style="font-size:28px">দালাল চেনার ${bnNum(Q.length)}টি লক্ষণ</h1>
+  <p style="margin:0;color:var(--muted)">বিদেশের চাকরির প্রস্তাবে এগুলোর কোনোটি থাকলে সাবধান। যেটি আপনার প্রস্তাবে আছে, তাতে টিক দিন — নিচে ফল দেখাবে।</p>
+  ${bnVoice ? '<button class="btn ghost" type="button" id="ocsay">🔊 সবগুলো শুনুন</button>' : ''}
+  <ul class="ocfacts">${Q.map((q,i) => `<li class="ocfact ${q.level === 'high' ? 'high' : ''}" id="ocf${i}">
+    <span class="ic" aria-hidden="true">${q.icon}</span>
+    <div><h3>${esc(q.fact || q.q)}</h3><p>${esc(q.why)}</p>${srcLine(q.source)}
+      <label class="ocmine"><input type="checkbox" data-i="${i}"> আমার প্রস্তাবে এটা আছে</label></div>
+  </li>`).join('')}</ul>
+  <div id="ocres" aria-live="polite"></div>
+  <section class="sec"><h2>এখন কী করবেন</h2>
+    <div class="ocnext">
+      <a class="btn wide" href="#agency">এজেন্সির লাইসেন্স যাচাই করুন</a>
+      <a class="btn ghost wide" href="#countries">দেশের সরকারি খরচ দেখুন</a>
+      <a class="btn ghost wide" href="#ledger">টাকার হিসাব খাতা খুলুন</a>
+      <a class="btn ghost wide" href="#help">কোথায় সাহায্য ও অভিযোগ</a>
+    </div>
+    <div class="note">সৌদি আরব, কাতার বা ওমানের ভিসা আসল কিনা জানতে ১৬৭৬৮ নম্বরে কল করুন (আমি প্রবাসী হেল্পলাইন)।</div>
+  </section>
+  ${shareBlock('দালাল নাকি? বিদেশের চাকরির প্রস্তাবে দালাল চেনার লক্ষণগুলো দেখে নিন')}`;
 }
 function ocRun(){
-  const Q = D.OFFER_CHECK || [], box = document.getElementById('oc');
-  if(!box || !Q.length) return;
-  const ans = [];
-  const say = t => speakText(t);
-  function ask(i){
-    const q = Q[i];
-    box.innerHTML = `<div class="ocq">
-      <div class="ocbar" aria-hidden="true"><i style="width:${Math.round(i/Q.length*100)}%"></i></div>
-      <div class="ocstep"><span>প্রশ্ন ${bnNum(i+1)} / ${bnNum(Q.length)}</span>${bnVoice ? '<button class="ocsay" type="button" id="ocsay">🔊 শুনুন</button>' : ''}</div>
-      <div class="ocicon" aria-hidden="true">${q.icon}</div>
-      <h2 id="ocq" tabindex="-1">${esc(q.q)}</h2>
-      <div class="ocans">
-        <button class="btn" type="button" data-a="yes">হ্যাঁ</button>
-        <button class="btn" type="button" data-a="no">না</button>
-        <button class="btn ghost dk" type="button" data-a="dk">জানি না</button>
-      </div>
-      ${i ? '<button class="oclink" type="button" id="ocback">← আগের প্রশ্ন</button>' : ''}
-    </div>`;
-    fixDigits(box);
-    box.querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', () => { stopSpeak(); ans[i] = b.dataset.a; i + 1 < Q.length ? ask(i+1) : result(); }));
-    const sb = document.getElementById('ocsay'); if(sb) sb.addEventListener('click', () => say(q.q + '। হ্যাঁ, না, নাকি জানি না?'));
-    const bk = document.getElementById('ocback'); if(bk) bk.addEventListener('click', () => { stopSpeak(); ask(i-1); });
-    if(i) document.getElementById('ocq').focus({preventScroll:true});
+  const Q = D.OFFER_CHECK || [], out = document.getElementById('ocres');
+  if(!out || !Q.length) return;
+  wireShare();
+  const boxes = [...document.querySelectorAll('.ocmine input')];
+  function show(){
+    const hit = boxes.filter(b => b.checked).map(b => Q[+b.dataset.i]);
+    boxes.forEach(b => document.getElementById('ocf' + b.dataset.i).classList.toggle('hit', b.checked));
+    if(!hit.length){
+      out.innerHTML = `<div class="result good"><span class="stamp green">কোনো লক্ষণ টিক দেননি</span>
+        <div>উপরের কোনোটি আপনার প্রস্তাবে না থাকলেও নিশ্চিত হবেন না। নিচের ধাপে এজেন্সির লাইসেন্স ও সরকারি খরচ যাচাই করে তারপর টাকা দিন।</div></div>`;
+    } else {
+      const red = hit.some(q => q.level === 'high');
+      out.innerHTML = red
+        ? `<div class="result bad"><span class="stamp red">খুব ঝুঁকিপূর্ণ</span>
+            <div style="font-size:19px;font-weight:700">আপনার প্রস্তাবে ${bnNum(hit.length)}টি লক্ষণ আছে। এটা ফাঁদ হতে পারে। টাকা দেবেন না, কাগজে সই করবেন না।</div></div>`
+        : `<div class="result mid"><span class="stamp amber">আরও যাচাই করুন</span>
+            <div style="font-size:19px;font-weight:700">আপনার প্রস্তাবে ${bnNum(hit.length)}টি লক্ষণ আছে। যাচাই না করে টাকা দেবেন না।</div></div>`;
+    }
+    fixDigits(out);
   }
-  function result(){
-    const yes = Q.map((q,i) => ({q, a:ans[i]})).filter(x => x.a === 'yes');
-    const dk = ans.filter(a => a === 'dk').length;
-    const lvl = yes.some(x => x.q.level === 'high') ? 'red' : (yes.length || dk) ? 'amber' : 'green';
-    const R = {
-      red:   ['bad','red','খুব ঝুঁকিপূর্ণ','এটা ফাঁদ হতে পারে। টাকা দেবেন না, কাগজে সই করবেন না।'],
-      amber: ['mid','amber','আরও যাচাই করুন','কিছু বিষয় নিশ্চিত নয়। নিচের বিষয়গুলো যাচাই না করে টাকা দেবেন না।'],
-      green: ['good','green','বড় বিপদের লক্ষণ পাওয়া যায়নি','তবুও নিচের ধাপগুলো যাচাই করে তারপর এগোন। এই পরীক্ষা নিশ্চয়তা দেয় না।']
-    }[lvl];
-    const reasons = yes.map(x => `<li><b>${esc(x.q.q)}</b>${esc(x.q.why)}${srcLine(x.q.source)}</li>`).join('');
-    box.innerHTML = `<div class="result ${R[0]}" id="ocres" tabindex="-1">
-      <span class="stamp ${R[1]}">${R[2]}</span>
-      <div style="font-size:19px;font-weight:700">${R[3]}</div>
-      ${reasons ? `<div>যে কারণে:</div><ul class="ocwhy">${reasons}</ul>` : ''}
-      ${dk ? `<div>${bnNum(dk)}টি প্রশ্নের উত্তর আপনি জানেন না। দালাল বা এজেন্সির কাছে লিখিতভাবে জেনে নিন।</div>` : ''}
-    </div>
-    <section class="sec"><h2>এখন কী করবেন</h2>
-      <div class="ocnext">
-        <a class="btn wide" href="#agency">এজেন্সির লাইসেন্স যাচাই করুন</a>
-        <a class="btn ghost wide" href="#countries">দেশের সরকারি খরচ দেখুন</a>
-        <a class="btn ghost wide" href="#ledger">টাকার হিসাব খাতা খুলুন</a>
-        <a class="btn ghost wide" href="#help">কোথায় সাহায্য ও অভিযোগ</a>
-      </div>
-      <div class="note">সৌদি আরব, কাতার বা ওমানের ভিসা আসল কিনা জানতে ১৬৭৬৮ নম্বরে কল করুন (আমি প্রবাসী হেল্পলাইন)।</div>
-      <button class="oclink" type="button" id="ocagain">↻ আবার শুরু করুন</button>
-    </section>
-    ${shareBlock('দালাল নাকি? বিদেশের চাকরির প্রস্তাব ১ মিনিটে যাচাই করুন')}`;
-    fixDigits(box);
-    wireShare();
-    document.getElementById('ocagain').addEventListener('click', () => { ans.length = 0; ask(0); window.scrollTo(0,0); });
-    document.getElementById('ocres').focus({preventScroll:true});
-    window.scrollTo(0,0);
-    if(bnVoice) say(R[2] + '। ' + R[3]);
-  }
-  ask(0);
+  boxes.forEach(b => b.addEventListener('change', show));
+  const sb = document.getElementById('ocsay');
+  if(sb) sb.addEventListener('click', () => speakText(Q.map((q,i) => `${bnNum(i+1)}। ${q.fact || q.q}`).join('। ')));
+  show();
 }
 
 function flags(){
