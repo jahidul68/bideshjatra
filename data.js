@@ -338,7 +338,7 @@ window.APP_DATA = {
     { id: "qatar", region: "gulf", stats: [{ label: "২০২৫ সালে কাজে গেছেন", n: 107472, status: "news", source: "bmet2025" }, { label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 852813, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ৪ লাখ", note: "২০১৯ সালের হিসাব", kind: "live", status: "draft", source: "wikiDiaspora" }],
       access: { state: "limited", note: "সরকারিভাবে বন্ধ নয়। মন্ত্রণালয় নিষেধাজ্ঞার খবরকে গুজব বলেছিল (প্রায় এক বছর আগের খবর)। তবে সেখানে যাওয়া কর্মীর সংখ্যা কমেছে বলে প্রতিবেদন আছে।", source: "tbsQatarRumour" },     name: "কাতার",      flag: "🇶🇦", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
     { id: "oman", region: "gulf", stats: [{ label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 1802929, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ৬.৮ লাখ", note: "২০১৮ সালের হিসাব", kind: "live", status: "draft", source: "wikiDiaspora" }],
-      access: { state: "closed", note: "বাংলাদেশি কর্মী নেওয়া স্থগিত থাকার খবর আছে (সূত্রে তারিখ নিয়ে অমিল)। আবার খোলার আলোচনা চলছে।", source: "dsLabourWall" },      name: "ওমান",       flag: "🇴🇲", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: true },
+      access: { state: "closed", note: "বাংলাদেশি কর্মী নেওয়া স্থগিত থাকার খবর আছে (খবরগুলোতে তারিখ নিয়ে অমিল)। আবার খোলার আলোচনা চলছে।", source: "dsLabourWall" },      name: "ওমান",       flag: "🇴🇲", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: true },
     { id: "uae", region: "gulf", stats: [{ label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 2528899, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ১২ লাখ", note: "২০১৩ সালের হিসাব, পুরোনো", kind: "live", status: "draft", source: "wikiDiaspora" }],
       access: { state: "limited", note: "নতুন কাজের ভিসা বন্ধের সরকারি ঘোষণা পাইনি, দূতাবাস এমন খবরকে গুজব বলেছে। তবে ২০২৬ সালের সেপ্টেম্বরে ৪ হাজারের বেশি বাংলাদেশির ভিসা বাতিল হয়েছে।", source: "dsUaeCancel" },       name: "সংযুক্ত আরব আমিরাত", flag: "🇦🇪", cap: { amount: 107780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: null, visaCheck: false },
     { id: "kuwait", region: "gulf", stats: [{ label: "২০২৫ সালে কাজে গেছেন", n: 42716, status: "news", source: "bmet2025" }, { label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 660897, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ৩.৫ লাখ", note: "২০২০ সালের হিসাব", kind: "live", status: "draft", source: "wikiDiaspora" }],
@@ -372,7 +372,7 @@ window.APP_DATA = {
       name: "ইতালি", flag: "🇮🇹", cap: null, reported: null, visaCheck: false,
       warning: { text: "ভিসার সরকারি ফি মাত্র ৬৫ ইউরো বলে ইতালীয় দূতাবাসের এক বিশেষজ্ঞ জানিয়েছেন, অথচ বাংলাদেশে দালালরা অনেক বেশি টাকা নেয়। 'ইতালির ভিসা' বলে বড় অঙ্কের টাকা চাইলে সতর্ক হোন।", source: "paItaly" } },
     { id: "romania", region: "europe", access: { state: "limited", note: "শ্রমবাজার খোলা, কিন্তু বহু বাংলাদেশি বিপুল টাকা দিয়েও প্রতিশ্রুত কাজ বা ওয়ার্ক পারমিট পাননি।", source: "tbsRomania" }, detail: { employerNote: "২০২০ সালে সরকারি ব্যবস্থায় ১,৬৫,০০০ টাকা নির্ধারিত ছিল বলে প্রতিবেদন আছে, অথচ বেসরকারি রিক্রুটারদের আসল খরচ ১০–১২ লাখ টাকা বলা হয়েছে। রোমানিয়ার শ্রমবাজার খুলছে বলেও প্রতিবেদন আছে।", status: "news", source: "dsRomania" },
-      name: "রোমানিয়া", flag: "🇷🇴", cap: null, reported: { min: 600000, max: 800000, source: "tbsRomania", note: "এজেন্সির নেওয়া টাকা (টিবিএসের প্রতিবেদন); অন্য সূত্রে ১০–১২ লাখ টাকাও বলা হয়েছে" }, visaCheck: false,
+      name: "রোমানিয়া", flag: "🇷🇴", cap: null, reported: { min: 600000, max: 800000, source: "tbsRomania", note: "এজেন্সির নেওয়া টাকা (টিবিএসের প্রতিবেদন); অন্য খবরে ১০–১২ লাখ টাকাও বলা হয়েছে" }, visaCheck: false,
       warning: { text: "রোমানিয়ার বাংলাদেশ চেম্বার অন্তত ২০০টি প্রতিশ্রুতি ভঙ্গের অভিযোগ সামলেছে। আগে নিশ্চিত হোন চাকরিদাতা ও ওয়ার্ক পারমিট সত্যি কিনা, এরপর টাকা দিন।", source: "tbsRomania" } },
     { id: "libya", region: "africa", irregular: true, access: { state: "unknown", note: "লিবিয়া বাংলাদেশি কর্মী নেওয়ার আগ্রহ জানালেও ২০২৬ সালেও লিবিয়া থেকে বহু বাংলাদেশিকে ফেরত আনা হচ্ছে। নির্ভরযোগ্য বৈধ পথের তথ্য পাইনি।", source: "dsLibyaReturn" }, detail: { employerNote: "লিবিয়া দক্ষ ও আধা-দক্ষ কর্মী (চিকিৎসা কর্মীসহ) নেওয়ার আগ্রহ আবার জানিয়েছে (প্রতিবেদনের তারিখ অস্পষ্ট)। তবু ফেরত আসা কর্মীদের বেশিরভাগই অবৈধভাবে ইউরোপ যেতে লিবিয়ায় ঢুকেছিলেন।", status: "news", source: "libyaMonitor" },
       name: "লিবিয়া", flag: "🇱🇾", cap: null, reported: null, visaCheck: false,
@@ -452,7 +452,7 @@ window.APP_DATA = {
     { id: "usa", region: "americas", irregular: true, name: "যুক্তরাষ্ট্র", flag: "🇺🇸", cap: null, reported: null, visaCheck: false,
       access: { state: "unknown", note: "শ্রমিক পাঠানোর সরকারি ব্যবস্থা নেই। বাংলাদেশিরা ডিভি লটারিতে আবেদন করতে পারেন না।", source: "dv2026" },
       warning: { text: "দালালরা ব্রাজিল, বলিভিয়া, পানামার জঙ্গল (ডারিয়েন গ্যাপ) ও মেক্সিকো হয়ে অবৈধভাবে আমেরিকায় নেওয়ার প্রস্তাব দেয়। পথে নতুন দালাল আরও টাকা চায়; ধরা পড়ে অনেকে শিকল পরা অবস্থায় ফেরত এসেছেন।", source: "usDeport" },
-      stats: [ { label: "এখন থাকেন (আনুমানিক)", text: "৩.৫–৬ লাখ", kind: "live", note: "সূত্রভেদে হিসাব আলাদা", status: "draft", source: "wikiDiaspora" } ] },
+      stats: [ { label: "এখন থাকেন (আনুমানিক)", text: "৩.৫–৬ লাখ", kind: "live", note: "একেক জায়গায় একেক হিসাব", status: "draft", source: "wikiDiaspora" } ] },
     { id: "canada", region: "americas", name: "কানাডা", flag: "🇨🇦", cap: null, reported: null, visaCheck: false,
       access: { state: "unknown", note: "শ্রমিক পাঠানোর সরকারি চুক্তির তথ্য পাইনি। কানাডার ভিসা শুধু কানাডা সরকারের অফিসিয়াল ব্যবস্থায় হয়।", source: null },
       stats: [ { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ১.২ লাখ", kind: "live", status: "draft", source: "wikiDiaspora" } ] },
@@ -483,7 +483,7 @@ window.APP_DATA = {
     topAll: { title: "১৯৭৬–মার্চ ২০২৩: সব মিলিয়ে কোন দেশে বেশি গেছেন", source: "bmet1976",
       rows: [ ["saudi", 5403532], ["uae", 2528899], ["oman", 1802929], ["malaysia", 1190210], ["singapore", 897404], ["qatar", 852813], ["kuwait", 660897], ["bahrain", 410485], ["lebanon", 269235], ["jordan", 211923] ] },
     districts: { text: "২০২৫ সালে সবচেয়ে বেশি কর্মী গেছেন কুমিল্লা থেকে। এরপর ব্রাহ্মণবাড়িয়া, ঢাকা, টাঙ্গাইল, কিশোরগঞ্জ, চাঁদপুর, চট্টগ্রাম, নোয়াখালী, নরসিংদী ও ময়মনসিংহ।", source: "rmmruUnb" },
-    caveat: { text: "ফেরত আসা কর্মীদের হিসাব রাখা হয় না, তাই এখন ঠিক কতজন বাংলাদেশি বিদেশে আছেন, তার নির্ভরযোগ্য সরকারি সংখ্যা নেই। নিচের 'এখন থাকেন' সংখ্যাগুলো বিভিন্ন সূত্রের আনুমানিক হিসাব।", source: "rmmruUnb" }
+    caveat: { text: "ফেরত আসা কর্মীদের হিসাব রাখা হয় না, তাই এখন ঠিক কতজন বাংলাদেশি বিদেশে আছেন, তার নির্ভরযোগ্য সরকারি সংখ্যা নেই। নিচের 'এখন থাকেন' সংখ্যাগুলো বিভিন্ন জায়গা থেকে নেওয়া আনুমানিক হিসাব।", source: "rmmruUnb" }
   },
 
   /* ---------- IRREGULAR ROUTES & RISK (#risk) ---------- */

@@ -466,7 +466,7 @@ const bnDigits = s => String(s).replace(/\d/g, d => '০১২৩৪৫৬৭৮
 const taka = n => '৳' + bnNum(n);
 const lakh = n => n >= 100000 ? bnNum(+(n/100000).toFixed(2)) + ' লাখ' : bnNum(n);
 const src = id => D.SOURCES[id];
-const srcLine = id => { const s = src(id); if(!s) return ''; return `<div class="src">সূত্র: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
+const srcLine = id => { const s = src(id); if(!s) return ''; return `<div class="src">তথ্য নেওয়া হয়েছে: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
 const BADGE = {
   official: ['b-official','সরকারি প্রজ্ঞাপন থেকে'],
   news:     ['b-news','সংবাদে প্রকাশিত · সরকারি কাগজ যাচাই বাকি'],
@@ -481,7 +481,7 @@ let toastT;
 function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2200); }
 const chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
 const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
-const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে সূত্র দেওয়া আছে। এটি সরকারি অ্যাপ নয়।</span></div>`;
+const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে কোথা থেকে নেওয়া, তার লিংক দেওয়া আছে। এটি সরকারি অ্যাপ নয়।</span></div>`;
 
 /* ---------- views ---------- */
 function home(){
@@ -606,7 +606,7 @@ async function makeCard(it){
     for(const l of tl){ x.fillText(l, P+34, ty); ty += 48; }
   }
   // source line inside card bottom
-  if(it.outlet){ x.fillStyle = C.muted; x.font = `500 28px ${BODY}`; x.fillText('সূত্র: ' + it.outlet, P+10, H-190-60); }
+  if(it.outlet){ x.fillStyle = C.muted; x.font = `500 28px ${BODY}`; x.fillText('খবর: ' + it.outlet, P+10, H-190-60); }
   // footer
   x.fillStyle = C.brand; x.fillRect(0, H-150, W, 150);
   x.fillStyle = '#fff'; x.textBaseline = 'middle'; x.font = `700 34px ${BODY}`;
@@ -792,7 +792,7 @@ function country(id){
 }
 
 /* ---------- numbers: tiles + bar charts ---------- */
-const srcShort = id => { const s = src(id); if(!s) return ''; return `<div class="src">সূত্র: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title.split(' — ').pop())}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
+const srcShort = id => { const s = src(id); if(!s) return ''; return `<div class="src">তথ্য নেওয়া হয়েছে: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title.split(' — ').pop())}</a>${s.date ? ' · ' + esc(bnDigits(s.date)) : ''}</div>`; };
 const statVal = x => x.text ? esc(x.text) : bnNum(x.n) + (x.unit ? ' ' + esc(x.unit) : ' জন');
 function statTiles(list, danger){
   return `<div class="tiles">${list.map(x => `<div class="tile${danger ? ' danger' : ''}"><span class="v">${statVal(x)}</span><span class="l">${esc(x.label)}</span>${x.note ? `<span class="nt">${esc(x.note)}</span>` : ''}${x.status === 'draft' ? '<span class="nt">আনুমানিক · যাচাই চলছে</span>' : ''}${srcShort(x.source)}</div>`).join('')}</div>`;
@@ -811,7 +811,7 @@ function statsPage(){
   const S = D.STATS; if(!S) return '';
   const live = D.COUNTRIES.flatMap(c => (c.stats||[]).filter(x => x.kind === 'live').map(x => ({c, x})));
   return `<h1 style="font-size:28px">প্রবাসে বাংলাদেশি: পরিসংখ্যান</h1>
-  <p style="margin:0;color:var(--muted)">কতজন কাজে বিদেশ যাচ্ছেন, কোন দেশে যাচ্ছেন, কোথায় কতজন থাকেন। প্রতিটি সংখ্যার নিচে সূত্র আছে।</p>
+  <p style="margin:0;color:var(--muted)">কতজন কাজে বিদেশ যাচ্ছেন, কোন দেশে যাচ্ছেন, কোথায় কতজন থাকেন। প্রতিটি সংখ্যার নিচে কোথা থেকে নেওয়া, তার লিংক আছে।</p>
   <section class="sec"><h2>এক নজরে</h2>${statTiles(S.overview)}</section>
   <section class="sec"><h2>${esc(S.top2025.title)}</h2>${barList(S.top2025.rows.map(([id,n]) => ({id, n})))}
     <div class="src">সরকারি (BMET) হিসাব। সৌদি আরবেই গেছেন মোট কর্মীর দুই-তৃতীয়াংশের বেশি।</div>${srcLine(S.top2025.source)}</section>
@@ -819,7 +819,7 @@ function statsPage(){
   <section class="sec"><h2>কোন জেলা থেকে বেশি যান</h2><div>${esc(S.districts.text)}</div>${srcLine(S.districts.source)}</section>
   <section class="sec"><h2>কোন দেশে কতজন বাংলাদেশি থাকেন</h2>
     <div class="note">${esc(S.caveat.text)}</div>
-    <table class="dtable"><thead><tr><th>দেশ</th><th>সংখ্যা</th><th>কোন সময়ের / সূত্র</th></tr></thead><tbody>
+    <table class="dtable"><thead><tr><th>দেশ</th><th>সংখ্যা</th><th>কোন সময়ের / কোথা থেকে</th></tr></thead><tbody>
     ${live.map(({c, x}) => `<tr><td><a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a></td><td><b>${statVal(x)}</b></td><td class="src">${esc(x.note || '')}${x.note ? ' · ' : ''}<a href="${esc(src(x.source).url)}" target="_blank" rel="noopener">${esc(src(x.source).title.split(' — ').pop())}</a></td></tr>`).join('')}
     </tbody></table>
     ${srcLine(S.caveat.source)}</section>
@@ -1229,7 +1229,7 @@ function foot(){
   return `<div>সর্বশেষ হালনাগাদ: ${esc(bnDigits(D.META.lastUpdated))} · সংস্করণ ${esc(D.META.version)}</div>
     <div>এটি সরকারি অ্যাপ নয়। তথ্য সংবাদপত্র ও সরকারি ওয়েবসাইট থেকে নেওয়া। সিদ্ধান্ত নেওয়ার আগে সরকারি অফিসে যাচাই করুন।</div>
     <div class="credit">Built by Jahid using Claude</div>
-    <details><summary>সব সূত্র</summary><ul>${used.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>`;
+    <details><summary>এই তথ্য কোথা থেকে নেওয়া? (খবর ও সরকারি লিংক)</summary><ul>${used.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>`;
 }
 
 /* wrap Bangla digit runs in .d so they use the body font */
