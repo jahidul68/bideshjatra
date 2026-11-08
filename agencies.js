@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-07. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-07", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-08. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-08", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -272,7 +272,7 @@ window.AGENCY_LIST = { date: "2026-11-07", rows: [
 ["2491","AMINA OVERSEAS BD","expired","2026-06-12"],
 ["1351","AMIR A JAHAN PRIVATE LTD","active","2028-07-13"],
 ["2275","AMLL Overseas Limited","active","2029-01-30"],
-["2123","AMR OVERSEAS LIMITED","server locked","2028-08-10"],
+["2123","AMR OVERSEAS LIMITED","active","2028-08-10"],
 ["2971","AMY WORKFORCE LIMITED","active","2029-02-23"],
 ["1997","AMZAD OVERSEAS LTD","active","2028-02-10"],
 ["1882","AN-NAFI OVERSEAS","active","2027-07-31"],
@@ -1985,7 +1985,7 @@ window.AGENCY_LIST = { date: "2026-11-07", rows: [
 ["2608","MYLAND OVERSEAS","expired","2026-09-04"],
 ["2508","MYMUNA OVERSEAS","active","2029-06-11"],
 ["1047","MS THE JAMUNA OVERSEAS","active","2028-12-31"],
-["1635","Ma Moni Overseas Ltd.","expired","2025-01-06"],
+["1635","Ma Moni Overseas Ltd.","server locked","2025-01-06"],
 ["2248","Ma Morium Overseas","active","2029-01-11"],
 ["2314","Madbar International Limited","active","2029-02-07"],
 ["0639","Madina Overseas","cancelled","2028-12-31"],
@@ -2628,7 +2628,7 @@ window.AGENCY_LIST = { date: "2026-11-07", rows: [
 ["2581","TAHMID TAHSIN OVERSEAS","expired","2026-08-13"],
 ["2835","TAHMINA MANPOWER SERVICE","active","2029-01-26"],
 ["1432","TAIBAH RECRUITMENT","active","2029-03-12"],
-["2643","TAJ HUMAN RESOURCE DEVELOPMENT","active","2026-11-07"],
+["2643","TAJ HUMAN RESOURCE DEVELOPMENT","expired","2026-11-07"],
 ["2404","TAJKIA OVERSEAS","active","2029-04-03"],
 ["0531","TAKDIR TRADE INTERNATIONAL LTD","active","2028-12-31"],
 ["2913","TAKE SUPPORT INTERNATIONAL","active","2029-02-17"],
@@ -2668,7 +2668,7 @@ window.AGENCY_LIST = { date: "2026-11-07", rows: [
 ["0715","THE BAPPI ASSOCIATES LTD.","active","2028-12-31"],
 ["1609","THE BENGAL DREAM INTERNATIONAL","active","2027-12-12"],
 ["0909","THE DHAKA TRADE INTERNATIONAL","active","2028-12-31"],
-["2664","THE EUROPE ZONE","active","2026-11-07"],
+["2664","THE EUROPE ZONE","expired","2026-11-07"],
 ["2575","THE FACE OF EUROPE OVERSEAS","active","2029-08-12"],
 ["2939","THE FAITH INTERNATIONAL","active","2029-02-23"],
 ["1482","THE FENI OVERSEAS","active","2029-07-25"],
