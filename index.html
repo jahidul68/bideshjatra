@@ -347,6 +347,31 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .dtable .fimg{width:22px}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* home: 3 main steps + small "more" tiles */
+.big.main{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.big.main .num{background:color-mix(in srgb,var(--brand-ink) 18%,transparent);color:var(--brand-ink)}
+.big.main span,.big.main .arr{color:var(--brand-ink)} .big.main span span{opacity:.9}
+.more-sec{display:grid;gap:10px}
+.more-sec h2{font-size:19px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile2{display:grid;gap:4px;align-content:start;padding:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);min-width:0}
+.tile2:hover{border-color:var(--brand)}
+.tile2 .ic{font-size:24px;line-height:1.2}
+.tile2 b{font-size:15.5px;font-weight:700;line-height:1.3;overflow-wrap:anywhere}
+.tile2.red{background:var(--stamp-soft);border-color:color-mix(in srgb,var(--stamp) 45%,transparent)} .tile2.red b{color:var(--stamp)}
+.updmini{display:grid;gap:4px;padding:12px 14px;background:var(--card);border:1.5px solid var(--line);border-left:5px solid var(--brand);border-radius:12px;text-decoration:none;color:var(--ink)}
+.updmini.urgent{border-left-color:var(--stamp)} .updmini.change{border-left-color:var(--amber)}
+.updmini .meta{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.updmini b{font-size:16.5px;line-height:1.35}
+.updmini .more{font-size:14px;color:var(--brand);font-weight:600}
+.navmore{position:relative}
+.navmore summary{list-style:none;padding:8px 14px;border-radius:10px;color:var(--brand-ink);font-weight:600;font-size:16px;opacity:.85;cursor:pointer}
+.navmore summary::-webkit-details-marker{display:none}
+.navmore[open] summary,.navmore summary:hover{background:color-mix(in srgb,var(--brand-ink) 14%,transparent);opacity:1}
+.navpanel{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:6px;display:grid;min-width:230px;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:20}
+.topnav .navpanel a{color:var(--ink);opacity:1;padding:9px 12px}
+.topnav .navpanel a:hover{background:var(--brand-soft)}
 /* payment diary (#ledger) */
 .lgf{display:grid;gap:12px}
 .lgf label{display:grid;gap:4px;font-size:15px;font-weight:600;color:var(--muted);min-width:0}
@@ -379,11 +404,6 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .letter table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:15px}
 .letter th,.letter td{border:1px solid #999;padding:5px 7px;text-align:left}
 .letter .sign{margin-top:28px}
-.lgcta{display:grid;grid-template-columns:auto 1fr 24px;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--brand);border-radius:var(--r);padding:16px}
-.lgcta .ic{font-size:32px;line-height:1}
-.lgcta b{font-family:var(--display);font-size:21px;color:var(--brand);display:block;line-height:1.25}
-.lgcta span span{display:block;font-size:15px;color:var(--muted);margin-top:2px}
-.lgcta .arr{color:var(--muted)}
 @media print{
   body{background:#fff}
   body *{visibility:hidden}
@@ -402,7 +422,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     </button>
     <a class="brand" href="#home" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
     <nav class="topnav" aria-label="প্রধান মেনু">
-      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#ledger" data-tab="ledger">টাকার হিসাব</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><a href="#risk" data-tab="risk">সাগরপথের ঝুঁকি</a><a href="#stats" data-tab="stats">পরিসংখ্যান</a>
+      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#check">অফার যাচাই</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
     </nav>
     <button class="tsize" id="tsize" type="button" aria-label="লেখার আকার বদলান">অ+</button>
     <button class="speak" id="speak" aria-label="এই পাতা পড়ে শোনান" hidden>
@@ -462,23 +482,29 @@ const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষাম
 function home(){
   return `<div class="split"><div class="col-main">
   <section class="hero">
-    <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৪টি জিনিস যাচাই করুন।</h1>
+    <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৩টি জিনিস যাচাই করুন।</h1>
     <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
   </section>
-  <a class="occta" href="#check"><span class="ic" aria-hidden="true">🔎</span><span><b>দালাল নাকি? অফারটা যাচাই করুন</b><span>৬টি সহজ প্রশ্ন, ১ মিনিট। হ্যাঁ বা না চাপুন।</span></span><span class="arr">${chev}</span></a>
-  <a class="lgcta" href="#ledger"><span class="ic" aria-hidden="true">📒</span><span><b>টাকার হিসাব খাতা</b><span>যত টাকা দিচ্ছেন লিখে রাখুন। সরকারি সীমার বেশি নিলে দেখাবে, অভিযোগপত্রও বানিয়ে দেবে।</span></span><span class="arr">${chev}</span></a>
   <div class="steps3">
-    <a class="big" href="#countries"><span class="num">১</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
-    <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সি যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
-    <a class="big" href="#flags"><span class="num">৩</span><span><b>দালাল কি এটা বলছে?</b><span>প্রতারণার সাধারণ কথাগুলো চিনে নিন</span></span><span class="arr">${chev}</span></a>
-    <a class="big" href="#myths"><span class="num">৪</span><span><b>ভুল ধারণা ও সত্য</b><span>যেমন: বাংলাদেশ থেকে ডিভি লটারি হয় না</span></span><span class="arr">${chev}</span></a>
-    <a class="big" href="#stats"><span class="num">৫</span><span><b>প্রবাসে বাংলাদেশি: পরিসংখ্যান</b><span>কোন দেশে কতজন যান ও থাকেন</span></span><span class="arr">${chev}</span></a>
+    <a class="big main" href="#check"><span class="num">১</span><span><b>দালাল নাকি? অফারটা যাচাই করুন</b><span>৬টি সহজ প্রশ্ন, ১ মিনিট। হ্যাঁ বা না চাপুন।</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সির লাইসেন্স যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
+    <a class="big" href="#countries"><span class="num">৩</span><span><b>সরকারি খরচ ও নিয়ম</b><span>কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে</span></span><span class="arr">${chev}</span></a>
   </div>
-  <a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>লিবিয়া হয়ে নৌকায় ইতালি? আগে এটা পড়ুন</b><span>'গেম ঘর', মুক্তিপণ, সাগরে মৃত্যু — অবৈধ পথের আসল চিত্র</span></span><span class="arr">${chev}</span></a>
   <div class="callstrip">
     <span class="n">১৬৭৬৮</span>
     <p>ভিসা আসল কিনা যাচাই করুন: আমি প্রবাসী হেল্পলাইন (সৌদি আরব, কাতার, ওমান)</p>
   </div>
+  <section class="more-sec" aria-label="আরও যা আছে">
+    <h2>আরও যা আছে</h2>
+    <div class="tiles">
+      <a class="tile2" href="#ledger"><span class="ic" aria-hidden="true">📒</span><b>টাকার হিসাব ও অভিযোগপত্র</b></a>
+      <a class="tile2" href="#flags"><span class="ic" aria-hidden="true">⚠️</span><b>দালালের কথা চিনুন</b></a>
+      <a class="tile2 red" href="#risk"><span class="ic" aria-hidden="true">🚤</span><b>লিবিয়া হয়ে নৌকায় ইতালি?</b></a>
+      <a class="tile2" href="#myths"><span class="ic" aria-hidden="true">💡</span><b>ভুল ধারণা ও সত্য</b></a>
+      <a class="tile2" href="#help"><span class="ic" aria-hidden="true">📞</span><b>সাহায্য ও অভিযোগ</b></a>
+      <a class="tile2" href="#stats"><span class="ic" aria-hidden="true">📊</span><b>প্রবাসে বাংলাদেশি: সংখ্যায়</b></a>
+    </div>
+  </section>
   ${proto}
   </div>
   <aside class="col-news" aria-label="সর্বশেষ খবর ও আপডেট">${updStrip()}${newsBlock()}</aside></div>`;
@@ -622,7 +648,8 @@ function updates(){
 function updStrip(){
   const list = (D.UPDATES||[]).slice().sort((a,b) => b.date.localeCompare(a.date)).slice(0,2);
   if(!list.length) return '';
-  return `<section class="updstrip"><h2>🔔 সর্বশেষ গুরুত্বপূর্ণ আপডেট</h2>${list.map(updCard).join('')}<a class="btn ghost wide" href="#updates">সব আপডেট দেখুন</a></section>`;
+  const lv = {urgent:'জরুরি', change:'পরিবর্তন', info:'জেনে রাখুন'};
+  return `<section class="updstrip"><h2>🔔 সর্বশেষ গুরুত্বপূর্ণ আপডেট</h2>${list.map(u => `<a class="updmini ${esc(u.level)}" href="#${updKey(u)}"><span class="meta"><span class="chip ${esc(u.level)}">${lv[u.level]||lv.info}</span><span>${esc(bnDigits(u.date))}</span></span><b>${esc(u.title)}</b><span class="more">বিস্তারিত দেখুন ›</span></a>`).join('')}<a class="btn ghost wide" href="#updates">সব আপডেট দেখুন</a></section>`;
 }
 
 function newsBlock(){
@@ -1261,6 +1288,7 @@ function route(){
     if(a.dataset.tab === tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
   });
   backBtn.hidden = isHome;
+  document.querySelectorAll('.navmore').forEach(d => d.open = false);
   window.scrollTo(0,0);
   wire(h);
   if(h === 'help'){ const e = document.getElementById('help'); if(e) e.scrollIntoView(); }
