@@ -436,9 +436,9 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     <button class="back" id="back" aria-label="পেছনে যান" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
-    <a class="brand" href="#home" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
+    <a class="brand" href="/" aria-label="দালাল নাকি? বিদেশযাত্রা যাচাই, হোম">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></a>
     <nav class="topnav" aria-label="প্রধান মেনু">
-      <a href="#home" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#check">দালাল চেনার লক্ষণ</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
+      <a href="/" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#check">দালাল চেনার লক্ষণ</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
     </nav>
     <button class="tsize" id="tsize" type="button" aria-label="লেখার আকার বদলান">অ+</button>
     <button class="speak" id="speak" aria-label="এই পাতা পড়ে শোনান" hidden>
@@ -453,7 +453,7 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   <footer id="foot"></footer>
 </main>
 <nav class="tabs" aria-label="প্রধান মেনু"><div class="tabs-in">
-  <a href="#home" data-tab="home"><span class="ic" aria-hidden="true">🏠</span>হোম</a>
+  <a href="/" data-tab="home"><span class="ic" aria-hidden="true">🏠</span>হোম</a>
   <a href="#countries" data-tab="countries"><span class="ic" aria-hidden="true">🌍</span>দেশ</a>
   <a href="#agency" data-tab="agency"><span class="ic" aria-hidden="true">✅</span>এজেন্সি</a>
   <a href="#updates" data-tab="updates"><span class="ic" aria-hidden="true">🔔</span>আপডেট</a>
@@ -1343,11 +1343,20 @@ function wireShare(){
     }
   });
 }
+/* home lives at the plain address (dalalnaki.com, no #home) */
+function goHome(){ history.pushState(null, '', location.pathname + location.search); route(); }
 backBtn.addEventListener('click', () => {
   const h = (location.hash||'').slice(1);
-  location.hash = h.startsWith('c-') ? 'countries' : 'home';
+  if(h.startsWith('c-')) location.hash = 'countries'; else goHome();
 });
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href="/"]');
+  if(!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+  e.preventDefault(); if(location.hash) goHome(); else window.scrollTo(0,0);
+});
+if(location.hash === '#home') history.replaceState(null, '', location.pathname + location.search);
 addEventListener('hashchange', route);
+addEventListener('popstate', () => { if(!location.hash) route(); });
 
 /* ---------- read aloud (only if the phone has a Bangla voice) ---------- */
 const speakBtn = document.getElementById('speak'), speakLabel = document.getElementById('speakLabel');
