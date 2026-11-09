@@ -79,6 +79,7 @@ main{padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px)
 .pace .end.a{left:-4px}.pace .end.b{right:-4px}
 .pace .plane{position:absolute;top:50%;left:0;width:26px;height:26px;margin:-13px 0 0 -13px;color:var(--brand);animation:paceFly linear infinite}
 .pace .plane svg{width:100%;height:100%;display:block}
+.pace .clock{margin:-4px 0 0;font-size:14px;color:var(--muted)}
 .pace .sub{margin:0;font-size:14px;color:var(--muted)}
 .pace .sub a{white-space:nowrap}
 @keyframes paceFly{0%{left:8%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:92%;opacity:0}}
@@ -656,15 +657,24 @@ const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে কোথা থেকে নেওয়া, তার লিংক দেওয়া আছে। এটি সরকারি অ্যাপ নয়।</span></div>`;
 
 /* ---------- views ---------- */
+/* Bangladesh time (UTC+6, no daylight saving) — the site's "today" and clock always follow Dhaka, wherever the visitor is */
+const BD_MS = 6*3600e3;
+const bdNow = () => new Date(Date.now() + BD_MS); // read with getUTC* methods
+const bdToday = () => bdNow().toISOString().slice(0,10);
+const bdClock = () => { const d = bdNow(), h = d.getUTCHours(), m = d.getUTCMinutes();
+  const part = h < 4 ? 'রাত' : h < 6 ? 'ভোর' : h < 12 ? 'সকাল' : h < 15 ? 'দুপুর' : h < 18 ? 'বিকাল' : h < 20 ? 'সন্ধ্যা' : 'রাত';
+  return part + ' ' + bnNum(h % 12 || 12) + ':' + bnDigits(String(m).padStart(2,'0')); };
 /* ---------- live pace strip: yearly total ÷ seconds in a year (average, not a live count) ---------- */
 let paceTimer = null;
 const paceInfo = () => { const p = D.STATS && D.STATS.pace; if(!p || !p.n) return null; return { p, every: 365*86400 / p.n }; };
-const paceToday = every => Math.floor(((Date.now()/1000 + 6*3600) % 86400) / every); // since midnight, Bangladesh time
+const bdSecs = () => ((Date.now() + BD_MS)/1000) % 86400; // seconds since midnight, Bangladesh time
+const paceToday = every => Math.floor(bdSecs() / every);
 function paceStrip(){
   const x = paceInfo(); if(!x) return '';
   const sec = Math.round(x.every);
   return `<section class="pace" aria-label="প্রতিদিন কতজন কাজে বিদেশ যান">
     <p class="top"><span class="live"><i aria-hidden="true"></i>আজ এ পর্যন্ত</span><span>আনুমানিক</span><b class="cnt d" id="paceN">${bnNum(paceToday(x.every))}</b><span>জন কাজে বিদেশ গেছেন</span></p>
+    <p class="clock">বাংলাদেশ সময় <b class="d" id="paceClock">${bdClock()}</b>, ${bnDate(bdToday())}</p>
     <div class="lane" aria-hidden="true"><span class="end a">বাংলাদেশ</span><span class="end b">বিদেশ</span>
       <span class="plane" id="pacePlane"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 12c0-.8-.7-1.5-1.5-1.5h-5.2L10 3H8l2.4 7.5H5.6L4 8.5H2.5l1 3.5-1 3.5H4l1.6-2h4.8L8 21h2l4.8-7.5H20c.8 0 1.5-.7 1.5-1.5z"/></svg></span></div>
     <p class="sub">গড়ে প্রায় প্রতি ${bnNum(sec)} সেকেন্ডে একজন। ${esc(x.p.year)} সালে মোট ${bnNum(x.p.n)} জন গেছেন, সেই হিসাবে গড় করা, সরাসরি গণনা নয়। <a href="#stats">বিস্তারিত ›</a></p>
@@ -674,11 +684,12 @@ function startPace(){
   clearInterval(paceTimer); paceTimer = null;
   const el = document.getElementById('paceN'), pl = document.getElementById('pacePlane'), x = paceInfo();
   if(!el || !x) return;
-  if(pl){ pl.style.animationDuration = x.every + 's'; pl.style.animationDelay = -(((Date.now()/1000 + 6*3600) % 86400) % x.every) + 's'; }
+  if(pl){ pl.style.animationDuration = x.every + 's'; pl.style.animationDelay = -(bdSecs() % x.every) + 's'; }
   let last = paceToday(x.every);
   paceTimer = setInterval(() => {
     if(!document.getElementById('paceN')){ clearInterval(paceTimer); paceTimer = null; return; }
-    const n = paceToday(x.every);
+    const n = paceToday(x.every), ck = document.getElementById('paceClock');
+    if(ck){ const t = bdClock(); if(ck.textContent !== t) ck.textContent = t; }
     if(n !== last){ last = n; el.textContent = bnNum(n); el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
   }, 1000);
 }
@@ -1083,7 +1094,7 @@ function checkRL(raw){
   const off = L && L.rows.find(r => r[0] === digits);
   if(off){
     const [rl, name, st, exp] = off;
-    const lapsed = st === 'active' && exp && exp < new Date().toISOString().slice(0,10);
+    const lapsed = st === 'active' && exp && exp < bdToday();
     const info = {
       active:    ['good','green','সক্রিয়','মেয়াদ শেষ না হওয়া পর্যন্ত লাইসেন্স বৈধ। তবে লিখিত চুক্তি ও রসিদ ছাড়া টাকা দেবেন না।'],
       expired:   ['bad','red','মেয়াদ শেষ','লাইসেন্সের মেয়াদ শেষ। টাকা দেবেন না।'],
@@ -1136,7 +1147,7 @@ function lgAgency(rl){
   const row = window.AGENCY_LIST && window.AGENCY_LIST.rows.find(r => r[0].replace(/^0+/,'') === d);
   const flagged = (D.AGENCIES_FLAGGED||[]).find(a => a.rl.replace(/^0+/,'') === d);
   if(row){
-    const lapsed = row[2] === 'active' && row[3] && row[3] < new Date().toISOString().slice(0,10);
+    const lapsed = row[2] === 'active' && row[3] && row[3] < bdToday();
     return { rl: row[0], name: row[1], st: lapsed ? 'expired' : row[2], exp: row[3], flagged };
   }
   if(flagged) return { rl: flagged.rl, name: flagged.name, st: flagged.status || 'cancelled', flagged };
@@ -1169,7 +1180,7 @@ function ledger(){
     <div class="lgf" id="lgAdd">
       <div class="lg2">
         <label>কত টাকা<input id="lgAmt" inputmode="numeric" placeholder="৫০০০০" autocomplete="off"></label>
-        <label>তারিখ<input id="lgDate" type="date" value="${new Date().toISOString().slice(0,10)}"></label>
+        <label>তারিখ<input id="lgDate" type="date" value="${bdToday()}"></label>
       </div>
       <div><div class="label">কাকে দিলেন</div><div class="seg" data-seg="to">${Object.entries(LG_TO).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
       <div><div class="label">কীভাবে দিলেন</div><div class="seg" data-seg="how">${Object.entries(LG_HOW).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
@@ -1228,7 +1239,7 @@ function lgLetterHtml(L, k){
   const subj = k.over > 0 ? 'সরকার নির্ধারিত অভিবাসন ব্যয়ের অতিরিক্ত অর্থ আদায়ের' : 'বিদেশে চাকরির কথা বলে অর্থ গ্রহণ ও প্রতারণার';
   const rows = L.payments.slice().sort((a,b) => (a.d||'').localeCompare(b.d||'')).map((p,i) =>
     `<tr><td>${bnNum(i+1)}</td><td>${esc(bnDate(p.d))}</td><td>${esc(LG_TO[p.to])}</td><td>${esc(LG_HOW[p.how])}</td><td>${esc(p.for||'')}</td><td>${taka(p.amt)}</td><td>${p.rcpt?'আছে':'নেই'}</td></tr>`).join('');
-  const today = bnDate(new Date().toISOString().slice(0,10));
+  const today = bnDate(bdToday());
   return `<p>তারিখ: ${today}</p>
   <p>বরাবর,<br>মহাপরিচালক<br>জনশক্তি কর্মসংস্থান ও প্রশিক্ষণ ব্যুরো (বিএমইটি)<br>কাকরাইল, ঢাকা।</p>
   <p><b>বিষয়: ${against}-এর বিরুদ্ধে ${subj} অভিযোগ এবং অর্থ ফেরতের আবেদন।</b></p>
@@ -1647,7 +1658,7 @@ function mFormWire(){
         if(!r.ok) throw new Error(r.status);
       }
     } catch(err){ go.disabled = false; go.textContent = 'মানচিত্রে যোগ করুন'; toast('জমা হয়নি। একটু পরে আবার চেষ্টা করুন।'); return; }
-    const saved = { ...row, kind: row.amount_kind, date: new Date().toISOString().slice(0, 10) };
+    const saved = { ...row, kind: row.amount_kind, date: bdToday() };
     store.set('mapAnswer', saved);
     if(mapData) mapData.flows.push({ district, country, stage, n: 1 });
     if(!MAP_DEMO) loadMapData(true).then(() => mDraw()).catch(() => {});
@@ -1693,7 +1704,7 @@ new MutationObserver(() => fixDigits(document.body)).observe(document.body, {chi
 /* visitors today: one count per browser per Bangladesh day, via the free Abacus counter (no personal data sent) */
 (async function(){
   try{
-    const day = new Date(Date.now() + 6*3600e3).toISOString().slice(0,10);
+    const day = bdToday();
     const seen = store.get('visited') === day;
     const r = await fetch(`https://abacus.jasoncameron.dev/${seen ? 'get' : 'hit'}/bideshjatra-jahid/d-${day}`);
     if(!r.ok) return;
