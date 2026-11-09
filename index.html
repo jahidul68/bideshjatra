@@ -13,7 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* Layout: one narrow mobile column, like a checklist booklet a family can pass around; status shown as passport-style stamps. */
 :root{
@@ -22,7 +22,7 @@
   --stamp:#c0352c; --stamp-soft:#fbe6e3;
   --amber:#a8650a; --amber-soft:#fbefd9;
   --ok:#1a7845; --ok-soft:#e1f2e7;
-  --display:'Baloo Da 2','Noto Sans Bengali',system-ui,sans-serif;
+  --display:'Noto Sans Bengali',system-ui,sans-serif;
   --body:'Noto Sans Bengali',system-ui,sans-serif;
   --r:16px;
 }
@@ -245,7 +245,7 @@ footer a{color:var(--muted);overflow-wrap:anywhere}
 .news .nd{font-size:14px;color:var(--muted)}
 .news a{font-weight:600}
 .news .more{display:inline-block;margin-top:10px;font-size:15px}
-/* Bangla digits always use Noto Sans Bengali (loaded above): the serif and Hind Siliguri draw ১ badly, and an unloaded font falls back to unreadable system fonts */
+/* Bangla digits always use Noto Sans Bengali (loaded above) */
 span.d{font-family:'Noto Sans Bengali',var(--body)!important;font-weight:inherit!important;font-size:inherit!important;color:inherit!important;display:inline!important;margin:0!important}
 
 /* text size */
@@ -516,13 +516,13 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 /* ===== Theme: form paper, newspaper headlines, one rubber stamp =====
    Overrides the base look above. Cards are paper slips (small radius, hairline border),
-   headlines use a heavy Bangla serif, links are ballpoint blue, the logo is the stamp. */
+   headlines use Noto Sans Bengali (clearest on phones), links are ballpoint blue, the logo is the stamp. */
 :root{
   --paper:#eef1ec; --card:#fbfcfa; --ink:#18221d; --muted:#55615b; --line:#cfd6d0;
   --brand:#0e4a3b; --brand-ink:#ffffff; --brand-soft:#e2ebe6;
   --stamp:#b42d25; --stamp-soft:#f7e4e1; --amber:#94580a; --amber-soft:#f6ecd9;
   --pen:#21408f;
-  --display:'Noto Serif Bengali',Georgia,serif; --body:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --display:'Noto Sans Bengali',system-ui,sans-serif; --body:'Noto Sans Bengali',system-ui,sans-serif;
   --r:5px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -534,7 +534,6 @@ a{color:var(--pen)}
 h1,h2,h3{letter-spacing:-.005em}
 .hero h1{font-weight:900;font-size:clamp(30px,8vw,40px);line-height:1.18}
 .sec h2,.mpanel h2{font-size:21px;font-weight:800}
-span.d{font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif!important}
 
 /* masthead: paper, green rule, stamp logo */
 body::before{background:var(--card)}
@@ -767,11 +766,11 @@ function wrapLines(ctx, text, maxW, maxLines){
 }
 async function makeCard(it){
   toast('ফটোকার্ড তৈরি হচ্ছে…');
-  try{ await Promise.all(['900 60px "Noto Serif Bengali"','700 40px "Hind Siliguri"','500 36px "Hind Siliguri"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
+  try{ await Promise.all(['900 60px "Noto Sans Bengali"','700 40px "Noto Sans Bengali"','500 36px "Noto Sans Bengali"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
   const W = 1080, H = 1350, P = 72, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
   const C = { brand:'#0e4a3b', soft:'#e2ebe6', ink:'#18221d', muted:'#55615b', paper:'#eef1ec', red:'#b42d25', amber:'#94580a', line:'#cfd6d0' };
-  const DISP = '"Noto Serif Bengali",serif', BODY = '"Hind Siliguri","Noto Sans Bengali",sans-serif';
+  const DISP = '"Noto Sans Bengali",sans-serif', BODY = '"Noto Sans Bengali",sans-serif';
   x.fillStyle = C.paper; x.fillRect(0,0,W,H);
   // header band
   x.fillStyle = C.brand; x.fillRect(0,0,W,150);
