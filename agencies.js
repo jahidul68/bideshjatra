@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-08. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-08", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-09. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-09", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -37,7 +37,7 @@ window.AGENCY_LIST = { date: "2026-11-08", rows: [
 ["1768","ABID OVERSEAS LIMITED","active","2029-03-24"],
 ["2033","ABIDA OVERSEAS","active","2028-03-28"],
 ["2561","ABIRA OVERSEAS","active","2029-08-05"],
-["2675","ABRAR AMIN OVERSEAS","active","2026-11-08"],
+["2675","ABRAR AMIN OVERSEAS","expired","2026-11-08"],
 ["2291","ABROAD CARE","active","2029-01-30"],
 ["2850","ACCESS POINT","active","2029-01-26"],
 ["2901","ACHIEVE OVERSEAS","active","2029-02-04"],
@@ -1667,7 +1667,7 @@ window.AGENCY_LIST = { date: "2026-11-08", rows: [
 ["0313","M/S. PANTAGON INTERNATIONAL","active","2028-12-31"],
 ["2152","M/S. PLEDGE INTERNATIONAL","active","2028-09-26"],
 ["0529","M/S. POL OVERSEAS LTD.","active","2028-12-31"],
-["2681","M/S. PY and Tomoni HR Company LTD","active","2026-11-11"],
+["2681","M/S. PY and Tomoni HR Company LTD","active","2029-11-11"],
 ["1219","M/S. Pacific Asia Human Resource International","active","2028-12-31"],
 ["0512","M/S. Pacific Trading and Contracting Co.Ltd.","expired","2025-12-31"],
 ["1749","M/S. Paddmo Aviation International Services","active","2029-01-05"],
@@ -1903,7 +1903,7 @@ window.AGENCY_LIST = { date: "2026-11-08", rows: [
 ["3003","MEHERIMA RECRUTING AGENCY","active","2029-03-15"],
 ["1724","MEHJABEEN AIR INTERNATIONAL LTD.","active","2028-12-16"],
 ["2337","MEHMAN GLOBAL SERVICES","active","2029-02-15"],
-["2593","MELODIOUS OVERSEAS","expired","2026-09-03"],
+["2593","MELODIOUS OVERSEAS","active","2029-09-03"],
 ["2991","MENA SUPPORT SERVICE","active","2029-03-08"],
 ["2020","MEPA Overseas","active","2028-02-23"],
 ["2458","MESHKAT INTERNATIONAL LIMITED","active","2029-05-23"],
@@ -2526,7 +2526,7 @@ window.AGENCY_LIST = { date: "2026-11-08", rows: [
 ["2784","SOHA OVERSEAS LIMITED","active","2027-02-26"],
 ["0323","SOHEL & BROTHERS","active","2028-12-31"],
 ["2369","SOLID LINK","expired","2026-03-07"],
-["2678","SONAGAZI OVERSEAS","active","2026-11-08"],
+["2678","SONAGAZI OVERSEAS","expired","2026-11-08"],
 ["1530","SOS INTERNATIONAL SERVICES LTD.","active","2027-11-14"],
 ["2809","SOUND LINES GLOBAL","active","2029-01-18"],
 ["1761","SOUNDLINES HR BANGLADESH","active","2029-01-25"],
