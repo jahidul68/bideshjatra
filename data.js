@@ -496,6 +496,8 @@ window.APP_DATA = {
       { label: "২০২৫ সালে রেমিট্যান্স", text: "৩,২৮২ কোটি ডলার", note: "২৫ বছরে সর্বোচ্চ", status: "news", source: "rmmruDs" },
       { label: "১৯৭৬ থেকে মার্চ ২০২৩ পর্যন্ত মোট", n: 15093044, status: "news", source: "bmet1976" }
     ],
+    // Home-page "live pace" strip: yearly total spread evenly over the year (an average, not a live count).
+    pace: { n: 1128423, year: "২০২৫", source: "bmet2025" },
     top2025: { title: "২০২৫ সালে কোন দেশে সবচেয়ে বেশি কর্মী গেছেন", source: "bmet2025",
       rows: [ ["saudi", 752705], ["qatar", 107472], ["singapore", 70056], ["kuwait", 42716], ["maldives", 40018] ] },
     topAll: { title: "১৯৭৬–মার্চ ২০২৩: সব মিলিয়ে কোন দেশে বেশি গেছেন", source: "bmet1976",

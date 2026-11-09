@@ -66,6 +66,25 @@ main{padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px)
 /* home */
 .hero h1{font-size:clamp(28px,7.5vw,36px);font-weight:800}
 .hero p{margin:8px 0 0;color:var(--muted)}
+/* live pace strip (home) */
+.pace{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:14px 16px 12px;display:grid;gap:8px}
+.pace .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0;font-size:16px}
+.pace .live{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--stamp)}
+.pace .live i{width:8px;height:8px;border-radius:50%;background:var(--stamp);animation:pacePulse 1.6s ease-out infinite}
+.pace .cnt{font-family:var(--display);font-size:30px;font-weight:800;color:var(--brand);line-height:1;display:inline-block}
+.pace .cnt.bump{animation:paceBump .6s ease-out}
+.pace .lane{position:relative;height:30px;margin:2px 4px}
+.pace .lane::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--line)}
+.pace .end{position:absolute;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);background:var(--card);padding:0 4px}
+.pace .end.a{left:-4px}.pace .end.b{right:-4px}
+.pace .plane{position:absolute;top:50%;left:0;width:26px;height:26px;margin:-13px 0 0 -13px;color:var(--brand);animation:paceFly linear infinite}
+.pace .plane svg{width:100%;height:100%;display:block}
+.pace .sub{margin:0;font-size:14px;color:var(--muted)}
+.pace .sub a{white-space:nowrap}
+@keyframes paceFly{0%{left:8%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:92%;opacity:0}}
+@keyframes paceBump{0%{transform:scale(1)}35%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes pacePulse{0%{box-shadow:0 0 0 0 var(--stamp)}100%{box-shadow:0 0 0 8px transparent}}
+@media (prefers-reduced-motion:reduce){.pace .plane,.pace .live i,.pace .cnt.bump{animation:none}.pace .plane{left:50%}}
 .steps3{display:grid;gap:12px}
 .big{display:grid;grid-template-columns:56px 1fr 24px;gap:14px;align-items:center;text-align:left;width:100%;
   background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
@@ -638,12 +657,39 @@ const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const proto = `<div class="proto"><span>⚠</span><span>পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে কোথা থেকে নেওয়া, তার লিংক দেওয়া আছে। এটি সরকারি অ্যাপ নয়।</span></div>`;
 
 /* ---------- views ---------- */
+/* ---------- live pace strip: yearly total ÷ seconds in a year (average, not a live count) ---------- */
+let paceTimer = null;
+const paceInfo = () => { const p = D.STATS && D.STATS.pace; if(!p || !p.n) return null; return { p, every: 365*86400 / p.n }; };
+const paceToday = every => Math.floor(((Date.now()/1000 + 6*3600) % 86400) / every); // since midnight, Bangladesh time
+function paceStrip(){
+  const x = paceInfo(); if(!x) return '';
+  const sec = Math.round(x.every);
+  return `<section class="pace" aria-label="প্রতিদিন কতজন কাজে বিদেশ যান">
+    <p class="top"><span class="live"><i aria-hidden="true"></i>আজ এ পর্যন্ত</span><span>আনুমানিক</span><b class="cnt d" id="paceN">${bnNum(paceToday(x.every))}</b><span>জন কাজে বিদেশ গেছেন</span></p>
+    <div class="lane" aria-hidden="true"><span class="end a">বাংলাদেশ</span><span class="end b">বিদেশ</span>
+      <span class="plane" id="pacePlane"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 12c0-.8-.7-1.5-1.5-1.5h-5.2L10 3H8l2.4 7.5H5.6L4 8.5H2.5l1 3.5-1 3.5H4l1.6-2h4.8L8 21h2l4.8-7.5H20c.8 0 1.5-.7 1.5-1.5z"/></svg></span></div>
+    <p class="sub">গড়ে প্রায় প্রতি ${bnNum(sec)} সেকেন্ডে একজন। ${esc(x.p.year)} সালে মোট ${bnNum(x.p.n)} জন গেছেন, সেই হিসাবে গড় করা, সরাসরি গণনা নয়। <a href="#stats">বিস্তারিত ›</a></p>
+  </section>`;
+}
+function startPace(){
+  clearInterval(paceTimer); paceTimer = null;
+  const el = document.getElementById('paceN'), pl = document.getElementById('pacePlane'), x = paceInfo();
+  if(!el || !x) return;
+  if(pl){ pl.style.animationDuration = x.every + 's'; pl.style.animationDelay = -(((Date.now()/1000 + 6*3600) % 86400) % x.every) + 's'; }
+  let last = paceToday(x.every);
+  paceTimer = setInterval(() => {
+    if(!document.getElementById('paceN')){ clearInterval(paceTimer); paceTimer = null; return; }
+    const n = paceToday(x.every);
+    if(n !== last){ last = n; el.textContent = bnNum(n); el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+  }, 1000);
+}
 function home(){
   return `<div class="split"><div class="col-main">
   <section class="hero">
     <h1>বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৩টি জিনিস যাচাই করুন।</h1>
     <p>ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।</p>
   </section>
+  ${paceStrip()}
   <div class="steps3">
     <a class="big main" href="#check"><span class="num">১</span><span><b>দালাল নাকি? লক্ষণগুলো মিলিয়ে নিন</b><span>দালাল চেনার ৬টি লক্ষণ এক পাতায়। যেটি মেলে, টিক দিন।</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#agency"><span class="num">২</span><span><b>এজেন্সির লাইসেন্স যাচাই</b><span>লাইসেন্স আছে, নাকি বাতিল?</span></span><span class="arr">${chev}</span></a>
@@ -1702,6 +1748,7 @@ function route(){
   if(h === 'help'){ const e = document.getElementById('help'); if(e) e.scrollIntoView(); }
 }
 function wire(h){
+  startPace();
   const q = document.getElementById('q');
   if(q) q.addEventListener('input', () => {
     const v = q.value.trim().toLowerCase();
