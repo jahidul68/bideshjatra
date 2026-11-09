@@ -6,14 +6,14 @@
 <title>দালাল নাকি? — বিদেশযাত্রা যাচাই</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="বিদেশে কাজে যাওয়ার আগে সরকারি খরচ, এজেন্সির লাইসেন্স ও দালালের কথা যাচাই করুন।">
-<meta name="theme-color" content="#0b5d4b">
+<meta name="theme-color" content="#fbfcfa">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 /* Layout: one narrow mobile column, like a checklist booklet a family can pass around; status shown as passport-style stamps. */
 :root{
@@ -494,6 +494,77 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .mapcta span span{font-size:15px;color:var(--muted)}
 .mapcta .arr svg{width:22px;height:22px;color:var(--amber)}
 .crowd{display:grid;gap:6px;border-top:1.5px dashed var(--line);padding-top:10px}
+
+/* ===== Theme: form paper, newspaper headlines, one rubber stamp =====
+   Overrides the base look above. Cards are paper slips (small radius, hairline border),
+   headlines use a heavy Bangla serif, links are ballpoint blue, the logo is the stamp. */
+:root{
+  --paper:#eef1ec; --card:#fbfcfa; --ink:#18221d; --muted:#55615b; --line:#cfd6d0;
+  --brand:#0e4a3b; --brand-ink:#ffffff; --brand-soft:#e2ebe6;
+  --stamp:#b42d25; --stamp-soft:#f7e4e1; --amber:#94580a; --amber-soft:#f6ecd9;
+  --pen:#21408f;
+  --display:'Noto Serif Bengali',Georgia,serif; --body:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --r:5px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101613; --card:#18201c; --ink:#e6ece8; --muted:#9aa8a1; --line:#2c3732;
+  --brand:#6cc3a2; --brand-ink:#06201a; --brand-soft:#1b3129; --stamp:#ff8a7c; --stamp-soft:#3a1d1a;
+  --amber:#e9b25e; --amber-soft:#3a2b12; --pen:#9db4ff}}
+body{font-size:17.5px;line-height:1.65}
+a{color:var(--pen)}
+h1,h2,h3{letter-spacing:-.005em}
+.hero h1{font-weight:900;font-size:clamp(30px,8vw,40px);line-height:1.18}
+.sec h2,.mpanel h2{font-size:21px;font-weight:800}
+span.d{font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif!important}
+
+/* masthead: paper, green rule, stamp logo */
+body::before{background:var(--card)}
+.bar{background:var(--card);color:var(--ink);border-bottom:3px solid var(--brand);padding-block:8px}
+.brand{flex:none;margin-right:auto;color:var(--stamp);display:inline-grid;justify-items:center;padding:1px 12px 3px;border:3px double currentColor;border-radius:6px;transform:rotate(-2.5deg);font-size:21px;font-weight:900;line-height:1.15;white-space:nowrap}
+.brand-sub{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.02em;opacity:1;border-top:1px solid currentColor;margin-top:1px;padding-top:1px}
+.back,.speak,.tsize{background:var(--brand-soft);color:var(--brand);border-radius:6px}
+@media (min-width:860px){
+  .topnav a,.navmore summary{color:var(--ink);opacity:1;border-radius:4px}
+  .topnav a:hover,.navmore[open] summary,.navmore summary:hover{background:var(--brand-soft)}
+  .topnav a[aria-current="page"]{background:none;color:var(--brand);box-shadow:inset 0 -3px 0 var(--brand)}
+}
+
+/* slips instead of soft cards */
+.sec,.big,.callstrip,.flag,.upd,.ocfact,.ocq,.result,.accbox,.warn,.news,.riskbanner,.mapcta,.tile2,.updmini,.cbtn,.mapbox,.pcbox,.letter{border-width:1px;border-radius:var(--r)}
+.sec{padding:18px 18px 20px}
+.tile,.check li,.pays li,.mstats div,.st,.lgflags li,.ocmine,.flag .todo,.upd .todo,.proto,.gapnote,.rcard,.ocwhy li{border-radius:4px}
+.tiles .tile{border-left:3px solid var(--line)}
+
+/* home: the three steps are a real sequence, so big serif numerals, no tinted boxes */
+.big{grid-template-columns:44px 1fr 22px;padding:16px 16px 16px 12px}
+.big .num,.big.main .num,.big.red .num{width:auto;height:auto;background:none;font-family:var(--display);font-weight:900;font-size:44px;line-height:1;color:var(--brand)}
+.big.main .num{color:var(--brand-ink)}
+.big b{font-weight:800}
+.callstrip{border-style:dashed;border-width:1.5px}
+.callstrip .n{font-family:var(--body);font-weight:700;color:var(--stamp)}
+.tile2 .ic{font-size:22px}
+.more-sec h2{color:var(--ink)}
+
+/* buttons, inputs, tags: squarer, no pills */
+.btn{border-radius:6px;font-weight:600}
+.btn:not(.ghost){box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.search,.rlwrap,.lgf input,.lgf select,.lgf textarea,.mdist{border-radius:4px;border-width:1px;background:var(--card)}
+.regs button,.mseg button,.shr summary,.shr button,.seg button,.mzoom button,.mf .pills label{border-radius:4px;border-width:1px}
+.acc,.chip{border-radius:3px}
+.visitors{border-radius:4px}
+.toast{border-radius:4px}
+
+/* source badges read like ink stamps, not candy chips */
+.badge{border-radius:3px;background:none;border:1.5px solid currentColor;font-weight:700;padding:1px 8px}
+.b-official{color:var(--brand)} .b-news,.b-draft{color:var(--amber)}
+
+/* bottom tabs */
+.tabs{border-top:1px solid var(--line)}
+.tabs a[aria-current="page"]{color:var(--brand);box-shadow:inset 0 3px 0 var(--brand)}
+
+/* risk: one solid red block is enough */
+.riskhero{border-radius:var(--r)}
+.route li::before{border-radius:4px}
 </style>
 
 </head>
@@ -645,11 +716,11 @@ function wrapLines(ctx, text, maxW, maxLines){
 }
 async function makeCard(it){
   toast('ফটোকার্ড তৈরি হচ্ছে…');
-  try{ await Promise.all(['800 60px "Baloo Da 2"','700 40px "Noto Sans Bengali"','500 36px "Noto Sans Bengali"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
+  try{ await Promise.all(['900 60px "Noto Serif Bengali"','700 40px "Hind Siliguri"','500 36px "Hind Siliguri"'].map(f => document.fonts.load(f, 'বাংলা'))); }catch(e){}
   const W = 1080, H = 1350, P = 72, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
-  const C = { brand:'#0b5d4b', soft:'#dfeee8', ink:'#13211c', muted:'#56665f', paper:'#f2f5f3', red:'#c0352c', amber:'#a8650a', line:'#d3ddd8' };
-  const DISP = '"Baloo Da 2","Noto Sans Bengali",sans-serif', BODY = '"Noto Sans Bengali",sans-serif';
+  const C = { brand:'#0e4a3b', soft:'#e2ebe6', ink:'#18221d', muted:'#55615b', paper:'#eef1ec', red:'#b42d25', amber:'#94580a', line:'#cfd6d0' };
+  const DISP = '"Noto Serif Bengali",serif', BODY = '"Hind Siliguri","Noto Sans Bengali",sans-serif';
   x.fillStyle = C.paper; x.fillRect(0,0,W,H);
   // header band
   x.fillStyle = C.brand; x.fillRect(0,0,W,150);
