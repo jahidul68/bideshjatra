@@ -609,9 +609,14 @@ const backBtn = document.getElementById('back');
 
 /* ---------- helpers ---------- */
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const nf = new Intl.NumberFormat('bn-BD');
-const bnNum = n => nf.format(n);
 const bnDigits = s => String(s).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+/* Built by hand, not Intl: many phone browsers (in-app/WebView, older Safari) lack Bangla locale data and fall back to 0-9. */
+const bnNum = n => {
+  n = +n; if(!isFinite(n)) return '';
+  const neg = n < 0, [i, f] = String(+Math.abs(n).toFixed(3)).split('.');
+  const g = i.length > 3 ? i.slice(0, -3).replace(/\B(?=(\d{2})+$)/g, ',') + ',' + i.slice(-3) : i;
+  return (neg ? '-' : '') + bnDigits(g + (f ? '.' + f : ''));
+};
 const taka = n => '৳' + bnNum(n);
 const lakh = n => n >= 100000 ? bnNum(+(n/100000).toFixed(2)) + ' লাখ' : bnNum(n);
 const src = id => D.SOURCES[id];
@@ -878,7 +883,7 @@ function country(id){
   h += `<section class="sec"><h2>সরকার নির্ধারিত সর্বোচ্চ খরচ</h2>`;
   if(c.cap){
     h += `<div class="money">${taka(c.cap.amount)} <small>টাকা</small></div>
-      <div class="label">${esc(c.cap.year)} সালের হার অনুযায়ী</div>
+      <div class="label">${esc(bnDigits(c.cap.year))} সালের হার অনুযায়ী</div>
       ${badge(c.cap.status)}`;
     if(c.reported){
       const max = c.reported.max;
@@ -1046,7 +1051,7 @@ function checkRL(raw){
       <div><b>RL-${esc(bnDigits(rl))} · ${esc(name)}</b></div>
       <div>${info[3]}</div>
       ${exp ? `<div>মেয়াদ: ${esc(bnDigits(exp))}</div>` : ''}
-      ${flagged ? `<div>${esc(flagged.date)}: ${esc(flagged.reason)}।</div>${srcLine(flagged.source)}` : ''}
+      ${flagged ? `<div>${esc(bnDigits(flagged.date))}: ${esc(flagged.reason)}।</div>${srcLine(flagged.source)}` : ''}
       <div class="src">সরকারি (BMET) তালিকার কপি, ${esc(bnDigits(L.date))} তারিখে নেওয়া। সর্বশেষ অবস্থা <a href="https://oep.gov.bd/agencies" target="_blank" rel="noopener">সরকারি সাইটে</a> মিলিয়ে নিন।</div>
     </div>`;
     box.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -1058,7 +1063,7 @@ function checkRL(raw){
     box.innerHTML = `<div class="result bad">
       <span class="stamp red">লাইসেন্স ${word}</span>
       <div><b>RL-${esc(bnDigits(hit.rl))} · ${esc(hit.name)}</b></div>
-      <div>${esc(hit.date)} লাইসেন্স ${word} করা হয়েছে। কারণ: ${esc(hit.reason)}।</div>
+      <div>${esc(bnDigits(hit.date))} লাইসেন্স ${word} করা হয়েছে। কারণ: ${esc(hit.reason)}।</div>
       <div style="font-weight:700;color:var(--stamp)">এই এজেন্সিকে টাকা দেবেন না। আগে দিয়ে থাকলে রসিদ ও কাগজ রেখে অভিযোগ করুন।</div>
       ${srcLine(hit.source)}
       <a class="btn" href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a>
