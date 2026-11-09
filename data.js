@@ -23,7 +23,13 @@ window.APP_DATA = {
     lastUpdated: "2026-11-08",
     version: "0.1 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
-    siteUrl: "https://dalalnaki.com"
+    siteUrl: "https://dalalnaki.com",
+    // "কোথা থেকে, কোথায়?" map (#map) stores anonymous answers in Supabase.
+    // Paste your project's URL and anon/publishable key here (Supabase → Project Settings → API).
+    // Leave empty and the map still works, but only shows official BMET numbers and hides the form.
+    // Setup steps: supabase/README.md
+    supabaseUrl: "",
+    supabaseKey: ""
   },
 
   /* ---------- SOURCES ---------- */
@@ -303,6 +309,18 @@ window.APP_DATA = {
     { title: "ভিসা যাচাই করুন", detail: "ভিসা আসল কিনা যাচাই করুন। সৌদি আরব, কাতার ও ওমানের জন্য আমি প্রবাসী ১৬৭৬৮ নম্বরে যাচাই করা যায়।", status: "news", source: "amiProbashiIvr" },
     { title: "বহির্গমন ছাড়পত্র / স্মার্ট কার্ড ছাড়া যাবেন না", detail: "BMET-এর ছাড়পত্র (স্মার্ট কার্ড) ছাড়া কাজের জন্য বিদেশ যাওয়া বৈধ নয়।", status: "draft" },
     { title: "প্রতিটি টাকার রসিদ নিন", detail: "যত টাকা দেবেন, রসিদ নিন। সম্ভব হলে ব্যাংকের মাধ্যমে দিন। রসিদ, চুক্তি, মেসেজ সব সংরক্ষণ করুন।", status: "draft" }
+  ],
+
+  /* ---------- DISTRICTS (used by the #map form) ---------- */
+  DISTRICTS: [
+    { div: "ঢাকা", list: [["dhaka","ঢাকা"],["gazipur","গাজীপুর"],["narayanganj","নারায়ণগঞ্জ"],["narsingdi","নরসিংদী"],["manikganj","মানিকগঞ্জ"],["munshiganj","মুন্সিগঞ্জ"],["tangail","টাঙ্গাইল"],["kishoreganj","কিশোরগঞ্জ"],["faridpur","ফরিদপুর"],["gopalganj","গোপালগঞ্জ"],["madaripur","মাদারীপুর"],["shariatpur","শরীয়তপুর"],["rajbari","রাজবাড়ী"]] },
+    { div: "চট্টগ্রাম", list: [["cumilla","কুমিল্লা"],["brahmanbaria","ব্রাহ্মণবাড়িয়া"],["chandpur","চাঁদপুর"],["chattogram","চট্টগ্রাম"],["noakhali","নোয়াখালী"],["feni","ফেনী"],["lakshmipur","লক্ষ্মীপুর"],["coxsbazar","কক্সবাজার"],["khagrachhari","খাগড়াছড়ি"],["rangamati","রাঙ্গামাটি"],["bandarban","বান্দরবান"]] },
+    { div: "রাজশাহী", list: [["rajshahi","রাজশাহী"],["bogura","বগুড়া"],["pabna","পাবনা"],["sirajganj","সিরাজগঞ্জ"],["natore","নাটোর"],["naogaon","নওগাঁ"],["chapainawabganj","চাঁপাইনবাবগঞ্জ"],["joypurhat","জয়পুরহাট"]] },
+    { div: "খুলনা", list: [["khulna","খুলনা"],["jashore","যশোর"],["satkhira","সাতক্ষীরা"],["bagerhat","বাগেরহাট"],["kushtia","কুষ্টিয়া"],["chuadanga","চুয়াডাঙ্গা"],["meherpur","মেহেরপুর"],["jhenaidah","ঝিনাইদহ"],["magura","মাগুরা"],["narail","নড়াইল"]] },
+    { div: "বরিশাল", list: [["barishal","বরিশাল"],["patuakhali","পটুয়াখালী"],["bhola","ভোলা"],["pirojpur","পিরোজপুর"],["barguna","বরগুনা"],["jhalokati","ঝালকাঠি"]] },
+    { div: "সিলেট", list: [["sylhet","সিলেট"],["moulvibazar","মৌলভীবাজার"],["habiganj","হবিগঞ্জ"],["sunamganj","সুনামগঞ্জ"]] },
+    { div: "রংপুর", list: [["rangpur","রংপুর"],["dinajpur","দিনাজপুর"],["gaibandha","গাইবান্ধা"],["kurigram","কুড়িগ্রাম"],["lalmonirhat","লালমনিরহাট"],["nilphamari","নীলফামারী"],["panchagarh","পঞ্চগড়"],["thakurgaon","ঠাকুরগাঁও"]] },
+    { div: "ময়মনসিংহ", list: [["mymensingh","ময়মনসিংহ"],["jamalpur","জামালপুর"],["sherpur","শেরপুর"],["netrokona","নেত্রকোনা"]] }
   ],
 
   /* ---------- COUNTRIES ---------- */
