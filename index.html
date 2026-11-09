@@ -13,7 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* Layout: one narrow mobile column, like a checklist booklet a family can pass around; status shown as passport-style stamps. */
 :root{
@@ -245,7 +245,7 @@ footer a{color:var(--muted);overflow-wrap:anywhere}
 .news .nd{font-size:14px;color:var(--muted)}
 .news a{font-weight:600}
 .news .more{display:inline-block;margin-top:10px;font-size:15px}
-/* Bangla digits always use the body font; the display font draws ১ badly */
+/* Bangla digits always use Noto Sans Bengali (loaded above): the serif and Hind Siliguri draw ১ badly, and an unloaded font falls back to unreadable system fonts */
 span.d{font-family:'Noto Sans Bengali',var(--body)!important;font-weight:inherit!important;font-size:inherit!important;color:inherit!important;display:inline!important;margin:0!important}
 
 /* text size */
