@@ -15,6 +15,8 @@
    - Set null where you don't have data yet. The app will say
      "তথ্য সংগ্রহ চলছে" (data being collected) instead of guessing.
    - After editing, change META.lastUpdated.
+   - English version: every Bangla text here also needs an English line in
+     data-en.js. Run  node tools/check-en.js  to see which ones are missing.
    ===================================================================== */
 
 window.APP_DATA = {
