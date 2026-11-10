@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-09. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-09", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-10. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-10", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -1196,7 +1196,7 @@ window.AGENCY_LIST = { date: "2026-11-09", rows: [
 ["1365","M/S KAFIL UDDIN RECRUITING AGENCY OF BANGLADESH","expired","2025-07-31"],
 ["0713","M/S KAMAL INTERNATIONAL","active","2028-12-31"],
 ["0900","M/S KANON INTERNATIONAL","active","2028-12-31"],
-["2659","M/S KASFI OVERSEAS LIMITED","expired","2026-11-06"],
+["2659","M/S KASFI OVERSEAS LIMITED","active","2029-11-06"],
 ["0915","M/S KHAN OVERSEAS","active","2028-12-31"],
 ["0814","M/S KHONDAKER OVERSEAS","active","2028-12-31"],
 ["1366","M/S KOPOTAKKHA OVERSEAS","active","2028-08-23"],
