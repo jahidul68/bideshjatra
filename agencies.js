@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-10. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-10", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-11. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-11", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -1616,7 +1616,7 @@ window.AGENCY_LIST = { date: "2026-11-10", rows: [
 ["0054","M/S. Miner Int.","suspended","2025-12-31"],
 ["1364","M/S. Mirzapur Overseas","active","2028-08-01"],
 ["1093","M/S. Mizan Trade International","active","2026-12-31"],
-["1733","M/S. Mollik Recruiting Agency","expired","2025-12-05"],
+["1733","M/S. Mollik Recruiting Agency","server locked","2025-12-05"],
 ["0277","M/S. Monolith Overseas Limited","cancelled","2013-12-31"],
 ["0845","M/S. Morning Sun Enterprise","suspended","2009-12-31"],
 ["1270","M/S. Moslem Overseas","suspended","1978-03-09"],
@@ -2064,7 +2064,7 @@ window.AGENCY_LIST = { date: "2026-11-10", rows: [
 ["2251","N.ZAMAN TRADING INTERNATIONAL","active","2029-01-11"],
 ["2482","NABAWI TRADING INTERNATIONAL","active","2029-06-11"],
 ["2034","NAFIS MANPOWER OVERSEAS LIMITED","active","2028-03-24"],
-["2672","NAFISA OVERSEAS","expired","2026-11-06"],
+["2672","NAFISA OVERSEAS","active","2029-11-06"],
 ["2250","NAFIUL AMIN OVERSEAS","active","2029-01-16"],
 ["2244","NAFIZ INTERNATIONAL","expired","2026-02-15"],
 ["2008","NAFIZ OVERSEAS LIMITED","active","2028-03-28"],
@@ -2137,7 +2137,7 @@ window.AGENCY_LIST = { date: "2026-11-10", rows: [
 ["1814","Nabil Overseas","expired","2026-07-21"],
 ["0038","Nabis International Agencies Ltd.","active","2028-12-31"],
 ["0950","Nams Associate","active","2028-12-31"],
-["2639","Nasir Nagar Overseas","expired","2026-11-06"],
+["2639","Nasir Nagar Overseas","active","2029-11-06"],
 ["2268","Nasra Overseas","active","2029-02-01"],
 ["0062","Nasser Air Travel and Tours","cancelled","2027-08-29"],
 ["0435","Nazibur Rahman","cancelled","2027-08-29"],
