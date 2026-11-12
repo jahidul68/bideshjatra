@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-11. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-11", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-12. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-12", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -431,7 +431,7 @@ window.AGENCY_LIST = { date: "2026-11-11", rows: [
 ["0640","BALAKA TRADE INTERNATIONAL LTD","active","2028-12-31"],
 ["1961","BALANCE OVERSEAS LTD.","active","2027-11-16"],
 ["0803","BANGLADESH EXPORT CORPORATION","active","2028-12-31"],
-["2689","BANGLADESH FUTURUM INTERNATIONAL CO. LTD.","active","2026-11-11"],
+["2689","BANGLADESH FUTURUM INTERNATIONAL CO. LTD.","expired","2026-11-11"],
 ["2811","BAOLEE OVERSEAS LIMITED","active","2029-02-08"],
 ["1474","BARAKAT ENTERPRISE","active","2029-07-25"],
 ["0587","BARAKAT INTERNATIONAL","active","2028-12-31"],
@@ -1025,9 +1025,9 @@ window.AGENCY_LIST = { date: "2026-11-11", rows: [
 ["1989","LSL OVERSEAS","cancelled","2025-07-09"],
 ["0649","LUBNA OVERSEAS","active","2028-12-31"],
 ["1729","LUM AIR INTERNATIONAL LTD","active","2028-11-18"],
-["2295","Laam Trades","expired","2026-02-12"],
+["2295","Laam Trades","active","2029-02-13"],
 ["1730","Labour Asia Limited","active","2028-12-31"],
-["2647","Leading Overseas","expired","2026-10-31"],
+["2647","Leading Overseas","active","2029-10-31"],
 ["1376","Leeds HR Solutions Limited","active","2028-12-25"],
 ["2139","Leverage International Limited","active","2028-09-04"],
 ["0386","Leza Overseas Ltd","active","2028-12-31"],
@@ -1861,7 +1861,7 @@ window.AGENCY_LIST = { date: "2026-11-11", rows: [
 ["1289","MAHADI TRAVELS AND TOURS","active","2027-11-22"],
 ["2670","MAHARUN OVERSEAS","active","2029-11-06"],
 ["0802","MAHE BUSINESS LIMITED","active","2028-12-31"],
-["2714","MAHI SOWAR OVERSEAS","active","2026-12-23"],
+["2714","MAHI SOWAR OVERSEAS","active","2029-12-23"],
 ["2803","MAHMUD OVERSEAS","active","2027-05-15"],
 ["2990","MAHRUS OVERSEAS","active","2029-03-08"],
 ["0676","MAKKA TOURS TRAVELS","active","2028-12-31"],
