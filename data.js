@@ -22,8 +22,8 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-08",
-    version: "0.1 (পরীক্ষামূলক)",
+    lastUpdated: "2026-11-12",
+    version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
     // "কোথা থেকে, কোথায়?" map (#map) stores anonymous answers in Supabase.
@@ -36,6 +36,31 @@ window.APP_DATA = {
 
   /* ---------- SOURCES ---------- */
   SOURCES: {
+    tbsMalaysiaCost: {
+      title: "Govt fixes Malaysia migration cost at Tk1.54 lakh — The Business Standard",
+      url: "https://www.tbsnews.net/bangladesh/govt-fixes-malaysia-migration-cost-tk154-lakh-1600751",
+      date: "2026-11-12"
+    },
+    btMalaysiaCost: {
+      title: "মালয়েশিয়া যেতে অভিবাসন ব্যয় কত, জানালেন প্রবাসীকল্যাণ মন্ত্রী — বাংলা ট্রিবিউন",
+      url: "https://www.banglatribune.com/national/980472/%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A7%9F%E0%A7%87%E0%A6%B6%E0%A6%BF%E0%A7%9F%E0%A6%BE-%E0%A6%AF%E0%A7%87%E0%A6%A4%E0%A7%87-%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A6%A8-%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A7%9F-%E0%A6%95%E0%A6%A4-%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%A8",
+      date: "2026-11-12"
+    },
+    dsBoesl112: {
+      title: "Govt invites applications for 112 zero-cost Malaysia jobs — The Daily Star",
+      url: "https://www.thedailystar.net/news/work-and-migration/news/govt-invites-applications-112-zero-cost-malaysia-jobs-4316596",
+      date: "2026-11-05"
+    },
+    ds12Countries: {
+      title: "44,000 clearances later, govt tightens migration rules — The Daily Star",
+      url: "https://www.thedailystar.net/news/bangladesh/news/44000-clearances-later-govt-tightens-migration-rules-4316861",
+      date: "2026-11-06"
+    },
+    rferlRussia: {
+      title: "Promised Jobs In Russia, Bangladeshis Instead Find War, And Death, In Ukraine — RFE/RL",
+      url: "https://www.rferl.org/a/bangladeshis-fighting-for-russia-ukraine/33893744.html",
+      date: "2026-11-10"
+    },
     paSaudiIqama: {
       title: "আকামার মেয়াদ শেষ হলেও সৌদি প্রবেশের সুযোগ পাবেন প্রবাসীরা: প্রবাসীকল্যাণমন্ত্রী — প্রথম আলো",
       url: "https://www.prothomalo.com/bangladesh/1mfvqk17iy",
@@ -344,17 +369,17 @@ window.APP_DATA = {
       },
       name: "সৌদি আরব",   flag: "🇸🇦", cap: { amount: 165000, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
     { id: "malaysia", region: "asia", stats: [{ label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 1190210, status: "news", source: "bmet1976" }],
-      access: { state: "limited", note: "শ্রমবাজার আবার খুলছে, কিন্তু নতুন পর্বের চূড়ান্ত খরচ ও নিয়ম এখনো ঘোষণা হয়নি।", source: "gvMalaysia2026" },
+      access: { state: "limited", note: "শ্রমবাজার আবার খুলছে। ১২ নভেম্বর ২০২৬ সরকার খরচ ১,৫৪,০০০ টাকা ঠিক করেছে; প্রথম দফার কর্মী ডিসেম্বরের মধ্যে যাওয়ার কথা।", source: "tbsMalaysiaCost" },
       detail: {
         covered: ["পাসপোর্ট ফি", "মেডিকেল ফি", "রিক্রুটিং এজেন্সির সার্ভিস চার্জ", "নিবন্ধন ফি", "প্রবাসী কল্যাণ ফি", "বিমা"],
-        coveredNote: "৭৮,৯৯০ টাকার মধ্যে বাংলাদেশের দিকের এই খরচগুলো ধরা হয়েছে। প্রতিটির আলাদা টাকার অঙ্ক প্রকাশিত নেই।",
+        coveredNote: "আগের পর্বে (২০২২) ৭৮,৯৯০ টাকার মধ্যে বাংলাদেশের দিকের এই খরচগুলো ধরা ছিল। ২০২৬ সালের ১,৫৪,০০০ টাকায় কোন খাতে কত, তা এখনো প্রকাশিত হয়নি।",
         employer: ["প্রথমবার যাওয়া ও চুক্তি শেষে ফেরার বিমান টিকিট", "ভিসা প্রক্রিয়াকরণ ফি", "মালয়েশীয় ইমিগ্রেশনের জামানত", "মালয়েশীয় এজেন্সির সার্ভিস চার্জ", "মালয়েশিয়ায় বায়োমেট্রিক ও মেডিকেল পরীক্ষা"],
         employerNote: "এই খরচগুলো নিয়োগকর্তার বহন করার কথা, শ্রমিকের নয়।",
-        routes: ["লাইসেন্সপ্রাপ্ত রিক্রুটিং এজেন্সি", "সরকারি প্রতিষ্ঠান BOESL"],
+        routes: ["লাইসেন্সপ্রাপ্ত রিক্রুটিং এজেন্সি (সরকারি খরচ ১,৫৪,০০০ টাকা)", "সরকারি প্রতিষ্ঠান BOESL (বিনা খরচে, ১০ হাজার কর্মীর উদ্যোগ)"],
         status: "news", source: "dsMalaysia",
-        latest: { text: "২০২৬ সালে মালয়েশিয়ার শ্রমবাজার আবার খুলছে: ৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী এজেন্সি ও BOESL)। নতুন পর্বের চূড়ান্ত খরচ ৩০ সেপ্টেম্বর ২০২৬ পর্যন্ত ঘোষণা হয়নি। সরকারি নির্দেশনা না আসা পর্যন্ত টাকা দেবেন না, মেডিকেল করাবেন না, পাসপোর্ট জমা দেবেন না।", source: "gvMalaysia2026" }
+        latest: { text: "২০২৬ সালে মালয়েশিয়ার শ্রমবাজার আবার খুলছে: ৩৩৮টি প্রতিষ্ঠান অনুমোদিত (২৫টি মূল এজেন্সি, ৩১২টি সহযোগী এজেন্সি ও BOESL)। ১২ নভেম্বর ২০২৬ সরকার একজন কর্মীর খরচ ১,৫৪,০০০ টাকা ঠিক করেছে, এর বেশি নিলে ব্যবস্থা নেওয়ার কথা বলেছে। BOESL বিনা খরচে কর্মী পাঠাচ্ছে। এর বেশি টাকা দেবেন না, আর অনুমোদিত মেডিকেল সেন্টারের তালিকা প্রকাশের আগে কারো কথায় মেডিকেল করাবেন না।", source: "tbsMalaysiaCost" }
       },
-      name: "মালয়েশিয়া",  flag: "🇲🇾", cap: { amount: 78990,  year: "২০২২", status: "news", source: "tbsMalaysia" }, reported: null, visaCheck: false },
+      name: "মালয়েশিয়া",  flag: "🇲🇾", cap: { amount: 154000, year: "২০২৬", status: "news", source: "tbsMalaysiaCost" }, reported: null, visaCheck: false },
     { id: "qatar", region: "gulf", stats: [{ label: "২০২৫ সালে কাজে গেছেন", n: 107472, status: "news", source: "bmet2025" }, { label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 852813, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ৪ লাখ", note: "২০১৯ সালের হিসাব", kind: "live", status: "draft", source: "wikiDiaspora" }],
       access: { state: "limited", note: "সরকারিভাবে বন্ধ নয়। মন্ত্রণালয় নিষেধাজ্ঞার খবরকে গুজব বলেছিল (প্রায় এক বছর আগের খবর)। তবে সেখানে যাওয়া কর্মীর সংখ্যা কমেছে বলে প্রতিবেদন আছে।", source: "tbsQatarRumour" },     name: "কাতার",      flag: "🇶🇦", cap: { amount: 100780, year: "২০১৭", status: "news", source: "tbs2024" }, reported: { min: 400000, max: 1000000, source: "tbs2024", note: "উপসাগরীয় দেশে স্বল্পদক্ষ কর্মীদের খরচ (খাত সংশ্লিষ্টদের তথ্য)" }, visaCheck: true },
     { id: "oman", region: "gulf", stats: [{ label: "১৯৭৬–মার্চ ২০২৩ পর্যন্ত মোট গেছেন", n: 1802929, status: "news", source: "bmet1976" }, { label: "এখন থাকেন (আনুমানিক)", text: "প্রায় ৬.৮ লাখ", note: "২০১৮ সালের হিসাব", kind: "live", status: "draft", source: "wikiDiaspora" }],
@@ -611,12 +636,17 @@ window.APP_DATA = {
   // level: "urgent" = act/avoid now, "change" = rule or cost changed, "info" = good to know
   // Add new items at the top. Every item needs a date, a plain-language "todo" and a source.
   UPDATES: [
+    { date: "2026-11-12", level: "change", country: "malaysia",
+      title: "মালয়েশিয়া যাওয়ার সরকারি খরচ ঠিক হলো: ১ লাখ ৫৪ হাজার টাকা",
+      what: "১২ নভেম্বর ২০২৬ প্রবাসীকল্যাণমন্ত্রী আরিফুল হক চৌধুরী জানান, বেসরকারি এজেন্সির মাধ্যমে মালয়েশিয়া যেতে একজন কর্মীর অভিবাসন ব্যয় ১,৫৪,০০০ টাকা ঠিক করা হয়েছে, এর বেশি নিলে ব্যবস্থা নেওয়া হবে। খাতওয়ারি হিসাব (কোন খাতে কত) এখনো প্রকাশ হয়নি; এজেন্সিগুলো ২–৩ লাখ টাকা খরচের কথা বলছে। আগের পর্বে সরকারি খরচ ছিল প্রায় ৭৯ হাজার টাকা, কিন্তু অনেকের কাছ থেকে ৬.৫ লাখ টাকা পর্যন্ত নেওয়ার অভিযোগ ছিল। আলাদাভাবে সরকারি এজেন্সি BOESL বিনা খরচে (শূন্য টাকা) ১০ হাজার কর্মী পাঠানোর কাজ শুরু করেছে; প্রথম দফায় ১১২ জন যাবেন। অনুমোদিত মেডিকেল সেন্টারের চূড়ান্ত তালিকা আগামী সপ্তাহে প্রকাশের কথা।",
+      todo: "১,৫৪,০০০ টাকার বেশি কাউকে দেবেন না, প্রতিটি টাকার রসিদ নিন। BOESL-এর মাধ্যমে গেলে কোনো টাকাই লাগার কথা নয় — BOESL-এর নামে কেউ টাকা চাইলে সেটি প্রতারণা। শুধু অনুমোদিত এজেন্সির মাধ্যমে যান, আর এজেন্সির RL নম্বর এখানে যাচাই করুন।",
+      status: "news", source: "tbsMalaysiaCost", extra: ["btMalaysiaCost", "dsBoesl112"] },
     { date: "2026-11-04", level: "urgent", country: null,
       countries: ["serbia","moldova","belarus","kosovo","bosnia","japan","iraq","laos","vietnam","cambodia","ukraine","libya"],
       title: "১২ দেশে কাজে যেতে প্রবাসী কল্যাণ মন্ত্রণালয়ের অনুমোদন বাধ্যতামূলক",
-      what: "৪ নভেম্বর ২০২৬ থেকে সার্বিয়া, মলদোভা, বেলারুশ, কসোভো, বসনিয়া, জাপান, ইরাক, লাওস, ভিয়েতনাম, কম্বোডিয়া, ইউক্রেন ও লিবিয়ায় কাজে যেতে মন্ত্রণালয়ের নিয়োগানুমতি লাগবে। এই অনুমোদন ছাড়া BMET বহির্গমন ছাড়পত্র (স্মার্ট কার্ড) দেবে না, আর ছাড়পত্র ছাড়া কাজের জন্য দেশ ছাড়া যায় না। শুধু ইউরোপ নয়, এশিয়া ও আফ্রিকার দেশও তালিকায় আছে। মন্ত্রণালয়ের চিঠিতে কারণ লেখা নেই; কর্মকর্তারা প্রতারণা ঠেকানো ও কর্মীদের নিরাপত্তার কথা বলেছেন। একটি পত্রিকার তালিকা একটু আলাদা (কসোভো, বসনিয়া ও কম্বোডিয়ার জায়গায় কঙ্গো, রাশিয়া ও ক্রোয়েশিয়া), সরকারি চিঠি দেখে নিশ্চিত হওয়া বাকি।",
+      what: "৪ নভেম্বর ২০২৬ থেকে সার্বিয়া, মলদোভা, বেলারুশ, কসোভো, বসনিয়া, জাপান, ইরাক, লাওস, ভিয়েতনাম, কম্বোডিয়া, ইউক্রেন ও লিবিয়ায় কাজে যেতে মন্ত্রণালয়ের নিয়োগানুমতি লাগবে। এই অনুমোদন ছাড়া BMET বহির্গমন ছাড়পত্র (স্মার্ট কার্ড) দেবে না, আর ছাড়পত্র ছাড়া কাজের জন্য দেশ ছাড়া যায় না। শুধু ইউরোপ নয়, এশিয়া ও আফ্রিকার দেশও তালিকায় আছে। মন্ত্রণালয়ের চিঠিতে কারণ লেখা নেই; কর্মকর্তারা প্রতারণা ঠেকানো ও কর্মীদের নিরাপত্তার কথা বলেছেন। পত্রিকাগুলোর তালিকায় অমিল আছে: কয়েকটিতে বসনিয়া বা কসোভোর জায়গায় রাশিয়া, কঙ্গো বা ক্রোয়েশিয়া আছে। রাশিয়া অনেক তালিকাতেই আছে, তাই রাশিয়ার প্রস্তাবেও মন্ত্রণালয়ের অনুমোদন চেয়ে নিন। সরকারি চিঠি দেখে নিশ্চিত হওয়া বাকি। ২০২৫ সালের জানুয়ারি থেকে ৩০ অক্টোবর ২০২৬ পর্যন্ত এই দেশগুলোতে ৪৪ হাজারের বেশি ছাড়পত্র দেওয়া হয়েছিল।",
       todo: "এসব দেশের প্রস্তাব পেলে টাকা দেওয়ার আগে এজেন্সির কাছে মন্ত্রণালয়ের নিয়োগানুমতির কপি চান এবং BMET-এ যাচাই করুন। 'ভিসা হয়ে গেছে' বললেই হবে না — অনুমোদন না থাকলে ছাড়পত্র মিলবে না। লাইসেন্সধারী এজেন্সি ছাড়া কারো মাধ্যমে যাবেন না।",
-      status: "news", source: "tbs12Countries", extra: ["dhakamail12Countries", "bt12Countries"] },
+      status: "news", source: "tbs12Countries", extra: ["dhakamail12Countries", "bt12Countries", "ds12Countries"] },
     { date: "2026-10-26", level: "info", country: "saudi",
       title: "ফ্লাইট বাতিলে আকামার মেয়াদ শেষ হলেও সৌদি আরবে ফেরা যাবে",
       what: "যুদ্ধের কারণে ফ্লাইট বাতিল হওয়ায় যাঁরা সময়মতো সৌদি আরবে ফিরতে পারেননি এবং এর মধ্যে আকামার মেয়াদ শেষ হয়ে গেছে, তাঁরা আবার দেশটিতে ঢুকতে পারবেন — ২৬ অক্টোবর ২০২৬ ঢাকায় সৌদি রাষ্ট্রদূতের উপস্থিতিতে প্রবাসীকল্যাণমন্ত্রী আরিফুল হক চৌধুরী এ কথা জানান। মন্ত্রীর কথায়, ফিরতে পারলে ইলেকট্রনিক সিস্টেমে স্বয়ংক্রিয়ভাবে এন্ট্রি হবে। সৌদি সরকারের লিখিত নির্দেশনা এখনো আমরা দেখিনি।",
@@ -653,6 +683,12 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-12", title: "মালয়েশিয়া যেতে অভিবাসন ব্যয় কত, জানালেন প্রবাসীকল্যাণ মন্ত্রী", outlet: "বাংলা ট্রিবিউন", tag: "মালয়েশিয়া",
+      url: "https://www.banglatribune.com/national/980472/%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A7%9F%E0%A7%87%E0%A6%B6%E0%A6%BF%E0%A7%9F%E0%A6%BE-%E0%A6%AF%E0%A7%87%E0%A6%A4%E0%A7%87-%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A6%A8-%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A7%9F-%E0%A6%95%E0%A6%A4-%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%A8" },
+    { date: "2026-11-10", title: "প্রতারণার মাধ্যমে ২৫ লাখ টাকা আত্মসাৎ, গ্রেফতার আরও ২", outlet: "ঢাকা মেইল", tag: "অনলাইন চাকরি প্রতারণা",
+      url: "https://dhakamail.com/national/342120" },
+    { date: "2026-11-09", title: "ঋণ নিয়ে রাশিয়ায় যাওয়া তরুণদের পাঠানো হয় ইউক্রেন যুদ্ধের ফ্রন্টলাইনে", outlet: "আমার দেশ", tag: "রাশিয়া",
+      url: "https://dailyamardesh.com/national/amd0f4x4lhnx5" },
     { date: "2026-10-26", title: "আকামার মেয়াদ শেষ হলেও সৌদি প্রবেশের সুযোগ পাবেন প্রবাসীরা: প্রবাসীকল্যাণমন্ত্রী", outlet: "প্রথম আলো", tag: "সৌদি আরব",
       url: "https://www.prothomalo.com/bangladesh/1mfvqk17iy" },
     { date: "2026-11-04", title: "মন্ত্রণালয়ের অনুমোদন ছাড়া কর্মী পাঠানো যাবে না যে ১২ দেশে", outlet: "ঢাকা মেইল", tag: "নতুন নিয়ম",
