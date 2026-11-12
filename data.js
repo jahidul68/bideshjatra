@@ -694,9 +694,7 @@ window.APP_DATA = {
     { date: "2026-11-04", title: "মন্ত্রণালয়ের অনুমোদন ছাড়া কর্মী পাঠানো যাবে না যে ১২ দেশে", outlet: "ঢাকা মেইল", tag: "নতুন নিয়ম",
       url: "https://dhakamail.com/national/340986" },
     { date: "2026-11-02", title: "পাসপোর্টের ৭ ‘দালালকে’ বিভিন্ন মেয়াদে সাজা", outlet: "বাংলা ট্রিবিউন", tag: "দালাল",
-      url: "https://banglatribune.com/law-and-crime/978319/%E0%A6%AA%E0%A6%BE%E0%A6%B8%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%9F%E0%A7%87%E0%A6%B0-%E0%A7%AD-%E2%80%98%E0%A6%A6%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B2%E0%A6%95%E0%A7%87%E2%80%99-%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%A8-%E0%A6%AE%E0%A7%87%E0%A7%9F%E0%A6%BE%E0%A6%A6%E0%A7%87-%E0%A6%B8%E0%A6%BE%E0%A6%9C%E0%A6%BE" },
-    { date: "2026-10-09", title: "বিদেশে চাকরি দেওয়ার নামে প্রতারণা, গ্রেফতার ১২", outlet: "এশিয়ান টিভি", tag: "প্রতারণা",
-      url: "https://www.asiantvonline.com/news/crime/72883/8a61-20261009" }
+      url: "https://banglatribune.com/law-and-crime/978319/%E0%A6%AA%E0%A6%BE%E0%A6%B8%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%9F%E0%A7%87%E0%A6%B0-%E0%A7%AD-%E2%80%98%E0%A6%A6%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B2%E0%A6%95%E0%A7%87%E2%80%99-%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%A8-%E0%A6%AE%E0%A7%87%E0%A7%9F%E0%A6%BE%E0%A6%A6%E0%A7%87-%E0%A6%B8%E0%A6%BE%E0%A6%9C%E0%A6%BE" }
   ],
   NEWS_SEARCH_URL: "https://www.google.com/search?tbm=nws&tbs=qdr:m&q=%E0%A6%AC%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%A8%E0%A6%AC%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%B0+%E0%A6%A6%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B2+%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A4%E0%A6%BE%E0%A6%B0%E0%A6%A3%E0%A6%BE",
 
