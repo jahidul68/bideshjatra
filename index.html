@@ -10,6 +10,11 @@
 <link rel="canonical" href="https://dalalnaki.com/">
 <script>try{var t=JSON.parse(localStorage.getItem("theme"));if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}
 try{var q=(location.search.match(/[?&]lang=(en|bn)\b/)||[])[1];if(q)localStorage.setItem("lang",JSON.stringify(q));if((q||JSON.parse(localStorage.getItem("lang")))==="en"){document.documentElement.lang="en";document.title="Dalal Naki? Check before you go abroad"}}catch(e){}</script>
+<script>/* welcome gate: shown on the plain address until the visitor picks "work" or "study" (?choose shows it again) */
+try{var gu=new URLSearchParams(location.search),gf=gu.get('for');if(gf==='work'||gf==='study')localStorage.setItem('track',JSON.stringify(gf));
+var gt=JSON.parse(localStorage.getItem('track'));
+if(gu.has('choose'))document.documentElement.classList.add('gate-on');
+else if(!location.hash){if(gt==='study')location.replace('/porashona/');else if(gt!=='work')document.documentElement.classList.add('gate-on')}}catch(e){}</script>
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -773,10 +778,165 @@ details.more-upd{display:grid;gap:10px}
 .fold.hot{border-color:var(--stamp)}
 .fold.hot>summary .ic{background:var(--stamp-soft);color:var(--stamp)}
 @media print{.fold,.fold .body{display:block!important;border:0;box-shadow:none}}
+
+/* ===== Welcome gate: "what is your plan?" — work or study. Shown once; the choice is remembered (localStorage "track"). ===== */
+.gate{display:none}
+html.gate-on body{overflow:hidden}
+html.gate-on .gate{display:flex}
+.gate{position:fixed;inset:0;z-index:50;background:var(--paper);flex-direction:column;align-items:center;overflow:auto;
+  padding:max(18px,env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px))}
+.gate.out{animation:gateOut .35s ease-in forwards}
+@keyframes gateOut{to{opacity:0;transform:scale(1.03)}}
+.gate-in{width:100%;max-width:1080px;margin:auto 0;display:grid;gap:14px}
+.gate-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gate .brand{font-size:24px;transform:rotate(-2.5deg)}
+.gate-tools{display:flex;gap:8px}
+.gate h1{font-size:clamp(28px,7vw,46px);font-weight:900;line-height:1.15;text-align:center;margin-top:4px}
+.gate .lead{margin:-6px 0 2px;text-align:center;color:var(--muted);font-size:17px}
+.paths{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:760px){.paths{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+.path{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--sh2);transition:transform .18s,box-shadow .18s;isolation:isolate}
+@media (min-width:760px){.path{min-height:min(62vh,520px)}}
+.path:hover{transform:translateY(-3px)}
+.path:active{transform:scale(.99)}
+.path .scene{grid-row:1;width:100%;height:clamp(140px,23vh,300px);display:block}
+@media (min-width:760px){.path .scene{height:100%;min-height:0}}
+.isdark .path .scene{filter:brightness(.78) saturate(.9)}
+.path .lbl{grid-row:2;display:grid;grid-template-columns:1fr 44px;gap:2px 12px;align-items:center;padding:12px 16px 14px;
+  background:var(--card);border-top:4px solid var(--brand)}
+.path.study .lbl{border-top-color:var(--pen)}
+.path .lbl b{font-size:clamp(22px,5.6vw,30px);font-weight:900;line-height:1.2}
+.path .lbl span{grid-column:1;color:var(--muted);font-size:15.5px;line-height:1.45}
+.path .lbl i{grid-column:2;grid-row:1/3;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:var(--brand-ink)}
+.path.study .lbl i{background:var(--pen);color:#fff}
+.isdark .path.study .lbl i{color:#0d1630}
+.path .lbl i svg{width:24px;height:24px}
+.path .tag{position:absolute;top:12px;left:12px;font-size:13.5px;font-weight:800;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--card) 88%,transparent);color:var(--brand)}
+.path.study .tag{color:var(--pen)}
+.gate .fine{text-align:center;color:var(--muted);font-size:14px;margin:0}
+/* scene motion */
+.scene .fly{animation:gFly 11s linear infinite}
+.scene .fly.slow{animation-duration:19s;animation-delay:-6s}
+@keyframes gFly{from{transform:translate(-70px,0)}to{transform:translate(470px,-26px)}}
+.scene .drift{animation:gDrift 24s ease-in-out infinite alternate}
+@keyframes gDrift{to{transform:translateX(34px)}}
+.scene .twinkle rect{animation:gTw 2.4s ease-in-out infinite}
+.scene .twinkle rect:nth-child(2n){animation-delay:-1.1s}.scene .twinkle rect:nth-child(3n){animation-delay:-.5s}
+@keyframes gTw{50%{opacity:.15}}
+.scene .sun{animation:gSun 6s ease-in-out infinite alternate;transform-origin:306px 92px}
+@keyframes gSun{to{transform:scale(1.06)}}
+.scene .walk{animation:gWalk 10s linear infinite}
+.scene .walk.w2{animation-delay:-3.4s}.scene .walk.w3{animation-delay:-6.8s}
+@keyframes gWalk{0%{transform:translate(-30px,246px) scale(1);opacity:0}6%{opacity:1}80%{transform:translate(186px,222px) scale(.72);opacity:1}92%,100%{transform:translate(198px,214px) scale(.62);opacity:0}}
+.scene .bob{animation:gBob .5s ease-in-out infinite alternate}
+@keyframes gBob{to{transform:translateY(-2px)}}
+.scene .toss{animation:gToss 4.5s ease-in-out infinite}
+@keyframes gToss{0%,100%{transform:translate(0,40px) rotate(0)}45%{transform:translate(-6px,-36px) rotate(-200deg)}60%{transform:translate(-8px,-30px) rotate(-260deg)}}
+.scene .toss{transform-box:fill-box;transform-origin:center}
+.scene .wave{animation:gWave 1.4s ease-in-out infinite alternate;transform-origin:200px 89px}
+@keyframes gWave{to{transform:skewY(-6deg) scaleX(.9)}}
+@media (prefers-reduced-motion:reduce){.scene *{animation:none!important}.scene .fly{transform:translate(150px,-10px)}.scene .walk{transform:translate(120px,232px) scale(.85)}.scene .toss{transform:translate(0,-10px)}.gate.out{animation:none}}
+
+/* header switch to the student section */
+.trackb{height:42px;padding:0 12px;border-radius:6px;background:color-mix(in srgb,var(--pen) 12%,transparent);color:var(--pen);display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:15px;text-decoration:none;flex:none}
+.trackb svg{width:20px;height:20px}
+@media (max-width:420px){.trackb{flex-direction:column;justify-content:center;gap:0;padding:0 6px;font-size:11px;line-height:1.2}.trackb svg{width:18px;height:18px}}
 </style>
 
 </head>
 <body>
+<div class="gate" id="gate" role="region" aria-labelledby="gate-h">
+  <div class="gate-in">
+    <div class="gate-top">
+      <span class="brand" aria-hidden="true">দালাল নাকি?<small class="brand-sub">বিদেশযাত্রা যাচাই</small></span>
+      <div class="gate-tools"><button class="langb" id="gate-lang" type="button" lang="en" aria-label="Read in English">EN</button></div>
+    </div>
+    <h1 id="gate-h" data-en="What is your plan abroad?">বিদেশে কী করতে যাচ্ছেন?</h1>
+    <p class="lead" data-en="Choose one. We will show what you need to check.">একটি বেছে নিন, আপনার যা যাচাই করা দরকার তা দেখাব।</p>
+    <div class="paths">
+      <a class="path work" href="/?for=work" data-track="work">
+        <svg class="scene" viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c98d"/><stop offset=".65" stop-color="#f8e3c2"/><stop offset="1" stop-color="#fbefdc"/></linearGradient>
+  </defs>
+  <rect width="400" height="260" fill="url(#gW)"/>
+  <circle class="sun" cx="306" cy="92" r="34" fill="#f0a345"/>
+  <g class="drift" fill="#fff" opacity=".75"><ellipse cx="70" cy="48" rx="28" ry="8"/><ellipse cx="88" cy="42" rx="18" ry="8"/><ellipse cx="250" cy="34" rx="22" ry="6"/></g>
+  <g fill="#dcb98b"><rect x="18" y="168" width="22" height="50"/><rect x="44" y="150" width="16" height="68"/><rect x="64" y="176" width="26" height="42"/><rect x="236" y="160" width="20" height="58"/><rect x="262" y="140" width="14" height="78"/><rect x="282" y="172" width="30" height="46"/><rect x="330" y="156" width="18" height="62"/><rect x="352" y="178" width="30" height="40"/></g>
+  <g fill="#2f5e50"><rect x="96" y="160" width="24" height="58"/><path d="M126 218v-82l10-10 10 10v82z"/><rect x="152" y="176" width="20" height="42"/><rect x="228" y="172" width="22" height="46"/><path d="M256 218v-70h22v70z"/><path d="M286 218v-50l12-8 12 8v50z"/></g>
+  <path fill="#1d463b" d="M178 218l2-46h6l2-50h5l2-50h3l1-40 1-18 1 18 1 40h3l2 50h5l2 50h6l2 46z"/>
+  <g class="twinkle" fill="#ffd27a"><rect x="190" y="150" width="2" height="4"/><rect x="207" y="132" width="2" height="4"/><rect x="198" y="96" width="2" height="4"/><rect x="134" y="150" width="2" height="4"/><rect x="104" y="178" width="2" height="4"/><rect x="262" y="164" width="2" height="4"/><rect x="292" y="182" width="2" height="4"/></g>
+  <g class="fly"><g transform="translate(0 70) rotate(-6)" fill="#fffaf2" stroke="#1d463b" stroke-width="1.6" stroke-linejoin="round"><path d="M-46 4h-50" stroke="#fff" stroke-width="3" stroke-dasharray="6 6" opacity=".9"/><path d="M14 4l-9 15h6l15-15z"/><path d="M0 0h34c7 0 11 2 11 4s-4 4-11 4H2l-7-4z"/><path d="M3 0l-5-9h5l7 9z"/><path d="M16 4l-6-9h5l12 9z"/></g></g>
+  <g fill="#3f6f5f"><path d="M40 222c2-18 6-30 12-40" stroke="#3f6f5f" stroke-width="3" fill="none"/><path d="M52 182c-10-4-20 0-24 6 8-3 16-3 24-6zM52 182c4-9 14-12 22-10-8 2-14 6-22 10zM52 182c10 0 18 6 20 12-6-5-13-8-20-12zM52 182c-4-8-12-12-20-10 8 2 14 5 20 10z"/><path d="M350 222c-1-14-4-24-9-32" stroke="#3f6f5f" stroke-width="3" fill="none"/><path d="M341 190c-9-3-17 0-21 5 7-2 14-2 21-5zM341 190c3-7 12-10 18-8-7 1-12 4-18 8zM341 190c8 0 15 5 17 10-5-4-11-7-17-10z"/></g>
+  <path fill="#e8c792" d="M0 214c60-12 120-8 200 2s150 8 200-4v48H0z"/>
+  <path fill="#dbb57c" d="M0 236c80-10 150-4 220 4s130 4 180-6v26H0z"/>
+</svg>
+        <span class="tag" data-en="For workers and families">শ্রমিক ও পরিবারের জন্য</span>
+        <span class="lbl"><b data-en="I'm going abroad to work">বিদেশে কাজ করতে যাবো</b><span data-en="Official costs, agency licence, broker warning signs">সরকারি খরচ, এজেন্সির লাইসেন্স, দালাল চেনার লক্ষণ</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span>
+      </a>
+      <a class="path study" href="/porashona/" data-track="study">
+        <svg class="scene" viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd3f3"/><stop offset=".7" stop-color="#e3ecf9"/><stop offset="1" stop-color="#eef3fb"/></linearGradient>
+  </defs>
+  <rect width="400" height="260" fill="url(#gS)"/>
+  <g class="drift" fill="#fff" opacity=".85"><ellipse cx="60" cy="46" rx="26" ry="8"/><ellipse cx="78" cy="40" rx="16" ry="8"/><ellipse cx="320" cy="56" rx="30" ry="8"/><ellipse cx="338" cy="49" rx="16" ry="7"/></g>
+  <g class="fly slow"><g transform="translate(0 30) rotate(-4) scale(.6)" fill="#fff" stroke="#21408f" stroke-width="2" stroke-linejoin="round"><path d="M14 4l-9 15h6l15-15z"/><path d="M0 0h34c7 0 11 2 11 4s-4 4-11 4H2l-7-4z"/><path d="M3 0l-5-9h5l7 9z"/><path d="M16 4l-6-9h5l12 9z"/></g></g>
+  <path fill="#d5e3c6" d="M0 206c70-8 140-8 200-4s140 6 200-2v60H0z"/>
+  <g fill="#5f9a6a"><circle cx="70" cy="168" r="24"/><circle cx="92" cy="178" r="18"/><circle cx="318" cy="166" r="26"/><circle cx="296" cy="180" r="16"/></g>
+  <g fill="#6b5a45"><rect x="68" y="186" width="5" height="24"/><rect x="316" y="186" width="5" height="24"/></g>
+  <g stroke="#21408f" stroke-width="2" stroke-linejoin="round">
+    <path fill="#f6f2e7" d="M124 206v-62h152v62z"/>
+    <path fill="#2c4f9e" d="M116 146l84-40 84 40z"/>
+    <circle cx="200" cy="130" r="9" fill="#f6f2e7"/>
+    <path d="M200 124v6l4 3" fill="none"/>
+    <path fill="#e9e2d0" d="M116 146h168v8H116z"/>
+    <g fill="#fffdf6"><rect x="134" y="156" width="10" height="46"/><rect x="158" y="156" width="10" height="46"/><rect x="232" y="156" width="10" height="46"/><rect x="256" y="156" width="10" height="46"/></g>
+    <path fill="#2c4f9e" d="M188 206v-30a12 12 0 0124 0v30z"/>
+    <path fill="#e9e2d0" d="M112 206h176v6H112zM104 212h192v6H104z"/>
+    <path d="M200 106V84" fill="none"/>
+  </g>
+  <path class="wave" fill="#c0352c" d="M200 84h18l-4 5 4 5h-18z"/>
+  <path fill="#ece3cc" d="M172 218h56l40 42H132z"/>
+  <g class="toss"><g transform="translate(352 120)"><path d="M-16 0L0-8 16 0 0 8z" fill="#1b2c55"/><path d="M-8 3v7c4 3 12 3 16 0V3L0 7z" fill="#1b2c55"/><path d="M10 1v10" stroke="#e0a43a" stroke-width="2"/><circle cx="10" cy="12" r="2" fill="#e0a43a"/></g></g>
+  <g class="walkers">
+    <g class="walk"><g class="bob"><circle cx="0" cy="-30" r="5" fill="#6b4a33"/><path d="M-4 -34a5 5 0 0110 0z" fill="#1d1d1d"/><rect x="-5" y="-25" width="10" height="14" rx="3" fill="#2f7d6d"/><rect x="-10" y="-24" width="6" height="10" rx="2" fill="#e0a43a"/><path class="lg1" d="M-2 -11l-3 11M2 -11l3 11" stroke="#1b2c55" stroke-width="3" stroke-linecap="round"/></g></g>
+    <g class="walk w2"><g class="bob"><circle cx="0" cy="-29" r="5" fill="#8a5a3a"/><path d="M-6 -30a6 6 0 0112 0v8h-12z" fill="#7a2c3a"/><rect x="-5" y="-24" width="10" height="13" rx="3" fill="#7a2c3a"/><rect x="-10" y="-23" width="6" height="9" rx="2" fill="#21408f"/><path d="M-2 -11l-3 11M2 -11l3 11" stroke="#3a2a22" stroke-width="3" stroke-linecap="round"/></g></g>
+    <g class="walk w3"><g class="bob"><circle cx="0" cy="-30" r="5" fill="#5e4130"/><path d="M-5 -33a5 5 0 0110 0z" fill="#1d1d1d"/><rect x="-5" y="-25" width="10" height="14" rx="3" fill="#c0352c"/><rect x="-10" y="-24" width="6" height="10" rx="2" fill="#1b2c55"/><path d="M-2 -11l-3 11M2 -11l3 11" stroke="#1b2c55" stroke-width="3" stroke-linecap="round"/></g></g>
+  </g>
+</svg>
+        <span class="tag" data-en="For students">ছাত্রছাত্রীদের জন্য</span>
+        <span class="lbl"><b data-en="I'm going abroad to study">বিদেশে পড়তে যাবো</b><span data-en="Visa money, documents, consultancy traps">ভিসার টাকা, কাগজপত্র, কনসালটেন্সির ফাঁদ</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span>
+      </a>
+    </div>
+    <p class="fine" data-en="You can switch any time from the button at the top.">পরে উপরের বোতাম থেকে যেকোনো সময় বদলাতে পারবেন।</p>
+  </div>
+</div>
+<script>
+/* welcome gate: first visit only; the choice is kept in localStorage "track" */
+(function(){
+  var root = document.documentElement, g = document.getElementById('gate'), EN = root.lang === 'en';
+  function set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} }
+  if(EN){
+    g.querySelectorAll('[data-en]').forEach(function(e){ e.textContent = e.getAttribute('data-en') });
+    var lb = document.getElementById('gate-lang'); lb.textContent = 'বাংলা'; lb.lang = 'bn'; lb.setAttribute('aria-label', 'বাংলায় পড়ুন');
+  }
+  document.getElementById('gate-lang').addEventListener('click', function(){ set('lang', EN ? 'bn' : 'en'); location.replace(location.pathname + '?choose'); });
+  var others = function(on){ document.querySelectorAll('body > :not(.gate):not(script)').forEach(function(e){ if(on) e.setAttribute('inert',''); else e.removeAttribute('inert'); }) };
+  if(root.classList.contains('gate-on')) document.addEventListener('DOMContentLoaded', function(){ others(true) });
+  g.querySelectorAll('[data-track]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = a.getAttribute('data-track'); set('track', t);
+      if(t === 'study') return;            /* follow the link to /porashona/ */
+      e.preventDefault();
+      history.replaceState(null, '', location.pathname + location.hash);
+      g.classList.add('out');
+      setTimeout(function(){ root.classList.remove('gate-on'); g.classList.remove('out'); others(false); window.scrollTo(0,0); }, 330);
+    });
+  });
+})();
+</script>
 <header class="bar">
   <div class="bar-in">
     <button class="back" id="back" aria-label="পেছনে যান" hidden>
@@ -786,6 +946,7 @@ details.more-upd{display:grid;gap:10px}
     <nav class="topnav" aria-label="প্রধান মেনু">
       <a href="/" data-tab="home">হোম</a><a href="#countries" data-tab="countries">দেশ</a><a href="#agency" data-tab="agency">এজেন্সি যাচাই</a><a href="#updates" data-tab="updates">আপডেট</a><a href="#flags" data-tab="flags">সতর্কতা</a><details class="navmore"><summary>আরও ▾</summary><div class="navpanel"><a href="#map">কোথা থেকে, কোথায়? (মানচিত্র)</a><a href="#check">দালাল চেনার লক্ষণ</a><a href="#ledger">টাকার হিসাব ও অভিযোগপত্র</a><a href="#myths">ভুল ধারণা ও সত্য</a><a href="#risk">সাগরপথের ঝুঁকি</a><a href="#stats">পরিসংখ্যান</a></div></details>
     </nav>
+    <a class="trackb" id="trackb" href="/porashona/" aria-label="ছাত্রছাত্রীদের অংশ: বিদেশে পড়াশোনা"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/><path d="M22 9v6"/></svg><span>পড়াশোনা</span></a>
     <button class="langb" id="langb" type="button" lang="en" aria-label="Read in English">EN</button>
     <button class="themeb" id="themeb" type="button" aria-label="ডার্ক মোড চালু করুন" title="ডার্ক / লাইট">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>
@@ -2094,6 +2255,7 @@ if(EN){
   document.getElementById('back').setAttribute('aria-label', 'Go back');
   document.getElementById('themeb').title = 'Dark / light';
   document.querySelectorAll('nav[aria-label]').forEach(n => n.setAttribute('aria-label', 'Main menu'));
+  { const tb = document.getElementById('trackb'); tb.lastChild.textContent = 'Study'; tb.setAttribute('aria-label', 'Student section: study abroad'); }
   const tabs = {home:'Home', countries:'Countries', agency:'Agency', updates:'Updates', flags:'Warnings'};
   document.querySelectorAll('.topnav [data-tab]').forEach(a => a.textContent = a.dataset.tab === 'agency' ? 'Check an agency' : tabs[a.dataset.tab]);
   document.querySelectorAll('.tabs [data-tab]').forEach(a => a.lastChild.textContent = tabs[a.dataset.tab]);

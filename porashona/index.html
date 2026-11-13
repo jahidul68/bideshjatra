@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>বিদেশে পড়াশোনা — দালাল নাকি?</title>
+<meta name="description" content="বিদেশে পড়তে যাওয়ার আগে ভিসার টাকা, কাগজপত্র আর কনসালটেন্সির ফাঁদ যাচাই করুন। যুক্তরাজ্য, অস্ট্রেলিয়া, কানাডা, নিউজিল্যান্ড, ডেনমার্ক, ফিনল্যান্ড, সুইডেন, নরওয়ে, যুক্তরাষ্ট্র।">
+<meta name="theme-color" content="#fbfcfa">
+<link rel="canonical" href="https://dalalnaki.com/porashona/">
+<script>try{var t=JSON.parse(localStorage.getItem("theme"));if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;localStorage.setItem("track",JSON.stringify("study"))}catch(e){}</script>
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Same paper-and-stamp look as the worker section (../index.html); the accent is ballpoint blue instead of green. */
+:root{
+  --paper:#eef1ec; --card:#fbfcfa; --ink:#18221d; --muted:#55615b; --line:#cfd6d0;
+  --brand:#21408f; --brand-ink:#ffffff; --brand-soft:#e3e9f6; --work:#0e4a3b;
+  --stamp:#b42d25; --stamp-soft:#f7e4e1; --amber:#94580a; --amber-soft:#f6ecd9; --ok:#1a7845; --ok-soft:#e1f2e7;
+  --font:'Noto Sans Bengali',system-ui,sans-serif; --r:10px;
+  --sh:0 1px 2px rgba(16,30,60,.05),0 3px 12px rgba(16,30,60,.06);--sh2:0 2px 4px rgba(16,30,60,.06),0 10px 28px rgba(16,30,60,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101613; --card:#18201c; --ink:#e6ece8; --muted:#9aa8a1; --line:#2c3732;
+  --brand:#9db4ff; --brand-ink:#0d1630; --brand-soft:#1c2747; --work:#6cc3a2;
+  --stamp:#ff8a7c; --stamp-soft:#3a1d1a; --amber:#e9b25e; --amber-soft:#3a2b12; --ok:#66d396; --ok-soft:#173526;
+  --sh:0 1px 2px rgba(0,0,0,.3);--sh2:0 4px 18px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#101613; --card:#18201c; --ink:#e6ece8; --muted:#9aa8a1; --line:#2c3732;
+  --brand:#9db4ff; --brand-ink:#0d1630; --brand-soft:#1c2747; --work:#6cc3a2;
+  --stamp:#ff8a7c; --stamp-soft:#3a1d1a; --amber:#e9b25e; --amber-soft:#3a2b12; --ok:#66d396; --ok-soft:#173526;
+  --sh:0 1px 2px rgba(0,0,0,.3);--sh2:0 4px 18px rgba(0,0,0,.35);color-scheme:dark}
+:root[data-theme="light"]{color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17.5px;line-height:1.65;margin:0}
+a{color:var(--brand)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:8px}
+h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+.ico{width:22px;height:22px;display:block;flex:none}
+
+/* masthead */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--card);border-bottom:3px solid var(--brand);padding-block:8px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:8px}
+.back{width:42px;height:42px;border-radius:6px;border:0;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;cursor:pointer;flex:none}
+.back[hidden]{display:none}
+.back svg{width:22px;height:22px}
+.brand{flex:none;margin-right:auto;color:var(--stamp);display:inline-grid;justify-items:center;padding:1px 12px 3px;border:3px double currentColor;border-radius:6px;transform:rotate(-2.5deg);font-size:21px;font-weight:900;line-height:1.15;white-space:nowrap;text-decoration:none}
+.brand small{font-weight:700;font-size:11.5px;border-top:1px solid currentColor;margin-top:1px;padding-top:1px}
+.trackb{height:42px;padding:0 12px;border-radius:6px;background:color-mix(in srgb,var(--work) 13%,transparent);color:var(--work);display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:15px;text-decoration:none;flex:none}
+.trackb svg{width:20px;height:20px}
+.themeb{width:42px;height:42px;border:0;border-radius:6px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;cursor:pointer;flex:none}
+.themeb svg{width:21px;height:21px}
+.themeb .sun{display:none}.isdark .themeb .sun{display:block}.isdark .themeb .moon{display:none}
+
+main{padding-block:18px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:620px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+body.wide .page{max-width:1080px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:18px;display:grid;gap:10px;min-width:0}
+.card h2{font-size:21px;font-weight:800;display:flex;align-items:center;gap:8px}
+.card h2 .ico{color:var(--brand)}
+.muted{color:var(--muted)}
+.draftnote{font-size:14px;color:var(--amber);background:var(--amber-soft);border-radius:8px;padding:10px 14px;display:flex;gap:8px;align-items:flex-start}
+.draftnote .ico{width:18px;height:18px;margin-top:3px}
+
+/* home */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:6px 14px;align-items:center}
+.hero h1{font-weight:900;font-size:clamp(27px,7.2vw,40px);line-height:1.18}
+.hero p{grid-column:1/-1;margin:0;color:var(--muted);font-size:17px}
+.hero svg{width:120px;height:auto}
+@media (min-width:860px){.homegrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;align-items:start}.homegrid>div{display:grid;gap:16px}}
+.homegrid>div{display:grid;gap:16px;min-width:0}
+.cta{display:grid;grid-template-columns:48px 1fr 22px;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--stamp);border-radius:var(--r);box-shadow:var(--sh);padding:16px;transition:box-shadow .15s,transform .15s}
+.cta:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+.cta .ic{width:48px;height:48px;border-radius:12px;background:var(--stamp-soft);color:var(--stamp);display:grid;place-items:center}
+.cta .ic .ico{width:26px;height:26px}
+.cta b{display:block;font-size:19px;font-weight:800;line-height:1.3}
+.cta span span{display:block;font-size:15px;color:var(--muted)}
+.cta.blue{border-left-color:var(--brand)}.cta.blue .ic{background:var(--brand-soft);color:var(--brand)}
+.arr{color:var(--muted)}.arr svg{width:22px;height:22px;display:block}
+.cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:560px){.cgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cbtn{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;padding:12px 10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);text-decoration:none;color:var(--ink);min-width:0;transition:box-shadow .15s,transform .15s,border-color .15s}
+.cbtn:hover{border-color:var(--brand);box-shadow:var(--sh2);transform:translateY(-1px)}
+.cbtn img{width:30px;height:auto;border-radius:3px;box-shadow:0 0 0 1px var(--line);grid-row:1/3}
+.cbtn b{font-size:16px;font-weight:700;line-height:1.25;overflow-wrap:anywhere}
+.cbtn small{color:var(--muted);font-size:13.5px;line-height:1.3;font-weight:600;font-variant-numeric:tabular-nums}
+.cbtn small.lt{color:var(--amber)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:38px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s,bengali);font-weight:900;font-size:30px;line-height:1;color:var(--brand);text-align:center}
+.steps b{display:block;font-weight:800}
+.steps span{display:block;color:var(--muted);font-size:15.5px}
+
+/* country page */
+.ch{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ch img{width:48px;height:auto;border-radius:4px;box-shadow:0 0 0 1px var(--line)}
+.ch h1{font-size:clamp(28px,7.5vw,38px);font-weight:900}
+.ch .sub{flex-basis:100%;color:var(--muted);font-size:15.5px;margin-top:-4px}
+.money{display:grid;gap:4px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);box-shadow:var(--sh);padding:16px 18px}
+.money .lab{font-size:14px;color:var(--muted);font-weight:700}
+.money .big{font-weight:900;font-size:clamp(32px,9vw,44px);line-height:1.08;font-variant-numeric:tabular-nums}
+.money .unit{font-weight:700;color:var(--ink)}
+.money p{margin:4px 0 0;color:var(--muted);font-size:15.5px}
+.news{background:var(--amber-soft);border-radius:var(--r);padding:12px 16px;display:grid;gap:4px}
+.news b{color:var(--amber);font-size:14px;display:flex;align-items:center;gap:6px}
+.news b .ico{width:18px;height:18px}
+.news ul{margin:0;padding-left:20px}
+.facts{display:grid;gap:0;margin:0}
+.facts>div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.facts>div:last-child{border-bottom:0;padding-bottom:0}
+.facts>div:first-child{padding-top:0}
+.facts dt{font-weight:800;font-size:15.5px}
+.facts dd{margin:0;min-width:0}
+.tagd{display:inline-block;margin-left:6px;font-size:12.5px;font-weight:700;color:var(--amber);border:1.5px solid currentColor;border-radius:3px;padding:0 6px;line-height:1.5;vertical-align:1px}
+@media (max-width:420px){.facts>div{grid-template-columns:1fr;gap:2px}}
+.check{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.check li{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;padding:10px;border-radius:6px;background:var(--paper)}
+.check input{appearance:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--muted);background:var(--card);cursor:pointer;margin:2px 0 0;display:grid;place-items:center}
+.check input:checked{background:var(--ok);border-color:var(--ok)}
+.check input:checked::after{content:"";width:8px;height:14px;border:solid var(--card);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check label{cursor:pointer;min-width:0}
+.check label b{display:block;font-weight:700}
+.check label span{display:block;color:var(--muted);font-size:15px}
+.check li.done label b{text-decoration:line-through;text-decoration-color:var(--ok)}
+.prog{font-size:14px;color:var(--muted);font-weight:700}
+.btn{border:0;border-radius:8px;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:17px;padding:0 20px;cursor:pointer;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.btn.wide{width:100%}
+.btn.ghost{background:var(--card);color:var(--brand);border:1.5px solid var(--brand);box-shadow:none}
+.btn .ico{width:20px;height:20px}
+.srcs{font-size:14px;color:var(--muted);margin:0;padding-left:18px;display:grid;gap:4px}
+.srcs a{color:var(--muted);overflow-wrap:anywhere}
+.badge{display:inline-block;font-size:12px;font-weight:700;border:1.5px solid currentColor;border-radius:3px;padding:0 6px;margin-left:4px}
+.b-of{color:var(--ok)}.b-nw{color:var(--amber)}
+
+/* red flags */
+.flags{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.flag{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--amber);border-radius:var(--r);box-shadow:var(--sh);padding:14px 16px;display:grid;gap:6px}
+.flag.hi{border-left-color:var(--stamp)}
+.flag.hit{background:var(--stamp-soft);border-color:var(--stamp)}
+.flag h3{font-size:18.5px;font-weight:800;line-height:1.35}
+.flag p{margin:0;color:var(--ink)}
+.mine{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:6px;background:var(--paper);cursor:pointer;font-weight:700;font-size:15.5px;width:max-content;max-width:100%}
+.mine input{appearance:none;flex:none;width:26px;height:26px;border-radius:7px;border:2px solid var(--muted);background:var(--card);cursor:pointer;margin:0;display:grid;place-items:center}
+.mine input:checked{background:var(--stamp);border-color:var(--stamp)}
+.mine input:checked::after{content:"";width:7px;height:13px;border:solid var(--card);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.verdict[hidden]{display:none}
+.verdict{position:sticky;bottom:12px;z-index:5;border-radius:var(--r);padding:14px 16px;font-weight:700;box-shadow:var(--sh2);background:var(--ok-soft);color:var(--ink);border:1px solid var(--line)}
+.verdict.bad{background:var(--stamp);color:#fff;border-color:var(--stamp)}
+.verdict.mid{background:var(--amber-soft)}
+
+footer{max-width:620px;margin:28px auto 0;font-size:14px;color:var(--muted);display:grid;gap:6px;text-align:center}
+body.wide footer{max-width:1080px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <button class="back" id="back" aria-label="পেছনে যান" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <a class="brand" href="./" aria-label="দালাল নাকি? বিদেশে পড়াশোনা, এই অংশের শুরু">দালাল নাকি?<small>বিদেশে পড়াশোনা</small></a>
+    <a class="trackb" href="../kaj/" aria-label="শ্রমিকদের অংশ: বিদেশে কাজ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg><span>কাজ</span></a>
+    <button class="themeb" id="themeb" type="button" aria-label="ডার্ক মোড চালু করুন" title="ডার্ক / লাইট">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+  <div class="page" id="view" aria-live="polite"></div>
+  <footer id="foot"></footer>
+</main>
+
+<script src="data-study.js"></script>
+<script>
+(function(){
+const D = window.STUDY_DATA, view = document.getElementById('view'), backBtn = document.getElementById('back');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const bn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)) }catch(e){ return null } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} } };
+const I = {
+  chev:'<path d="M9 6l6 6-6 6"/>',
+  alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+  doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
+  link:'<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
+  bell:'<path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>'
+};
+const ic = k => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
+const arr = `<span class="arr">${ic('chev')}</span>`;
+const DRAFT = '<span class="tagd">যাচাই চলছে</span>';
+
+const hat = `<svg viewBox="0 0 120 100" aria-hidden="true"><rect x="8" y="58" width="74" height="34" rx="4" fill="var(--card)" stroke="var(--brand)" stroke-width="3"/><path d="M8 70h74" stroke="var(--brand)" stroke-width="3"/><circle cx="45" cy="80" r="5" fill="var(--brand)"/><path d="M50 30l40-16 26 12-40 16z" fill="var(--brand)"/><path d="M62 37v14c8 6 22 6 30 0V35" fill="none" stroke="var(--brand)" stroke-width="4"/><path d="M110 28v18" stroke="var(--stamp)" stroke-width="3"/><circle cx="110" cy="48" r="3" fill="var(--stamp)"/><g transform="rotate(-12 34 40)"><rect x="10" y="22" width="48" height="28" rx="3" fill="none" stroke="var(--stamp)" stroke-width="3"/><text x="34" y="41" text-anchor="middle" font-size="12" font-weight="800" fill="var(--stamp)" font-family="system-ui">VISA</text></g></svg>`;
+
+function home(){
+  const c = D.COUNTRIES;
+  return `<section class="hero">
+    <h1>বিদেশে পড়তে যাবেন? কনসালটেন্সিকে টাকা দেওয়ার আগে যাচাই করুন।</h1>${hat}
+    <p>কোন দেশে ভিসার জন্য কত টাকা দেখাতে হয়, কী কাগজ লাগে, সরকারি ফি কত: এক জায়গায়, সরকারি লিংকসহ।</p>
+  </section>
+  <div class="homegrid"><div>
+    <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি নাকি দালাল? ১০টি লক্ষণ মিলিয়ে নিন</b><span>"১০০% ভিসা", "স্টেটমেন্ট ম্যানেজ করে দেব": যা শুনেছেন টিক দিন।</span></span>${arr}</a>
+    <section class="card" aria-labelledby="ch"><h2 id="ch">${ic('globe')}দেশ বেছে নিন</h2>
+      <div class="cgrid">${c.map(x => `<a class="cbtn" href="#c-${x.id}"><img src="${esc(x.flag)}" alt="" width="36" height="24"><b>${esc(x.name)}</b><small class="${x.light ? 'lt' : ''}">${esc(x.short)}</small></a>`).join('')}</div>
+      <p class="muted" style="margin:0;font-size:14.5px">সংখ্যাগুলো ভিসার জন্য দেখানোর সর্বনিম্ন থাকা-খাওয়ার টাকা; টিউশন আলাদা। ডেনমার্কে টিউশন না দিলে মাসে DKK ৭,৪২৬।</p>
+    </section>
+  </div><div>
+    <a class="cta blue" href="#steps"><span class="ic">${ic('list')}</span><span><b>ভর্তি থেকে ভিসা: ৭টি ধাপ</b><span>কোন কাজটা নিজে করবেন, কোথায় টাকা দেবেন।</span></span>${arr}</a>
+    <div class="draftnote">${ic('info')}<span>এই অংশটি প্রথম খসড়া। সব তথ্য সরকারি সাইটের সাথে মিলিয়ে নেওয়া হচ্ছে; "যাচাই চলছে" লেখা তথ্য এখনো সরকারি পাতায় দেখা হয়নি।</span></div>
+  </div></div>`;
+}
+
+function country(id){
+  const c = D.COUNTRIES.find(x => x.id === id);
+  if(!c) return home();
+  const done = store.get('sdocs-' + id) || [];
+  return `<div class="ch"><img src="${esc(c.flag)}" alt="" width="48" height="32"><h1>${esc(c.name)}</h1><div class="sub">${esc(c.visa)} · ${esc(c.who)}</div></div>
+  ${c.light ? '<div class="draftnote">' + ic('info') + '<span>যুক্তরাষ্ট্রের অংশ সংক্ষেপে। প্রতিটি বিশ্ববিদ্যালয়ের নিয়ম ও খরচ আলাদা, তাই I-20 আর বিশ্ববিদ্যালয়ের সাইট দেখুন।</span></div>' : ''}
+  <div class="money"><span class="lab">ভিসার জন্য যে টাকা দেখাতে হয়</span><span class="big">${esc(c.money.big)}</span><span class="unit">${esc(c.money.unit)}</span><p>${esc(c.money.note)}</p></div>
+  ${c.news.length ? `<div class="news"><b>${ic('bell')}নতুন নিয়ম</b><ul>${c.news.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : ''}
+  <section class="card"><h2>${ic('info')}মূল তথ্য</h2>
+    <dl class="facts">${c.rows.map(r => `<div><dt>${esc(r[0])}</dt><dd>${esc(r[1])}${r[2] === 'draft' ? DRAFT : ''}</dd></div>`).join('')}</dl>
+  </section>
+  <section class="card" id="docs"><h2>${ic('doc')}কাগজপত্রের তালিকা</h2>
+    <div class="prog" id="prog"></div>
+    <ul class="check">${c.docs.map((d, i) => `<li class="${done.includes(i) ? 'done' : ''}"><input type="checkbox" id="d${i}" data-i="${i}" ${done.includes(i) ? 'checked' : ''}><label for="d${i}"><b>${esc(d[0])}</b>${d[1] ? `<span>${esc(d[1])}</span>` : ''}</label></li>`).join('')}</ul>
+    <p class="muted" style="margin:0;font-size:14.5px">টিক এই ফোনেই থাকে, কোথাও পাঠানো হয় না। পুরো তালিকা সরকারি সাইটে দেখুন।</p>
+  </section>
+  <a class="btn wide" href="${esc(c.official)}" target="_blank" rel="noopener">${ic('link')}সরকারি সাইটে নিয়ম দেখুন</a>
+  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি কী বলছে মিলিয়ে নিন</b><span>দালালের ১০টি লক্ষণ</span></span>${arr}</a>
+  <section class="card"><h2>${ic('link')}তথ্য কোথা থেকে</h2>
+    <ul class="srcs">${c.src.map(s => `<li><a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a><span class="badge ${s[2] === 'official' ? 'b-of' : 'b-nw'}">${s[2] === 'official' ? 'সরকারি' : 'অন্য সূত্র'}</span></li>`).join('')}</ul>
+    <p class="muted" style="margin:0;font-size:14px">সর্বশেষ যাচাই: ${esc(D.META.checked)}</p>
+  </section>`;
+}
+
+function flags(){
+  const mine = store.get('sflags') || [];
+  return `<h1 style="font-size:clamp(26px,7vw,36px);font-weight:900">কনসালটেন্সি নাকি দালাল?</h1>
+  <p class="muted" style="margin:-6px 0 0">ভালো কনসালটেন্সিও আছে। কিন্তু নিচের কথাগুলো শুনলে সাবধান হন। যা আপনাকে বলা হয়েছে, টিক দিন।</p>
+  <ul class="flags">${D.FLAGS.map((f, i) => `<li class="flag ${f.hi ? 'hi' : ''} ${mine.includes(i) ? 'hit' : ''}"><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p><label class="mine"><input type="checkbox" data-f="${i}" ${mine.includes(i) ? 'checked' : ''}>আমাকে এটা বলা হয়েছে</label></li>`).join('')}</ul>
+  <div class="verdict" id="verdict" aria-live="polite"></div>`;
+}
+
+function steps(){
+  return `<h1 style="font-size:clamp(26px,7vw,36px);font-weight:900">ভর্তি থেকে ভিসা: ৭টি ধাপ</h1>
+  <section class="card"><ol class="steps">${D.STEPS.map(s => `<li><div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div></li>`).join('')}</ol></section>
+  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>দালালের ১০টি লক্ষণ</b><span>যা শুনেছেন তা মিলিয়ে নিন</span></span>${arr}</a>
+  <a class="btn ghost" href="./">${ic('globe')}দেশ বেছে নিন</a>`;
+}
+
+function verdict(){
+  const v = document.getElementById('verdict'); if(!v) return;
+  const mine = store.get('sflags') || [], hi = mine.filter(i => D.FLAGS[i] && D.FLAGS[i].hi).length;
+  v.hidden = !mine.length;
+  v.className = 'verdict' + (hi || mine.length >= 2 ? ' bad' : mine.length ? ' mid' : '');
+  v.textContent = !mine.length ? 'কোনোটা মেলেনি? ভালো। তবু টাকা দেওয়ার আগে বিশ্ববিদ্যালয়ে নিজে যাচাই করুন।'
+    : hi || mine.length >= 2 ? `${bn(mine.length)}টি লক্ষণ মিলেছে। এই কনসালটেন্সিকে আর টাকা দেবেন না; বিশ্ববিদ্যালয় ও সরকারি সাইটে নিজে যাচাই করুন।`
+    : '১টি লক্ষণ মিলেছে। সাবধান থাকুন, পরের ধাপের আগে নিজে যাচাই করুন।';
+}
+
+function route(){
+  const h = (location.hash || '').slice(1);
+  let html, isHome = false;
+  if(h.startsWith('c-')) html = country(h.slice(2));
+  else if(h === 'flags') html = flags();
+  else if(h === 'steps') html = steps();
+  else { html = home(); isHome = true; }
+  view.innerHTML = html;
+  document.body.classList.toggle('wide', isHome);
+  backBtn.hidden = isHome;
+  const t = h.startsWith('c-') && D.COUNTRIES.find(x => x.id === h.slice(2));
+  document.title = (t ? t.name + ' — ' : h === 'flags' ? 'কনসালটেন্সি নাকি দালাল? — ' : '') + 'বিদেশে পড়াশোনা — দালাল নাকি?';
+  window.scrollTo(0, 0);
+  if(t){
+    const id = t.id, upd = () => {
+      const b = [...view.querySelectorAll('.check input')], n = b.filter(x => x.checked).length;
+      document.getElementById('prog').textContent = `${bn(b.length)}টির মধ্যে ${bn(n)}টি তৈরি`;
+    };
+    view.querySelectorAll('.check input').forEach(b => b.addEventListener('change', () => {
+      b.closest('li').classList.toggle('done', b.checked);
+      store.set('sdocs-' + id, [...view.querySelectorAll('.check input')].filter(x => x.checked).map(x => +x.dataset.i));
+      upd();
+    }));
+    upd();
+  }
+  if(h === 'flags'){
+    view.querySelectorAll('[data-f]').forEach(b => b.addEventListener('change', () => {
+      b.closest('.flag').classList.toggle('hit', b.checked);
+      store.set('sflags', [...view.querySelectorAll('[data-f]')].filter(x => x.checked).map(x => +x.dataset.f));
+      verdict();
+    }));
+    verdict();
+  }
+}
+backBtn.addEventListener('click', () => { history.pushState(null, '', location.pathname); route(); });
+addEventListener('popstate', () => { if(!location.hash) route(); });
+addEventListener('hashchange', route);
+
+document.getElementById('foot').innerHTML = `<div>সর্বশেষ যাচাই: ${esc(D.META.checked)} · ${esc(D.META.version)}</div>
+  <div>এটি সরকারি সাইট নয়। নিয়ম ও ফি প্রায়ই বদলায়; আবেদনের আগে প্রতিটি দেশের সরকারি লিংকে মিলিয়ে নিন।</div>
+  <div><a href="../?choose">শুরুর পাতা</a> · <a href="../kaj/">বিদেশে কাজ</a></div>
+  <div>Built by Jahid using Claude</div>`;
+
+/* dark / light: same switch and stored value as the worker section */
+(function(){
+  const btn = document.getElementById('themeb'), root = document.documentElement, mq = matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : mq.matches;
+  function paint(){ const d = isDark(); root.classList.toggle('isdark', d); btn.setAttribute('aria-label', d ? 'লাইট মোড চালু করুন' : 'ডার্ক মোড চালু করুন'); document.querySelector('meta[name="theme-color"]').content = d ? '#18201c' : '#fbfcfa'; }
+  btn.addEventListener('click', () => { root.dataset.theme = isDark() ? 'light' : 'dark'; store.set('theme', root.dataset.theme); paint(); });
+  mq.addEventListener?.('change', paint); paint();
+})();
+route();
+})();
+</script>
+</body>
+</html>
