@@ -636,6 +636,25 @@ body::before{background:var(--card)}
 .trip .th .fimg{width:30px}
 .trip .th h2{font-size:19px;font-weight:800;flex:1;min-width:0}
 .trip .th small{font-size:13px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:2px 8px;border-radius:4px}
+.tchg{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:14.5px;padding:6px 12px;border-radius:8px;cursor:pointer;min-height:38px}
+.tchg .ico{width:18px;height:18px}
+.tchg[aria-expanded="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.tpick{display:grid;gap:10px;border-top:1px dashed var(--line);padding-top:12px}
+.tpick[hidden]{display:none}
+.tphint{font-size:14.5px;color:var(--muted);font-weight:600}
+.tpmap .dest{fill:color-mix(in srgb,var(--brand) 22%,var(--card))}
+.tpmap .dest.hl{fill:color-mix(in srgb,var(--amber) 55%,var(--card))}
+.tpmap .dest.sel{fill:var(--brand);stroke:var(--card)}
+.tpmap .mload{padding:40px 16px}
+.tplist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;max-height:232px;overflow:auto;padding:2px}
+.tplist button{display:flex;align-items:center;gap:8px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:8px 10px;cursor:pointer;font-weight:600;font-size:15px;min-width:0;color:var(--ink)}
+.tplist button .fimg{width:24px;flex:none}
+.tplist button span{min-width:0;overflow-wrap:anywhere;flex:1}
+.tplist button small{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+.tplist button[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+.tplist .empty{grid-column:1/-1}
+.tnote{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);font-weight:600}
+.tnote .ico{width:15px;height:15px}
 .trip .rows{display:grid;gap:12px}
 .trip .tr2{display:grid;gap:5px}
 .trip .tr2 .t{display:flex;justify-content:space-between;gap:10px;font-size:15px;flex-wrap:wrap}
@@ -940,14 +959,58 @@ function tripCard(){
   const done = c ? (store.get('steps-' + c.id) || []).length : 0, n = (D.STEPS || []).length;
   const capPct = k.cap ? Math.min(100, k.total / k.cap * 100) : 0;
   return `<section class="trip" aria-label="${T('আমার যাত্রা','My trip')}">
-    <div class="th">${c ? flagImg(c) : ic('wallet')}<h2>${T('আমার যাত্রা','My trip')}${c ? ': ' + esc(c.name) : ''}</h2><small>${T('শুধু এই ফোনে','This phone only')}</small></div>
+    <div class="th">${c ? flagImg(c) : ic('wallet')}<h2>${T('আমার যাত্রা','My trip')}${c ? ': ' + esc(c.name) : ''}</h2><button class="tchg" type="button" id="tpOpen" aria-expanded="false">${ic('globe')}${c ? T('দেশ বদলান','Change country') : T('দেশ বাছুন','Choose country')}</button></div>
+    <div class="tpick" id="tpick" hidden></div>
     <div class="rows">
       <div class="tr2"><div class="t"><span>${T('এ পর্যন্ত দিয়েছেন','Paid so far')}</span><b>${taka(k.total)}${k.cap ? ` <span style="color:var(--muted);font-weight:600">/ ${taka(k.cap)}</span>` : ''}</b></div>
         ${k.cap ? `<div class="bar8"><i class="${k.over > 0 ? 'over' : ''}" style="width:${capPct}%"></i></div>${k.over > 0 ? `<div class="gapnote">${T(`সরকারি সীমার চেয়ে <b>${taka(k.over)}</b> বেশি দিয়েছেন`, `<b>${taka(k.over)}</b> over the official limit`)}</div>` : ''}` : ''}</div>
       ${c && n ? `<div class="tr2"><div class="t"><span>${T('বৈধভাবে যাওয়ার ধাপ','Steps to go legally')}</span><b>${T(`${bnNum(n)}টির মধ্যে ${bnNum(done)}টি`, `${done} of ${n}`)}</b></div><div class="bar8"><i style="width:${done / n * 100}%;background:var(--ok)"></i></div></div>` : ''}
     </div>
     <div class="acts"><a class="btn" href="#ledger">${ic('wallet')}${T('টাকার হিসাব','Payments')}</a>${c ? `<a class="btn ghost" href="#c-${esc(c.id)}-steps">${ic('list')}${T('ধাপগুলো দেখুন','See the steps')}</a>` : ''}</div>
+    <div class="tnote">${ic('shield')}${T('সব তথ্য শুধু আপনার এই ফোনে থাকে','Everything stays on this phone only')}</div>
   </section>`;
+}
+/* country picker for the trip card: tap a country on the map, or search by name */
+const tp = { zoom: 'near', q: '' };
+function tpDraw(){
+  const box = document.getElementById('tpick'); if(!box) return;
+  const G = window.MAP_GEO, cur = lgLoad().country || store.get('lastSteps') || '';
+  const q = tp.q.trim().toLowerCase();
+  const list = D.COUNTRIES.filter(c => !q || c.name.toLowerCase().includes(q) || c.id.includes(q))
+    .sort((a,b) => (b.id === cur) - (a.id === cur) || a.name.localeCompare(b.name, EN ? 'en' : 'bn'));
+  const hits = new Set(list.map(c => c.id));
+  let map = `<div class="mload">${T('মানচিত্র লোড হচ্ছে…','Loading the map…')}</div>`;
+  if(G){
+    const vb = zoomBox(tp.zoom);
+    const zw = tp.zoom === 'world' ? 1 : .45;
+    const shapes = Object.entries(G.countries).filter(([id]) => cById(id)).map(([id, d]) => `<path class="dest${id === cur ? ' sel' : ''}${q && hits.has(id) ? ' hl' : ''}" data-pick="${id}" d="${d}"><title>${esc(cById(id).name)}</title></path>`).join('');
+    const dots = Object.entries(G.pts).filter(([id]) => cById(id)).map(([id, [x, y]]) => `<circle class="dot${id === cur ? ' sel' : ''}" cx="${x}" cy="${y}" r="${(id === cur ? 5 : 2.6) * zw}"/><circle class="hit" data-pick="${id}" cx="${x}" cy="${y}" r="${9 * zw}"><title>${esc(cById(id).name)}</title></circle>`).join('');
+    const arc = cur && G.pts[cur] ? (a => `<path class="arc sel" d="${a.d}" style="--len:${a.len};stroke-width:${2.4 * zw}"/>`)(arcPath(G.origin, G.pts[cur])) : '';
+    map = `<svg viewBox="${vb}" role="img" aria-label="${T('দেশ বাছার মানচিত্র','Map for choosing a country')}"><path class="land" d="${G.base}"/>${shapes}<path class="bdshape" d="${G.bd}"/>${arc}${dots}<circle class="origin" cx="${G.origin[0]}" cy="${G.origin[1]}" r="${3 * zw}"/></svg>
+      <div class="mzoom">${[['near',T('মধ্যপ্রাচ্য ও এশিয়া','Middle East and Asia')],['world',T('পুরো পৃথিবী','Whole world')]].map(([k, v]) => `<button type="button" data-tz="${k}" aria-pressed="${tp.zoom === k}">${v}</button>`).join('')}</div>`;
+  }
+  box.innerHTML = `<div class="tphint">${T('মানচিত্রে দেশটিতে চাপ দিন, অথবা নাম লিখে খুঁজুন','Tap the country on the map, or search by name')}</div>
+    <div class="mapbox tpmap">${map}</div>
+    <input class="search" id="tpq" type="search" value="${esc(tp.q)}" placeholder="${T('দেশের নাম লিখুন…','Type a country name…')}" aria-label="${T('দেশ খুঁজুন','Search countries')}" autocomplete="off">
+    <div class="tplist">${list.length ? list.map(c => `<button type="button" data-pick="${c.id}" aria-pressed="${c.id === cur}">${flagImg(c)}<span>${esc(c.name)}</span>${c.cap && c.cap.amount ? `<small>${taka(c.cap.amount)}</small>` : ''}</button>`).join('') : `<p class="empty">${T('এই নামে কোনো দেশ পাওয়া যায়নি।','No country found with that name.')}</p>`}</div>`;
+  fixDigits(box);
+}
+function tpRun(){
+  const open = document.getElementById('tpOpen'), box = document.getElementById('tpick');
+  if(!open || !box) return;
+  open.addEventListener('click', () => {
+    const show = box.hidden; box.hidden = !show; open.setAttribute('aria-expanded', show);
+    const fit = () => { const G = window.MAP_GEO, cur = lgLoad().country || store.get('lastSteps'); if(!G || !cur || !G.pts[cur]) return; const [x0, y0, w, h] = zoomBox('near').split(' ').map(Number), [x, y] = G.pts[cur]; tp.zoom = x >= x0 && x <= x0 + w && y >= y0 && y <= y0 + h ? 'near' : 'world'; };
+    if(show){ fit(); tpDraw(); ensureGeo().then(() => { fit(); if(!box.hidden) tpDraw(); }).catch(() => {}); }
+  });
+  box.addEventListener('click', e => {
+    const z = e.target.closest('[data-tz]'); if(z){ tp.zoom = z.dataset.tz; tpDraw(); return; }
+    const pk = e.target.closest('[data-pick]'); if(!pk) return;
+    const id = pk.dataset.pick, c = cById(id); if(!c) return;
+    const L = lgLoad(); L.country = id; store.set('ledger', L); store.set('lastSteps', id);
+    tp.q = ''; toast(T(`${c.name} বেছে নেওয়া হলো`, `${c.name} chosen`)); route();
+  });
+  box.addEventListener('input', e => { if(e.target.id !== 'tpq') return; tp.q = e.target.value; const pos = e.target.selectionStart; tpDraw(); const i = document.getElementById('tpq'); i.focus(); try{ i.setSelectionRange(pos, pos); }catch(_){} });
 }
 function home(){
   return `<div class="split"><div class="col-main">
@@ -1876,9 +1939,9 @@ function arcPath(o, p){
   const k = len * .22, cx = (o[0]+p[0])/2 + nx*k, cy = (o[1]+p[1])/2 + ny*k;
   return { d: `M${o[0]},${o[1]}Q${cx.toFixed(1)},${cy.toFixed(1)} ${p[0]},${p[1]}`, len: Math.ceil(len * 1.15) };
 }
-function zoomBox(){
+function zoomBox(z = mState.zoom){
   const G = window.MAP_GEO;
-  if(mState.zoom === 'world') return G.viewBox;
+  if(z === 'world') return G.viewBox;
   const ids = ['saudi','qatar','uae','oman','kuwait','bahrain','jordan','lebanon','iraq','maldives','malaysia','singapore','brunei','thailand','vietnam','hongkong'];
   const xs = ids.map(i => G.pts[i][0]).concat(G.origin[0]), ys = ids.map(i => G.pts[i][1]).concat(G.origin[1]);
   const x0 = Math.min(...xs) - 18, x1 = Math.max(...xs) + 18, y0 = Math.min(...ys) - 18, y1 = Math.max(...ys) + 18;
@@ -2159,7 +2222,7 @@ function wire(h){
   if(h === 'ledger') lgRun();
   if(h === 'map' || h.startsWith('map-')) mapRun(h.slice(4));
   if(h.startsWith('c-')) crowdCost(h.slice(2));
-  if(!h || h === 'home') mapCtaCount();
+  if(!h || h === 'home'){ mapCtaCount(); tpRun(); }
   wireShare();
 }
 function wireShare(){
