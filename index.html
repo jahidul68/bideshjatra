@@ -596,6 +596,169 @@ body::before{background:var(--card)}
 /* risk: one solid red block is enough */
 .riskhero{border-radius:var(--r)}
 .route li::before{border-radius:4px}
+
+/* ===== v2 polish: same paper-and-stamp identity, more depth, clearer hierarchy, one icon set ===== */
+:root{--r:10px;--sh:0 1px 2px rgba(16,40,30,.05),0 3px 12px rgba(16,40,30,.06);--sh2:0 2px 4px rgba(16,40,30,.06),0 10px 28px rgba(16,40,30,.10)}
+:root[data-theme="dark"]{--sh:0 1px 2px rgba(0,0,0,.3);--sh2:0 4px 18px rgba(0,0,0,.35)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sh:0 1px 2px rgba(0,0,0,.3);--sh2:0 4px 18px rgba(0,0,0,.35)}}
+.ico{width:22px;height:22px;display:block;flex:none}
+.sec,.big,.flag,.upd,.ocfact,.ocq,.tile2,.updmini,.cbtn,.pace,.mapcta,.riskbanner,.accbox,.callstrip{box-shadow:var(--sh)}
+.sec,.big,.callstrip,.flag,.upd,.ocfact,.ocq,.result,.accbox,.warn,.news,.riskbanner,.mapcta,.tile2,.updmini,.cbtn,.mapbox,.pcbox,.pace{border-radius:var(--r)}
+.big:hover,.tile2:hover,.cbtn:hover,.updmini:hover,.mapcta:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+.big,.tile2,.cbtn,.updmini,.mapcta{transition:box-shadow .15s,transform .15s,border-color .15s}
+.btn{border-radius:8px}
+.search,.rlwrap,.lgf input,.lgf select,.lgf textarea,.mdist{border-radius:8px}
+.sec h2{display:flex;align-items:center;gap:8px}
+.sec h2 .ico{color:var(--brand)}
+
+/* hero: headline + passport-and-stamp drawing */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:6px 12px;align-items:start}
+.hero h1{font-size:clamp(27px,7.2vw,40px)}
+.hero p{grid-column:1/-1;font-size:17px}
+.hero .art{width:92px;height:auto;margin-top:4px}
+@media (min-width:520px){.hero{grid-template-columns:minmax(0,1fr) 130px}.hero .art{width:130px}}
+
+/* home: the three checks read as one numbered path */
+.steps3{gap:10px;position:relative}
+.big{padding:18px 16px 18px 14px}
+.big .num{font-size:46px}
+.big.main{box-shadow:0 6px 20px color-mix(in srgb,var(--brand) 30%,transparent)}
+.tile2{grid-template-columns:40px 1fr;align-items:center;gap:10px;padding:12px}
+.tile2 .ic{width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.tile2.red .ic{background:color-mix(in srgb,var(--stamp) 16%,transparent);color:var(--stamp)}
+.mapcta .ic,.riskbanner .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
+.riskbanner .ic{background:color-mix(in srgb,var(--stamp) 16%,transparent);color:var(--stamp)}
+.mapcta .ic .ico,.riskbanner .ic .ico{width:26px;height:26px}
+
+/* "my trip" tracker card on the home page */
+.trip{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);box-shadow:var(--sh);padding:16px;display:grid;gap:12px}
+.trip .th{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.trip .th .fimg{width:30px}
+.trip .th h2{font-size:19px;font-weight:800;flex:1;min-width:0}
+.trip .th small{font-size:13px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:2px 8px;border-radius:4px}
+.trip .rows{display:grid;gap:12px}
+.trip .tr2{display:grid;gap:5px}
+.trip .tr2 .t{display:flex;justify-content:space-between;gap:10px;font-size:15px;flex-wrap:wrap}
+.trip .tr2 .t b{font-variant-numeric:tabular-nums}
+.bar8{height:10px;border-radius:5px;background:var(--paper);overflow:hidden;position:relative}
+.bar8 i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--brand)}
+.bar8 i.over{background:var(--stamp)}
+.trip .acts{display:flex;gap:8px;flex-wrap:wrap}
+.trip .acts .btn{flex:1 1 140px;min-height:46px;font-size:16px}
+.trip.invite{border-top-color:var(--amber);grid-template-columns:48px 1fr 22px;align-items:center;text-decoration:none;color:var(--ink);gap:14px}
+.trip.invite .ic{width:48px;height:48px;border-radius:12px;background:var(--amber-soft);color:var(--amber);display:grid;place-items:center}
+.trip.invite b{display:block;font-size:18px;font-weight:800;line-height:1.3}
+.trip.invite span span{display:block;font-size:15px;color:var(--muted)}
+.trip.invite .arr{color:var(--muted)}
+
+/* news: tidy list, share tucked beside the date, the rest behind "more" */
+.news{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--stamp);box-shadow:var(--sh);padding:16px}
+.news h2{display:flex;align-items:center;gap:8px}
+.news ul{gap:0}
+.news li{padding:12px 0;border-bottom:1px dashed var(--line)}
+.news li:last-child{border-bottom:0}
+.news .nh{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.news .shr{margin:0}
+.news .shr summary{min-height:30px;padding:3px 10px;font-size:13px}
+.news .shr[open]{flex-basis:100%}
+.news a{color:var(--ink);text-decoration:none;font-size:16.5px;line-height:1.4}
+.news a:hover{color:var(--pen);text-decoration:underline}
+.news .more{color:var(--pen);font-size:15px}
+.news details.nmore>summary{list-style:none;cursor:pointer;color:var(--pen);font-weight:700;font-size:15px;padding:10px 0 0}
+.news details.nmore>summary::-webkit-details-marker{display:none}
+.news details.nmore[open]>summary{display:none}
+.updstrip h2{display:flex;align-items:center;gap:8px}
+.updstrip h2 .ico{color:var(--amber)}
+
+/* bottom tabs: line icons, filled pill for the current page */
+.tabs{box-shadow:0 -2px 12px rgba(16,40,30,.06)}
+.tabs a{padding:7px 2px 8px;gap:3px}
+.tabs a .ic{width:46px;height:28px;border-radius:14px;display:grid;place-items:center;font-size:0}
+.tabs a .ic .ico{width:22px;height:22px}
+.tabs a[aria-current="page"]{box-shadow:none}
+.tabs a[aria-current="page"] .ic{background:var(--brand-soft)}
+
+/* country page: key facts first, jump links, real progress bar */
+.ckey{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:16px;display:grid;gap:10px}
+.ckey .k{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ckey .k .money{font-size:clamp(32px,9vw,42px)}
+.ckey .jump{display:flex;gap:6px;flex-wrap:wrap}
+.ckey .jump button{font:inherit;cursor:pointer;font-size:14.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--paper)}
+.ckey .jump button:hover{border-color:var(--brand);color:var(--brand)}
+.sec[id]{scroll-margin-top:84px}
+.ckey.jumpbar{background:none;border:0;box-shadow:none;padding:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ckey.jumpbar .jump button{background:var(--card)}
+.progress{display:grid;gap:6px}
+.progress .t{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--ink)}
+.progress .t span{color:var(--muted);font-weight:600}
+.progress .bar8 i{background:var(--ok);transition:width .25s}
+.check li{transition:background .15s}
+.check li.done{background:var(--ok-soft)}
+.mytrip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--brand-soft);border-radius:8px;padding:10px 12px;font-size:15px}
+.mytrip .btn{min-height:40px;font-size:15px;padding:0 14px}
+details.more-upd>summary{list-style:none;cursor:pointer;color:var(--pen);font-weight:700;font-size:15px}
+details.more-upd>summary::-webkit-details-marker{display:none}
+details.more-upd[open]>summary{display:none}
+details.more-upd{display:grid;gap:10px}
+
+/* payment record (#ledger), rebuilt: summary first, list of payments, details and letter folded away */
+.lgtop{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);box-shadow:var(--sh2);padding:18px;display:grid;gap:12px}
+.lgtop .csel{display:grid;gap:4px;font-size:14px;font-weight:700;color:var(--muted)}
+.lgtop select{font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+.lgtop .money{font-size:clamp(38px,11vw,52px)}
+.lgtop .meter .track{height:18px;border-radius:9px;background:var(--paper)}
+.lgtop .meter .fill{border-radius:9px}
+.lgmini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.lgmini div{background:var(--paper);border-radius:8px;padding:8px 10px;display:grid;gap:1px;min-width:0}
+.lgmini b{font-family:var(--display);font-size:18px;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
+.lgmini span{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.3}
+.lgmini .bad b{color:var(--stamp)}
+.lgflags li .go{display:inline-block;margin-top:4px;font-weight:700;color:var(--pen);background:none;border:0;padding:0;cursor:pointer;font-size:15px}
+.lghead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lghead h2{font-size:21px;font-weight:800;display:flex;align-items:center;gap:8px}
+.lghead h2 .ico{color:var(--brand)}
+.lgaddbtn{min-height:48px;font-size:17px}
+.lgform{border:1.5px solid var(--brand);background:color-mix(in srgb,var(--brand-soft) 40%,var(--card));border-radius:var(--r);padding:14px;display:grid;gap:12px}
+.lgform[hidden]{display:none}
+.lgform .amt{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--card);padding-left:14px}
+.lgform .amt span{font-size:26px;font-weight:800;color:var(--muted)}
+.lgform .amt input{border:0!important;font-size:26px!important;font-weight:800;background:transparent!important;padding:10px!important}
+.lgform .amt:focus-within{border-color:var(--brand)}
+.lgform .fbtns{display:flex;gap:8px}
+.lgform .fbtns .btn{flex:1}
+.seg button{border-radius:8px;min-height:44px}
+.pays{gap:0}
+.pays li{grid-template-columns:auto 1fr auto;gap:2px 12px;padding:12px 4px;background:none;border-radius:0;border-bottom:1px dashed var(--line);align-items:start}
+.pays li:last-child{border-bottom:0}
+.pays .dt{grid-row:1/3;width:52px;text-align:center;background:var(--paper);border-radius:8px;padding:4px 0;line-height:1.15}
+.pays .dt b{display:block;font-size:20px;font-weight:800}
+.pays .dt span{font-size:12px;color:var(--muted);font-weight:600}
+.pays .a{font-size:21px}
+.pays .m{grid-column:2;display:flex;gap:6px;flex-wrap:wrap;font-size:13.5px}
+.pays .m .pc{background:var(--paper);border-radius:4px;padding:1px 7px;color:var(--muted);font-weight:600}
+.pays .m .pc.nr{background:var(--stamp-soft);color:var(--stamp)}
+.pays .m .pc.ok{background:var(--ok-soft);color:var(--ok)}
+.pays .m .pc.dl{background:var(--amber-soft);color:var(--amber)}
+.pays .acts{grid-row:1/3;grid-column:3;display:flex;gap:2px}
+.pays .acts button{border:0;background:none;color:var(--muted);cursor:pointer;width:40px;height:40px;border-radius:8px;display:grid;place-items:center}
+.pays .acts button:hover{background:var(--paper);color:var(--ink)}
+.pays .acts .del:hover{background:var(--stamp-soft);color:var(--stamp)}
+.pays .acts .ico{width:19px;height:19px}
+.lgempty{text-align:center;color:var(--muted);padding:18px 8px;display:grid;justify-items:center;gap:6px;border:1.5px dashed var(--line);border-radius:var(--r)}
+.lgempty .ico{width:40px;height:40px;color:var(--line)}
+.lgempty b{color:var(--ink);font-size:17px}
+.fold{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+.fold>summary{list-style:none;cursor:pointer;padding:16px 18px;display:grid;grid-template-columns:40px 1fr 22px;gap:12px;align-items:center}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary .ic{width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.fold>summary b{display:block;font-size:18px;font-weight:800;line-height:1.3}
+.fold>summary span span{display:block;font-size:14px;color:var(--muted)}
+.fold>summary>svg{width:22px;height:22px;color:var(--muted);transition:transform .2s}
+.fold[open]>summary>svg{transform:rotate(180deg)}
+.fold .body{padding:0 18px 18px;display:grid;gap:12px}
+.fold.hot{border-color:var(--stamp)}
+.fold.hot>summary .ic{background:var(--stamp-soft);color:var(--stamp)}
+@media print{.fold,.fold .body{display:block!important;border:0;box-shadow:none}}
 </style>
 
 </head>
@@ -622,11 +785,11 @@ body::before{background:var(--card)}
   <footer id="foot"></footer>
 </main>
 <nav class="tabs" aria-label="প্রধান মেনু"><div class="tabs-in">
-  <a href="/" data-tab="home"><span class="ic" aria-hidden="true">🏠</span>হোম</a>
-  <a href="#countries" data-tab="countries"><span class="ic" aria-hidden="true">🌍</span>দেশ</a>
-  <a href="#agency" data-tab="agency"><span class="ic" aria-hidden="true">✅</span>এজেন্সি</a>
-  <a href="#updates" data-tab="updates"><span class="ic" aria-hidden="true">🔔</span>আপডেট</a>
-  <a href="#flags" data-tab="flags"><span class="ic" aria-hidden="true">⚠️</span>সতর্কতা</a>
+  <a href="/" data-tab="home"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>হোম</a>
+  <a href="#countries" data-tab="countries"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span>দেশ</a>
+  <a href="#agency" data-tab="agency"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>এজেন্সি</a>
+  <a href="#updates" data-tab="updates"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg></span>আপডেট</a>
+  <a href="#flags" data-tab="flags"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg></span>সতর্কতা</a>
 </div></nav>
 <div class="visitors" id="visitors" hidden>আজ <b id="vcount">০</b> জন ভিজিট করেছেন</div>
 <div class="toast" id="toast" hidden></div>
@@ -687,6 +850,45 @@ const store = {
 let toastT;
 function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2200); }
 const chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+/* one line-icon set (24px grid, 2px stroke) instead of mixed emoji */
+const ICONS = {
+  home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+  shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  bell:'<path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/>',
+  alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/>',
+  book:'<path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/><path d="M9 8h6"/>',
+  chat:'<path d="M4 5h16v11H9l-5 4z"/><path d="M12 8v3M12 13.5v.01"/>',
+  boat:'<path d="M3 15h18l-2.5 5h-13z"/><path d="M12 3v12M12 4l6 8h-6"/>',
+  bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.5.4.5 1 .5 1.6V16h6v-.5c0-.6 0-1.2.5-1.6A6 6 0 0012 3z"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/>',
+  map:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+  wallet:'<path d="M4 7h15a1 1 0 011 1v11a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M4 7l11-3v3"/><path d="M16 13.5h.01"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
+  trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+  letter:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>',
+  coins:'<ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v4c0 1.7 2.7 3 6 3s6-1.3 6-3V7"/><path d="M9 14v3c0 1.7 2.7 3 6 3s6-1.3 6-3v-4c0-1.7-2.7-3-6-3"/>',
+  route:'<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 000-6H9a3 3 0 010-6h6.5"/>'
+};
+const ic = n => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]||''}</svg>`;
+/* hero drawing: a green passport with a red "checked" stamp */
+const heroArt = () => `<svg class="art" viewBox="0 0 130 150" aria-hidden="true">
+  <rect x="14" y="10" width="86" height="118" rx="8" fill="var(--brand)"/>
+  <rect x="20" y="16" width="74" height="106" rx="5" fill="none" stroke="var(--brand-ink)" stroke-opacity=".35" stroke-width="1.5"/>
+  <circle cx="57" cy="58" r="20" fill="none" stroke="var(--brand-ink)" stroke-opacity=".8" stroke-width="2.5"/>
+  <path d="M37 58h40M57 38c8 7 8 33 0 40M57 38c-8 7-8 33 0 40" fill="none" stroke="var(--brand-ink)" stroke-opacity=".8" stroke-width="2"/>
+  <rect x="35" y="92" width="44" height="5" rx="2.5" fill="var(--brand-ink)" fill-opacity=".55"/>
+  <rect x="42" y="102" width="30" height="4" rx="2" fill="var(--brand-ink)" fill-opacity=".35"/>
+  <g transform="rotate(-14 92 112)">
+    <circle cx="92" cy="112" r="30" fill="var(--card)" fill-opacity=".9" stroke="var(--stamp)" stroke-width="3.5"/>
+    <circle cx="92" cy="112" r="24" fill="none" stroke="var(--stamp)" stroke-width="1.5"/>
+    <path d="M80 112l8 8 15-16" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>`;
 const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
 const proto = `<div class="proto"><span>⚠</span><span>${T('পরীক্ষামূলক সংস্করণ। কিছু তথ্য এখনো যাচাই করা হচ্ছে, প্রতিটি সংখ্যার পাশে কোথা থেকে নেওয়া, তার লিংক দেওয়া আছে। এটি সরকারি অ্যাপ নয়।','Test version. Some information is still being checked; every number links to where it came from. This is not a government app.')}</span></div>`;
 
@@ -728,32 +930,54 @@ function startPace(){
     if(n !== last){ last = n; el.textContent = bnNum(n); el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
   }, 1000);
 }
+/* "my trip": one card that picks up where the visitor left off (payments + legal steps), all from this phone's storage */
+const tripActive = () => { const L = lgLoad(); return !!(L.country || L.payments.length || store.get('lastSteps')); };
+function tripCard(){
+  const L = lgLoad(), id = L.country || store.get('lastSteps');
+  const c = id && D.COUNTRIES.find(x => x.id === id);
+  if(!c && !L.payments.length) return `<a class="trip invite" href="#ledger"><span class="ic">${ic('wallet')}</span><span><b>${T('কাউকে টাকা দিচ্ছেন? হিসাব রাখুন','Paying someone? Keep a record')}</b><span>${T('প্রতিটি টাকা লিখে রাখুন, সরকারি সীমা পার হলে সঙ্গে সঙ্গে দেখাবে।','Note every payment. It warns you the moment you go over the official limit.')}</span></span><span class="arr">${chev}</span></a>`;
+  const k = lgCalc(L);
+  const done = c ? (store.get('steps-' + c.id) || []).length : 0, n = (D.STEPS || []).length;
+  const capPct = k.cap ? Math.min(100, k.total / k.cap * 100) : 0;
+  return `<section class="trip" aria-label="${T('আমার যাত্রা','My trip')}">
+    <div class="th">${c ? flagImg(c) : ic('wallet')}<h2>${T('আমার যাত্রা','My trip')}${c ? ': ' + esc(c.name) : ''}</h2><small>${T('শুধু এই ফোনে','This phone only')}</small></div>
+    <div class="rows">
+      <div class="tr2"><div class="t"><span>${T('এ পর্যন্ত দিয়েছেন','Paid so far')}</span><b>${taka(k.total)}${k.cap ? ` <span style="color:var(--muted);font-weight:600">/ ${taka(k.cap)}</span>` : ''}</b></div>
+        ${k.cap ? `<div class="bar8"><i class="${k.over > 0 ? 'over' : ''}" style="width:${capPct}%"></i></div>${k.over > 0 ? `<div class="gapnote">${T(`সরকারি সীমার চেয়ে <b>${taka(k.over)}</b> বেশি দিয়েছেন`, `<b>${taka(k.over)}</b> over the official limit`)}</div>` : ''}` : ''}</div>
+      ${c && n ? `<div class="tr2"><div class="t"><span>${T('বৈধভাবে যাওয়ার ধাপ','Steps to go legally')}</span><b>${T(`${bnNum(n)}টির মধ্যে ${bnNum(done)}টি`, `${done} of ${n}`)}</b></div><div class="bar8"><i style="width:${done / n * 100}%;background:var(--ok)"></i></div></div>` : ''}
+    </div>
+    <div class="acts"><a class="btn" href="#ledger">${ic('wallet')}${T('টাকার হিসাব','Payments')}</a>${c ? `<a class="btn ghost" href="#c-${esc(c.id)}-steps">${ic('list')}${T('ধাপগুলো দেখুন','See the steps')}</a>` : ''}</div>
+  </section>`;
+}
 function home(){
   return `<div class="split"><div class="col-main">
   <section class="hero">
     <h1>${T('বিদেশে কাজে যাচ্ছেন? টাকা দেওয়ার আগে এই ৩টি জিনিস যাচাই করুন।','Going abroad for work? Check these 3 things before you pay anyone.')}</h1>
+    ${heroArt()}
     <p>${T('ধার করে লাখ লাখ টাকা দেওয়ার আগে ৫ মিনিট সময় নিন।','Before you borrow lakhs of taka and hand it over, take 5 minutes.')}</p>
   </section>
+  ${tripActive() ? tripCard() : ''}
   ${paceStrip()}
   <div class="steps3">
     <a class="big main" href="#check"><span class="num">${bnNum(1)}</span><span><b>${T('দালাল নাকি? লক্ষণগুলো মিলিয়ে নিন','Is it a broker scam? Check the signs')}</b><span>${T('দালাল চেনার ৬টি লক্ষণ এক পাতায়। যেটি মেলে, টিক দিন।','6 warning signs on one page. Tick the ones that match your offer.')}</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#agency"><span class="num">${bnNum(2)}</span><span><b>${T('এজেন্সির লাইসেন্স যাচাই','Check the agency licence')}</b><span>${T('লাইসেন্স আছে, নাকি বাতিল?','Is it licensed, or cancelled?')}</span></span><span class="arr">${chev}</span></a>
     <a class="big" href="#countries"><span class="num">${bnNum(3)}</span><span><b>${T('সরকারি খরচ ও নিয়ম','Official costs and rules')}</b><span>${T('কোন দেশে যেতে সরকার কত টাকা ঠিক করেছে','The maximum the government has set for each country')}</span></span><span class="arr">${chev}</span></a>
   </div>
+  ${tripActive() ? '' : tripCard()}
   <div class="callstrip">
     <span class="n">${bnDigits('16768')}</span>
     <p>${T('ভিসা আসল কিনা যাচাই করুন: আমি প্রবাসী হেল্পলাইন (সৌদি আরব, কাতার, ওমান)','Check whether a visa is real: Ami Probashi helpline (Saudi Arabia, Qatar, Oman)')}</p>
   </div>
-  <a class="mapcta" href="#map"><span class="ic" aria-hidden="true">🗺️</span><span><b>${T('কোথা থেকে, কোথায়?','From where, to where?')}</b><span>${T('কোন জেলা থেকে মানুষ কোন দেশে যাচ্ছেন, দালাল কত টাকা চাইছে: মানচিত্রে দেখুন, আপনার কথাও জানান।','Which districts people leave from, where they go, and what brokers ask for: see it on the map and add your own answer.')}<span id="mapctaN"></span></span></span><span class="arr">${chev}</span></a>
+  <a class="mapcta" href="#map"><span class="ic">${ic('map')}</span><span><b>${T('কোথা থেকে, কোথায়?','From where, to where?')}</b><span>${T('কোন জেলা থেকে মানুষ কোন দেশে যাচ্ছেন, দালাল কত টাকা চাইছে: মানচিত্রে দেখুন, আপনার কথাও জানান।','Which districts people leave from, where they go, and what brokers ask for: see it on the map and add your own answer.')}<span id="mapctaN"></span></span></span><span class="arr">${chev}</span></a>
   <section class="more-sec" aria-label="${T('আরও যা আছে','More on this site')}">
     <h2>${T('আরও যা আছে','More on this site')}</h2>
     <div class="tiles">
-      <a class="tile2" href="#ledger"><span class="ic" aria-hidden="true">📒</span><b>${T('টাকার হিসাব ও অভিযোগপত্র', "Payment record and complaint letter")}</b></a>
-      <a class="tile2" href="#flags"><span class="ic" aria-hidden="true">⚠️</span><b>${T('দালালের কথা চিনুন', "Know the broker's lines")}</b></a>
-      <a class="tile2 red" href="#risk"><span class="ic" aria-hidden="true">🚤</span><b>${T('লিবিয়া হয়ে নৌকায় ইতালি?', "By boat to Italy via Libya?")}</b></a>
-      <a class="tile2" href="#myths"><span class="ic" aria-hidden="true">💡</span><b>${T('ভুল ধারণা ও সত্য', "Myths and facts")}</b></a>
-      <a class="tile2" href="#help"><span class="ic" aria-hidden="true">📞</span><b>${T('সাহায্য ও অভিযোগ', "Help and complaints")}</b></a>
-      <a class="tile2" href="#stats"><span class="ic" aria-hidden="true">📊</span><b>${T('প্রবাসে বাংলাদেশি: সংখ্যায়', "Bangladeshis abroad: the numbers")}</b></a>
+      <a class="tile2" href="#ledger"><span class="ic">${ic('book')}</span><b>${T('টাকার হিসাব ও অভিযোগপত্র', "Payment record and complaint letter")}</b></a>
+      <a class="tile2" href="#flags"><span class="ic">${ic('chat')}</span><b>${T('দালালের কথা চিনুন', "Know the broker's lines")}</b></a>
+      <a class="tile2 red" href="#risk"><span class="ic">${ic('boat')}</span><b>${T('লিবিয়া হয়ে নৌকায় ইতালি?', "By boat to Italy via Libya?")}</b></a>
+      <a class="tile2" href="#myths"><span class="ic">${ic('bulb')}</span><b>${T('ভুল ধারণা ও সত্য', "Myths and facts")}</b></a>
+      <a class="tile2" href="#help"><span class="ic">${ic('phone')}</span><b>${T('সাহায্য ও অভিযোগ', "Help and complaints")}</b></a>
+      <a class="tile2" href="#stats"><span class="ic">${ic('chart')}</span><b>${T('প্রবাসে বাংলাদেশি: সংখ্যায়', "Bangladeshis abroad: the numbers")}</b></a>
     </div>
   </section>
   ${proto}
@@ -905,16 +1129,18 @@ function updStrip(){
   const list = (D.UPDATES||[]).slice().sort((a,b) => b.date.localeCompare(a.date)).slice(0,2);
   if(!list.length) return '';
   const lv = (EN ? {urgent:'Urgent', change:'Change', info:'Good to know'} : {urgent:'জরুরি', change:'পরিবর্তন', info:'জেনে রাখুন'});
-  return `<section class="updstrip"><h2>🔔 ${T('সর্বশেষ গুরুত্বপূর্ণ আপডেট','Latest important updates')}</h2>${list.map(u => `<a class="updmini ${esc(u.level)}" href="#${updKey(u)}"><span class="meta"><span class="chip ${esc(u.level)}">${lv[u.level]||lv.info}</span><span>${esc(bnDigits(u.date))}</span></span><b>${esc(u.title)}</b><span class="more">${T('বিস্তারিত দেখুন ›','See details ›')}</span></a>`).join('')}<a class="btn ghost wide" href="#updates">${T('সব আপডেট দেখুন','See all updates')}</a></section>`;
+  return `<section class="updstrip"><h2>${ic('bell')}${T('সর্বশেষ গুরুত্বপূর্ণ আপডেট','Latest important updates')}</h2>${list.map(u => `<a class="updmini ${esc(u.level)}" href="#${updKey(u)}"><span class="meta"><span class="chip ${esc(u.level)}">${lv[u.level]||lv.info}</span><span>${esc(bnDigits(u.date))}</span></span><b>${esc(u.title)}</b><span class="more">${T('বিস্তারিত দেখুন ›','See details ›')}</span></a>`).join('')}<a class="btn ghost wide" href="#updates">${T('সব আপডেট দেখুন','See all updates')}</a></section>`;
 }
 
 function newsBlock(){
   const day = 86400000, now = Date.now();
   const items = (D.NEWS || []).filter(n => { const t = Date.parse(n.date); return t && now - t <= 30*day && t - now < day; })
     .sort((a,b) => b.date.localeCompare(a.date));
-  return `<section class="news"><h2>${T('গত ৩০ দিনের প্রতারণা ও দালালের খবর','Fraud and broker news, last 30 days')}</h2>` +
+  const li = n => `<li><div class="nh"><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span>${shareRow('news', newsKey(n))}</div><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span></li>`;
+  const SHOW = 4;
+  return `<section class="news"><h2>${ic('alert')}${T('গত ৩০ দিনের প্রতারণা ও দালালের খবর','Fraud and broker news, last 30 days')}</h2>` +
     (items.length
-      ? `<ul>${items.map(n => `<li><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span>${shareRow('news', newsKey(n))}</li>`).join('')}</ul>`
+      ? `<ul>${items.slice(0, SHOW).map(li).join('')}</ul>` + (items.length > SHOW ? `<details class="nmore"><summary>${T(`আরও ${bnNum(items.length - SHOW)}টি খবর দেখুন ▾`, `Show ${items.length - SHOW} more ▾`)}</summary><ul>${items.slice(SHOW).map(li).join('')}</ul></details>` : '')
       : `<p class="src">${T('এই মাসের খবর এখনো যোগ করা হয়নি।','No news added for this month yet.')}</p>`) +
     `<a class="more" href="${esc(D.NEWS_SEARCH_URL)}" target="_blank" rel="noopener">${T('আরও খবর খুঁজুন (গত ৩০ দিন)','Search for more news (last 30 days)')}</a></section>`;
 }
@@ -967,16 +1193,20 @@ function country(id){
     h += `<div class="warn"><b>${T('সতর্কতা','Warning')}</b><div>${esc(c.warning.text)}</div>${srcLine(c.warning.source)}</div>`;
   }
   if(c.irregular){
-    h += `<a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>${T('এই দেশ অবৈধ ও বিপজ্জনক পথের অংশ','This country is on an illegal, dangerous route')}</b><span>${T("দালালের 'গেম', মুক্তিপণ ও সাগরে মৃত্যুর তথ্য দেখুন","See the facts on brokers' 'game', ransom and deaths at sea")}</span></span><span class="arr">${chev}</span></a>`;
+    h += `<a class="riskbanner" href="#risk"><span class="ic">${ic('boat')}</span><span><b>${T('এই দেশ অবৈধ ও বিপজ্জনক পথের অংশ','This country is on an illegal, dangerous route')}</b><span>${T("দালালের 'গেম', মুক্তিপণ ও সাগরে মৃত্যুর তথ্য দেখুন","See the facts on brokers' 'game', ransom and deaths at sea")}</span></span><span class="arr">${chev}</span></a>`;
   }
-  if(c.stats && c.stats.length){
-    h += `<section class="sec"><h2>${T(esc(c.name) + '-এ বাংলাদেশি: সংখ্যায়', 'Bangladeshis in ' + esc(c.name) + ': the numbers')}</h2>${statTiles(c.stats)}</section>`;
-  }
+  // key facts + jump links come first; numbers and news go to the end
   const ups = (D.UPDATES||[]).filter(u => u.country === c.id || (u.countries||[]).includes(c.id)).sort((x,y) => y.date.localeCompare(x.date));
-  if(ups.length) h += `<section class="sec"><h2>${T('এই দেশ নিয়ে গুরুত্বপূর্ণ আপডেট','Important updates about this country')}</h2>${ups.map(updCard).join('')}</section>`;
+  const jumps = [['cost', T('খরচ','Cost')], ['fees', T('সরকারি ফি','Fees')], ['steps', T('যাওয়ার ধাপ','Steps')], ups.length ? ['cupd', T('আপডেট','Updates')] : null, c.stats && c.stats.length ? ['cstats', T('সংখ্যায়','Numbers')] : null].filter(Boolean);
+  h += `<div class="ckey jumpbar" role="navigation" aria-label="${T('এই পাতায় যান','Jump to')}"><span class="label">${T('এই পাতায়:','On this page:')}</span><div class="jump">${jumps.map(([k,t]) => `<button type="button" data-jump="${k}">${t}</button>`).join('')}</div></div>`;
+  let tail = '';
+  if(c.stats && c.stats.length){
+    tail += `<section class="sec" id="cstats"><h2>${T(esc(c.name) + '-এ বাংলাদেশি: সংখ্যায়', 'Bangladeshis in ' + esc(c.name) + ': the numbers')}</h2>${statTiles(c.stats)}</section>`;
+  }
+  if(ups.length) tail = `<section class="sec" id="cupd"><h2>${ic('bell')}${T('এই দেশ নিয়ে গুরুত্বপূর্ণ আপডেট','Important updates about this country')}</h2>${updCard(ups[0])}${ups.length > 1 ? `<details class="more-upd"><summary>${T(`আরও ${bnNum(ups.length - 1)}টি আপডেট দেখুন ▾`, `Show ${ups.length - 1} more ▾`)}</summary>${ups.slice(1).map(updCard).join('')}</details>` : ''}</section>` + tail;
 
   // cost
-  h += `<section class="sec"><h2>${T('সরকার নির্ধারিত সর্বোচ্চ খরচ','Maximum cost set by the government')}</h2>`;
+  h += `<section class="sec" id="cost"><h2>${ic('coins')}${T('সরকার নির্ধারিত সর্বোচ্চ খরচ','Maximum cost set by the government')}</h2>`;
   if(c.cap){
     h += `<div class="money">${taka(c.cap.amount)} <small>${T('টাকা','taka')}</small></div>
       <div class="label">${T(esc(bnDigits(c.cap.year)) + ' সালের হার অনুযায়ী', 'Rate set in ' + esc(bnDigits(c.cap.year)))}</div>
@@ -1003,7 +1233,7 @@ function country(id){
   h += `</section>`;
 
   // detailed breakdown + recommended routes
-  h += `<section class="sec"><h2>${T('খরচের বিস্তারিত ও যাওয়ার সরকারি পথ','Cost details and official ways to go')}</h2>`;
+  h += `<section class="sec"><h2>${ic('route')}${T('খরচের বিস্তারিত ও যাওয়ার সরকারি পথ','Cost details and official ways to go')}</h2>`;
   const d = c.detail;
   if(d){
     const ul = a => `<ul class="ol" style="margin:6px 0">${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
@@ -1027,18 +1257,23 @@ function country(id){
 
   // fees
   if(D.FEES.length){
-    h += `<section class="sec"><h2>${T('সবাইকে যে সরকারি ফি দিতে হয়','Government fees everyone pays')}</h2><div class="fees">` +
+    h += `<section class="sec" id="fees"><h2>${ic('letter')}${T('সবাইকে যে সরকারি ফি দিতে হয়','Government fees everyone pays')}</h2><div class="fees">` +
       D.FEES.map(f => `<div class="fee"><span>${esc(f.name)}<br><span class="src">${esc(f.from||'')}</span></span><b>${taka(f.amount)}</b></div>`).join('') +
       `</div>${D.FEES.map(f=>srcLine(f.source)).join('')}</section>`;
   }
 
   // steps
-  h += `<section class="sec"><h2>${T('বৈধভাবে যাওয়ার ধাপ','Steps to go legally')}</h2>
+  const LG = lgLoad(), mine = LG.country === c.id;
+  h += `<section class="sec" id="steps"><h2>${ic('list')}${T('বৈধভাবে যাওয়ার ধাপ','Steps to go legally')}</h2>
     <div class="progress" id="prog"></div>
+    <div class="mytrip" id="mytrip">${mine
+      ? `<span style="flex:1;min-width:160px">${T(`আপনার টাকার হিসাব: এ পর্যন্ত <b>${taka(lgCalc(LG).total)}</b>`, `Your payment record: <b>${taka(lgCalc(LG).total)}</b> paid so far`)}</span><a class="btn ghost" href="#ledger">${T('হিসাব খুলুন','Open record')}</a>`
+      : `<span style="flex:1;min-width:160px">${T(`${esc(c.name)}-এ যাচ্ছেন? টিক দিয়ে ধাপগুলো মনে রাখুন, আর টাকার হিসাবও রাখুন।`, `Going to ${esc(c.name)}? Tick the steps as you go and keep a record of payments.`)}</span><button class="btn ghost" type="button" data-mytrip="${esc(c.id)}">${T('এটি আমার দেশ','This is my country')}</button>`}</div>
     <ul class="check">` +
     D.STEPS.map((s,i) => `<li class="${done.includes(i)?'done':''}"><input type="checkbox" id="st-${c.id}-${i}" data-i="${i}" ${done.includes(i)?'checked':''}><label for="st-${c.id}-${i}"><b>${esc(s.title)}</b><span>${esc(s.detail)}</span></label></li>`).join('') +
     `</ul>${D.STEPS.some(s=>s.status!=='official') ? `<div class="src">${T('কিছু ধাপ এখনো খসড়া, যাচাই চলছে।','Some steps are still drafts, being checked.')}</div>` : ''}</section>`;
 
+  h += tail;
   h += shareBlock(T(`${c.name}-এ যেতে সরকার নির্ধারিত খরচ ও নিয়ম দেখুন`, `See the official cost and rules for going to ${c.name}`));
   return h;
 }
@@ -1075,7 +1310,7 @@ function statsPage(){
     ${live.map(({c, x}) => `<tr><td><a href="#c-${esc(c.id)}">${flagImg(c)} ${esc(c.name)}</a></td><td><b>${statVal(x)}</b></td><td class="src">${esc(x.note || '')}${x.note ? ' · ' : ''}<a href="${esc(src(x.source).url)}" target="_blank" rel="noopener">${esc(src(x.source).title.split(' — ').pop())}</a></td></tr>`).join('')}
     </tbody></table>
     ${srcLine(S.caveat.source)}</section>
-  <a class="riskbanner" href="#risk"><span class="ic" aria-hidden="true">🚤</span><span><b>${T('অবৈধ পথে যাওয়ার পরিসংখ্যান','Numbers on illegal routes')}</b><span>${T('সাগরপথে ইতালি ও গ্রিস, মৃত্যু ও আটক','By sea to Italy and Greece, deaths and detention')}</span></span><span class="arr">${chev}</span></a>
+  <a class="riskbanner" href="#risk"><span class="ic">${ic('boat')}</span><span><b>${T('অবৈধ পথে যাওয়ার পরিসংখ্যান','Numbers on illegal routes')}</b><span>${T('সাগরপথে ইতালি ও গ্রিস, মৃত্যু ও আটক','By sea to Italy and Greece, deaths and detention')}</span></span><span class="arr">${chev}</span></a>
   ${shareBlock(T('কোন দেশে কতজন বাংলাদেশি কাজে যান — পরিসংখ্যান দেখুন','How many Bangladeshis go to work in each country: see the numbers'))}`;
 }
 
@@ -1209,11 +1444,31 @@ function ledger(){
   const v = k => esc(L[k] || '');
   return `<h1 style="font-size:28px">${T('টাকার হিসাব খাতা','Payment record')}</h1>
   <p style="margin:0;color:var(--muted)">${T('বিদেশে যাওয়ার জন্য যাকে যত টাকা দিচ্ছেন, প্রতিবার এখানে লিখে রাখুন। সরকারি সীমার বেশি নিলে সঙ্গে সঙ্গে দেখাবে। দরকার হলে এক চাপে <b>অভিযোগপত্র</b> তৈরি হবে।','Every time you pay anyone for going abroad, write it down here. It shows at once if you have paid more than the official limit, and can write a <b>complaint letter</b> for you in one tap.')}</p>
-  <div class="proto"><span>🔒</span><span>${T('সব তথ্য শুধু আপনার এই ফোনে থাকে। আমরা কিছুই দেখি না বা সংরক্ষণ করি না।',"Everything stays on this phone only. We can't see it and don't store it.")}</span></div>
 
-  <section class="sec"><h2>${T('১. কোথায়, কার মাধ্যমে','1. Where, and through whom')}</h2>
-    <div class="lgf">
-      <label>${T('কোন দেশে যাচ্ছেন','Country you are going to')}<select data-k="country"><option value="">${T('দেশ বাছুন','Choose a country')}</option>${opts}</select></label>
+  <section class="lgtop" aria-live="polite">
+    <label class="csel">${T('কোন দেশে যাচ্ছেন','Country you are going to')}<select data-k="country"><option value="">${T('দেশ বাছুন','Choose a country')}</option>${opts}</select></label>
+    <div id="lgSum"></div>
+  </section>
+
+  <section class="sec">
+    <div class="lghead"><h2>${ic('list')}${T('টাকা দেওয়ার হিসাব','Payments')}</h2><button class="btn lgaddbtn" type="button" id="lgOpen">${ic('plus')}${T('টাকা দিলাম','Add a payment')}</button></div>
+    <div class="lgform lgf" id="lgAdd" hidden>
+      <label>${T('কত টাকা দিলেন','How much did you pay')}<div class="amt"><span>৳</span><input id="lgAmt" inputmode="numeric" placeholder="${T('৫০০০০','50000')}" autocomplete="off"></div></label>
+      <div class="lg2">
+        <label>${T('তারিখ','Date')}<input id="lgDate" type="date" value="${bdToday()}"></label>
+        <label>${T('কী বাবদ (ঐচ্ছিক)','What for (optional)')}<input id="lgFor" placeholder="${T('ভিসা, মেডিকেল…','visa, medical…')}" autocomplete="off"></label>
+      </div>
+      <div><div class="label">${T('কাকে দিলেন','Paid to')}</div><div class="seg" data-seg="to">${Object.entries(LG_TO).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
+      <div><div class="label">${T('কীভাবে দিলেন','Paid by')}</div><div class="seg" data-seg="how">${Object.entries(LG_HOW).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
+      <div><div class="label">${T('লিখিত রসিদ পেয়েছেন?','Did you get a written receipt?')}</div><div class="seg" data-seg="rcpt"><button type="button" data-v="1" aria-pressed="false">${T('হ্যাঁ, রসিদ আছে','Yes, I have a receipt')}</button><button type="button" data-v="0" aria-pressed="true">${T('না','No')}</button></div></div>
+      <div class="fbtns"><button class="btn ghost" type="button" id="lgCancel">${T('বাতিল','Cancel')}</button><button class="btn" type="button" id="lgAddBtn">${T('হিসাবে যোগ করুন','Add to record')}</button></div>
+    </div>
+    <ul class="pays" id="lgList"></ul>
+  </section>
+
+  <details class="fold" id="lgWho">
+    <summary><span class="ic">${ic('user')}</span><span><b>${T('এজেন্সি ও দালালের তথ্য','Agency and broker details')}</b><span id="lgWhoSum">${T('কার মাধ্যমে যাচ্ছেন, লিখে রাখুন','Note who is sending you')}</span></span>${down}</summary>
+    <div class="body lgf">
       <label>${T('এজেন্সির RL নম্বর (জানা থাকলে)',"Agency's RL number (if you know it)")}<input data-k="rl" inputmode="numeric" maxlength="6" placeholder="${T('যেমন 1428','e.g. 1428')}" value="${v('rl')}" autocomplete="off"></label>
       <div class="lghint" id="lgAg"></div>
       <div class="lg2">
@@ -1221,26 +1476,11 @@ function ledger(){
         <label>${T('দালালের ফোন',"Broker's phone")}<input data-k="brokerPhone" inputmode="tel" value="${v('brokerPhone')}" autocomplete="off"></label>
       </div>
     </div>
-  </section>
+  </details>
 
-  <section class="sec"><h2>${T('২. টাকা দেওয়ার হিসাব','2. Payments')}</h2>
-    <div class="lgf" id="lgAdd">
-      <div class="lg2">
-        <label>${T('কত টাকা','Amount (taka)')}<input id="lgAmt" inputmode="numeric" placeholder="${T('৫০০০০','50000')}" autocomplete="off"></label>
-        <label>${T('তারিখ','Date')}<input id="lgDate" type="date" value="${bdToday()}"></label>
-      </div>
-      <div><div class="label">${T('কাকে দিলেন','Paid to')}</div><div class="seg" data-seg="to">${Object.entries(LG_TO).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
-      <div><div class="label">${T('কীভাবে দিলেন','Paid by')}</div><div class="seg" data-seg="how">${Object.entries(LG_HOW).map(([k,t],i)=>`<button type="button" data-v="${k}" aria-pressed="${i===0}">${t}</button>`).join('')}</div></div>
-      <div><div class="label">${T('লিখিত রসিদ পেয়েছেন?','Did you get a written receipt?')}</div><div class="seg" data-seg="rcpt"><button type="button" data-v="1" aria-pressed="false">${T('হ্যাঁ, রসিদ আছে','Yes, I have a receipt')}</button><button type="button" data-v="0" aria-pressed="true">${T('না','No')}</button></div></div>
-      <label>${T('কী বাবদ (ঐচ্ছিক)','What it was for (optional)')}<input id="lgFor" placeholder="${T('যেমন: ভিসা, মেডিকেল, টিকিট','e.g. visa, medical, ticket')}" autocomplete="off"></label>
-      <button class="btn wide" type="button" id="lgAddBtn">${T('+ হিসাবে যোগ করুন','+ Add payment')}</button>
-    </div>
-    <ul class="pays" id="lgList"></ul>
-  </section>
-
-  <section class="sec" id="lgSum"></section>
-
-  <section class="sec"><h2>${T('৩. অভিযোগপত্র তৈরি করুন','3. Make a complaint letter')}</h2>
+  <details class="fold" id="lgLetterBox">
+    <summary><span class="ic">${ic('letter')}</span><span><b>${T('অভিযোগপত্র তৈরি করুন','Make a complaint letter')}</b><span>${T('বেশি টাকা নিলে বা চাকরি না দিলে BMET-এ জমা দিন','If they overcharged or gave no job, file it with BMET')}</span></span>${down}</summary>
+    <div class="body">
     <p style="margin:0;color:var(--muted)">${T('বেশি টাকা নিলে, চাকরি না দিলে বা টাকা ফেরত না দিলে BMET-এ লিখিত অভিযোগ করতে পারেন। নিচের তথ্য দিলে চিঠি নিজে থেকেই লেখা হয়ে যাবে।',"If they took too much, gave no job, or won't return your money, you can file a written complaint with BMET. Fill in the details below and the letter writes itself.")}</p>
     ${EN ? '<div class="note">The letter itself is written in Bangla, because complaints to BMET are made in Bangla. You can type your details in English or Bangla.</div>' : ''}
     <div class="lgf">
@@ -1261,7 +1501,9 @@ function ledger(){
       <button class="btn ghost" type="button" id="lgCopy">${T('লেখা কপি করুন','Copy the text')}</button>
     </div>
     <div class="note">${T('প্রিন্ট করে সই করুন। সঙ্গে রসিদ, বিকাশের স্ক্রিনশট ও পাসপোর্টের ফটোকপি দিন। BMET প্রধান কার্যালয়ে বা নিজের জেলার জনশক্তি অফিসে (DEMO) জমা দিন, আর জমার রিসিভ কপি রেখে দিন।',"Print it and sign it. Attach receipts, bKash screenshots and a photocopy of your passport. Hand it in at BMET's head office or your district manpower office (DEMO), and keep the stamped receipt copy.")}</div>
-  </section>
+    </div>
+  </details>
+  <div class="proto"><span>🔒</span><span>${T('সব তথ্য শুধু আপনার এই ফোনে থাকে। আমরা কিছুই দেখি না বা সংরক্ষণ করি না।',"Everything stays on this phone only. We can't see it and don't store it.")}</span></div>
   <button class="oclink" type="button" id="lgWipe">${T('🗑️ এই ফোন থেকে সব হিসাব মুছে ফেলুন','🗑️ Delete all records from this phone')}</button>
   ${shareBlock(T('বিদেশে যাওয়ার জন্য দালালকে কত টাকা দিলেন? হিসাব রাখুন, বেশি নিলে অভিযোগপত্র বানান','How much did you pay a broker to go abroad? Keep a record, and make a complaint letter if they took too much'))}`;
 }
@@ -1313,10 +1555,18 @@ function lgRender(){
     agBox.className = 'lghint ' + (!ag ? '' : ag.st === 'active' ? 'ok' : 'bad');
     agBox.textContent = !ag ? '' : `${ag.name || 'RL-' + bnDigits(ag.rl)}: ${T('', 'licence ')}${LG_ST[ag.st] || ag.st}`;
   }
-  document.getElementById('lgList').innerHTML = L.payments.map((p,i) => `<li>
+  const who = document.getElementById('lgWhoSum');
+  if(who){ const bits = [ag ? (ag.name || 'RL-' + bnDigits(ag.rl)) : '', L.broker ? T('দালাল: ', 'Broker: ') + L.broker : ''].filter(Boolean);
+    who.textContent = bits.length ? bits.join(' · ') : T('কার মাধ্যমে যাচ্ছেন, লিখে রাখুন','Note who is sending you'); }
+  const MON = EN ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] : ['জানু','ফেব্রু','মার্চ','এপ্রি','মে','জুন','জুলা','আগ','সেপ্টে','অক্টো','নভে','ডিসে'];
+  const order = L.payments.map((p,i) => [p,i]).sort((x,y) => (y[0].d||'').localeCompare(x[0].d||''));
+  document.getElementById('lgList').innerHTML = order.length ? order.map(([p,i]) => { const dd = (p.d||'').split('-');
+    return `<li>
+    <span class="dt">${dd.length === 3 ? `<b>${bnNum(+dd[2])}</b><span>${MON[+dd[1]-1]} ${bnDigits(dd[0].slice(2))}</span>` : '<b>?</b>'}</span>
     <span class="a">${taka(p.amt)}</span>
-    <span class="m">${esc(bnDate(p.d))} · ${esc(LG_TO[p.to])} · ${esc(LG_HOW[p.how])}${p.for ? ' · ' + esc(p.for) : ''} · ${p.rcpt ? T('রসিদ আছে','receipt') : `<span class="nr">${T('রসিদ নেই','no receipt')}</span>`}</span>
-    <button class="x" type="button" data-del="${i}" aria-label="${T('মুছুন','Delete')}">×</button></li>`).join('');
+    <span class="m"><span class="pc${p.to === 'dalal' ? ' dl' : ''}">${esc(LG_TO[p.to])}</span><span class="pc">${esc(LG_HOW[p.how])}</span>${p.for ? `<span class="pc">${esc(p.for)}</span>` : ''}${p.rcpt ? `<span class="pc ok">${T('রসিদ আছে','Receipt')}</span>` : `<span class="pc nr">${T('রসিদ নেই','No receipt')}</span>`}</span>
+    <span class="acts"><button type="button" data-edit="${i}" aria-label="${T('বদলান','Edit')}">${ic('edit')}</button><button class="del" type="button" data-del="${i}" aria-label="${T('মুছুন','Delete')}">${ic('trash')}</button></span></li>`; }).join('')
+    : `<li class="lgempty" style="grid-template-columns:1fr">${ic('wallet')}<b>${T('এখনো কোনো হিসাব নেই','No payments yet')}</b><span>${T('কাউকে টাকা দিলে উপরের "টাকা দিলাম" চেপে লিখে রাখুন।','Whenever you pay someone, tap "Add a payment" above and note it down.')}</span></li>`;
 
   const F = [];
   if(k.c && k.c.access && k.c.access.state === 'closed') F.push(['r', T(`${k.c.name}-এ কর্মী যাওয়া বন্ধ বা স্থগিত থাকার খবর আছে।`, `Reports say hiring of workers for ${k.c.name} is stopped or suspended.`), T('এখন টাকা দিলে বড় ঝুঁকি। আগে BMET-এ নিশ্চিত হোন।','Paying now is a big risk. Confirm with BMET first.')]);
@@ -1329,16 +1579,21 @@ function lgRender(){
 
   const pct = k.cap ? Math.min(100, k.total / Math.max(k.total, k.cap) * 100) : 0;
   const capAt = k.cap ? k.cap / Math.max(k.total, k.cap) * 100 : 0;
-  document.getElementById('lgSum').innerHTML = `<h2>${T('মোট হিসাব','Total')}</h2>
+  const complain = k.over > 0 || (ag && ag.st !== 'active');
+  const lb = document.getElementById('lgLetterBox'); if(lb) lb.classList.toggle('hot', !!complain);
+  document.getElementById('lgSum').innerHTML = `
     <div class="label">${T('এ পর্যন্ত দিয়েছেন','Paid so far')}</div>
     <div class="money">${taka(k.total)}</div>
     ${k.cap ? `<div class="meter">
         <div class="track"><div class="fill ${k.over > 0 ? 'rep' : 'cap'}" style="left:0;width:${pct}%"></div><div class="capmark" style="left:calc(${capAt}% - 2px)"></div></div>
         <div class="row"><div class="t"><span>${T('সরকারি সর্বোচ্চ খরচ','Official maximum cost')} (${esc(k.c.name)})</span><b>${taka(k.cap)}</b></div></div>
-        ${k.over > 0 ? `<div class="gapnote">${T(`সীমার চেয়ে <b>${taka(k.over)}</b> বেশি`, `<b>${taka(k.over)}</b> over the limit`)}</div>` : `<div class="row"><div class="t"><span>${T('সীমা পর্যন্ত বাকি','Left before the limit')}</span><b>${taka(-k.over)}</b></div></div>`}
+        ${k.over > 0 ? '' : `<div class="row"><div class="t"><span>${T('সীমা পর্যন্ত বাকি','Left before the limit')}</span><b>${taka(-k.over)}</b></div></div>`}
       </div>${k.c.cap.source ? srcLine(k.c.cap.source) : ''}`
       : `<div class="note">${k.c ? T(`${esc(k.c.name)}-এর সরকারি সর্বোচ্চ খরচের তথ্য আমাদের কাছে এখনো নেই। BMET বা জেলা জনশক্তি অফিসে জেনে নিন।`, `We don't have the official maximum cost for ${esc(k.c.name)} yet. Ask BMET or your district manpower office.`) : T('উপরে দেশ বাছলে সরকারি সীমার সঙ্গে তুলনা দেখাবে।','Choose a country above to compare with the official limit.')}</div>`}
-    ${F.length ? `<ul class="lgflags">${F.map(f => `<li class="${f[0]}"><b>${f[1]}</b> ${f[2]}</li>`).join('')}</ul>` : ''}`;
+    ${L.payments.length ? `<div class="lgmini"><div><b>${bnNum(L.payments.length)}</b><span>${T('বার টাকা দিয়েছেন','payments')}</span></div><div class="${k.noRcpt ? 'bad' : ''}"><b>${taka(k.noRcpt)}</b><span>${T('রসিদ ছাড়া','without receipt')}</span></div><div class="${k.toDalal ? 'bad' : ''}"><b>${taka(k.toDalal)}</b><span>${T('দালালকে','to a broker')}</span></div></div>` : ''}
+    ${F.length ? (() => { const fl = f => `<li class="${f[0]}"><b>${f[1]}</b> ${f[2]}</li>`;
+      return `<ul class="lgflags">${F.slice(0,2).map(fl).join('')}</ul>${F.length > 2 ? `<details class="more-upd"><summary>${T(`আরও ${bnNum(F.length - 2)}টি সতর্কতা ▾`, `${F.length - 2} more warnings ▾`)}</summary><ul class="lgflags">${F.slice(2).map(fl).join('')}</ul></details>` : ''}`; })() : ''}
+    ${complain ? `<button class="btn wide" type="button" id="lgGoLetter">${ic('letter')}${T('অভিযোগপত্র তৈরি করুন','Make a complaint letter')}</button>` : ''}`;
   document.getElementById('lgLetter').innerHTML = lgLetterHtml(L, k);
 }
 
@@ -1350,22 +1605,43 @@ function lgRun(){
     g.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
   }));
   const seg = n => view.querySelector(`[data-seg="${n}"] [aria-pressed="true"]`).dataset.v;
-  document.getElementById('lgAddBtn').addEventListener('click', () => {
+  const form = document.getElementById('lgAdd'), openB = document.getElementById('lgOpen'), addB = document.getElementById('lgAddBtn');
+  let editing = -1;
+  const setSeg = (n, v) => view.querySelectorAll(`[data-seg="${n}"] button`).forEach(x => x.setAttribute('aria-pressed', x.dataset.v === String(v) ? 'true' : 'false'));
+  const openForm = p => {
+    form.hidden = false; openB.hidden = true;
+    document.getElementById('lgAmt').value = p ? p.amt : '';
+    document.getElementById('lgDate').value = p && p.d || bdToday();
+    document.getElementById('lgFor').value = p && p.for || '';
+    setSeg('to', p ? p.to : 'agency'); setSeg('how', p ? p.how : 'cash'); setSeg('rcpt', p && p.rcpt ? 1 : 0);
+    addB.textContent = p ? T('পরিবর্তন সংরক্ষণ করুন','Save changes') : T('হিসাবে যোগ করুন','Add to record');
+    form.scrollIntoView({behavior:'smooth', block:'center'});
+    setTimeout(() => document.getElementById('lgAmt').focus({preventScroll:true}), 300);
+  };
+  const closeForm = () => { form.hidden = true; openB.hidden = false; editing = -1; };
+  openB.addEventListener('click', () => { editing = -1; openForm(null); });
+  document.getElementById('lgCancel').addEventListener('click', closeForm);
+  addB.addEventListener('click', () => {
     const inp = document.getElementById('lgAmt');
     const amt = +enDigits(inp.value).replace(/[^\d]/g,'');
     if(!amt){ toast(T('টাকার পরিমাণ লিখুন','Enter the amount')); inp.focus(); return; }
     const L = lgLoad();
-    L.payments.push({ amt, d: document.getElementById('lgDate').value, to: seg('to'), how: seg('how'), rcpt: seg('rcpt') === '1', for: document.getElementById('lgFor').value.trim() });
-    save(L);
-    inp.value = ''; document.getElementById('lgFor').value = '';
-    toast(taka(amt) + T(' যোগ হয়েছে', ' added'));
-    document.getElementById('lgSum').scrollIntoView({behavior:'smooth', block:'start'});
+    const p = { amt, d: document.getElementById('lgDate').value, to: seg('to'), how: seg('how'), rcpt: seg('rcpt') === '1', for: document.getElementById('lgFor').value.trim() };
+    if(editing >= 0 && L.payments[editing]) L.payments[editing] = p; else L.payments.push(p);
+    const was = editing; save(L); closeForm();
+    toast(was >= 0 ? T('পরিবর্তন সংরক্ষিত','Saved') : taka(amt) + T(' যোগ হয়েছে', ' added'));
+    document.querySelector('.lgtop').scrollIntoView({behavior:'smooth', block:'start'});
   });
+  document.getElementById('lgSum').addEventListener('click', e => { if(e.target.closest('#lgGoLetter')){ const b = document.getElementById('lgLetterBox'); b.open = true; b.scrollIntoView({behavior:'smooth', block:'start'}); } });
   document.getElementById('lgList').addEventListener('click', e => {
+    const ed = e.target.closest('[data-edit]');
+    if(ed){ editing = +ed.dataset.edit; openForm(lgLoad().payments[editing]); return; }
     const b = e.target.closest('[data-del]'); if(!b) return;
-    const L = lgLoad(); L.payments.splice(+b.dataset.del, 1); save(L);
+    if(b.dataset.armed !== '1'){ b.dataset.armed = '1'; b.style.background = 'var(--stamp-soft)'; b.style.color = 'var(--stamp)'; toast(T('মুছতে আবার চাপুন','Tap again to delete')); setTimeout(() => { b.dataset.armed = ''; b.style.background = ''; b.style.color = ''; }, 3000); return; }
+    const L = lgLoad(); L.payments.splice(+b.dataset.del, 1); save(L); closeForm(); toast(T('মুছে ফেলা হয়েছে','Deleted'));
   });
-  document.getElementById('lgPrint').addEventListener('click', () => window.print());
+  document.getElementById('lgPrint').addEventListener('click', () => { document.getElementById('lgLetterBox').open = true; window.print(); });
+  if(!window._lgPrintHook){ window._lgPrintHook = true; addEventListener('beforeprint', () => { const b = document.getElementById('lgLetterBox'); if(b) b.open = true; }); }
   document.getElementById('lgCopy').addEventListener('click', async () => {
     const t = document.getElementById('lgLetter').innerText;
     try{ await navigator.clipboard.writeText(t); toast(T('চিঠি কপি হয়েছে','Letter copied')); }catch(e){ toast(T('কপি করা যায়নি',"Couldn't copy")); }
@@ -1814,7 +2090,8 @@ if(EN){
 function pageUrl(){ return siteBase() + location.hash; }
 function route(){
   stopSpeak();
-  const h = (location.hash || '#home').slice(1);
+  let h = (location.hash || '#home').slice(1), jumpTo = '';
+  if(h.startsWith('c-') && h.endsWith('-steps')){ h = h.slice(0, -6); jumpTo = 'steps'; }
   let html, isHome = false;
   if(h === 'countries') html = countries();
   else if(h.startsWith('c-')) html = country(h.slice(2));
@@ -1842,6 +2119,7 @@ function route(){
   window.scrollTo(0,0);
   wire(h);
   if(h === 'help'){ const e = document.getElementById('help'); if(e) e.scrollIntoView(); }
+  if(jumpTo){ const e = document.getElementById(jumpTo); if(e) e.scrollIntoView(); }
 }
 function wire(h){
   startPace();
@@ -1864,11 +2142,15 @@ function wire(h){
       const boxes = [...view.querySelectorAll('.check input')];
       const n = boxes.filter(b=>b.checked).length;
       const p = document.getElementById('prog');
-      if(p) p.textContent = T(`${bnNum(boxes.length)}টি ধাপের মধ্যে ${bnNum(n)}টি সম্পন্ন`, `${n} of ${boxes.length} steps done`);
+      if(p) p.innerHTML = `<div class="t"><b>${T(`${bnNum(boxes.length)}টি ধাপের মধ্যে ${bnNum(n)}টি সম্পন্ন`, `${n} of ${boxes.length} steps done`)}</b><span>${bnNum(Math.round(n / (boxes.length || 1) * 100))}%</span></div><div class="bar8"><i style="width:${n / (boxes.length || 1) * 100}%"></i></div>`;
     };
+    view.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { const t = document.getElementById(b.dataset.jump); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); }));
+    const mt = view.querySelector('[data-mytrip]');
+    if(mt) mt.addEventListener('click', () => { const L = lgLoad(); L.country = id; store.set('ledger', L); store.set('lastSteps', id); toast(T(`${D.COUNTRIES.find(x => x.id === id).name} আপনার যাত্রায় যোগ হলো`, `${D.COUNTRIES.find(x => x.id === id).name} saved as your trip`)); route(); setTimeout(() => { const s = document.getElementById('steps'); if(s) s.scrollIntoView(); }, 0); });
     view.querySelectorAll('.check input').forEach(b => b.addEventListener('change', () => {
       b.closest('li').classList.toggle('done', b.checked);
       store.set('steps-'+id, [...view.querySelectorAll('.check input')].filter(x=>x.checked).map(x=>+x.dataset.i));
+      store.set('lastSteps', id);
       update();
     }));
     update();
