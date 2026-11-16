@@ -2,7 +2,7 @@
    Update this file when a rule changes, then change META.checked.
    Each fact row: [label, text, status]; status 'draft' = taken from a news or university site, official page not yet read. */
 window.STUDY_DATA = {
-META: { checked: '১৪ নভেম্বর ২০২৬', version: 'খসড়া ১' },
+META: { checked: '১৬ নভেম্বর ২০২৬', version: 'খসড়া ২' },
 
 COUNTRIES: [
 {
@@ -226,6 +226,179 @@ COUNTRIES: [
   ]
 },
 {
+  id: 'de', short: '€১১,৯০৪ / বছর', flag: '../flags/de.svg', name: 'জার্মানি', en: 'Germany',
+  visa: 'National visa (D) for study', who: 'German Embassy Dhaka',
+  official: 'https://dhaka.diplo.de/bd-en/service/2685884-2685884',
+  money: { big: '€১১,৯০৪', unit: 'এক বছরের থাকা-খাওয়া (মাসে €৯৯২)',
+    note: 'সাধারণত blocked account-এ পুরো টাকা জমা রাখতে হয়; জার্মানিতে পৌঁছে মাসে €৯৯২ করে তোলা যায়। জার্মান সরকার বা EU-র বৃত্তি থাকলে সেটিও প্রমাণ হিসেবে চলে।' },
+  rows: [
+    ['অপেক্ষার সময়', 'ঢাকার দূতাবাস নিজেই জানিয়েছে: জার্মান বা EU বৃত্তি ছাড়া ব্যাচেলর ও মাস্টার্সের ভিসায় অপেক্ষা ২৭ মাসেরও বেশি। ভর্তি নেওয়ার আগে এটা হিসাবে রাখুন।'],
+    ['কীভাবে আবেদন', 'ভর্তির চিঠি পেলে অনলাইন Consular Services Portal-এ নিবন্ধন ও কাগজ আপলোড। মাস্টার্সের কাগজ ও বায়োমেট্রিক নেয় VFS, ব্যাচেলরের নেয় দূতাবাস।'],
+    ['APS', 'বাংলাদেশিদের APS সনদ লাগে না; ঢাকার দূতাবাস APS অফিস ব্যবহার করে না।'],
+    ['ভিসা ফি', '€৭৫।', 'draft'],
+    ['কাজ', 'বছরে ১৪০ পূর্ণ দিন বা ২৮০ অর্ধ দিন।', 'draft'],
+    ['পড়া শেষে', 'চাকরি খোঁজার জন্য ১৮ মাস পর্যন্ত থাকার অনুমতি।', 'draft']
+  ],
+  news: [],
+  docs: [
+    ['ভর্তির চিঠি', 'জার্মান বিশ্ববিদ্যালয় থেকে'],
+    ['Blocked account-এর নিশ্চয়তাপত্র', 'অথবা জার্মান/EU বৃত্তির চিঠি'],
+    ['পাসপোর্ট', ''],
+    ['HSC সনদ ও মার্কশিট', 'মাস্টার্সে ব্যাচেলরের ট্রান্সক্রিপ্টও'],
+    ['মোটিভেশন লেটার', 'দূতাবাসের চেকলিস্টে দেওয়া প্রশ্নগুলোর উত্তর দিয়ে'],
+    ['ভাষার প্রমাণ', 'কোর্স যে ভাষায়, সেই ভাষার'],
+    ['স্বাস্থ্য বীমা', ''],
+    ['অনুবাদ', 'বাংলা কাগজের ইংরেজি বা জার্মান অনুবাদ']
+  ],
+  src: [
+    ['German Embassy Dhaka: Student visa', 'https://dhaka.diplo.de/bd-en/service/2685884-2685884', 'official'],
+    ['German Embassy Dhaka: FAQ Student Visa', 'https://dhaka.diplo.de/bd-en/service/2689586-2689586', 'official'],
+    ['Blocked account amount 2026 (study.eu)', 'https://www.study.eu/article/germany-blocked-bank-accounts-for-students-guide', 'news']
+  ]
+},
+{
+  id: 'ie', short: '€১০,০০০ / বছর', flag: '../flags/ie.svg', name: 'আয়ারল্যান্ড', en: 'Ireland',
+  visa: 'Long stay (D) study visa, Stamp 2', who: 'Embassy of Ireland, New Delhi Visa Office',
+  official: 'https://assets.ireland.ie/documents/20250425_Study_visa_information_leaflet.pdf',
+  money: { big: '€১০,০০০', unit: 'প্রথম বছরের থাকা-খাওয়া',
+    note: 'টাকা এমন অ্যাকাউন্টে থাকতে হবে যেখান থেকে সাথে সাথে তোলা যায়। এর সাথে টিউশন দেওয়ার প্রমাণ। ৮ মাস বা কম কোর্সে মাসে €৮৩৩।' },
+  rows: [
+    ['কোথায় আবেদন', 'অনলাইনে AVATS-এ ফর্ম পূরণ। বাংলাদেশে থাকা ছাত্রছাত্রীদের আবেদন দেখে নয়াদিল্লির আইরিশ দূতাবাসের ভিসা অফিস। কাগজ কোথায় পাঠাবেন তা ফর্ম প্রিন্ট করলে লেখা থাকে।'],
+    ['ভিসা ফি', 'একবার প্রবেশ €৬০, একাধিক €১০০। আয়ারল্যান্ডে পৌঁছে IRP নিবন্ধনে আরও €৩০০।', 'draft'],
+    ['কাজ', 'Stamp 2-তে ক্লাস চলাকালে সপ্তাহে ২০ ঘণ্টা, নির্ধারিত ছুটিতে ৪০ ঘণ্টা।'],
+    ['পরিবার', 'পড়ার ভিসায় স্বামী/স্ত্রী বা সন্তান সাথে আনা যায় না।', 'draft'],
+    ['পড়া শেষে', 'Stamp 1G: ব্যাচেলর (Level 8) শেষে ১২ মাস, মাস্টার্স (Level 9) বা বেশিতে ২৪ মাস পর্যন্ত।', 'draft']
+  ],
+  news: [],
+  docs: [
+    ['Unconditional offer letter', 'ILEP তালিকাভুক্ত কোর্সে'],
+    ['টিউশন দেওয়ার রসিদ', 'সরাসরি কলেজ বা বিশ্ববিদ্যালয়ে দেওয়া'],
+    ['ব্যাংক স্টেটমেন্ট', 'টাকা কোথা থেকে এলো তার ব্যাখ্যাসহ'],
+    ['ইংরেজির প্রমাণ', 'IELTS, PTE বা কলেজ যা মানে'],
+    ['স্বাস্থ্য বীমা', 'বেসরকারি, পুরো সময়ের জন্য'],
+    ['AVATS ফর্মের সারাংশ পাতা', 'সই করা'],
+    ['পড়াশোনায় বিরতি থাকলে ব্যাখ্যা', '']
+  ],
+  src: [
+    ['Embassy of Ireland: Applying for a visa to study (India, Nepal, Bangladesh…)', 'https://assets.ireland.ie/documents/20250425_Study_visa_information_leaflet.pdf', 'official'],
+    ['Ireland student visa: fees, €10,000, Stamp 2 (AECC)', 'https://www.aeccglobal.com/study-in-ireland/visas/student', 'news'],
+    ['New visa rules 2026: Ireland (IDP)', 'https://www.idp.com/thailand/blog/visa-rules-for-international-students-ireland/?lang=en', 'news']
+  ]
+},
+{
+  id: 'nl', short: '€১,১৩১ / মাস', flag: '../flags/nl.svg', name: 'নেদারল্যান্ডস', en: 'Netherlands',
+  visa: 'MVV + residence permit (study)', who: 'IND (Immigration and Naturalisation Service)',
+  official: 'https://ind.nl/en/required-amounts-income-requirements',
+  money: { big: '€১,১৩০.৭৭', unit: 'প্রতি মাস, বিশ্ববিদ্যালয় বা HBO-তে (২০২৬)',
+    note: 'সাধারণত ১২ মাসের জন্য, মোট প্রায় €১৩,৫৬৯। টিউশন এর বাইরে। অনেক বিশ্ববিদ্যালয় এই টাকা নিজেদের অ্যাকাউন্টে জমা নেয়।' },
+  rows: [
+    ['কে আবেদন করে', 'আপনি নিজে নন। IND-স্বীকৃত বিশ্ববিদ্যালয় আপনার হয়ে আবেদন করে; ফিও দেন বিশ্ববিদ্যালয়ের মাধ্যমে।'],
+    ['ফি', '২০২৬-এ €২৫৪।', 'draft'],
+    ['MVV', 'বাংলাদেশিদের প্রবেশ ভিসা (MVV) লাগে। অনুমোদনের পর ঢাকার নেদারল্যান্ডস দূতাবাসে বায়োমেট্রিক দিয়ে সংগ্রহ করতে হয়।', 'draft'],
+    ['যক্ষ্মা (TB)', 'পৌঁছানোর পর TB পরীক্ষা করাতে হয়।', 'draft'],
+    ['কাজ', 'নিয়োগকর্তাকে কাজের অনুমতি (TWV) নিতে হয়; সপ্তাহে সর্বোচ্চ ১৬ ঘণ্টা, অথবা জুন থেকে আগস্ট পুরো সময়।', 'draft'],
+    ['পড়া শেষে', 'চাকরি খোঁজার জন্য ১ বছরের "orientation year" (zoekjaar)।', 'draft']
+  ],
+  news: [],
+  docs: [
+    ['ভর্তির চিঠি', 'IND-স্বীকৃত প্রতিষ্ঠান থেকে'],
+    ['পাসপোর্ট', ''],
+    ['টাকার প্রমাণ', 'অথবা বিশ্ববিদ্যালয়ে জমার রসিদ'],
+    ['ইংরেজির প্রমাণ', 'বিশ্ববিদ্যালয় যা চায়'],
+    ['TB পরীক্ষার ঘোষণা', 'বিশ্ববিদ্যালয় ফর্ম পাঠায়']
+  ],
+  src: [
+    ['IND: Required amounts income requirements', 'https://ind.nl/en/required-amounts-income-requirements', 'official'],
+    ['IND: Fees and required amounts for 2026 known', 'https://ind.nl/en/news/fees-and-required-amounts-for-2026-known', 'official'],
+    ['Netherlands student residence permit 2026 (FindLawyer.nl)', 'https://findlawyer.nl/netherlands-student-visa/', 'news']
+  ]
+},
+{
+  id: 'fr', short: '€৬১৫ / মাস', flag: '../flags/fr.svg', name: 'ফ্রান্স', en: 'France',
+  visa: 'VLS-TS étudiant (long-stay student visa)', who: 'Campus France Bangladesh ও ঢাকার ফরাসি দূতাবাস',
+  official: 'https://france-visas.gouv.fr/en/bangladesh',
+  money: { big: '€৬১৫', unit: 'প্রতি মাস, যতদিনের ভিসা',
+    note: 'টিউশন আলাদা। বৃত্তি থাকলে বা কেউ থাকার খরচ দিলে তার কাগজ দিয়েও দেখানো যায়।' },
+  rows: [
+    ['প্রথম ধাপ', 'ভিসার আবেদনের আগে Campus France Bangladesh-এর সাথে যোগাযোগ করতে হয় (bangladesh@campusfrance.org)। ফ্রান্সের ভিসা সাইট এই কথাই বলে।'],
+    ['দুটি সাক্ষাৎকার', 'প্রথমে দূতাবাসের সাংস্কৃতিক বিভাগ আপনার পড়াশোনা যাচাই করে, তারপর ভিসা বিভাগে সাক্ষাৎকার।'],
+    ['ভিসা ফি', '€৫০। পৌঁছে OFII-তে ভিসা চালু করতে আলাদা ফি।', 'draft'],
+    ['কাজ', 'বছরে সর্বোচ্চ ৯৬৪ ঘণ্টা।', 'draft'],
+    ['পড়া শেষে', 'মাস্টার্স শেষে চাকরি খোঁজার জন্য ১ বছরের অনুমতি (APS) নেওয়া যায়।', 'draft']
+  ],
+  news: [],
+  docs: [
+    ['ভর্তির চিঠি', 'ফরাসি প্রতিষ্ঠান থেকে'],
+    ['Campus France-এর ধাপ শেষ হওয়ার প্রমাণ', ''],
+    ['টাকার প্রমাণ', 'মাসে €৬১৫ হিসাবে, বা বৃত্তির চিঠি'],
+    ['থাকার জায়গার প্রমাণ', 'অন্তত শুরুর কয়েক মাসের'],
+    ['পাসপোর্ট', ''],
+    ['ভাষার প্রমাণ', 'কোর্স অনুযায়ী ফরাসি বা ইংরেজি'],
+    ['স্বাস্থ্য বীমা', 'ভিসার সময় পর্যন্ত']
+  ],
+  src: [
+    ['France-Visas: Bangladesh', 'https://france-visas.gouv.fr/en/bangladesh', 'official'],
+    ['Campus France Bangladesh', 'https://www.bangladesh.campusfrance.org/en/faq', 'official'],
+    ['France student visa 2026: €615/month, 964 hours (Study Abroad)', 'https://www.study-abroad.org/blog/fr-student-visa-guide', 'news']
+  ]
+},
+{
+  id: 'it', short: '€১০,১৮০ / বছর', flag: '../flags/it.svg', name: 'ইতালি', en: 'Italy',
+  visa: 'National visa (D) – university enrolment', who: 'Embassy of Italy in Dhaka (VFS-এর মাধ্যমে)',
+  official: 'https://ambdhaka.esteri.it/wp-content/uploads/2026/07/Study-University-pre-enrolment.pdf',
+  money: { big: '€১০,১৭৯.৮৫', unit: 'প্রতি বছরের থাকা-খাওয়া (২০২৬-২৭ ও ২০২৭-২৮)',
+    note: 'এর সাথে দেশে ফেরার খরচের টাকাও দেখাতে হয়। ঢাকার দূতাবাস চায় গত ১২ মাসের নিজের ব্যাংক স্টেটমেন্ট; স্পনসর হলে শুধু নিকট পরিবারের সদস্য।' },
+  rows: [
+    ['Universitaly', 'ভিসার আগে universitaly.it-এ pre-enrolment করতে হয়। বিশ্ববিদ্যালয় শর্ত ছাড়া অনুমোদন দিলে তবেই ভিসার আবেদন।'],
+    ['ভর্তি মানেই ভিসা নয়', 'Universitaly-তে অনুমোদন থাকলেও দূতাবাস আপনার টাকা ও পড়াশোনার পটভূমি দেখে আলাদা সিদ্ধান্ত নেয়।'],
+    ['শেষ তারিখ', '২০২৬-২৭ শিক্ষাবর্ষের ভিসা আবেদন সাধারণত ৩০ নভেম্বর ২০২৬-এর পরে নেওয়া হয় না।', 'draft'],
+    ['কাজ', 'সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা (বছরে ১,০৪০)।', 'draft'],
+    ['পড়া শেষে', 'চাকরি খোঁজার জন্য ১২ মাস পর্যন্ত থাকার অনুমতি।', 'draft']
+  ],
+  news: ['২০২৬-২৭ থেকে দেখানোর টাকা বছরে €১০,১৭৯.৮৫।'],
+  docs: [
+    ['D ভিসার আবেদন ফর্ম', ''],
+    ['পাসপোর্ট', 'ভিসা শেষের পরও অন্তত ৩ মাস মেয়াদ, ২টি খালি পাতা'],
+    ['Universitaly pre-enrolment রসিদ', 'টিউশন ফির অঙ্ক লেখা থাকতে হবে'],
+    ['গত ১২ মাসের ব্যাংক স্টেটমেন্ট', 'বাংলাদেশের ব্যাংক থেকে'],
+    ['স্পনসরের ব্যাংক স্টেটমেন্ট', 'শুধু নিকট পরিবার'],
+    ['থাকার জায়গার প্রমাণ', ''],
+    ['স্বাস্থ্য বীমা', '']
+  ],
+  src: [
+    ['Embassy of Italy Dhaka: Study visa checklist (Bangla + English)', 'https://ambdhaka.esteri.it/wp-content/uploads/2026/07/Study-University-pre-enrolment.pdf', 'official'],
+    ['Embassy of Italy Abu Dhabi: €10,179.85 per year (2026-27)', 'https://ambabudhabi.esteri.it/wp-content/uploads/2026/07/GUIDELINES-and-UNIVERSITY-ENROLMENT-CHECKLIST-2026-27_rev2.pdf', 'official'],
+    ['Italy raises financial proof for student visas (ProPakistani)', 'https://propakistani.pk/2026/05/01/italy-massively-increases-bank-statement-requirement-for-student-visas/', 'news']
+  ]
+},
+{
+  id: 'hu', short: 'Stipendium বৃত্তি', flag: '../flags/hu.svg', name: 'হাঙ্গেরি', en: 'Hungary',
+  visa: 'Residence permit for study', who: 'Embassy of Hungary, New Delhi (ঢাকায় BLS আবেদনকেন্দ্র)',
+  official: 'https://hungary.blsinternational.com/bangladesh/assets/pdf/Cheklist-Residence-permit-for-STUDY-purpose.pdf',
+  money: { big: 'নির্দিষ্ট অঙ্ক নেই', unit: 'থাকা-খাওয়া ও চিকিৎসার খরচ মেটানোর প্রমাণ',
+    note: 'Stipendium Hungaricum বৃত্তি পেলে টিউশন মওকুফ, সাথে মাসিক ভাতা ও থাকার সাহায্য। নিজে খরচ দিলে ব্যাংক স্টেটমেন্ট বা পরিবারের সহায়তার কাগজ লাগে।' },
+  rows: [
+    ['বৃত্তি', 'Stipendium Hungaricum সাধারণত নভেম্বরে খোলে, শেষ ১৫ জানুয়ারি। হাঙ্গেরির পোর্টালে আবেদনের পাশাপাশি বাংলাদেশের শিক্ষা মন্ত্রণালয়েও (Sending Partner) আলাদা আবেদন করতে হয়; একটি বাদ পড়লে আবেদন বাতিল।'],
+    ['কোথায় আবেদন', '৯০ দিনের বেশি থাকতে residence permit লাগে। কাগজ জমা ঢাকার বনানীতে BLS-এর হাঙ্গেরি আবেদনকেন্দ্রে; সিদ্ধান্ত নয়াদিল্লির দূতাবাসের।'],
+    ['কাজ', 'ক্লাস চলাকালে সপ্তাহে ৩০ ঘণ্টা পর্যন্ত।', 'draft'],
+    ['মনে রাখুন', 'হাঙ্গেরির ছাত্র পারমিট দিয়ে অন্য শেনজেন দেশে থেকে কাজ বা পড়া যায় না।']
+  ],
+  news: [],
+  docs: [
+    ['Residence permit আবেদন ফর্ম', 'হাঙ্গেরির ইমিগ্রেশন সাইট থেকে'],
+    ['ভর্তির চিঠি', ''],
+    ['বৃত্তির চিঠি বা টাকার প্রমাণ', ''],
+    ['থাকার জায়গার প্রমাণ', ''],
+    ['স্বাস্থ্য বীমা বা চিকিৎসার খরচের প্রমাণ', ''],
+    ['পাসপোর্ট ও সব কাগজের এক সেট কপি', 'শুধু মূল কাগজ গ্রহণ করা হয়']
+  ],
+  src: [
+    ['BLS Dhaka: Checklist, residence permit for study', 'https://hungary.blsinternational.com/bangladesh/assets/pdf/Cheklist-Residence-permit-for-STUDY-purpose.pdf', 'official'],
+    ['Embassy of Hungary New Delhi: Consular information', 'https://delhi.mfa.gov.hu/hun/page/consular-information', 'official'],
+    ['Stipendium Hungaricum: Sending Partners', 'https://stipendiumhungaricum.hu/partners/', 'official']
+  ]
+},
+{
   id: 'us', short: 'I-20 অনুযায়ী', flag: '../flags/us.png', name: 'যুক্তরাষ্ট্র', en: 'United States', light: true,
   visa: 'F-1 student visa', who: 'U.S. Embassy Dhaka',
   official: 'https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html',
@@ -251,6 +424,114 @@ COUNTRIES: [
     ['US student visa interview in Bangladesh (uni2study, Oct 2026)', 'https://www.uni2study.com/articles/us-student-visa-interview-in-bangladesh-consulates-wait-times-and-refusal-reasons', 'news'],
     ['Visa Integrity Fee (Boston University ISSO)', 'https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/', 'news']
   ]
+},
+{
+  id: 'jp', short: 'COE-তে যাচাই', flag: '../flags/jp.png', name: 'জাপান', en: 'Japan',
+  visa: 'Student visa (留学 Ryūgaku)', who: 'Embassy of Japan in Bangladesh',
+  official: 'https://www.bd.emb-japan.go.jp/itpr_en/visadocuments.html',
+  money: { big: 'COE-র সময় যাচাই', unit: 'আপনার বা স্পনসরের আয় ও সঞ্চয়',
+    note: 'দেশজুড়ে নির্দিষ্ট অঙ্ক নেই। জাপানের স্কুল বা বিশ্ববিদ্যালয় COE-র আবেদনের সময় আপনার টাকার কাগজ জাপানের ইমিগ্রেশনে জমা দেয়; কত লাগবে তা প্রতিষ্ঠান বলে দেয়।' },
+  rows: [
+    ['COE', 'আগে জাপানের প্রতিষ্ঠান Immigration Services Agency থেকে Certificate of Eligibility (COE) আনে। COE হাতে পেলে তবেই ঢাকায় ভিসার আবেদন।'],
+    ['ভাষা স্কুল', 'জাপানি ভাষা স্কুলে যেতে অন্তত A1 মানের জাপানি লাগে: JLPT N5 বা JFT-Basic A1, অথবা ISA-স্বীকৃত আরও কিছু পরীক্ষা।'],
+    ['কাজ', 'আলাদা অনুমতি নিলে সপ্তাহে ২৮ ঘণ্টা, লম্বা ছুটিতে দিনে ৮ ঘণ্টা।', 'draft'],
+    ['মনে রাখুন', 'ভাষা স্কুলে উপস্থিতি কম হলে বা শুধু কাজের জন্য গেলে ভিসা নবায়ন হয় না।', 'draft']
+  ],
+  news: ['আগস্ট ২০২৬ থেকে ভাষা স্কুলের জন্য JFT-Basic A1 ফল JLPT N5-এর সমান ধরা হয়।'],
+  docs: [
+    ['ভিসা আবেদন ফর্ম', ''],
+    ['পাসপোর্ট ও ছবি', ''],
+    ['COE', 'মূল কপি'],
+    ['ভর্তির চিঠি', 'স্কুল বা বিশ্ববিদ্যালয় থেকে']
+  ],
+  src: [
+    ['Embassy of Japan in Bangladesh: Documents required', 'https://www.bd.emb-japan.go.jp/itpr_en/visadocuments.html', 'official'],
+    ['Embassy of Japan: For Bangladeshis considering Japanese-language schools (Aug 2026)', 'https://www.bd.emb-japan.go.jp/itpr_en/ISA.pdf', 'official']
+  ]
+},
+{
+  id: 'kr', short: '≈ USD ২০,০০০ ব্যালান্স', flag: '../flags/kr.png', name: 'দক্ষিণ কোরিয়া', en: 'South Korea',
+  visa: 'D-2 student visa', who: 'Embassy of the Republic of Korea in Bangladesh',
+  official: 'https://www.mofa.go.kr/bd-en/brd/m_2124/view.do?seq=760105',
+  money: { big: '≈ USD ২০,০০০', unit: 'ব্যাংক ব্যালান্স (প্রচলিত হিসাব)',
+    note: 'দূতাবাসের পাতায় নির্দিষ্ট অঙ্ক এখনো মেলানো হয়নি। বিশ্ববিদ্যালয় ও বিভিন্ন সূত্রে USD ১৬,০০০ থেকে ২০,০০০ বলা হয়; সিউলের বাইরে কম লাগতে পারে। ভর্তি অফিসের কাছে লিখিতভাবে জেনে নিন।' },
+  rows: [
+    ['কোথায় আবেদন', '২ সেপ্টেম্বর ২০২৬ থেকে ঢাকার Korea Visa Application Center-এ (বনানী, B&T Nehaleeya Tower), আগে অনলাইনে অ্যাপয়েন্টমেন্ট নিয়ে। সিদ্ধান্ত দেয় দূতাবাস।'],
+    ['ভিসা ফি', 'ভিসার ধরন ও মেয়াদ অনুযায়ী USD ৪০, ৬০, ৭০ বা ৯০; টাকায় দেওয়া যায়।'],
+    ['যক্ষ্মা (TB)', 'বাংলাদেশিদের D-2 ভিসায় দূতাবাস-নির্ধারিত হাসপাতালের TB সনদ লাগে।', 'draft'],
+    ['কাজ', 'অনুমতি নিলে ব্যাচেলরে সপ্তাহে ২৫ ঘণ্টা পর্যন্ত; কোরিয়ান ভাষার (TOPIK) স্তর অনুযায়ী কম-বেশি।', 'draft'],
+    ['পড়া শেষে', 'চাকরি খোঁজার জন্য D-10 ভিসা।', 'draft']
+  ],
+  news: ['২ সেপ্টেম্বর ২০২৬ থেকে আবেদন জমা নেয় ঢাকার Korea Visa Application Center, দূতাবাস নয়।'],
+  docs: [
+    ['Certificate of Admission', 'কোরিয়ার বিশ্ববিদ্যালয় থেকে'],
+    ['ভিসা ফর্ম, পাসপোর্ট ও ছবি', ''],
+    ['সার্টিফিকেট ও মার্কশিট', 'সত্যায়িত'],
+    ['ব্যাংক স্টেটমেন্ট ও সলভেন্সি সার্টিফিকেট', ''],
+    ['TB পরীক্ষার সনদ', 'নির্ধারিত হাসপাতাল থেকে']
+  ],
+  src: [
+    ['Embassy of Korea in Bangladesh: Visa Application Center notice', 'https://www.mofa.go.kr/bd-en/brd/m_2124/view.do?seq=760105', 'official'],
+    ['VFS Global launches Korea visa services in Bangladesh (Sept 2026)', 'https://www.vfsglobal.com/en/PDF/media-releases/2026/MR_South_Korea_launch_in_Bangladesh_Sept_2026.pdf', 'news'],
+    ['South Korea student visa from Bangladesh (Aspire Global Pathways)', 'https://aspireglobalpathways.com/south-korea-student-visa-process-from-bangladesh/', 'news']
+  ]
+},
+{
+  id: 'my', short: 'EMGS ফি RM ১,৬০০+', flag: '../flags/my.png', name: 'মালয়েশিয়া', en: 'Malaysia',
+  visa: 'Student Pass', who: 'EMGS (Education Malaysia Global Services)',
+  official: 'https://educationmalaysia.gov.my/visa-new-application',
+  money: { big: 'RM ১,৬০০+', unit: 'EMGS প্রসেসিং ফি (নতুন ছাত্র, ৬-১২ মাস)',
+    note: 'এর সাথে eVAL RM ১৫০, i-Kad RM ৫০, স্বাস্থ্য পরীক্ষা RM ২৫০ ও বাধ্যতামূলক বীমা। থাকা-খাওয়ার জন্য দেশজুড়ে নির্দিষ্ট অঙ্ক নেই; বিশ্ববিদ্যালয় যা চায় তা দেখাতে হয়।' },
+  rows: [
+    ['কে আবেদন করে', 'আপনি নিজে নন। EMGS-নিবন্ধিত বিশ্ববিদ্যালয় EMGS-এ আপনার কাগজ জমা দেয়।'],
+    ['VAL', 'অনুমোদন হলে ইমিগ্রেশন ইলেকট্রনিক Visa Approval Letter (eVAL) দেয়; সময় জমার দিন থেকে ১৪ কর্মদিবস।'],
+    ['দ্রুত করার টাকা নয়', 'EMGS নিজে জানিয়েছে, তারা "দ্রুত করিয়ে দেওয়ার" জন্য কোনো টাকা নেয় না। কেউ টাকা নিয়ে তাড়াতাড়ি করিয়ে দেওয়ার কথা বললে সেটা অপরাধ।'],
+    ['স্বাস্থ্য পরীক্ষা', 'EMGS-নিবন্ধিত ক্লিনিকে, যাওয়ার আগে বা পৌঁছানোর ৭ দিনের মধ্যে।', 'draft'],
+    ['কাজ', 'শুধু সেমিস্টারের লম্বা ছুটিতে, সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা।', 'draft']
+  ],
+  news: [],
+  docs: [
+    ['পাসপোর্ট', 'সব পাতার কপি'],
+    ['ভর্তির চিঠি', 'EMGS-নিবন্ধিত প্রতিষ্ঠান থেকে'],
+    ['সার্টিফিকেট ও মার্কশিট', ''],
+    ['ছবি', ''],
+    ['স্বাস্থ্য পরীক্ষার রিপোর্ট', ''],
+    ['eVAL', 'যাওয়ার সময় সাথে রাখুন']
+  ],
+  src: [
+    ['Education Malaysia: New student visa application', 'https://educationmalaysia.gov.my/visa-new-application', 'official'],
+    ['EMGS: Schedule of fees', 'https://visa.educationmalaysia.gov.my/media/cms_upload/Schedule_fees_-_v1.7.pdf', 'official'],
+    ['EMGS: no fee for expediting applications', 'https://hub.emgs.com.my/members/emgsconnected', 'official']
+  ]
+},
+{
+  id: 'cn', short: 'X1 ভিসা, JW202', flag: '../flags/cn.svg', name: 'চীন', en: 'China',
+  visa: 'X1 student visa', who: 'Chinese Visa Application Service Center, Dhaka',
+  official: 'https://bio.visaforchina.cn/DAC4_EN/tongzhigonggao',
+  money: { big: 'নির্দিষ্ট অঙ্ক নেই', unit: 'ব্যাংক স্টেটমেন্ট দিতে হয়',
+    note: 'চীনা সরকারের (CSC) বা বিশ্ববিদ্যালয়ের বৃত্তি পেলে খরচ অনেক কমে। বৃত্তির আবেদন সাধারণত ফেব্রুয়ারি থেকে এপ্রিলে।' },
+  rows: [
+    ['JW202', 'বিশ্ববিদ্যালয় ভর্তির চিঠির সাথে JW201 বা JW202 ফর্ম পাঠায়। এটি ছাড়া X1 ভিসা হয় না।'],
+    ['এজেন্সি', 'জুলাই ২০২৬ থেকে কোনো ট্রাভেল এজেন্সি আপনার হয়ে আবেদন জমা দিলে তার IATA স্বীকৃতি থাকতে হবে। ছাত্র ভিসার নিয়ম বদলায়নি; নিজে সরাসরি ঢাকার ভিসা সেন্টারেও জমা দেওয়া যায়।'],
+    ['স্বাস্থ্য পরীক্ষা', 'Foreigner Physical Examination Form পূরণ করে স্বাস্থ্য পরীক্ষা।', 'draft'],
+    ['পৌঁছে', '৩০ দিনের মধ্যে স্থানীয় ইমিগ্রেশনে residence permit-এর আবেদন।', 'draft'],
+    ['কাজ', 'বিশ্ববিদ্যালয় ও ইমিগ্রেশনের অনুমতি ছাড়া কাজ করা যায় না।', 'draft']
+  ],
+  news: ['জুলাই ২০২৬ থেকে শুধু IATA-স্বীকৃত এজেন্সি অন্যের হয়ে আবেদন জমা দিতে পারে।'],
+  docs: [
+    ['পাসপোর্ট', 'অন্তত ৬ মাস মেয়াদ ও খালি পাতা'],
+    ['ভর্তির চিঠি', ''],
+    ['JW201 বা JW202', 'মূল কপি'],
+    ['স্বাস্থ্য পরীক্ষার ফর্ম', ''],
+    ['পুলিশ ক্লিয়ারেন্স', ''],
+    ['ব্যাংক স্টেটমেন্ট', ''],
+    ['সত্যায়িত সার্টিফিকেট', 'শিক্ষা বোর্ড ও প্রয়োজনে দূতাবাসে সত্যায়িত']
+  ],
+  src: [
+    ['Chinese Visa Application Service Center Dhaka: Notices', 'https://bio.visaforchina.cn/DAC4_EN/tongzhigonggao', 'official'],
+    ['China issues new visa application process for Bangladeshi students (Daily Observer)', 'https://observerbd.com/news/584922', 'news'],
+    ['Study in China guide for Bangladeshi students 2026 (WentChina)', 'https://wentchina.com/complete-guide-for-bangladeshi-students-to-study-in-china-2026-mbbs-engineering-scholarships-visa-and-campus-life/', 'news']
+  ]
 }
 ],
 
@@ -265,7 +546,8 @@ FLAGS: [
   { t: 'পাসপোর্ট বা মূল সার্টিফিকেট রেখে দিতে চাইছে', d: 'কাজ হয়ে গেলে মূল কাগজ ফেরত নিন। কপি দিলেই সাধারণত চলে।' },
   { t: '"আজই টাকা দিলে সিট থাকবে, কাল থাকবে না"', d: 'তাড়া দেওয়া পুরনো কৌশল। বিশ্ববিদ্যালয়ের নিজের ভর্তির সময়সীমা ওয়েবসাইটে দেখে নিন।' },
   { t: '"স্বামী/স্ত্রীকেও সাথে নিয়ে যেতে পারবেন, কোনো সমস্যা নেই"', d: 'অনেক দেশে নিয়ম বদলেছে। যেমন ডেনমার্কে ১ অক্টোবর ২০২৬ থেকে বেশিরভাগ ছাত্রছাত্রী পরিবার আনতে পারবেন না। দেশের সরকারি সাইটে দেখে নিন।' },
-  { t: 'অচেনা কলেজ, "স্টাডি গ্যাপ, IELTS কোনো সমস্যা না, খরচ খুব কম"', d: 'প্রতিষ্ঠানটি সরকারি তালিকায় আছে কিনা দেখুন: UK-তে licensed student sponsor, কানাডায় DLI, অস্ট্রেলিয়ায় CRICOS, নরওয়েতে NOKUT।' }
+  { t: 'অচেনা কলেজ, "স্টাডি গ্যাপ, IELTS কোনো সমস্যা না, খরচ খুব কম"', d: 'প্রতিষ্ঠানটি সরকারি তালিকায় আছে কিনা দেখুন: UK-তে licensed student sponsor, কানাডায় DLI, অস্ট্রেলিয়ায় CRICOS, নরওয়েতে NOKUT, নেদারল্যান্ডসে IND-স্বীকৃত, মালয়েশিয়ায় EMGS-নিবন্ধিত।' },
+  { t: '"দূতাবাসে আমাদের লোক আছে, টাকা দিলে তাড়াতাড়ি করিয়ে দেব"', d: 'দূতাবাসের অপেক্ষা-তালিকা টাকা দিয়ে এগোনো যায় না। যেমন জার্মানির ঢাকা দূতাবাস নিজেই অপেক্ষা ২৭ মাসের বেশি বলেছে, আর মালয়েশিয়ার EMGS জানিয়েছে দ্রুত করার জন্য তারা কোনো টাকা নেয় না।', hi: true }
 ],
 
 STEPS: [

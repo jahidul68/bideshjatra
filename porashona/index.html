@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>বিদেশে পড়াশোনা — দালাল নাকি?</title>
-<meta name="description" content="বিদেশে পড়তে যাওয়ার আগে ভিসার টাকা, কাগজপত্র আর কনসালটেন্সির ফাঁদ যাচাই করুন। যুক্তরাজ্য, অস্ট্রেলিয়া, কানাডা, নিউজিল্যান্ড, ডেনমার্ক, ফিনল্যান্ড, সুইডেন, নরওয়ে, যুক্তরাষ্ট্র।">
+<meta name="description" content="বিদেশে পড়তে যাওয়ার আগে ভিসার টাকা, কাগজপত্র আর কনসালটেন্সির ফাঁদ যাচাই করুন। যুক্তরাজ্য, কানাডা, অস্ট্রেলিয়া, জার্মানি, আয়ারল্যান্ড, ইতালি, জাপান, কোরিয়া, মালয়েশিয়া, চীনসহ ১৯টি দেশ।">
 <meta name="theme-color" content="#fbfcfa">
 <link rel="canonical" href="https://dalalnaki.com/porashona/">
 <script>try{var t=JSON.parse(localStorage.getItem("theme"));if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;localStorage.setItem("track",JSON.stringify("study"))}catch(e){}</script>
@@ -206,7 +206,7 @@ function home(){
     <p>কোন দেশে ভিসার জন্য কত টাকা দেখাতে হয়, কী কাগজ লাগে, সরকারি ফি কত: এক জায়গায়, সরকারি লিংকসহ।</p>
   </section>
   <div class="homegrid"><div>
-    <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি নাকি দালাল? ১০টি লক্ষণ মিলিয়ে নিন</b><span>"১০০% ভিসা", "স্টেটমেন্ট ম্যানেজ করে দেব": যা শুনেছেন টিক দিন।</span></span>${arr}</a>
+    <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি নাকি দালাল? ${bn(D.FLAGS.length)}টি লক্ষণ মিলিয়ে নিন</b><span>"১০০% ভিসা", "স্টেটমেন্ট ম্যানেজ করে দেব": যা শুনেছেন টিক দিন।</span></span>${arr}</a>
     <section class="card" aria-labelledby="ch"><h2 id="ch">${ic('globe')}দেশ বেছে নিন</h2>
       <div class="cgrid">${c.map(x => `<a class="cbtn" href="#c-${x.id}"><img src="${esc(x.flag)}" alt="" width="36" height="24"><b>${esc(x.name)}</b><small class="${x.light ? 'lt' : ''}">${esc(x.short)}</small></a>`).join('')}</div>
       <p class="muted" style="margin:0;font-size:14.5px">সংখ্যাগুলো ভিসার জন্য দেখানোর সর্বনিম্ন থাকা-খাওয়ার টাকা; টিউশন আলাদা। ডেনমার্কে টিউশন না দিলে মাসে DKK ৭,৪২৬।</p>
@@ -234,7 +234,7 @@ function country(id){
     <p class="muted" style="margin:0;font-size:14.5px">টিক এই ফোনেই থাকে, কোথাও পাঠানো হয় না। পুরো তালিকা সরকারি সাইটে দেখুন।</p>
   </section>
   <a class="btn wide" href="${esc(c.official)}" target="_blank" rel="noopener">${ic('link')}সরকারি সাইটে নিয়ম দেখুন</a>
-  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি কী বলছে মিলিয়ে নিন</b><span>দালালের ১০টি লক্ষণ</span></span>${arr}</a>
+  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>কনসালটেন্সি কী বলছে মিলিয়ে নিন</b><span>দালালের ${bn(D.FLAGS.length)}টি লক্ষণ</span></span>${arr}</a>
   <section class="card"><h2>${ic('link')}তথ্য কোথা থেকে</h2>
     <ul class="srcs">${c.src.map(s => `<li><a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a><span class="badge ${s[2] === 'official' ? 'b-of' : 'b-nw'}">${s[2] === 'official' ? 'সরকারি' : 'অন্য সূত্র'}</span></li>`).join('')}</ul>
     <p class="muted" style="margin:0;font-size:14px">সর্বশেষ যাচাই: ${esc(D.META.checked)}</p>
@@ -252,7 +252,7 @@ function flags(){
 function steps(){
   return `<h1 style="font-size:clamp(26px,7vw,36px);font-weight:900">ভর্তি থেকে ভিসা: ৭টি ধাপ</h1>
   <section class="card"><ol class="steps">${D.STEPS.map(s => `<li><div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div></li>`).join('')}</ol></section>
-  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>দালালের ১০টি লক্ষণ</b><span>যা শুনেছেন তা মিলিয়ে নিন</span></span>${arr}</a>
+  <a class="cta" href="#flags"><span class="ic">${ic('alert')}</span><span><b>দালালের ${bn(D.FLAGS.length)}টি লক্ষণ</b><span>যা শুনেছেন তা মিলিয়ে নিন</span></span>${arr}</a>
   <a class="btn ghost" href="./">${ic('globe')}দেশ বেছে নিন</a>`;
 }
 
