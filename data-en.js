@@ -462,5 +462,7 @@ window.APP_DATA_EN = {
   "প্রতারণার মাধ্যমে ২৫ লাখ টাকা আত্মসাৎ, গ্রেফতার আরও ২": "25 lakh taka taken by fraud: two more arrested",
   "অনলাইন চাকরি প্রতারণা": "Online job scam",
   "ঋণ নিয়ে রাশিয়ায় যাওয়া তরুণদের পাঠানো হয় ইউক্রেন যুদ্ধের ফ্রন্টলাইনে": "Young men who took loans to go to Russia are sent to the Ukraine war front line",
-  "আমার দেশ": "Amar Desh"
+  "আমার দেশ": "Amar Desh",
+  "গ্রিসের ডিটেনশন ক্যাম্পে বন্দি বাংলাদেশিদের মানবেতর জীবন": "Bangladeshis held in Greek detention camps live in inhumane conditions",
+  "চ্যানেল আই অনলাইন": "Channel i Online"
 };

@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-12",
+    lastUpdated: "2026-11-16",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,8 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-15", title: "গ্রিসের ডিটেনশন ক্যাম্পে বন্দি বাংলাদেশিদের মানবেতর জীবন", outlet: "চ্যানেল আই অনলাইন", tag: "গ্রিস",
+      url: "https://www.channelionline.com/subhuman-living-conditions-bangladeshis-held-greek-detention-camps/" },
     { date: "2026-11-12", title: "মালয়েশিয়া যেতে অভিবাসন ব্যয় কত, জানালেন প্রবাসীকল্যাণ মন্ত্রী", outlet: "বাংলা ট্রিবিউন", tag: "মালয়েশিয়া",
       url: "https://www.banglatribune.com/national/980472/%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A7%9F%E0%A7%87%E0%A6%B6%E0%A6%BF%E0%A7%9F%E0%A6%BE-%E0%A6%AF%E0%A7%87%E0%A6%A4%E0%A7%87-%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A6%A8-%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A7%9F-%E0%A6%95%E0%A6%A4-%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%A8" },
     { date: "2026-11-10", title: "প্রতারণার মাধ্যমে ২৫ লাখ টাকা আত্মসাৎ, গ্রেফতার আরও ২", outlet: "ঢাকা মেইল", tag: "অনলাইন চাকরি প্রতারণা",
