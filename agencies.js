@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-12. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-12", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-16. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -686,7 +686,7 @@ window.AGENCY_LIST = { date: "2026-11-12", rows: [
 ["2814","FANTASTIC OVERSEAS","active","2029-01-18"],
 ["1079","FARAJI TRADE INTERNATIONAL LTD","active","2029-12-31"],
 ["1784","FARDIN INTERNATIONAL LTD.","active","2029-07-01"],
-["2686","FARDIN OVERSEAS","active","2026-11-15"],
+["2686","FARDIN OVERSEAS","expired","2026-11-15"],
 ["1669","FAREAST OVERSEAS LTD","cancelled","2025-06-16"],
 ["2925","FAREZ OVERSEAS","active","2029-02-23"],
 ["2683","FARID FAHMIDA OVERSEAS","active","2026-11-16"],
@@ -811,7 +811,7 @@ window.AGENCY_LIST = { date: "2026-11-12", rows: [
 ["0469","H A INTERNATIONAL","active","2028-12-31"],
 ["1957","H.R.N OVERSEAS LTD","active","2027-11-08"],
 ["0881","H.T SHAHJAHAN OVERSEAS LTD.","active","2028-12-31"],
-["2667","HABIBA OVERSEAS","expired","2026-11-06"],
+["2667","HABIBA OVERSEAS","active","2029-11-06"],
 ["2975","HADI OVERSEAS","active","2029-03-08"],
 ["0240","HAIDORY TRADE INTERNATIONAL","cancelled","2028-12-31"],
 ["1390","HAIL INTERNATIONAL","active","2029-01-14"],
