@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-16. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-16", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-17. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-17", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -83,7 +83,7 @@ window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["1845","AL ABED OVERSEAS LTD.","active","2027-02-21"],
 ["0725","AL ABRM N INTERNATIONAL","active","2028-12-31"],
 ["2409","AL ADIAT OVERSEAS LTD.","active","2029-05-02"],
-["2529","AL AHDA OVERSEAS","expired","2026-06-21"],
+["2529","AL AHDA OVERSEAS","active","2029-06-21"],
 ["1438","AL AJEER INTERNATIONAL LTD.","active","2029-02-15"],
 ["2338","AL AJIM INTERNATIONAL LTD","active","2029-02-27"],
 ["0996","AL AMANAT INTERNATIONAL","active","2029-12-31"],
@@ -252,7 +252,7 @@ window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["2262","ALIF MANPOWER SERVICES","active","2029-01-16"],
 ["0847","ALIF OVERSEAS","active","2028-12-31"],
 ["2653","ALIFA OVERSEAS LTD.","expired","2026-10-29"],
-["2701","ALIZA EMPLOYMENT AGENCY","active","2026-11-29"],
+["2701","ALIZA EMPLOYMENT AGENCY","active","2029-11-29"],
 ["0884","ALJABEEN ESTABLISHMENT LTD","active","2028-12-31"],
 ["1357","ALL FLAG OVERSEAS","active","2028-07-21"],
 ["2144","ALMAN WORLD","active","2028-09-05"],
@@ -689,7 +689,7 @@ window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["2686","FARDIN OVERSEAS","expired","2026-11-15"],
 ["1669","FAREAST OVERSEAS LTD","cancelled","2025-06-16"],
 ["2925","FAREZ OVERSEAS","active","2029-02-23"],
-["2683","FARID FAHMIDA OVERSEAS","active","2026-11-16"],
+["2683","FARID FAHMIDA OVERSEAS","expired","2026-11-16"],
 ["2883","FAST CHOICE OVERSEAS","active","2029-02-14"],
 ["1426","FAST SERVICE INTERNATIONAL LTD.","active","2029-02-07"],
 ["1741","FASTWAY OVERSEAS","active","2028-11-18"],
@@ -1301,7 +1301,7 @@ window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["0130","M/S SINCERE TRADERS","active","2028-12-31"],
 ["1494","M/S SONARGAON OVERSEAS","active","2029-07-26"],
 ["2905","M/S SONGKOLPO OVERSEAS","active","2029-02-04"],
-["2636","M/S STMM RECRUITMENT INTERNATIONAL","expired","2026-10-11"],
+["2636","M/S STMM RECRUITMENT INTERNATIONAL","active","2029-10-11"],
 ["0001","M/S SUNFLOWER TRADING","active","2028-12-31"],
 ["1106","M/S SUVRO INTERNATIONAL TRADE & TRAVELS (MSITT)","active","2026-12-31"],
 ["2430","M/S SWADESH OVERSEAS","active","2029-05-02"],
@@ -2053,7 +2053,7 @@ window.AGENCY_LIST = { date: "2026-11-16", rows: [
 ["2665","Myway International Overseas Ltd","active","2029-11-06"],
 ["1976","N A International Limited","active","2027-12-20"],
 ["2732","N ALAM OVERSEAS","active","2027-02-03"],
-["2634","N L ARISHA OVERSEAS","expired","2026-10-03"],
+["2634","N L ARISHA OVERSEAS","active","2029-10-03"],
 ["2441","N M Trade International","active","2029-05-02"],
 ["3004","N R ISRAA OVERSEAS","active","2029-03-15"],
 ["1257","N R Recruiting Agency","cancelled","2027-08-30"],
