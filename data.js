@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-16",
+    lastUpdated: "2026-11-19",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,10 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-17", title: "চাকরির প্রলোভনে শ্রীলঙ্কায় বাংলাদেশিরা, অনিশ্চয়তায় বহু কর্মী", outlet: "খোলা কাগজ", tag: "শ্রীলঙ্কা",
+      url: "https://kholakagojbd.com/news/54490" },
+    { date: "2026-11-15", title: "চলতি মাসের শেষ দিকে মালয়েশিয়ায় কর্মী পাঠানো শুরু হবে : প্রবাসীকল্যাণ মন্ত্রী", outlet: "বাংলাদেশ প্রতিদিন", tag: "মালয়েশিয়া",
+      url: "https://www.bd-pratidin.com/national/2026/11/15/1326473" },
     { date: "2026-11-15", title: "গ্রিসের ডিটেনশন ক্যাম্পে বন্দি বাংলাদেশিদের মানবেতর জীবন", outlet: "চ্যানেল আই অনলাইন", tag: "গ্রিস",
       url: "https://www.channelionline.com/subhuman-living-conditions-bangladeshis-held-greek-detention-camps/" },
     { date: "2026-11-12", title: "মালয়েশিয়া যেতে অভিবাসন ব্যয় কত, জানালেন প্রবাসীকল্যাণ মন্ত্রী", outlet: "বাংলা ট্রিবিউন", tag: "মালয়েশিয়া",

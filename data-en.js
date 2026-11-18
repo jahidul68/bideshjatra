@@ -464,5 +464,10 @@ window.APP_DATA_EN = {
   "ঋণ নিয়ে রাশিয়ায় যাওয়া তরুণদের পাঠানো হয় ইউক্রেন যুদ্ধের ফ্রন্টলাইনে": "Young men who took loans to go to Russia are sent to the Ukraine war front line",
   "আমার দেশ": "Amar Desh",
   "গ্রিসের ডিটেনশন ক্যাম্পে বন্দি বাংলাদেশিদের মানবেতর জীবন": "Bangladeshis held in Greek detention camps live in inhumane conditions",
-  "চ্যানেল আই অনলাইন": "Channel i Online"
+  "চ্যানেল আই অনলাইন": "Channel i Online",
+  "চাকরির প্রলোভনে শ্রীলঙ্কায় বাংলাদেশিরা, অনিশ্চয়তায় বহু কর্মী": "Lured by job promises, Bangladeshis stranded in Sri Lanka with an uncertain future",
+  "খোলা কাগজ": "Khola Kagoj",
+  "শ্রীলঙ্কা": "Sri Lanka",
+  "চলতি মাসের শেষ দিকে মালয়েশিয়ায় কর্মী পাঠানো শুরু হবে : প্রবাসীকল্যাণ মন্ত্রী": "Sending workers to Malaysia will start at the end of this month: Expatriates' Welfare Minister",
+  "বাংলাদেশ প্রতিদিন": "Bangladesh Pratidin"
 };
