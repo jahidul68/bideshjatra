@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-17. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-17", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-18. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-18", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -2809,7 +2809,7 @@ window.AGENCY_LIST = { date: "2026-11-17", rows: [
 ["2616","WELL INTERNATIONAL","active","2029-09-19"],
 ["2838","WEST POINT","active","2029-02-01"],
 ["1392","WESTLINE OVERSEAS","active","2028-12-31"],
-["0721","WIN INTERNATIONAL","expired","2025-05-18"],
+["0721","WIN INTERNATIONAL","server locked","2025-05-18"],
 ["0664","WINNER OVERSEAS LTD","active","2028-12-31"],
 ["2755","WONDER COMMUNICATION","active","2027-02-11"],
 ["2180","WORKFORCE INTERNATIONAL LIMITED.","expired","2025-10-11"],
