@@ -683,6 +683,8 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-18", title: "Govt to send 10,000 workers to Malaysia at almost no cost: Tarique", outlet: "দ্য বিজনেস স্ট্যান্ডার্ড", tag: "মালয়েশিয়া",
+      url: "https://www.tbsnews.net/bangladesh/govt-send-10000-workers-malaysia-almost-no-cost-tarique-1606826" },
     { date: "2026-11-17", title: "চাকরির প্রলোভনে শ্রীলঙ্কায় বাংলাদেশিরা, অনিশ্চয়তায় বহু কর্মী", outlet: "খোলা কাগজ", tag: "শ্রীলঙ্কা",
       url: "https://kholakagojbd.com/news/54490" },
     { date: "2026-11-15", title: "চলতি মাসের শেষ দিকে মালয়েশিয়ায় কর্মী পাঠানো শুরু হবে : প্রবাসীকল্যাণ মন্ত্রী", outlet: "বাংলাদেশ প্রতিদিন", tag: "মালয়েশিয়া",

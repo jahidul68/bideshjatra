@@ -469,5 +469,6 @@ window.APP_DATA_EN = {
   "খোলা কাগজ": "Khola Kagoj",
   "শ্রীলঙ্কা": "Sri Lanka",
   "চলতি মাসের শেষ দিকে মালয়েশিয়ায় কর্মী পাঠানো শুরু হবে : প্রবাসীকল্যাণ মন্ত্রী": "Sending workers to Malaysia will start at the end of this month: Expatriates' Welfare Minister",
-  "বাংলাদেশ প্রতিদিন": "Bangladesh Pratidin"
+  "বাংলাদেশ প্রতিদিন": "Bangladesh Pratidin",
+  "দ্য বিজনেস স্ট্যান্ডার্ড": "The Business Standard"
 };
