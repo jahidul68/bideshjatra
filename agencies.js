@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-18. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-18", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-19. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-19", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -287,7 +287,7 @@ window.AGENCY_LIST = { date: "2026-11-18", rows: [
 ["1698","ANZ Group Multimega Services","active","2028-05-18"],
 ["1764","ANZ MULTI INTERNATIONAL","active","2029-03-08"],
 ["1990","AOCEMPLOYMENT AGENCY","active","2028-01-19"],
-["1163","AOES Bangladesh Limited","active","2026-12-31"],
+["1163","AOES Bangladesh Limited","active","2029-12-31"],
 ["2374","APON OVERSEAS LTD.","expired","2026-03-07"],
 ["1969","AQIDHA OVERSEAS LTD","active","2028-01-15"],
 ["1790","AR-RAFI OVERSEAS","active","2029-06-13"],
@@ -686,7 +686,7 @@ window.AGENCY_LIST = { date: "2026-11-18", rows: [
 ["2814","FANTASTIC OVERSEAS","active","2029-01-18"],
 ["1079","FARAJI TRADE INTERNATIONAL LTD","active","2029-12-31"],
 ["1784","FARDIN INTERNATIONAL LTD.","active","2029-07-01"],
-["2686","FARDIN OVERSEAS","expired","2026-11-15"],
+["2686","FARDIN OVERSEAS","active","2029-11-14"],
 ["1669","FAREAST OVERSEAS LTD","cancelled","2025-06-16"],
 ["2925","FAREZ OVERSEAS","active","2029-02-23"],
 ["2683","FARID FAHMIDA OVERSEAS","expired","2026-11-16"],
@@ -2046,7 +2046,7 @@ window.AGENCY_LIST = { date: "2026-11-18", rows: [
 ["1567","Mubin Air International Limited","active","2027-12-05"],
 ["2303","Multicare International","active","2029-02-21"],
 ["2246","Multiple Vision Recruiting Agency","active","2029-01-16"],
-["0986","Munshi Enterprise Limited","suspended","2028-12-31"],
+["0986","Munshi Enterprise Limited","active","2028-12-31"],
 ["2690","Mustafa Overseas","active","2026-11-26"],
 ["1377","Myco Hr International Ltd","active","2029-01-01"],
 ["1583","Mymensingh Overseas Limited","active","2027-12-19"],
@@ -2208,7 +2208,7 @@ window.AGENCY_LIST = { date: "2026-11-18", rows: [
 ["2366","PANCHAGHAR ASSOCIATE","active","2029-02-28"],
 ["1704","PANGUCHI OVERSEAS LTD","expired","2025-05-26"],
 ["0656","PARABAT INTERNATIONAL","active","2028-12-31"],
-["2660","PARCON LIMITED","active","2026-12-06"],
+["2660","PARCON LIMITED","active","2029-12-06"],
 ["2721","PARIJAT OVERSEAS LIMITED.","active","2027-01-16"],
 ["0239","PARIS INTERNATIONAL","active","2028-12-31"],
 ["2493","PARUL INTERNATIONAL","active","2029-06-11"],
