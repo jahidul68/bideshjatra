@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-19. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-19", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-20. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-20", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -2026,7 +2026,7 @@ window.AGENCY_LIST = { date: "2026-11-19", rows: [
 ["0916","Miraj Ent PVT","cancelled","2027-08-30"],
 ["2708","Miraz & Mahir Overseas","active","2027-01-01"],
 ["2174","Mishal Trade International","active","2028-10-22"],
-["2698","Mithi Overseas","active","2026-11-19"],
+["2698","Mithi Overseas","expired","2026-11-19"],
 ["0438","Mithu Associates Ltd","active","2028-12-31"],
 ["1101","Mitul Trading","cancelled","2026-12-31"],
 ["1256","Modern Bangladesh Recruitment Solutions","active","2028-12-31"],
