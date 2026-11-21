@@ -472,5 +472,6 @@ window.APP_DATA_EN = {
   "বাংলাদেশ প্রতিদিন": "Bangladesh Pratidin",
   "দ্য বিজনেস স্ট্যান্ডার্ড": "The Business Standard",
   "মালয়েশিয়াগামী কর্মীদের মেডিকেল পরীক্ষায় ১১ দফা নির্দেশনা": "11-point directive for medical tests of Malaysia-bound workers",
-  "আজকের পত্রিকা": "Ajker Patrika"
+  "আজকের পত্রিকা": "Ajker Patrika",
+  "১০ দিন পর ফ্লাইট, চাকরি ছেড়ে সুন্দরবনে বেড়াতে গিয়ে জানলেন এজেন্সি উধাও": "Flight in 10 days, quit job and went to the Sundarbans, then learned the agency had vanished"
 };
