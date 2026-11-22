@@ -1332,7 +1332,7 @@ function newsBlock(){
     .sort((a,b) => b.date.localeCompare(a.date));
   const li = n => `<li><div class="nh"><span class="nd">${esc(bnDigits(n.date))}${n.tag ? ' · ' + esc(n.tag) : ''}</span>${shareRow('news', newsKey(n))}</div><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><span class="src">${esc(n.outlet)}</span></li>`;
   const SHOW = 4;
-  return `<section class="news"><h2>${ic('alert')}${T('গত ৩০ দিনের প্রতারণা ও দালালের খবর','Fraud and broker news, last 30 days')}</h2>` +
+  return `<section class="news"><h2>${ic('alert')}${T('সাম্প্রতিক প্রতারণা ও দালালের খবর','Recent fraud and broker news')}</h2>` +
     (items.length
       ? `<ul>${items.slice(0, SHOW).map(li).join('')}</ul>` + (items.length > SHOW ? `<details class="nmore"><summary>${T(`আরও ${bnNum(items.length - SHOW)}টি খবর দেখুন ▾`, `Show ${items.length - SHOW} more ▾`)}</summary><ul>${items.slice(SHOW).map(li).join('')}</ul></details>` : '')
       : `<p class="src">${T('এই মাসের খবর এখনো যোগ করা হয়নি।','No news added for this month yet.')}</p>`) +
