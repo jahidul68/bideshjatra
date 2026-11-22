@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-21",
+    lastUpdated: "2026-11-22",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,7 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-21", title: "কথা ছিল মালয়েশিয়া নেওয়ার, চার দিন সাগরে ঘুরিয়ে কক্সবাজার সৈকতে নামিয়ে পালায় দালাল চক্র", outlet: "প্রথম আলো", tag: "দালাল", url: "https://www.prothomalo.com/bangladesh/district/z3zoygd0yl" },
     { date: "2026-11-20", title: "১০ দিন পর ফ্লাইট, চাকরি ছেড়ে সুন্দরবনে বেড়াতে গিয়ে জানলেন এজেন্সি উধাও", outlet: "প্রথম আলো", tag: "দালাল", url: "https://www.prothomalo.com/bangladesh/x3zind3vkt" },
     { date: "2026-11-19", title: "মালয়েশিয়াগামী কর্মীদের মেডিকেল পরীক্ষায় ১১ দফা নির্দেশনা", outlet: "আজকের পত্রিকা", tag: "মালয়েশিয়া",
       url: "https://www.ajkerpatrika.com/national/ajp7ydbugf3fe" },
