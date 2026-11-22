@@ -687,6 +687,10 @@ body::before{background:var(--card)}
 .news details.nmore>summary::-webkit-details-marker{display:none}
 .news details.nmore[open]>summary{display:none}
 .updstrip h2{display:flex;align-items:center;gap:8px}
+/* section headings: plain block text, so Bangla digit spans (.d) don't split the line into flex columns; icon hangs on the left */
+.sec h2,.news h2,.updstrip h2{display:block}
+.sec h2:has(>.ico),.news h2:has(>.ico),.updstrip h2:has(>.ico){position:relative;padding-left:30px}
+.sec h2>.ico,.news h2>.ico,.updstrip h2>.ico{position:absolute;left:0;top:3px;top:calc(.5lh - 11px)}
 .updstrip h2 .ico{color:var(--amber)}
 
 /* bottom tabs: line icons, filled pill for the current page */
