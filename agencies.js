@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-21. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-21", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-22. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-22", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -427,7 +427,7 @@ window.AGENCY_LIST = { date: "2026-11-21", rows: [
 ["2474","BABEL OVERSEAS","active","2029-06-05"],
 ["2297","BABUS SALAM SKY OVERSEAS","active","2029-02-07"],
 ["2775","BAC Global Network","active","2027-02-27"],
-["2609","BAKKA RESOURCE CO.","expired","2026-09-02"],
+["2609","BAKKA RESOURCE CO.","active","2029-09-02"],
 ["0640","BALAKA TRADE INTERNATIONAL LTD","active","2028-12-31"],
 ["1961","BALANCE OVERSEAS LTD.","active","2027-11-16"],
 ["0803","BANGLADESH EXPORT CORPORATION","active","2028-12-31"],
@@ -2393,7 +2393,7 @@ window.AGENCY_LIST = { date: "2026-11-21", rows: [
 ["2638","S NABIHA OVERSEAS","active","2029-10-11"],
 ["1475","S P K International Ltd.","active","2029-07-26"],
 ["1855","S S AIRLINK INTERNATIONAL LTD","active","2027-03-10"],
-["2682","S S MIAZI INTERNATIONAL","active","2026-11-21"],
+["2682","S S MIAZI INTERNATIONAL","expired","2026-11-21"],
 ["2603","S Saba International","active","2029-08-26"],
 ["2489","S U INTERNATIONAL","expired","2026-05-28"],
 ["2114","S Zishan Overseas","active","2028-08-22"],
@@ -2722,7 +2722,7 @@ window.AGENCY_LIST = { date: "2026-11-21", rows: [
 ["2166","TREDMIG COMPANY LTD","active","2028-09-18"],
 ["2923","TRG DELIMA INTERNATIONAL","active","2029-02-22"],
 ["0022","TRIBENI INTERNATIONAL","active","2028-12-31"],
-["2630","TRIPLE A OVERSEAS.","suspended","2029-10-03"],
+["2630","TRIPLE A OVERSEAS.","active","2029-10-03"],
 ["3020","TRIPLINK OVERSEAS","active","2029-04-08"],
 ["2820","TRISHAL OVERSEAS","active","2029-01-18"],
 ["1182","TRUST OVERSEAS RECRUITING AGENCY","active","2026-12-31"],
