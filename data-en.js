@@ -474,5 +474,6 @@ window.APP_DATA_EN = {
   "মালয়েশিয়াগামী কর্মীদের মেডিকেল পরীক্ষায় ১১ দফা নির্দেশনা": "11-point directive for medical tests of Malaysia-bound workers",
   "আজকের পত্রিকা": "Ajker Patrika",
   "১০ দিন পর ফ্লাইট, চাকরি ছেড়ে সুন্দরবনে বেড়াতে গিয়ে জানলেন এজেন্সি উধাও": "Flight in 10 days, quit job and went to the Sundarbans, then learned the agency had vanished",
-  "কথা ছিল মালয়েশিয়া নেওয়ার, চার দিন সাগরে ঘুরিয়ে কক্সবাজার সৈকতে নামিয়ে পালায় দালাল চক্র": "Promised a trip to Malaysia, broker ring circled at sea for four days then dumped them on Cox's Bazar beach and fled"
+  "কথা ছিল মালয়েশিয়া নেওয়ার, চার দিন সাগরে ঘুরিয়ে কক্সবাজার সৈকতে নামিয়ে পালায় দালাল চক্র": "Promised a trip to Malaysia, broker ring circled at sea for four days then dumped them on Cox's Bazar beach and fled",
+  "৬ লাখ টাকায় সার্বিয়া পাঠান তাঁরা, ভিসাও দেন, বিমানবন্দরে গেলে ধরা পড়ে প্রতারণা": "They sent people to Serbia for 6 lakh taka, even gave visas — the fraud was caught at the airport"
 };
