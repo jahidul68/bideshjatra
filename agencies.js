@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-22. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-22", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-23. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-23", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -518,6 +518,7 @@ window.AGENCY_LIST = { date: "2026-11-22", rows: [
 ["2367","CAPTAIN OVERSEAS LIMITED","expired","2026-03-08"],
 ["0403","CAREER OVERSEAS CONSULTANTS LTD","active","2028-12-31"],
 ["2964","CELESTIAL INTERNATIONAL","active","2029-02-24"],
+["3008","CELESTIAL TECH LTD.","active","2029-03-15"],
 ["2037","CELLO VISTA INTERNATIONAL","active","2028-03-30"],
 ["1873","CF International","active","2027-05-29"],
 ["2819","CHAD OVERSEAS","active","2029-01-18"],
@@ -885,7 +886,7 @@ window.AGENCY_LIST = { date: "2026-11-22", rows: [
 ["1966","ISMAIL OVERSEAS","cancelled","2024-12-06"],
 ["0864","ISMAIL RECRUITING HOUSE","active","2028-12-31"],
 ["1194","ISMT HUMAN RESOURCE DEVELOPMENT LTD","cancelled","2025-12-31"],
-["1835","ITMINAN OVERSEAS","active","2027-02-03"],
+["1835","ITMINAN OVERSEAS","active","2030-02-03"],
 ["0953","Idea International Limited","active","2027-12-31"],
 ["1874","Imperial Resources Limited","cancelled","2027-03-31"],
 ["1981","Infinity HCM Ltd","active","2028-01-05"],
@@ -2546,7 +2547,7 @@ window.AGENCY_LIST = { date: "2026-11-22", rows: [
 ["0760","STAR MANPOWER SERVICE","active","2028-12-31"],
 ["2400","STARLING INTERNATIONAL LTD","active","2029-04-03"],
 ["1860","STECH HR CONSULTANT LTD","active","2027-03-01"],
-["2599","STR INTERNATIONAL","expired","2026-08-24"],
+["2599","STR INTERNATIONAL","active","2029-08-23"],
 ["2886","SUBHECCHA OVERSEAS LIMITED","active","2029-02-04"],
 ["2563","SUCHI LIMITED","active","2029-08-12"],
 ["1601","SUFIANA TRADE LINK","active","2027-12-19"],
