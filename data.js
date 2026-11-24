@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-23",
+    lastUpdated: "2026-11-24",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,10 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-23", title: "বিএমইটির ছাড়পত্র নিয়ে লাওসে গিয়ে দেখেন কোম্পানিই নেই, আবাসন ঝুঁকিতে ২০ বাংলাদেশি", outlet: "দ্য বিজনেস স্ট্যান্ডার্ড", tag: "লাওস",
+      url: "https://www.tbsnews.net/bangla/bangladesh/news-details-569691" },
+    { date: "2026-11-23", title: "মালয়েশিয়ায় কর্মী পাঠানোর নামে প্রতারণা: এজেন্সি মালিকের কারাদণ্ড, ১৪ পাসপোর্ট জব্দ", outlet: "বিডিনিউজ টোয়েন্টিফোর ডটকম", tag: "মালয়েশিয়া",
+      url: "https://bangla.bdnews24.com/bangladesh/af2yh4agdj" },
     { date: "2026-11-22", title: "৬ লাখ টাকায় সার্বিয়া পাঠান তাঁরা, ভিসাও দেন, বিমানবন্দরে গেলে ধরা পড়ে প্রতারণা", outlet: "প্রথম আলো", tag: "সার্বিয়া", url: "https://www.prothomalo.com/bangladesh/district/y5tzslz86o" },
     { date: "2026-11-21", title: "কথা ছিল মালয়েশিয়া নেওয়ার, চার দিন সাগরে ঘুরিয়ে কক্সবাজার সৈকতে নামিয়ে পালায় দালাল চক্র", outlet: "প্রথম আলো", tag: "দালাল", url: "https://www.prothomalo.com/bangladesh/district/z3zoygd0yl" },
     { date: "2026-11-20", title: "১০ দিন পর ফ্লাইট, চাকরি ছেড়ে সুন্দরবনে বেড়াতে গিয়ে জানলেন এজেন্সি উধাও", outlet: "প্রথম আলো", tag: "দালাল", url: "https://www.prothomalo.com/bangladesh/x3zind3vkt" },

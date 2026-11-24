@@ -475,5 +475,8 @@ window.APP_DATA_EN = {
   "আজকের পত্রিকা": "Ajker Patrika",
   "১০ দিন পর ফ্লাইট, চাকরি ছেড়ে সুন্দরবনে বেড়াতে গিয়ে জানলেন এজেন্সি উধাও": "Flight in 10 days, quit job and went to the Sundarbans, then learned the agency had vanished",
   "কথা ছিল মালয়েশিয়া নেওয়ার, চার দিন সাগরে ঘুরিয়ে কক্সবাজার সৈকতে নামিয়ে পালায় দালাল চক্র": "Promised a trip to Malaysia, broker ring circled at sea for four days then dumped them on Cox's Bazar beach and fled",
-  "৬ লাখ টাকায় সার্বিয়া পাঠান তাঁরা, ভিসাও দেন, বিমানবন্দরে গেলে ধরা পড়ে প্রতারণা": "They sent people to Serbia for 6 lakh taka, even gave visas — the fraud was caught at the airport"
+  "৬ লাখ টাকায় সার্বিয়া পাঠান তাঁরা, ভিসাও দেন, বিমানবন্দরে গেলে ধরা পড়ে প্রতারণা": "They sent people to Serbia for 6 lakh taka, even gave visas — the fraud was caught at the airport",
+  "বিএমইটির ছাড়পত্র নিয়ে লাওসে গিয়ে দেখেন কোম্পানিই নেই, আবাসন ঝুঁকিতে ২০ বাংলাদেশি": "Went to Laos with BMET clearance only to find the company doesn't exist; 20 Bangladeshis at risk of losing housing",
+  "মালয়েশিয়ায় কর্মী পাঠানোর নামে প্রতারণা: এজেন্সি মালিকের কারাদণ্ড, ১৪ পাসপোর্ট জব্দ": "Fraud in the name of sending workers to Malaysia: agency owner jailed, 14 passports seized",
+  "বিডিনিউজ টোয়েন্টিফোর ডটকম": "bdnews24.com"
 };
