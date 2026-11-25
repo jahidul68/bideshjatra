@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-24. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-24", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-25. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-25", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -1339,7 +1339,7 @@ window.AGENCY_LIST = { date: "2026-11-24", rows: [
 ["0292","M/S khan And Brothers","active","2028-12-31"],
 ["1849","M/S, GAFARGAON OVERSEAS.","active","2027-03-01"],
 ["1167","M/S, M-ARAFA INTERNATIONAL LTD.","active","2029-12-31"],
-["1636","M/S. RIPON ENTERPRISE","suspended","2024-12-22"],
+["1636","M/S. RIPON ENTERPRISE","expired","2024-12-22"],
 ["1292","M/S. A J Corporation","suspended","2021-12-20"],
 ["0861","M/S. A-1 International","active","2028-12-31"],
 ["1082","M/S. A-Plus International","active","2029-12-31"],
@@ -1523,7 +1523,7 @@ window.AGENCY_LIST = { date: "2026-11-24", rows: [
 ["0087","M/S. HOQUE OVERSEAS LTD.","active","2028-12-31"],
 ["2797","M/S. HUDHUD EMPLOYMENT SERVICE","active","2027-01-02"],
 ["1666","M/S. Habib Travels Limited","active","2028-01-12"],
-["1824","M/S. Hajre Ashwad Travels and Tours","expired","2026-09-13"],
+["1824","M/S. Hajre Ashwad Travels and Tours","active","2029-09-13"],
 ["1626","M/S. Hazi Al-Mozib Corporation Ltd.","cancelled","2024-12-22"],
 ["0651","M/S. Heaven Associates","suspended","2027-08-30"],
 ["0559","M/S. Heeraq Barnali Overseas","suspended","2022-12-31"],
@@ -2778,7 +2778,7 @@ window.AGENCY_LIST = { date: "2026-11-24", rows: [
 ["2786","UTBL Venture Limited","active","2027-03-05"],
 ["2865","UZAIR WORKFORCE SOLUTIONS LTD.","active","2029-01-26"],
 ["0427","UZAN TRADING CORPORATION","active","2028-12-31"],
-["0962","UZZAL AVIATION","active","2026-12-31"],
+["0962","UZZAL AVIATION","active","2029-12-31"],
 ["0924","Union Overseas Employment & Training Ltd","active","2028-12-31"],
 ["2332","Union Recruitment Limited","active","2029-02-21"],
 ["0486","United Export Ltd","cancelled","2028-12-31"],
