@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-25",
+    lastUpdated: "2026-11-26",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,8 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-26", title: "Migrant workers: Exploitation begins at home", outlet: "দ্য ডেইলি স্টার", tag: "দালাল",
+      url: "https://www.thedailystar.net/news/bangladesh/news/migrant-workers-exploitation-begins-home-4333346" },
     { date: "2026-11-24", title: "112 Bangladeshi workers selected via lottery to depart for Malaysia at zero cost", outlet: "বিডিনিউজ টোয়েন্টিফোর ডটকম", tag: "মালয়েশিয়া",
       url: "https://bdnews24.com/bangladesh/46ywba7ti8" },
     { date: "2026-11-24", title: "174 Bangladeshis return home from Libya", outlet: "দ্য বিজনেস স্ট্যান্ডার্ড", tag: "লিবিয়া",
@@ -710,8 +712,6 @@ window.APP_DATA = {
       url: "https://dhakamail.com/national/342120" },
     { date: "2026-11-09", title: "ঋণ নিয়ে রাশিয়ায় যাওয়া তরুণদের পাঠানো হয় ইউক্রেন যুদ্ধের ফ্রন্টলাইনে", outlet: "আমার দেশ", tag: "রাশিয়া",
       url: "https://dailyamardesh.com/national/amd0f4x4lhnx5" },
-    { date: "2026-10-26", title: "আকামার মেয়াদ শেষ হলেও সৌদি প্রবেশের সুযোগ পাবেন প্রবাসীরা: প্রবাসীকল্যাণমন্ত্রী", outlet: "প্রথম আলো", tag: "সৌদি আরব",
-      url: "https://www.prothomalo.com/bangladesh/1mfvqk17iy" },
     { date: "2026-11-04", title: "মন্ত্রণালয়ের অনুমোদন ছাড়া কর্মী পাঠানো যাবে না যে ১২ দেশে", outlet: "ঢাকা মেইল", tag: "নতুন নিয়ম",
       url: "https://dhakamail.com/national/340986" },
     { date: "2026-11-02", title: "পাসপোর্টের ৭ ‘দালালকে’ বিভিন্ন মেয়াদে সাজা", outlet: "বাংলা ট্রিবিউন", tag: "দালাল",

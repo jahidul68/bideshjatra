@@ -478,5 +478,6 @@ window.APP_DATA_EN = {
   "৬ লাখ টাকায় সার্বিয়া পাঠান তাঁরা, ভিসাও দেন, বিমানবন্দরে গেলে ধরা পড়ে প্রতারণা": "They sent people to Serbia for 6 lakh taka, even gave visas — the fraud was caught at the airport",
   "বিএমইটির ছাড়পত্র নিয়ে লাওসে গিয়ে দেখেন কোম্পানিই নেই, আবাসন ঝুঁকিতে ২০ বাংলাদেশি": "Went to Laos with BMET clearance only to find the company doesn't exist; 20 Bangladeshis at risk of losing housing",
   "মালয়েশিয়ায় কর্মী পাঠানোর নামে প্রতারণা: এজেন্সি মালিকের কারাদণ্ড, ১৪ পাসপোর্ট জব্দ": "Fraud in the name of sending workers to Malaysia: agency owner jailed, 14 passports seized",
-  "বিডিনিউজ টোয়েন্টিফোর ডটকম": "bdnews24.com"
+  "বিডিনিউজ টোয়েন্টিফোর ডটকম": "bdnews24.com",
+  "দ্য ডেইলি স্টার": "The Daily Star"
 };
