@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-25. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-25", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-26. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -896,6 +896,7 @@ window.AGENCY_LIST = { date: "2026-11-25", rows: [
 ["0835","Iqra Aviation Ltd.","active","2028-12-31"],
 ["0665","J & J TRADE INTERNATIONAL","active","2028-12-31"],
 ["2861","J K INTERNATIONAL","active","2029-02-07"],
+["3016","J KHAN OVERSEAS","active","2029-04-11"],
 ["2754","J N L INTERNATIONAL","active","2027-02-19"],
 ["2523","J S M International","active","2029-06-25"],
 ["2727","J S View International Limited","active","2027-01-01"],
@@ -935,7 +936,7 @@ window.AGENCY_LIST = { date: "2026-11-25", rows: [
 ["2023","JM EMPLOYMENT SERVICES","active","2028-02-23"],
 ["1183","JOB BANK INTERNATIONAL","active","2031-12-31"],
 ["2463","JOB PLATFORM INTERNATIONAL LIMITED.","active","2029-05-23"],
-["1827","JOBA OVERSEAS LIMITED","active","2026-11-25"],
+["1827","JOBA OVERSEAS LIMITED","expired","2026-11-25"],
 ["1899","JOINPURE OVERSEAS LTD","active","2027-06-07"],
 ["0762","JOTI TRADE INTERNATIONAL","active","2028-12-31"],
 ["1648","JOYNOB JAFRIN INTERNATIONAL","active","2028-01-05"],
@@ -2304,7 +2305,7 @@ window.AGENCY_LIST = { date: "2026-11-25", rows: [
 ["1525","RAKA INTERNATIONAL","active","2029-08-20"],
 ["1340","RAKIB OVERSEAS LTD","active","2028-06-29"],
 ["0993","RAKIN Canada","active","2026-12-31"],
-["1172","RAMNA AIR INTERNATIONAL","active","2026-12-31"],
+["1172","RAMNA AIR INTERNATIONAL","active","2029-12-31"],
 ["1544","RANGDHONU OVERSEAS LTD.","active","2027-11-27"],
 ["0682","RANGER INTERNATIONAL","active","2028-12-31"],
 ["0590","RAPID TRADING CORPORATION","active","2028-12-31"],
