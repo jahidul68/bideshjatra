@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-26",
+    lastUpdated: "2026-11-27",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,10 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-26", title: "পর্তুগালের ভিসার আশায় ভারতে গিয়ে খোয়ালেন ৯ লাখ ৭০ হাজার টাকা, দেশে ফিরে সীমান্তে আটক", outlet: "প্রথম আলো", tag: "দালাল",
+      url: "https://www.prothomalo.com/bangladesh/district/3q7l707kx9" },
+    { date: "2026-11-26", title: "112 Bangladeshi workers leave for Malaysia at zero migration cost as PM launches scheme", outlet: "দ্য ডেইলি স্টার", tag: "মালয়েশিয়া",
+      url: "https://www.thedailystar.net/news/work-and-migration/news/112-bangladeshi-workers-leave-malaysia-zero-migration-cost-pm-launches-scheme-4334046" },
     { date: "2026-11-26", title: "Migrant workers: Exploitation begins at home", outlet: "দ্য ডেইলি স্টার", tag: "দালাল",
       url: "https://www.thedailystar.net/news/bangladesh/news/migrant-workers-exploitation-begins-home-4333346" },
     { date: "2026-11-24", title: "112 Bangladeshi workers selected via lottery to depart for Malaysia at zero cost", outlet: "বিডিনিউজ টোয়েন্টিফোর ডটকম", tag: "মালয়েশিয়া",

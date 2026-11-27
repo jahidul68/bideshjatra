@@ -479,5 +479,6 @@ window.APP_DATA_EN = {
   "বিএমইটির ছাড়পত্র নিয়ে লাওসে গিয়ে দেখেন কোম্পানিই নেই, আবাসন ঝুঁকিতে ২০ বাংলাদেশি": "Went to Laos with BMET clearance only to find the company doesn't exist; 20 Bangladeshis at risk of losing housing",
   "মালয়েশিয়ায় কর্মী পাঠানোর নামে প্রতারণা: এজেন্সি মালিকের কারাদণ্ড, ১৪ পাসপোর্ট জব্দ": "Fraud in the name of sending workers to Malaysia: agency owner jailed, 14 passports seized",
   "বিডিনিউজ টোয়েন্টিফোর ডটকম": "bdnews24.com",
-  "দ্য ডেইলি স্টার": "The Daily Star"
+  "দ্য ডেইলি স্টার": "The Daily Star",
+  "পর্তুগালের ভিসার আশায় ভারতে গিয়ে খোয়ালেন ৯ লাখ ৭০ হাজার টাকা, দেশে ফিরে সীমান্তে আটক": "Hoping for a Portugal visa, they lost Tk 9.7 lakh in India and were detained at the border on return"
 };
