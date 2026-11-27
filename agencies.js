@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-26. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-26", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-27. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-27", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -699,7 +699,7 @@ window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["2824","FAYAZ INTERNATIONAL","active","2029-01-19"],
 ["1896","FCC OVERSEAS LTD","active","2027-08-17"],
 ["0110","FEDERAL TRADING CORPORATION LTD","active","2028-12-31"],
-["2706","FEROZA OVERSEAS","active","2026-11-26"],
+["2706","FEROZA OVERSEAS","expired","2026-11-26"],
 ["2178","FIFO EMPLOYMENT AND SERVICES LTD","active","2028-11-02"],
 ["2619","FIHA INTERNATIONAL LIMITED.","expired","2026-10-04"],
 ["2976","FIRST FAIR INTERNATIONAL","active","2029-03-14"],
@@ -1312,7 +1312,7 @@ window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["0914","M/S Salim Enterprise","active","2028-12-31"],
 ["1065","M/S Srijita Overseas","active","2026-12-31"],
 ["1527","M/S T.K ENTERPRISE","active","2029-08-29"],
-["2684","M/S TABASSUM OVERSEAS","active","2026-11-26"],
+["2684","M/S TABASSUM OVERSEAS","expired","2026-11-26"],
 ["1539","M/S TABSU EQUATOR OVERSEAS","active","2027-11-27"],
 ["0436","M/S TANIA TRADE INTERNATIONAL","active","2028-12-31"],
 ["0569","M/S TASNIM OVERSEAS","active","2028-12-31"],
@@ -1926,7 +1926,7 @@ window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["2073","MIM INTERNATIONAL","active","2028-06-29"],
 ["1584","MINA AIR INTERNATIONAL","active","2027-12-10"],
 ["2089","MIQUAT OVERSEAS LIMITED","active","2028-07-25"],
-["2695","MIRANA OVERSEAS","active","2026-11-26"],
+["2695","MIRANA OVERSEAS","expired","2026-11-26"],
 ["1503","MIRDAD INTERNATIONAL","active","2029-08-01"],
 ["1942","MIRZA RECRUTING LTD","active","2027-10-25"],
 ["2617","MISAL RECRUITING INTERNATIONAL","active","2029-09-12"],
@@ -2049,7 +2049,7 @@ window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["2303","Multicare International","active","2029-02-21"],
 ["2246","Multiple Vision Recruiting Agency","active","2029-01-16"],
 ["0986","Munshi Enterprise Limited","active","2028-12-31"],
-["2690","Mustafa Overseas","active","2026-11-26"],
+["2690","Mustafa Overseas","expired","2026-11-26"],
 ["1377","Myco Hr International Ltd","active","2029-01-01"],
 ["1583","Mymensingh Overseas Limited","active","2027-12-19"],
 ["2665","Myway International Overseas Ltd","active","2029-11-06"],
@@ -2122,7 +2122,7 @@ window.AGENCY_LIST = { date: "2026-11-26", rows: [
 ["1699","NODI TRAVELS INTERNATIONAL","active","2028-06-26"],
 ["0206","NOOR INTERNATIONAL SUPPLY AGENCY LTD.","active","2028-12-31"],
 ["1003","NORTH BENGAL INTERNATIONAL","active","2026-12-31"],
-["2692","NORTH WEST OVERSEAS","active","2026-11-26"],
+["2692","NORTH WEST OVERSEAS","expired","2026-11-26"],
 ["2417","NOVERA MAHADI MANPOWER SERVICES LTD","expired","2026-05-02"],
 ["1574","NOWRIN INTERNATIONAL","active","2027-12-04"],
 ["2977","NR MULTI OVERSEAS","active","2029-02-24"],
