@@ -1,5 +1,5 @@
-/* Snapshot of the official BMET agency list, taken 2026-11-27. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
-window.AGENCY_LIST = { date: "2026-11-27", rows: [
+/* Snapshot of the official BMET agency list, taken 2026-11-28. Rows: [RL, name, status, expiry]. Rebuild with tools/update-agencies.ps1 */
+window.AGENCY_LIST = { date: "2026-11-28", rows: [
 ["2058","Job Wheels","expired","2025-05-19"],
 ["1857","1 Plus Overseas Limited","active","2027-03-01"],
 ["2889","2PLUS OVERSEAS LTD","active","2029-02-07"],
@@ -1651,7 +1651,7 @@ window.AGENCY_LIST = { date: "2026-11-27", rows: [
 ["0999","M/S. OASIS SERVICES.","active","2026-12-31"],
 ["2308","M/S. OPEN SKY INTERNATIONAL","active","2029-02-07"],
 ["1322","M/S. ORVIL INTERNATIONAL OVERSEAS LTD.","active","2028-03-30"],
-["2697","M/S. OXFORD INTERNATIONAL","active","2026-11-27"],
+["2697","M/S. OXFORD INTERNATIONAL","expired","2026-11-27"],
 ["1225","M/S. OZ International Service","suspended","2016-12-04"],
 ["0917","M/S. Obismoronio Overseas","suspended","2027-08-30"],
 ["1308","M/S. Ocean Blue Overseas","expired","2025-02-06"],
