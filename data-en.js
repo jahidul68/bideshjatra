@@ -480,5 +480,7 @@ window.APP_DATA_EN = {
   "মালয়েশিয়ায় কর্মী পাঠানোর নামে প্রতারণা: এজেন্সি মালিকের কারাদণ্ড, ১৪ পাসপোর্ট জব্দ": "Fraud in the name of sending workers to Malaysia: agency owner jailed, 14 passports seized",
   "বিডিনিউজ টোয়েন্টিফোর ডটকম": "bdnews24.com",
   "দ্য ডেইলি স্টার": "The Daily Star",
-  "পর্তুগালের ভিসার আশায় ভারতে গিয়ে খোয়ালেন ৯ লাখ ৭০ হাজার টাকা, দেশে ফিরে সীমান্তে আটক": "Hoping for a Portugal visa, they lost Tk 9.7 lakh in India and were detained at the border on return"
+  "পর্তুগালের ভিসার আশায় ভারতে গিয়ে খোয়ালেন ৯ লাখ ৭০ হাজার টাকা, দেশে ফিরে সীমান্তে আটক": "Hoping for a Portugal visa, they lost Tk 9.7 lakh in India and were detained at the border on return",
+  "‘কর্মী প্রেরণে অনিয়মে রিক্রুটিং এজেন্সির বিরুদ্ধে কঠোর ব্যবস্থা’": "‘Strict action against recruiting agencies over irregularities in sending workers’",
+  "রিক্রুটিং এজেন্সি": "Recruiting agency"
 };

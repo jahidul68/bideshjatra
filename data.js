@@ -22,7 +22,7 @@
 window.APP_DATA = {
 
   META: {
-    lastUpdated: "2026-11-27",
+    lastUpdated: "2026-11-28",
     version: "0.2 (পরীক্ষামূলক)",
     // Put the public link here once hosted (used by the Share button)
     siteUrl: "https://dalalnaki.com",
@@ -683,6 +683,10 @@ window.APP_DATA = {
   // date = "YYYY-MM-DD". The app hides anything older than 30 days automatically.
   // Add a new item at the top each week or month: headline as printed, outlet, link. Do not paste article text.
   NEWS: [
+    { date: "2026-11-27", title: "‘কর্মী প্রেরণে অনিয়মে রিক্রুটিং এজেন্সির বিরুদ্ধে কঠোর ব্যবস্থা’", outlet: "বাংলাদেশ প্রতিদিন", tag: "রিক্রুটিং এজেন্সি",
+      url: "https://bd-pratidin.com/minister-speech/2026/11/27/1331622" },
+    { date: "2026-11-27", title: "MWN backs BOESL-DHL zero-cost recruitment, urges probe into alleged irregularities", outlet: "দ্য বিজনেস স্ট্যান্ডার্ড", tag: "মালয়েশিয়া",
+      url: "https://www.tbsnews.net/bangladesh/mwn-backs-boesl-dhl-zero-cost-recruitment-urges-probe-alleged-irregularities-1615616" },
     { date: "2026-11-26", title: "পর্তুগালের ভিসার আশায় ভারতে গিয়ে খোয়ালেন ৯ লাখ ৭০ হাজার টাকা, দেশে ফিরে সীমান্তে আটক", outlet: "প্রথম আলো", tag: "দালাল",
       url: "https://www.prothomalo.com/bangladesh/district/3q7l707kx9" },
     { date: "2026-11-26", title: "112 Bangladeshi workers leave for Malaysia at zero migration cost as PM launches scheme", outlet: "দ্য ডেইলি স্টার", tag: "মালয়েশিয়া",
